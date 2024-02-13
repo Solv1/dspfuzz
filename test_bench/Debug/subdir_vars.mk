@@ -2,28 +2,34 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
+SHELL = /bin/sh
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CMD_SRCS += \
-../C5515.cmd 
+../55xConvolve2.cmd 
 
 C_SRCS += \
-../main.c 
+../autcor00.c \
+../bmark.c 
 
 C_DEPS += \
-./main.d 
+./autcor00.d \
+./bmark.d 
 
 OBJS += \
-./main.obj 
+./autcor00.obj \
+./bmark.obj 
 
 OBJS__QUOTED += \
-"main.obj" 
+"autcor00.obj" \
+"bmark.obj" 
 
 C_DEPS__QUOTED += \
-"main.d" 
+"autcor00.d" \
+"bmark.d" 
 
 C_SRCS__QUOTED += \
-"../main.c" 
+"../autcor00.c" \
+"../bmark.c" 
 
 

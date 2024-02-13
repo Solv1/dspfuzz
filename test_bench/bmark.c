@@ -146,7 +146,7 @@ static double test_buf[] = {
 
 #define MAX_DATA_SIZE 1024  /* this is the actual file size */ 
 #define OUTFILENAME "xsineiOutput.dat"
-static  short input_buf[] = {
+static  double input_buf[] = {
 #include "xsinei.dat"
 };
 static double test_buf[] = {
@@ -353,7 +353,7 @@ int t_run_test( size_t iterations, int argc, const char* argv[] )
  * RETURNS: Any error value.
  * ---------------------------------------------------------------------------*/
 
-void main( struct TCDef** tcdef, int argc, const char* argv[] )
+int main( struct TCDef** tcdef, int argc, const char* argv[] )
 
 {
    argc=argc;
@@ -362,7 +362,6 @@ void main( struct TCDef** tcdef, int argc, const char* argv[] )
     * Point the test harness at our test defintion struction
     * Starts Benchmark.
    */
-   *tcdef = &the_tcdef;
    t_run_test(ITERATIONS, (char )argc, argv);
-   return;  
+   return 0;  
 }

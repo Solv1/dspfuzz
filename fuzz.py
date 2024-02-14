@@ -9,6 +9,10 @@ import insturmentor
 SIM = False
 BOARD = True
 
+
+#TODO ADD COMMAND LINE OPTIONS TO FUZZER FOR EASIER DEBUGGING 
+
+
 #Text Formating Info
 BLINK    = '\33[5m'
 RESET = '\033[0m'
@@ -65,7 +69,8 @@ def seed_generator(filename):
 
 def insturmentation(asm_file):
     lines = insturmentor.file_handling(asm_file)
-    results = insturmentor.find_coverage(lines)
+    #results = insturmentor.find_coverage(lines)
+    results = insturmentor.main(asm_file)
     return results
 
 
@@ -73,12 +78,12 @@ def compile_test(datafile):
     """
         Handles compiling the appropriate test based on the data file.
     """
-    subprocess.call('cd ./test_bench/; make',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #subprocess.call('cd ./test_bench/; make',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     #print("Test Compiled.")
     #TODO:Add a check here
-    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True, stdout=subprocess.DEVNULL)
+    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
     #TODO:This needs to be able to handle multiple test cases.
-    #print("Test Copied.")
+    print("Test Copied.")
     
 
 def load_and_run(functions, branches):
@@ -91,11 +96,13 @@ def load_and_run(functions, branches):
     elif(BOARD):
         branch_string = 'cmd.exe /c dss.bat Breakpoints.js -f '+ str(functions)+ ' -b '+ str(branches) 
         print(branch_string)
-        subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ;' + branch_string , shell=True)
+        #Try Check_Output to screen grab output
+        results = subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ;' + branch_string , shell=True)
     else:
         print('Error please make sure to select a arch type to run the tests.')
     #TODO: Add Check Here....
-    #print('Testcase Ran!')
+    print('Testcase Ran---------Results----------')
+    print(str(results))
 
 #def code_coverage_calc(num_reached, num_possible):
 
@@ -110,13 +117,15 @@ def main():
     #TODO: Only do function detection once on each test file.
     for iterations in range(0,1):
         #splash_screen(runtime=math.floor((time.time() - start_time)),iterations=iterations)
-        seed_generator(filename)
-        compile_test(filename)
+        #seed_generator(filename)
+        #compile_test(filename)
         branch_funct = insturmentation(asm_file)
-        functions = ' '.join(branch_funct[0])
-        branches = ' '.join(branch_funct[1])
-        print(branches)
-        load_and_run(functions, branches)
+        #functions = ' '.join(branch_funct[0])
+        #branches = ' '.join(branch_funct[1])
+        #print(branches)
+        functions = ''
+        branches = ''
+        #load_and_run(functions, branches)
         iterations+=1
     
 

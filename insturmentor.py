@@ -1,14 +1,31 @@
+
+#TODO LIST
+#====================================================================
+#TODO: Add the ability to insert '__fuzz_log' into the DSP firmware.
+#TODO: How are we going to get that information out.
+#====================================================================
+
 import os 
 import sys
 import re
+import random
 
-#TODO: Generate random number to be used for function marking.
-#TODO: Figure out the function(s) we are inserting into the DSP firmware.
-#TODO: How are we going to get that information out.
 
-#TODO: Export the names of functions that are found to the DSS script controller.
+# Trampoline ASM - 
+# Have to save register context 
+#TODO: See if we need to push of registers to the stack for now this may work...
+#====================================================================
+trampoline_ti = ["\tPSH T0;\n","\tPSH T1;\n","\tPSH T2;\n","\tPSH T3;\n",
+                 "\tMOV #{cov_number}, T3;\n", "\tCALL #___fuzz_log;\n",
+                 "\tPOP T3;\n","\tPOP T2;\n","\tPOP T1;\n","\tPOP T0;\n",]
+#====================================================================
 
-branch_loc = {}
+coverage = {}
+pre_coverage = {}
+random.seed()
+
+
+
 
 
 def insert_asm(start: int, newinst: list, lines) -> list:
@@ -55,11 +72,8 @@ def insert_function(start: int, lines) -> list:
         elif not in_function:
             new_lines.append(line)
     return new_lines
-def write_file(lines, name):
-    with open(name + ".asm",'w+') as fp:
-        for line in lines:
-            fp.write(line)
-    print("All done...")
+
+
 
 
 
@@ -87,6 +101,12 @@ def _function_helper(line):
     edited_line = edited_line.replace('\n','')
     return edited_line
 
+def _label_helper(line):
+    edited_line = line.replace(':','',1)
+    edited_line = edited_line.replace('\n','')
+    edited_line = edited_line.replace(' ','')
+    return edited_line
+
 def _data_word_helper(line):
     split = line.split()
     edited_line = split[0].replace('$','')
@@ -100,15 +120,17 @@ def _branch_helper(line):
     """
     split = line.split()
     split2 = split[1].split(',')
-    edited_line = "'" + split2[0] + "'" #This is stupid but trust.
+    edited_line = split2[0]
     return edited_line
 
 def find_coverage(file):
     """
         Loops through the given ASM file and finds branch, and function starts.
     """
-    funct_list = []
-    branch_list =[]
+    global coverage, pre_coverage
+
+    branch_lines = set()
+    function_lines = set()
     fun_count = 0
     branc_count = 0
     current_function ="NULL"
@@ -118,33 +140,113 @@ def find_coverage(file):
         if 'BCC' in line:
             branch_label = _branch_helper(line)
             print(f'BCC in {current_function} branching to {branch_label} , located in Dataword {current_dataword}')
-            branch_list.append(branch_label)
+            #Adds the line it found the branch in for further insturmentation
+            branch_lines.add(index)
+            pre_coverage[index] = [0, 'BCC '+ branch_label]
+            print(index)
             branc_count+=1
+
         elif re.match("^\s+B\s.+\s",line):
             branch_label = _branch_helper(line)
             print(f'B in {current_function} branching to {branch_label} , in Dataword {current_dataword}')
-
+            #Adds the line it found the branch in for further insturmentation
+            branch_lines.add(index)
+            pre_coverage[index] = [0, 'B '+ branch_label]
             branc_count+=1
+
         elif re.match("_.*:",line):
             print("Found a function start: " + line)
             fun_count+=1
             current_function = _function_helper(line)
-            funct_list.append(current_function)
-        elif re.match("\$C\$DW\$[0-9]+", line) and current_function != "NULL":
-            current_dataword = _data_word_helper(line)
-            #print(f'On line {current_dataword}, in function {current_function}')
-    return (funct_list, branch_list)
+            if re.match("___fuzz_log:", line):
+                continue
+            pre_coverage[index] = [0, current_function]
+            print(index)
+            function_lines.add(index)
 
-def main():
+        elif re.match("^\$C\$L[0-9]+", line):
+            label = _label_helper(line)
+            #print(index)
+            pre_coverage[index] = [0, 'Label '+ label]
+            function_lines.add(index)
+        
+    # Sets need to be sorted it makes things eaiser later on.
+    branch_lines = sorted(branch_lines)
+    function_lines = sorted(function_lines)
+
+
+    return (branch_lines, function_lines)
+
+
+def insturment(lines, file):
+    global trampoline_tir, pre_coverage
+    #TODO Make Pre_coverage not global 
+    branches = lines[0]
+    functions = lines[1]
+    new_lines = []
+
+    for index, line in enumerate(file, start=1):
+        
+        if (index) in functions:
+            new_lines.append(line)
+            #Generate a new coverage number
+            cov_number = random.randint(1,50000)
+            #TODO Add Check here if the number has been used before.
+            pre_coverage[index][0] = cov_number
+            for x in range(0, len(trampoline_ti)):
+                if x == 4:
+                    new_lines.append(trampoline_ti[x].format(cov_number=cov_number))
+                else:
+                    new_lines.append(trampoline_ti[x])
+            
+        elif (index+1) in branches:
+            #Generate a new coverage number
+            cov_number = random.randint(1,50000)
+            #TODO Add Check here if the number has been used before.
+            pre_coverage[(index + 1)][0] = cov_number
+            for x in range(0, len(trampoline_ti)):
+                if x == 4:
+                    new_lines.append(trampoline_ti[x].format(cov_number=cov_number))
+                else:
+                    new_lines.append(trampoline_ti[x])
+            new_lines.append(line)
+        else:
+            new_lines.append(line)
+
+    print(pre_coverage)
+    return new_lines
+
+def coverage_formater():
+    global pre_coverage, coverage
+
+    #Take pre_coverage information and get rid of the line numbers,
+    #all we care about now is the unique identifier, function, and number of hits
+    for key in pre_coverage:
+        coverage[pre_coverage[key][0]] = [pre_coverage[key][1], 0]
+    #print(coverage)
+
+
+
+def _write_file(lines, name):
+    with open(name + ".asm",'w+') as fp:
+        for line in lines:
+            fp.write(line)
+    print("All done...")
+
+
+def main(filename):
     script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-    filename = sys.argv[1]
     file = open(filename, 'r')
     lines = file.readlines()
     #for line in lines:
     #    print(line)
-    index = find_coverage(lines)
-    print(index)
+    coverage = find_coverage(lines)
+    insturmented_asm = insturment(coverage, lines)
     file.close()
+    coverage_formater()
+    _write_file(insturmented_asm, './test_bench/bmark')
+    return(coverage)
+
     #if index == -1:
         #print("Function not found...")
         #exit(-2)

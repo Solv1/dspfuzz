@@ -22,6 +22,9 @@
 
 #define SUCCESS 42
 #define FAILURE -1
+int __fuzz_log(){
+	return 0;
+}
 
 /*------------------------------------------------------------------------------
  * Clock Defines
@@ -241,6 +244,9 @@ int t_run_test( size_t iterations, int argc, const char* argv[] )
     InputData	 = (short *)&input_buf;
     AutoCorrData = (short *)t_buf;
 	DataSize     = MAX_DATA_SIZE;  
+	if(argc < 3){
+		printf("This is a test to check for branch information. \n");
+	}
 
 	if (argc < 0)
 	{

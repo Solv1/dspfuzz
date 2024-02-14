@@ -9,6 +9,7 @@ import os
 import sys
 import re
 import random
+import tree
 
 
 # Trampoline ASM - 
@@ -22,6 +23,8 @@ trampoline_ti = ["\tPSH T0;\n","\tPSH T1;\n","\tPSH T2;\n","\tPSH T3;\n",
 
 coverage = {}
 pre_coverage = {}
+root_node = None
+nodes = []
 
         
 def _file_handling(filename):
@@ -29,6 +32,13 @@ def _file_handling(filename):
     lines = file.readlines()
     file.close
     return lines
+
+def _call_helper(line):
+    edited_line = line.replace('_','',1)
+    edited_line = edited_line.replace('\n','')
+    edited_line = edited_line.replace('\t','')
+    edited_line = edited_line.replace('#','')
+    return edited_line
 
 def _write_file(lines, name):
     with open(name + ".asm",'w+') as fp:
@@ -64,17 +74,39 @@ def _branch_helper(line):
     edited_line = split2[0]
     return edited_line
 
+def coverage_tree():
+    global root_node, nodes
+    isFirst = True
+    #First Pass if for functions
+    for line in reversed(pre_coverage):
+        if 'Label' in pre_coverage[line][1]:
+            continue
+        elif 'BCC' in pre_coverage[line][1]:
+            continue
+        elif 'B' in pre_coverage[line][1]:
+            continue
+        elif isFirst:
+            #Find the first function to be 'Main'
+            root_node = tree.CoverageTreeNode(pre_coverage[line][1])
+            isFirst = False
+        else:
+            pass
+
+    #Second Pass is for labels and branches
+
 def find_coverage(file):
     """
         Loops through the given ASM file and finds branch, and function starts.
     """
-    global coverage, pre_coverage
+    global coverage, pre_coverage, root_node, nodes
 
     branch_lines = set()
     function_lines = set()
     fun_count = 0
     branc_count = 0
-    current_function ="NULL"
+    current_function = None
+    previous_node = None
+    isFirst = True
     current_dataword = 0
 
     for index ,line in enumerate(file,start=1):
@@ -96,20 +128,39 @@ def find_coverage(file):
             branc_count+=1
 
         elif re.match("_.*:",line):
-            #print("Found a function start: " + line)
-            fun_count+=1
-            current_function = _function_helper(line)
+            print("Found a function start: " + line)
             if re.match("___fuzz_log:", line):
                 continue
+            fun_count+=1
+            current_function = _function_helper(line)
+            # if isFirst:
+            #     root_node = tree.CoverageTreeNode(current_function)
+            #     previous_node = root_node
+            #     nodes.append(root_node)
+            #     isFirst = False
+            # else:
+            #     new_node = tree.CoverageTreeNode(current_function)
+            #     nodes.append(new_node)
+            #     previous_node.add_node(new_node)
+            #     previous_node = new_node
+                
+        elif re.match("CALL #_.*", line):
+            pre_coverage[index] = [0,_call_helper(line)]
+            continue
+
+
             pre_coverage[index] = [0, current_function]
             #print(index)
             function_lines.add(index)
+
+
 
         elif re.match("^\$C\$L[0-9]+", line):
             label = _label_helper(line)
             #print(index)
             pre_coverage[index] = [0, 'Label '+ label]
             function_lines.add(index)
+    # root_node.printNode()
         
     # Sets need to be sorted it makes things eaiser later on.
     branch_lines = sorted(branch_lines)
@@ -153,7 +204,7 @@ def insturment(lines, file):
         else:
             new_lines.append(line)
 
-    #print(pre_coverage)
+    print(pre_coverage)
     return new_lines
 
 def coverage_formater():

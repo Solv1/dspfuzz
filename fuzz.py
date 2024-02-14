@@ -5,6 +5,7 @@ import math
 import argparse
 import os
 import insturmentor
+import tree
 
 SIM = False
 BOARD = True
@@ -128,15 +129,15 @@ def main():
         #seed_generator(filename)
         compile_test()
         trace = insturmentation(asm_file)
-        link_test()
+        #link_test()
         #functions = ' '.join(branch_funct[0])
         #branches = ' '.join(branch_funct[1])
         #print(branches)
         functions = ''
         branches = ''
-        run = load_and_run(functions, branches)
-        results = code_coverage_calc(trace, run)
-        print(results)
+        #run = load_and_run(functions, branches)
+        #results = code_coverage_calc(trace, run)
+        #print(results)
     
 
 

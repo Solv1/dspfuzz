@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                        Unix v4.4.1 *
-;* Date/Time created: Wed Feb 14 03:02:36 2024                                 *
+;* Date/Time created: Wed Feb 14 13:18:25 2024                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -1163,7 +1163,7 @@ $C$DW$24	.dwtag  DW_TAG_variable, DW_AT_name("t_buf")
 	.dwattr $C$DW$24, DW_AT_TI_symbol_name("_t_buf")
 	.dwattr $C$DW$24, DW_AT_type(*$C$DW$T$45)
 	.dwattr $C$DW$24, DW_AT_location[DW_OP_addr _t_buf]
-;	../../ti/55x_Tools/bin/acp55 -@/tmp/09290cE5set 
+;	../../ti/55x_Tools/bin/acp55 -@/tmp/149347x79XH 
 	.sect	".text"
 	.global	_report_results
 
@@ -1209,7 +1209,7 @@ _report_results:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #49362, T3;
+	MOV #4, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1329,7 +1329,7 @@ $C$DW$40	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #40851, T3;
+	MOV #43912, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1452,7 +1452,7 @@ $C$L1:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #28745, T3;
+	MOV #9244, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1466,7 +1466,7 @@ $C$L1:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #5756, T3;
+	MOV #37066, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1496,7 +1496,7 @@ $C$L2:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #43340, T3;
+	MOV #20262, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1507,7 +1507,7 @@ $C$L2:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #45550, T3;
+	MOV #45338, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1529,7 +1529,7 @@ $C$DW$56	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #9814, T3;
+	MOV #36935, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1543,7 +1543,7 @@ $C$L3:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #40025, T3;
+	MOV #43397, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1563,7 +1563,7 @@ $C$L4:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #35511, T3;
+	MOV #6267, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1672,7 +1672,7 @@ _t_run_test:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #39938, T3;
+	MOV #359, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1772,7 +1772,7 @@ $C$DW$81	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #23889, T3;
+	MOV #49454, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1808,7 +1808,7 @@ $C$L5:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #28050, T3;
+	MOV #861, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1831,7 +1831,7 @@ $C$L5:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #9102, T3;
+	MOV #27760, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1854,7 +1854,7 @@ $C$L6:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #366, T3;
+	MOV #35309, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1865,7 +1865,7 @@ $C$L6:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #18178, T3;
+	MOV #38573, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1904,7 +1904,7 @@ $C$L7:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #31147, T3;
+	MOV #31278, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1921,7 +1921,7 @@ $C$L7:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #41815, T3;
+	MOV #49227, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1935,7 +1935,7 @@ $C$L8:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #47480, T3;
+	MOV #35868, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1955,7 +1955,7 @@ $C$DW$L$_t_run_test$8$B:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #11645, T3;
+	MOV #9955, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -1970,7 +1970,7 @@ $C$L9:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #4553, T3;
+	MOV #2118, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2002,7 +2002,7 @@ $C$DW$88	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #40405, T3;
+	MOV #43753, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2016,7 +2016,7 @@ $C$L10:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #41951, T3;
+	MOV #28396, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2044,7 +2044,7 @@ $C$DW$89	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #40950, T3;
+	MOV #27709, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2059,7 +2059,7 @@ $C$L11:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #38383, T3;
+	MOV #26493, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2107,7 +2107,7 @@ $C$DW$91	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #29944, T3;
+	MOV #4669, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2143,7 +2143,7 @@ $C$L12:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #636, T3;
+	MOV #34255, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2158,7 +2158,7 @@ $C$L12:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #36617, T3;
+	MOV #4447, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2172,7 +2172,7 @@ $C$L13:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #9959, T3;
+	MOV #1389, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2204,7 +2204,7 @@ $C$DW$94	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #26526, T3;
+	MOV #40527, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2219,7 +2219,7 @@ $C$L14:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #24940, T3;
+	MOV #34578, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2249,7 +2249,7 @@ $C$DW$96	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #7585, T3;
+	MOV #30572, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2285,7 +2285,7 @@ $C$L15:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #47393, T3;
+	MOV #21866, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2303,7 +2303,7 @@ $C$L15:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #30866, T3;
+	MOV #1836, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2317,7 +2317,7 @@ $C$L16:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #32514, T3;
+	MOV #41268, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2350,7 +2350,7 @@ $C$DW$99	.dwtag  DW_TAG_TI_branch
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #49160, T3;
+	MOV #28829, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2365,22 +2365,24 @@ $C$L17:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #20093, T3;
+	MOV #31809, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
 	POP T1;
 	POP T0;
 	.dwpsn	file "./bmark.c",line 350,column 4,is_stmt
-        AMAR *SP(#12), XAR0
-        MOV #5000, T1 ; |350| 
+
+        MOV #0, T0
+||      AMAR *SP(#12), XAR0
+
 $C$DW$100	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$100, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$100, DW_AT_name("_report_results")
 	.dwattr $C$DW$100, DW_AT_TI_call
 
         CALL #_report_results ; |350| 
-||      MOV #0, T0
+||      MOV #2, T1
 
                                         ; call occurs [#_report_results] ; |350| 
 	.dwpsn	file "./bmark.c",line 351,column 4,is_stmt
@@ -2395,7 +2397,7 @@ $C$DW$101	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$102	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$102, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L16:1:1707897756")
+	.dwattr $C$DW$102, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L16:1:1707934705")
 	.dwattr $C$DW$102, DW_AT_TI_begin_file("./bmark.c")
 	.dwattr $C$DW$102, DW_AT_TI_begin_line(0x159)
 	.dwattr $C$DW$102, DW_AT_TI_end_line(0x15b)
@@ -2406,7 +2408,7 @@ $C$DW$103	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$104	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$104, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L13:1:1707897756")
+	.dwattr $C$DW$104, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L13:1:1707934705")
 	.dwattr $C$DW$104, DW_AT_TI_begin_file("./bmark.c")
 	.dwattr $C$DW$104, DW_AT_TI_begin_line(0x149)
 	.dwattr $C$DW$104, DW_AT_TI_end_line(0x14b)
@@ -2417,7 +2419,7 @@ $C$DW$105	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$106	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$106, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L10:1:1707897756")
+	.dwattr $C$DW$106, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L10:1:1707934705")
 	.dwattr $C$DW$106, DW_AT_TI_begin_file("./bmark.c")
 	.dwattr $C$DW$106, DW_AT_TI_begin_line(0x11c)
 	.dwattr $C$DW$106, DW_AT_TI_end_line(0x125)
@@ -2428,7 +2430,7 @@ $C$DW$107	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$108	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$108, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L8:1:1707897756")
+	.dwattr $C$DW$108, DW_AT_name("/home/santiago/dspfuzz/test_bench/bmark.asm:$C$L8:1:1707934705")
 	.dwattr $C$DW$108, DW_AT_TI_begin_file("./bmark.c")
 	.dwattr $C$DW$108, DW_AT_TI_begin_line(0x110)
 	.dwattr $C$DW$108, DW_AT_TI_end_line(0x114)
@@ -2487,7 +2489,7 @@ _main:
 	PSH T1;
 	PSH T2;
 	PSH T3;
-	MOV #48967, T3;
+	MOV #18361, T3;
 	CALL #___fuzz_log;
 	POP T3;
 	POP T2;
@@ -2516,7 +2518,7 @@ $C$DW$116	.dwtag  DW_TAG_variable, DW_AT_name("argv")
         MOV *SP(#2), AR1 ; |365| 
 	.dwpsn	file "./bmark.c",line 366,column 4,is_stmt
 	.dwpsn	file "./bmark.c",line 371,column 4,is_stmt
-        MOV #5000, T0 ; |371| 
+        MOV #2, T0
         MOV dbl(*SP(#4)), XAR0
 $C$DW$117	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$117, DW_AT_low_pc(0x00)

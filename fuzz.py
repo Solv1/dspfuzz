@@ -8,14 +8,21 @@ import insturmentor
 
 SIM = False
 BOARD = True
+#Text Formating Info
+BLINK    = '\33[5m'
+RESET = '\033[0m'
 
 
 #TODO ADD COMMAND LINE OPTIONS TO FUZZER FOR EASIER DEBUGGING 
 
+def _results_helper(results):
+    string = results.split("--Coverage--")
+    coverage_array = string[1].replace('\n', '')
+    coverage_array_redux = coverage_array.split(',')
+    coverage_array = map(int, coverage_array_redux)
+    print(coverage_array)
 
-#Text Formating Info
-BLINK    = '\33[5m'
-RESET = '\033[0m'
+    return coverage_array
 
 def calc_time(time):
     days = 0
@@ -47,14 +54,11 @@ def splash_screen(runtime, iterations):
     print(string)
     print(string2)
 
-
-
 def setup():
     """ 
         Manages the building of nessciary tools on start up.
     """
     subprocess.Popen('make mutator', shell=True, stdout=subprocess.DEVNULL)
-
 #TODO: Add some way to buffer test cases before loading them onto the board
 def seed_generator(filename):
     """ Handles generating new seed files to be used in test cases.
@@ -68,44 +72,48 @@ def seed_generator(filename):
     #print("File Copy complete.")
 
 def insturmentation(asm_file):
-    lines = insturmentor.file_handling(asm_file)
-    #results = insturmentor.find_coverage(lines)
-    results = insturmentor.main(asm_file)
-    return results
+    coverage = insturmentor.main(asm_file)
+    return coverage
 
-
-def compile_test(datafile):
+def compile_test():
     """
         Handles compiling the appropriate test based on the data file.
     """
-    #subprocess.call('cd ./test_bench/; make',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    #print("Test Compiled.")
-    #TODO:Add a check here
-    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
-    #TODO:This needs to be able to handle multiple test cases.
-    print("Test Copied.")
+    #TODO: NEEDS PROPER SETUP FOR TEST CASE COMP
+    subprocess.call('cd ./test_bench/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print("LOG: TEST COMPILED")
     
-
+def link_test():
+    subprocess.call('cd ./test_bench/; make asm; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print("LOG: TEST LINKED")
+    
 def load_and_run(functions, branches):
     """
         Loads and runs the test case on either hardware or simulator
     """
     #print('Running main test...')
+    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
     if(SIM):
         subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ; cmd.exe /c dss.bat sim_load.js', shell=True, stdout=subprocess.DEVNULL)
     elif(BOARD):
         branch_string = 'cmd.exe /c dss.bat Breakpoints.js -f '+ str(functions)+ ' -b '+ str(branches) 
         print(branch_string)
         #Try Check_Output to screen grab output
-        results = subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ;' + branch_string , shell=True)
+        results = subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ;' + branch_string , shell=True, capture_output=True, text=True)
     else:
         print('Error please make sure to select a arch type to run the tests.')
     #TODO: Add Check Here....
-    print('Testcase Ran---------Results----------')
-    print(str(results))
+    #print(results.stdout)
+    
+    results = _results_helper(results.stdout)
 
-#def code_coverage_calc(num_reached, num_possible):
+    return results
 
+def code_coverage_calc(coverage_map, run_result):
+    for identifier in run_result:
+        if identifier in coverage_map:
+            coverage_map[identifier][1] += 1
+    return coverage_map
 
 def main():
     start_time = time.time()
@@ -118,15 +126,17 @@ def main():
     for iterations in range(0,1):
         #splash_screen(runtime=math.floor((time.time() - start_time)),iterations=iterations)
         #seed_generator(filename)
-        #compile_test(filename)
-        branch_funct = insturmentation(asm_file)
+        compile_test()
+        trace = insturmentation(asm_file)
+        link_test()
         #functions = ' '.join(branch_funct[0])
         #branches = ' '.join(branch_funct[1])
         #print(branches)
         functions = ''
         branches = ''
-        #load_and_run(functions, branches)
-        iterations+=1
+        run = load_and_run(functions, branches)
+        results = code_coverage_calc(trace, run)
+        print(results)
     
 
 

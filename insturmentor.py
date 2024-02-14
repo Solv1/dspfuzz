@@ -22,78 +22,19 @@ trampoline_ti = ["\tPSH T0;\n","\tPSH T1;\n","\tPSH T2;\n","\tPSH T3;\n",
 
 coverage = {}
 pre_coverage = {}
-random.seed()
 
-
-
-
-
-def insert_asm(start: int, newinst: list, lines) -> list:
-    new_lines = []
-    instCounter = 0
-    for index, line in enumerate(lines, start=1):
-        if 'BCC' in line:
-            print("Found a branch instruction BCC...")
-        elif re.match("^\s+B\s.+\s",line):
-            print("Found a branch instruction B...")
-        elif re.match("^\s*_[a-zA-Z0-9]+:\s", line):
-            print("Found a function start: " + line)
-
-        #if ((len(newinst) + start ) < index > start) and (instCounter < len(newinst)):
-         #   new_lines.append("\t\t"+ newinst[instCounter] + ";" + "\t; Inst Added" + "\n")
-          #  instCounter += 1
-        elif (re.match("\$[A-Z]\$L[0-9]+", line) is not None):
-            print("Found a loop start: " + line)
-            #new_lines.append(line)
-        else:
-            print("here")
-            #new_lines.append(line)
-
-    return 0
-    #return new_lines          
-def insert_function(start: int, lines) -> list:
-    new_lines = []
-    in_function = False
-    inserted = False
-    for index ,line in enumerate(lines, start=1):
-        if index == start:
-            print("Entering Function...")
-            in_function = True
-            new_lines.append(line)
-        elif in_function and inserted == False:
-            for instruction in new_funct:
-                new_lines.append("\t\t"+ instruction+ ";" + "\t; Inst Added" + "\n")
-            inserted = True
-        if inserted and ((re.match("\$[A-Z]\$L[0-9]+", line) is not None) or re.match("^\s*_[a-zA-Z0-9]+:\s", line) is not None):
-            print("We are at the next function area")
-            in_function = False
-            inserted = False
-            new_lines.append(line)
-        elif not in_function:
-            new_lines.append(line)
-    return new_lines
-
-
-
-
-
-# def find_function(file) -> list:
-#     name_list = []
-#     fun_count = 0
-#     for index, line in enumerate(file, start=1):
-#         if re.match("_.*:",line):
-#             fun_count+=1
-#             edited_line = line.replace('_','',1)
-#             edited_line = edited_line.replace(':','',1)
-#             edited_line = edited_line.replace('\n','')
-#             name_list.append(edited_line)
-#     return name_list
-
-def file_handling(filename):
+        
+def _file_handling(filename):
     file = open(filename, 'r')
     lines = file.readlines()
     file.close
     return lines
+
+def _write_file(lines, name):
+    with open(name + ".asm",'w+') as fp:
+        for line in lines:
+            fp.write(line)
+    print("All done...")
 
 def _function_helper(line):
     edited_line = line.replace('_','',1)
@@ -139,29 +80,29 @@ def find_coverage(file):
     for index ,line in enumerate(file,start=1):
         if 'BCC' in line:
             branch_label = _branch_helper(line)
-            print(f'BCC in {current_function} branching to {branch_label} , located in Dataword {current_dataword}')
+            #print(f'BCC in {current_function} branching to {branch_label} , located in Dataword {current_dataword}')
             #Adds the line it found the branch in for further insturmentation
             branch_lines.add(index)
             pre_coverage[index] = [0, 'BCC '+ branch_label]
-            print(index)
+            #print(index)
             branc_count+=1
 
         elif re.match("^\s+B\s.+\s",line):
             branch_label = _branch_helper(line)
-            print(f'B in {current_function} branching to {branch_label} , in Dataword {current_dataword}')
+            #print(f'B in {current_function} branching to {branch_label} , in Dataword {current_dataword}')
             #Adds the line it found the branch in for further insturmentation
             branch_lines.add(index)
             pre_coverage[index] = [0, 'B '+ branch_label]
             branc_count+=1
 
         elif re.match("_.*:",line):
-            print("Found a function start: " + line)
+            #print("Found a function start: " + line)
             fun_count+=1
             current_function = _function_helper(line)
             if re.match("___fuzz_log:", line):
                 continue
             pre_coverage[index] = [0, current_function]
-            print(index)
+            #print(index)
             function_lines.add(index)
 
         elif re.match("^\$C\$L[0-9]+", line):
@@ -176,7 +117,6 @@ def find_coverage(file):
 
 
     return (branch_lines, function_lines)
-
 
 def insturment(lines, file):
     global trampoline_tir, pre_coverage
@@ -213,7 +153,7 @@ def insturment(lines, file):
         else:
             new_lines.append(line)
 
-    print(pre_coverage)
+    #print(pre_coverage)
     return new_lines
 
 def coverage_formater():
@@ -223,42 +163,23 @@ def coverage_formater():
     #all we care about now is the unique identifier, function, and number of hits
     for key in pre_coverage:
         coverage[pre_coverage[key][0]] = [pre_coverage[key][1], 0]
-    #print(coverage)
+    return coverage
 
-
-
-def _write_file(lines, name):
-    with open(name + ".asm",'w+') as fp:
-        for line in lines:
-            fp.write(line)
-    print("All done...")
 
 
 def main(filename):
-    script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+    random.seed()
     file = open(filename, 'r')
     lines = file.readlines()
     #for line in lines:
     #    print(line)
-    coverage = find_coverage(lines)
-    insturmented_asm = insturment(coverage, lines)
+    trace = find_coverage(lines)
+    insturmented_asm = insturment(trace, lines)
     file.close()
-    coverage_formater()
+    coverage = coverage_formater()
     _write_file(insturmented_asm, './test_bench/bmark')
     return(coverage)
 
-    #if index == -1:
-        #print("Function not found...")
-        #exit(-2)
-    #print("Function start is at line: " + str(index))
-    #new_lines = insert_asm(index, instruct, lines)
-    #new_lines = insert_function(index, lines)
-    #file.close()
-    #print(script_dir)
-    #write_file(new_lines, (script_dir + "\\" + "demo")) 
-
-    #for line in new_lines:
-    #    print(line)
 
 
 

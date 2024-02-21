@@ -134,7 +134,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 Intial_Fuzz.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C5500 Linker'
-	"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large --symdebug:skeletal --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -k -z -m"Intial_Fuzz.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/include" --reread_libs --display_error_number --warn_sections --xml_link_info="Intial_Fuzz_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "Intial_Fuzz.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -k -z -m"Intial_Fuzz.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/include" --reread_libs --display_error_number --warn_sections --xml_link_info="Intial_Fuzz_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "Intial_Fuzz.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

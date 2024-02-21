@@ -9,7 +9,6 @@ import os
 import sys
 import re
 import random
-import tree
 
 
 # Trampoline ASM - 
@@ -23,8 +22,6 @@ trampoline_ti = ["\tPSH T0;\n","\tPSH T1;\n","\tPSH T2;\n","\tPSH T3;\n",
 
 coverage = {}
 pre_coverage = {}
-root_node = None
-nodes = []
 
         
 def _file_handling(filename):
@@ -44,7 +41,7 @@ def _write_file(lines, name):
     with open(name + ".asm",'w+') as fp:
         for line in lines:
             fp.write(line)
-    print("All done...")
+    #print("All done...")
 
 def _function_helper(line):
     edited_line = line.replace('_','',1)
@@ -74,39 +71,18 @@ def _branch_helper(line):
     edited_line = split2[0]
     return edited_line
 
-def coverage_tree():
-    global root_node, nodes
-    isFirst = True
-    #First Pass if for functions
-    for line in reversed(pre_coverage):
-        if 'Label' in pre_coverage[line][1]:
-            continue
-        elif 'BCC' in pre_coverage[line][1]:
-            continue
-        elif 'B' in pre_coverage[line][1]:
-            continue
-        elif isFirst:
-            #Find the first function to be 'Main'
-            root_node = tree.CoverageTreeNode(pre_coverage[line][1])
-            isFirst = False
-        else:
-            pass
-
-    #Second Pass is for labels and branches
 
 def find_coverage(file):
     """
         Loops through the given ASM file and finds branch, and function starts.
     """
-    global coverage, pre_coverage, root_node, nodes
+    global coverage, pre_coverage
 
     branch_lines = set()
     function_lines = set()
     fun_count = 0
     branc_count = 0
     current_function = None
-    previous_node = None
-    isFirst = True
     current_dataword = 0
 
     for index ,line in enumerate(file,start=1):
@@ -118,41 +94,32 @@ def find_coverage(file):
             pre_coverage[index] = [0, 'BCC '+ branch_label]
             #print(index)
             branc_count+=1
-
-        elif re.match("^\s+B\s.+\s",line):
-            branch_label = _branch_helper(line)
-            #print(f'B in {current_function} branching to {branch_label} , in Dataword {current_dataword}')
-            #Adds the line it found the branch in for further insturmentation
-            branch_lines.add(index)
-            pre_coverage[index] = [0, 'B '+ branch_label]
-            branc_count+=1
-
+        #---------------May not need this in the future-----------------------
+        # elif re.match("^\s+B\s.+\s",line):
+        #     branch_label = _branch_helper(line)
+        #     #print(f'B in {current_function} branching to {branch_label} , in Dataword {current_dataword}')
+        #     #Adds the line it found the branch in for further insturmentation
+        #     branch_lines.add(index)
+        #     pre_coverage[index] = [0, 'B '+ branch_label]
+        #     branc_count+=1
+        #----------------------------------------------------------------------
         elif re.match("_.*:",line):
-            print("Found a function start: " + line)
+            #print("Found a function start: " + line)
             if re.match("___fuzz_log:", line):
                 continue
             fun_count+=1
             current_function = _function_helper(line)
-            # if isFirst:
-            #     root_node = tree.CoverageTreeNode(current_function)
-            #     previous_node = root_node
-            #     nodes.append(root_node)
-            #     isFirst = False
-            # else:
-            #     new_node = tree.CoverageTreeNode(current_function)
-            #     nodes.append(new_node)
-            #     previous_node.add_node(new_node)
-            #     previous_node = new_node
+            pre_coverage[index] = [0, current_function]
+            #print(index)
+            function_lines.add(index)
+
                 
         elif re.match("CALL #_.*", line):
             pre_coverage[index] = [0,_call_helper(line)]
             continue
 
 
-            pre_coverage[index] = [0, current_function]
-            #print(index)
-            function_lines.add(index)
-
+            
 
 
         elif re.match("^\$C\$L[0-9]+", line):
@@ -175,13 +142,14 @@ def insturment(lines, file):
     branches = lines[0]
     functions = lines[1]
     new_lines = []
+    cov_number = 0
 
     for index, line in enumerate(file, start=1):
         
         if (index) in functions:
             new_lines.append(line)
             #Generate a new coverage number
-            cov_number = random.randint(1,50000)
+            cov_number += 1 
             #TODO Add Check here if the number has been used before.
             pre_coverage[index][0] = cov_number
             for x in range(0, len(trampoline_ti)):
@@ -192,7 +160,7 @@ def insturment(lines, file):
             
         elif (index+1) in branches:
             #Generate a new coverage number
-            cov_number = random.randint(1,50000)
+            cov_number += 1 
             #TODO Add Check here if the number has been used before.
             pre_coverage[(index + 1)][0] = cov_number
             for x in range(0, len(trampoline_ti)):
@@ -204,7 +172,7 @@ def insturment(lines, file):
         else:
             new_lines.append(line)
 
-    print(pre_coverage)
+    #print(pre_coverage)
     return new_lines
 
 def coverage_formater():
@@ -214,6 +182,8 @@ def coverage_formater():
     #all we care about now is the unique identifier, function, and number of hits
     for key in pre_coverage:
         coverage[pre_coverage[key][0]] = [pre_coverage[key][1], 0]
+
+    #print(coverage)
     return coverage
 
 
@@ -228,7 +198,7 @@ def main(filename):
     insturmented_asm = insturment(trace, lines)
     file.close()
     coverage = coverage_formater()
-    _write_file(insturmented_asm, './test_bench/bmark')
+    _write_file(insturmented_asm, './test/main')
     return(coverage)
 
 

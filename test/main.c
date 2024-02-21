@@ -1,45 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <fuzzer.h>
-#include <string.h>
 
 /**
  * main.c
  */
-void * fuzzer_log(){
-    printf("%p\n", fuzzer_log);
-    return &fuzzer_log;
+int __fuzz_log(){
+    return 0;
 }
 
 int main(void)
 {
-    int i , j, k, h;
-    void * input[10];
-    memset(input, 0, sizeof(input));
+    int j, k, h;
 
 
-    //printf("Please Input some code here.\n");
-    //delay(1000);
-    //k = scanf("%s", input);
-    //printf("Input = %s.", input);
-    i = 115;
-            //atoi(input);
+    //Embbed the input here to try over and over again.
+    int i = {
+         #include "input.dat"
+    };
     j = i *23;
     k = j *2 / 5;
-    h = (456 * 2) || k ;
+    h = (456 * 6) % 541 ;
 
     if(i % 4){
-       int a;
-       input[0] = &a;
-        if(1058 == k){
-            int b;
-            input[1] = &b;
-	    fuzzer_log();
-            if(j % 2 > 12){
-                if(j - k < i){
-                    if(h > 540){
-                        if(h + j + k > 40000){
+        if(1058 < k){
+            if(j  > 12){
+                if(j - 100 > i){
+                    if(h > 30){
+                        if(h + j + k > 400){
+                            printf("Found the Bug \n");
                             exit(-1);
+
                         }
                     }
                 }

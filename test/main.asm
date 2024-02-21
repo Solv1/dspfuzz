@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                        Unix v4.4.1 *
-;* Date/Time created: Tue Feb 13 13:32:43 2024                                 *
+;* Date/Time created: Mon Feb 19 20:44:10 2024                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -35,7 +35,7 @@ $C$DW$1	.dwtag  DW_TAG_subprogram, DW_AT_name("printf")
 	.dwattr $C$DW$1, DW_AT_declaration
 	.dwattr $C$DW$1, DW_AT_external
 $C$DW$2	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$2, DW_AT_type(*$C$DW$T$31)
+	.dwattr $C$DW$2, DW_AT_type(*$C$DW$T$23)
 $C$DW$3	.dwtag  DW_TAG_unspecified_parameters
 	.dwendtag $C$DW$1
 
@@ -48,319 +48,303 @@ $C$DW$5	.dwtag  DW_TAG_formal_parameter
 	.dwattr $C$DW$5, DW_AT_type(*$C$DW$T$10)
 	.dwendtag $C$DW$4
 
-
-$C$DW$6	.dwtag  DW_TAG_subprogram, DW_AT_name("memset")
-	.dwattr $C$DW$6, DW_AT_TI_symbol_name("_memset")
-	.dwattr $C$DW$6, DW_AT_type(*$C$DW$T$3)
-	.dwattr $C$DW$6, DW_AT_declaration
-	.dwattr $C$DW$6, DW_AT_external
-$C$DW$7	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$7, DW_AT_type(*$C$DW$T$3)
-$C$DW$8	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$8, DW_AT_type(*$C$DW$T$10)
-$C$DW$9	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$9, DW_AT_type(*$C$DW$T$19)
-	.dwendtag $C$DW$6
-
-;	../../ti/55x_Tools/bin/acp55 -@/tmp/00590XRznat 
+;	../../ti/55x_Tools/bin/acp55 -@/tmp/13229568pRV 
 	.sect	".text"
-	.global	_fuzzer_log
+	.global	___fuzz_log
 
-$C$DW$10	.dwtag  DW_TAG_subprogram, DW_AT_name("fuzzer_log")
-	.dwattr $C$DW$10, DW_AT_low_pc(_fuzzer_log)
-	.dwattr $C$DW$10, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$10, DW_AT_TI_symbol_name("_fuzzer_log")
-	.dwattr $C$DW$10, DW_AT_external
-	.dwattr $C$DW$10, DW_AT_type(*$C$DW$T$3)
-	.dwattr $C$DW$10, DW_AT_TI_begin_file("./main.c")
-	.dwattr $C$DW$10, DW_AT_TI_begin_line(0x09)
-	.dwattr $C$DW$10, DW_AT_TI_begin_column(0x08)
-	.dwattr $C$DW$10, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "./main.c",line 9,column 20,is_stmt,address _fuzzer_log
+$C$DW$6	.dwtag  DW_TAG_subprogram, DW_AT_name("__fuzz_log")
+	.dwattr $C$DW$6, DW_AT_low_pc(___fuzz_log)
+	.dwattr $C$DW$6, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$6, DW_AT_TI_symbol_name("___fuzz_log")
+	.dwattr $C$DW$6, DW_AT_external
+	.dwattr $C$DW$6, DW_AT_type(*$C$DW$T$10)
+	.dwattr $C$DW$6, DW_AT_TI_begin_file("./main.c")
+	.dwattr $C$DW$6, DW_AT_TI_begin_line(0x07)
+	.dwattr $C$DW$6, DW_AT_TI_begin_column(0x05)
+	.dwattr $C$DW$6, DW_AT_TI_max_frame_size(0x01)
+	.dwpsn	file "./main.c",line 7,column 17,is_stmt,address ___fuzz_log
 
-	.dwfde $C$DW$CIE, _fuzzer_log
+	.dwfde $C$DW$CIE, ___fuzz_log
 ;*******************************************************************************
-;* FUNCTION NAME: fuzzer_log                                                   *
+;* FUNCTION NAME: __fuzz_log                                                   *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AR0,XAR0,AR3,XAR3,SP,M40,SATA,SATD,RDM,FRCT, *
-;*                        SMUL                                                 *
+;*   Function Uses Regs : T0,SP,M40,SATA,SATD,RDM,FRCT,SMUL                    *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
-;*   Total Frame Size   : 6 words                                              *
-;*                        (2 return address/alignment)                         *
-;*                        (4 function parameters)                              *
+;*   Total Frame Size   : 1 word                                               *
+;*                        (1 return address/alignment)                         *
 ;*   Min System Stack   : 1 word                                               *
 ;*******************************************************************************
-_fuzzer_log:
+___fuzz_log:
 	.dwcfi	cfa_offset, 1
 	.dwcfi	save_reg_to_mem, 91, -1
-        AADD #-5, SP
-	.dwcfi	cfa_offset, 6
-	.dwpsn	file "./main.c",line 10,column 5,is_stmt
-        MOV #(_fuzzer_log >> 16) << #16, AC0 ; |10| 
-        AMOV #$C$FSL1, XAR3 ; |10| 
-        OR #(_fuzzer_log & 0xffff), AC0, AC0 ; |10| 
-        MOV XAR3, dbl(*SP(#0))
-        MOV AC0, dbl(*SP(#2)) ; |10| 
-$C$DW$11	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$11, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$11, DW_AT_name("_printf")
-	.dwattr $C$DW$11, DW_AT_TI_call
-        CALL #_printf ; |10| 
-                                        ; call occurs [#_printf] ; |10| 
-	.dwpsn	file "./main.c",line 11,column 5,is_stmt
-        MOV #(_fuzzer_log >> 16) << #16, AC0 ; |11| 
-        OR #(_fuzzer_log & 0xffff), AC0, AC0 ; |11| 
-        MOV AC0, XAR0
-	.dwpsn	file "./main.c",line 12,column 1,is_stmt
-        AADD #5, SP
-	.dwcfi	cfa_offset, 1
-$C$DW$12	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$12, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$12, DW_AT_TI_return
+	.dwpsn	file "./main.c",line 8,column 5,is_stmt
+        MOV #0, T0
+	.dwpsn	file "./main.c",line 9,column 1,is_stmt
+$C$DW$7	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$7, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$7, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$10, DW_AT_TI_end_file("./main.c")
-	.dwattr $C$DW$10, DW_AT_TI_end_line(0x0c)
-	.dwattr $C$DW$10, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$6, DW_AT_TI_end_file("./main.c")
+	.dwattr $C$DW$6, DW_AT_TI_end_line(0x09)
+	.dwattr $C$DW$6, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$10
+	.dwendtag $C$DW$6
 
 	.sect	".text"
 	.global	_main
 
-$C$DW$13	.dwtag  DW_TAG_subprogram, DW_AT_name("main")
-	.dwattr $C$DW$13, DW_AT_low_pc(_main)
-	.dwattr $C$DW$13, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$13, DW_AT_TI_symbol_name("_main")
-	.dwattr $C$DW$13, DW_AT_external
-	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$13, DW_AT_TI_begin_file("./main.c")
-	.dwattr $C$DW$13, DW_AT_TI_begin_line(0x0e)
-	.dwattr $C$DW$13, DW_AT_TI_begin_column(0x05)
-	.dwattr $C$DW$13, DW_AT_TI_max_frame_size(0x1c)
-	.dwpsn	file "./main.c",line 15,column 1,is_stmt,address _main
+$C$DW$8	.dwtag  DW_TAG_subprogram, DW_AT_name("main")
+	.dwattr $C$DW$8, DW_AT_low_pc(_main)
+	.dwattr $C$DW$8, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$8, DW_AT_TI_symbol_name("_main")
+	.dwattr $C$DW$8, DW_AT_external
+	.dwattr $C$DW$8, DW_AT_type(*$C$DW$T$10)
+	.dwattr $C$DW$8, DW_AT_TI_begin_file("./main.c")
+	.dwattr $C$DW$8, DW_AT_TI_begin_line(0x0b)
+	.dwattr $C$DW$8, DW_AT_TI_begin_column(0x05)
+	.dwattr $C$DW$8, DW_AT_TI_max_frame_size(0x08)
+	.dwpsn	file "./main.c",line 12,column 1,is_stmt,address _main
 
 	.dwfde $C$DW$CIE, _main
 ;*******************************************************************************
 ;* FUNCTION NAME: main                                                         *
 ;*                                                                             *
-;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,AR2,AR3,XAR3,SP,  *
-;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
+;*   Function Uses Regs : AC0,AC0,T0,T1,AR1,AR2,AR3,XAR3,SP,CARRY,TC1,M40,SATA,*
+;*                        SATD,RDM,FRCT,SMUL                                   *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
-;*   Total Frame Size   : 28 words                                             *
+;*   Total Frame Size   : 8 words                                              *
 ;*                        (2 return address/alignment)                         *
-;*                        (26 local values)                                    *
+;*                        (2 function parameters)                              *
+;*                        (4 local values)                                     *
 ;*   Min System Stack   : 1 word                                               *
 ;*******************************************************************************
 _main:
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #1, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
 	.dwcfi	cfa_offset, 1
 	.dwcfi	save_reg_to_mem, 91, -1
-        AADD #-27, SP
-	.dwcfi	cfa_offset, 28
-$C$DW$14	.dwtag  DW_TAG_variable, DW_AT_name("i")
-	.dwattr $C$DW$14, DW_AT_TI_symbol_name("_i")
-	.dwattr $C$DW$14, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$14, DW_AT_location[DW_OP_bregx 0x24 0]
-$C$DW$15	.dwtag  DW_TAG_variable, DW_AT_name("j")
-	.dwattr $C$DW$15, DW_AT_TI_symbol_name("_j")
-	.dwattr $C$DW$15, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$15, DW_AT_location[DW_OP_bregx 0x24 1]
-$C$DW$16	.dwtag  DW_TAG_variable, DW_AT_name("k")
-	.dwattr $C$DW$16, DW_AT_TI_symbol_name("_k")
-	.dwattr $C$DW$16, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$16, DW_AT_location[DW_OP_bregx 0x24 2]
-$C$DW$17	.dwtag  DW_TAG_variable, DW_AT_name("h")
-	.dwattr $C$DW$17, DW_AT_TI_symbol_name("_h")
-	.dwattr $C$DW$17, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$17, DW_AT_location[DW_OP_bregx 0x24 3]
-$C$DW$18	.dwtag  DW_TAG_variable, DW_AT_name("input")
-	.dwattr $C$DW$18, DW_AT_TI_symbol_name("_input")
-	.dwattr $C$DW$18, DW_AT_type(*$C$DW$T$24)
-	.dwattr $C$DW$18, DW_AT_location[DW_OP_bregx 0x24 4]
-	.dwpsn	file "./main.c",line 18,column 5,is_stmt
-        MOV #20, T1 ; |18| 
-        AMAR *SP(#4), XAR0
-$C$DW$19	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$19, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$19, DW_AT_name("_memset")
-	.dwattr $C$DW$19, DW_AT_TI_call
+        AADD #-7, SP
+	.dwcfi	cfa_offset, 8
+$C$DW$9	.dwtag  DW_TAG_variable, DW_AT_name("j")
+	.dwattr $C$DW$9, DW_AT_TI_symbol_name("_j")
+	.dwattr $C$DW$9, DW_AT_type(*$C$DW$T$10)
+	.dwattr $C$DW$9, DW_AT_location[DW_OP_bregx 0x24 2]
+$C$DW$10	.dwtag  DW_TAG_variable, DW_AT_name("k")
+	.dwattr $C$DW$10, DW_AT_TI_symbol_name("_k")
+	.dwattr $C$DW$10, DW_AT_type(*$C$DW$T$10)
+	.dwattr $C$DW$10, DW_AT_location[DW_OP_bregx 0x24 3]
+$C$DW$11	.dwtag  DW_TAG_variable, DW_AT_name("h")
+	.dwattr $C$DW$11, DW_AT_TI_symbol_name("_h")
+	.dwattr $C$DW$11, DW_AT_type(*$C$DW$T$10)
+	.dwattr $C$DW$11, DW_AT_location[DW_OP_bregx 0x24 4]
+$C$DW$12	.dwtag  DW_TAG_variable, DW_AT_name("i")
+	.dwattr $C$DW$12, DW_AT_TI_symbol_name("_i")
+	.dwattr $C$DW$12, DW_AT_type(*$C$DW$T$10)
+	.dwattr $C$DW$12, DW_AT_location[DW_OP_bregx 0x24 5]
+	.dwpsn	file "./main.c",line 17,column 9,is_stmt
+        MOV #23103, *SP(#5) ; |17| 
+	.dwpsn	file "./main.c",line 20,column 5,is_stmt
+        MPYMK *SP(#5), #23, AC0 ; |20| 
+        MOV AC0, *SP(#2) ; |20| 
+	.dwpsn	file "./main.c",line 21,column 5,is_stmt
 
-        CALL #_memset ; |18| 
-||      MOV #0, T0
-
-                                        ; call occurs [#_memset] ; |18| 
-	.dwpsn	file "./main.c",line 25,column 5,is_stmt
-        MOV #115, *SP(#0) ; |25| 
-	.dwpsn	file "./main.c",line 27,column 5,is_stmt
-        MPYMK *SP(#0), #23, AC0 ; |27| 
-        MOV AC0, *SP(#1) ; |27| 
-	.dwpsn	file "./main.c",line 28,column 5,is_stmt
-
-        MOV *SP(#1) << #1, AC0 ; |28| 
+        MOV *SP(#2) << #1, AC0 ; |21| 
 ||      MOV #5, T1
 
-$C$DW$20	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$20, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$20, DW_AT_name("__divi")
-	.dwattr $C$DW$20, DW_AT_TI_call
+$C$DW$13	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$13, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$13, DW_AT_name("__divi")
+	.dwattr $C$DW$13, DW_AT_TI_call
 
-        CALL #__divi ; |28| 
-||      MOV AC0, T0 ; |28| 
+        CALL #__divi ; |21| 
+||      MOV AC0, T0 ; |21| 
 
-                                        ; call occurs [#__divi] ; |28| 
-        MOV T0, *SP(#2) ; |28| 
-	.dwpsn	file "./main.c",line 29,column 5,is_stmt
-        MOV #1, *SP(#3) ; |29| 
-	.dwpsn	file "./main.c",line 31,column 5,is_stmt
-        MOV *SP(#0), AR1 ; |31| 
-        MOV AR1, AC0 ; |31| 
-        MOV AC0, AR2 ; |31| 
-        SFTS AR2, #-1 ; |31| 
-        MOV AR2, AC0 ; |31| 
+                                        ; call occurs [#__divi] ; |21| 
+        MOV T0, *SP(#3) ; |21| 
+	.dwpsn	file "./main.c",line 22,column 5,is_stmt
+        MOV #31, *SP(#4) ; |22| 
+	.dwpsn	file "./main.c",line 24,column 5,is_stmt
+        MOV *SP(#5), AR1 ; |24| 
+        MOV AR1, AC0 ; |24| 
+        MOV AC0, AR2 ; |24| 
+        SFTS AR2, #-1 ; |24| 
+        MOV AR2, AC0 ; |24| 
 
-        BFXTR #0xc000, AC0, AR3 ; |31| 
+        BFXTR #0xc000, AC0, AR3 ; |24| 
 ||      MOV #3, AR2
 
-        NOT AR2, AR2 ; |31| 
-        ADD AR1, AR3 ; |31| 
-        AND AR3, AR2 ; |31| 
-        SUB AR2, AR1 ; |31| 
-        BCC $C$L3,AR1 == #0 ; |31| 
-                                        ; branchcc occurs ; |31| 
+        NOT AR2, AR2 ; |24| 
+        ADD AR1, AR3 ; |24| 
+        AND AR3, AR2 ; |24| 
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #2, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+        SUB AR2, AR1 ; |24| 
+        BCC $C$L1,AR1 == #0 ; |24| 
+                                        ; branchcc occurs ; |24| 
+	.dwpsn	file "./main.c",line 25,column 9,is_stmt
+        MOV *SP(#3), AR1 ; |25| 
+        MOV #1058, AR2 ; |25| 
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #3, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+        CMP AR2 >= AR1, TC1 ; |25| 
+        BCC $C$L1,TC1 ; |25| 
+                                        ; branchcc occurs ; |25| 
+	.dwpsn	file "./main.c",line 26,column 13,is_stmt
 
-$C$DW$21	.dwtag  DW_TAG_lexical_block, DW_AT_low_pc(0x00), DW_AT_high_pc(0x00)
-$C$DW$22	.dwtag  DW_TAG_variable, DW_AT_name("a")
-	.dwattr $C$DW$22, DW_AT_TI_symbol_name("_a")
-	.dwattr $C$DW$22, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$22, DW_AT_location[DW_OP_bregx 0x24 24]
-	.dwpsn	file "./main.c",line 33,column 8,is_stmt
-        AMAR *SP(#24), XAR3
-        MOV XAR3, dbl(*SP(#4))
-	.dwpsn	file "./main.c",line 34,column 9,is_stmt
-        MOV #1058, AR2 ; |34| 
-        MOV *SP(#2), AR1 ; |34| 
-        CMP AR2 != AR1, TC1 ; |34| 
-        BCC $C$L2,TC1 ; |34| 
-                                        ; branchcc occurs ; |34| 
+        MOV *SP(#2), AR1 ; |26| 
+||      MOV #12, AR2
 
-$C$DW$23	.dwtag  DW_TAG_lexical_block, DW_AT_low_pc(0x00), DW_AT_high_pc(0x00)
-$C$DW$24	.dwtag  DW_TAG_variable, DW_AT_name("b")
-	.dwattr $C$DW$24, DW_AT_TI_symbol_name("_b")
-	.dwattr $C$DW$24, DW_AT_type(*$C$DW$T$10)
-	.dwattr $C$DW$24, DW_AT_location[DW_OP_bregx 0x24 25]
-	.dwpsn	file "./main.c",line 36,column 13,is_stmt
-        AMAR *SP(#25), XAR3
-        MOV XAR3, dbl(*SP(#6))
-	.dwpsn	file "./main.c",line 37,column 6,is_stmt
-$C$DW$25	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$25, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$25, DW_AT_name("_fuzzer_log")
-	.dwattr $C$DW$25, DW_AT_TI_call
-        CALL #_fuzzer_log ; |37| 
-                                        ; call occurs [#_fuzzer_log] ; |37| 
-	.dwpsn	file "./main.c",line 38,column 13,is_stmt
-        MOV #1, AR2
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #4, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+        CMP AR1 <= AR2, TC1 ; |26| 
+        BCC $C$L1,TC1 ; |26| 
+                                        ; branchcc occurs ; |26| 
+	.dwpsn	file "./main.c",line 27,column 17,is_stmt
+        MOV *SP(#2), AR2 ; |27| 
+        MOV *SP(#5), AR1 ; |27| 
+        SUB #100, AR2, AR2 ; |27| 
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #5, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+        CMP AR2 <= AR1, TC1 ; |27| 
+        BCC $C$L1,TC1 ; |27| 
+                                        ; branchcc occurs ; |27| 
+	.dwpsn	file "./main.c",line 28,column 21,is_stmt
+        MOV #30, AR2 ; |28| 
+        MOV *SP(#4), AR1 ; |28| 
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #6, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+        CMP AR1 <= AR2, TC1 ; |28| 
+        BCC $C$L1,TC1 ; |28| 
+                                        ; branchcc occurs ; |28| 
+	.dwpsn	file "./main.c",line 29,column 25,is_stmt
+        MOV *SP(#2), AR1 ; |29| 
+        MOV #400, AR2 ; |29| 
+        ADD *SP(#4), AR1, AR1 ; |29| 
+        ADD *SP(#3), AR1, AR1 ; |29| 
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #7, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+        CMP AR1 <= AR2, TC1 ; |29| 
+        BCC $C$L1,TC1 ; |29| 
+                                        ; branchcc occurs ; |29| 
+	.dwpsn	file "./main.c",line 30,column 29,is_stmt
+        AMOV #$C$FSL1, XAR3 ; |30| 
+        MOV XAR3, dbl(*SP(#0))
+$C$DW$14	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$14, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$14, DW_AT_name("_printf")
+	.dwattr $C$DW$14, DW_AT_TI_call
+        CALL #_printf ; |30| 
+                                        ; call occurs [#_printf] ; |30| 
+	.dwpsn	file "./main.c",line 31,column 29,is_stmt
+$C$DW$15	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$15, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$15, DW_AT_name("_exit")
+	.dwattr $C$DW$15, DW_AT_TI_call
 
-        NOT AR2, AR2 ; |38| 
-||      MOV *SP(#1), AC0 ; |38| 
-
-        BFXTR #0x8000, AC0, AR1 ; |38| 
-        ADD AC0, AR1 ; |38| 
-        AND AR1, AR2 ; |38| 
-        MOV AC0, AR1 ; |38| 
-
-        MOV #12, AR2
-||      SUB AR2, AR1 ; |38| 
-
-        CMP AR1 <= AR2, TC1 ; |38| 
-        BCC $C$L1,TC1 ; |38| 
-                                        ; branchcc occurs ; |38| 
-	.dwpsn	file "./main.c",line 39,column 17,is_stmt
-        MOV *SP(#2), AR2 ; |39| 
-        MOV *SP(#0), AR1 ; |39| 
-        SUB AR2, *SP(#1), AR2 ; |39| 
-        CMP AR2 >= AR1, TC1 ; |39| 
-        BCC $C$L1,TC1 ; |39| 
-                                        ; branchcc occurs ; |39| 
-	.dwpsn	file "./main.c",line 40,column 21,is_stmt
-        MOV #540, AR2 ; |40| 
-        MOV *SP(#3), AR1 ; |40| 
-        CMP AR1 <= AR2, TC1 ; |40| 
-        BCC $C$L1,TC1 ; |40| 
-                                        ; branchcc occurs ; |40| 
-	.dwpsn	file "./main.c",line 41,column 25,is_stmt
-        MOV *SP(#1), AR1 ; |41| 
-
-        ADD *SP(#3), AR1, AR1 ; |41| 
-||      MOV #0, AC0 ; |41| 
-
-        OR #0x9c40, AC0, AC0 ; |41| 
-        ADD *SP(#2), AR1, AR1 ; |41| 
-        MOV AR1, AC1
-        CMP AC1 <= AC0, TC1 ; |41| 
-        BCC $C$L1,TC1 ; |41| 
-                                        ; branchcc occurs ; |41| 
-	.dwpsn	file "./main.c",line 42,column 29,is_stmt
-$C$DW$26	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$26, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$26, DW_AT_name("_exit")
-	.dwattr $C$DW$26, DW_AT_TI_call
-
-        CALL #_exit ; |42| 
+        CALL #_exit ; |31| 
 ||      MOV #-1, T0
 
-                                        ; call occurs [#_exit] ; |42| 
+                                        ; call occurs [#_exit] ; |31| 
 $C$L1:    
-	.dwendtag $C$DW$23
-
-$C$L2:    
-	.dwendtag $C$DW$21
-
-$C$L3:    
-	.dwpsn	file "./main.c",line 51,column 5,is_stmt
+	PSH T0;
+	PSH T1;
+	PSH T2;
+	PSH T3;
+	MOV #8, T3;
+	CALL #___fuzz_log;
+	POP T3;
+	POP T2;
+	POP T1;
+	POP T0;
+	.dwpsn	file "./main.c",line 41,column 5,is_stmt
         MOV #0, T0
-	.dwpsn	file "./main.c",line 52,column 1,is_stmt
-        AADD #27, SP
+	.dwpsn	file "./main.c",line 42,column 1,is_stmt
+        AADD #7, SP
 	.dwcfi	cfa_offset, 1
-$C$DW$27	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$27, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$27, DW_AT_TI_return
+$C$DW$16	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$16, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$16, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$13, DW_AT_TI_end_file("./main.c")
-	.dwattr $C$DW$13, DW_AT_TI_end_line(0x34)
-	.dwattr $C$DW$13, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$8, DW_AT_TI_end_file("./main.c")
+	.dwattr $C$DW$8, DW_AT_TI_end_line(0x2a)
+	.dwattr $C$DW$8, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$13
+	.dwendtag $C$DW$8
 
 ;*******************************************************************************
 ;* FAR STRINGS                                                                 *
 ;*******************************************************************************
 	.sect	".const:.string"
 	.align	2
-$C$FSL1:	.string	"%p",10,0
+$C$FSL1:	.string	"Found the Bug ",10,0
 ;******************************************************************************
 ;* UNDEFINED EXTERNAL REFERENCES                                              *
 ;******************************************************************************
 	.global	_printf
 	.global	_exit
-	.global	_memset
 	.global	__divi
 
 ;*******************************************************************************
 ;* TYPE INFORMATION                                                            *
 ;*******************************************************************************
-$C$DW$T$3	.dwtag  DW_TAG_pointer_type
-	.dwattr $C$DW$T$3, DW_AT_address_class(0x17)
-
-$C$DW$T$24	.dwtag  DW_TAG_array_type
-	.dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$3)
-	.dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$24, DW_AT_byte_size(0x14)
-$C$DW$28	.dwtag  DW_TAG_subrange_type
-	.dwattr $C$DW$28, DW_AT_upper_bound(0x09)
-	.dwendtag $C$DW$T$24
-
 $C$DW$T$4	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
 	.dwattr $C$DW$T$4, DW_AT_name("bool")
@@ -393,9 +377,6 @@ $C$DW$T$11	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
 	.dwattr $C$DW$T$11, DW_AT_name("unsigned int")
 	.dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
-$C$DW$T$19	.dwtag  DW_TAG_typedef, DW_AT_name("size_t")
-	.dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$11)
-	.dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
 $C$DW$T$12	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
 	.dwattr $C$DW$T$12, DW_AT_name("long")
@@ -428,17 +409,17 @@ $C$DW$T$18	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
 	.dwattr $C$DW$T$18, DW_AT_name("long double")
 	.dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
-$C$DW$T$29	.dwtag  DW_TAG_base_type
-	.dwattr $C$DW$T$29, DW_AT_encoding(DW_ATE_signed_char)
-	.dwattr $C$DW$T$29, DW_AT_name("signed char")
-	.dwattr $C$DW$T$29, DW_AT_byte_size(0x01)
-$C$DW$29	.dwtag  DW_TAG_TI_far_type
-	.dwattr $C$DW$29, DW_AT_type(*$C$DW$T$29)
-$C$DW$T$30	.dwtag  DW_TAG_const_type
-	.dwattr $C$DW$T$30, DW_AT_type(*$C$DW$29)
-$C$DW$T$31	.dwtag  DW_TAG_pointer_type
-	.dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
-	.dwattr $C$DW$T$31, DW_AT_address_class(0x17)
+$C$DW$T$21	.dwtag  DW_TAG_base_type
+	.dwattr $C$DW$T$21, DW_AT_encoding(DW_ATE_signed_char)
+	.dwattr $C$DW$T$21, DW_AT_name("signed char")
+	.dwattr $C$DW$T$21, DW_AT_byte_size(0x01)
+$C$DW$17	.dwtag  DW_TAG_TI_far_type
+	.dwattr $C$DW$17, DW_AT_type(*$C$DW$T$21)
+$C$DW$T$22	.dwtag  DW_TAG_const_type
+	.dwattr $C$DW$T$22, DW_AT_type(*$C$DW$17)
+$C$DW$T$23	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+	.dwattr $C$DW$T$23, DW_AT_address_class(0x17)
 	.dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
 
 ;***************************************************************
@@ -546,189 +527,189 @@ $C$DW$CIE	.dwcie 91
 ;* DWARF REGISTER MAP                                          *
 ;***************************************************************
 
-$C$DW$30	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
-	.dwattr $C$DW$30, DW_AT_location[DW_OP_reg0]
-$C$DW$31	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
-	.dwattr $C$DW$31, DW_AT_location[DW_OP_reg1]
-$C$DW$32	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
-	.dwattr $C$DW$32, DW_AT_location[DW_OP_reg2]
-$C$DW$33	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
-	.dwattr $C$DW$33, DW_AT_location[DW_OP_reg3]
-$C$DW$34	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
-	.dwattr $C$DW$34, DW_AT_location[DW_OP_reg4]
-$C$DW$35	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
-	.dwattr $C$DW$35, DW_AT_location[DW_OP_reg5]
-$C$DW$36	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
-	.dwattr $C$DW$36, DW_AT_location[DW_OP_reg6]
-$C$DW$37	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
-	.dwattr $C$DW$37, DW_AT_location[DW_OP_reg7]
-$C$DW$38	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
-	.dwattr $C$DW$38, DW_AT_location[DW_OP_reg8]
-$C$DW$39	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
-	.dwattr $C$DW$39, DW_AT_location[DW_OP_reg9]
-$C$DW$40	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
-	.dwattr $C$DW$40, DW_AT_location[DW_OP_reg10]
-$C$DW$41	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
-	.dwattr $C$DW$41, DW_AT_location[DW_OP_reg11]
-$C$DW$42	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
-	.dwattr $C$DW$42, DW_AT_location[DW_OP_reg12]
-$C$DW$43	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
-	.dwattr $C$DW$43, DW_AT_location[DW_OP_reg13]
-$C$DW$44	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
-	.dwattr $C$DW$44, DW_AT_location[DW_OP_reg14]
-$C$DW$45	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
-	.dwattr $C$DW$45, DW_AT_location[DW_OP_reg15]
-$C$DW$46	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
-	.dwattr $C$DW$46, DW_AT_location[DW_OP_reg16]
-$C$DW$47	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
-	.dwattr $C$DW$47, DW_AT_location[DW_OP_reg17]
-$C$DW$48	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
-	.dwattr $C$DW$48, DW_AT_location[DW_OP_reg18]
-$C$DW$49	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
-	.dwattr $C$DW$49, DW_AT_location[DW_OP_reg19]
-$C$DW$50	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
-	.dwattr $C$DW$50, DW_AT_location[DW_OP_reg20]
-$C$DW$51	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
-	.dwattr $C$DW$51, DW_AT_location[DW_OP_reg21]
-$C$DW$52	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
-	.dwattr $C$DW$52, DW_AT_location[DW_OP_reg22]
-$C$DW$53	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
-	.dwattr $C$DW$53, DW_AT_location[DW_OP_reg23]
-$C$DW$54	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
-	.dwattr $C$DW$54, DW_AT_location[DW_OP_reg24]
-$C$DW$55	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
-	.dwattr $C$DW$55, DW_AT_location[DW_OP_reg25]
-$C$DW$56	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
-	.dwattr $C$DW$56, DW_AT_location[DW_OP_reg26]
-$C$DW$57	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
-	.dwattr $C$DW$57, DW_AT_location[DW_OP_reg27]
-$C$DW$58	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
-	.dwattr $C$DW$58, DW_AT_location[DW_OP_reg28]
-$C$DW$59	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
-	.dwattr $C$DW$59, DW_AT_location[DW_OP_reg29]
-$C$DW$60	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
-	.dwattr $C$DW$60, DW_AT_location[DW_OP_reg30]
-$C$DW$61	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
-	.dwattr $C$DW$61, DW_AT_location[DW_OP_reg31]
-$C$DW$62	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
-	.dwattr $C$DW$62, DW_AT_location[DW_OP_regx 0x20]
-$C$DW$63	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
-	.dwattr $C$DW$63, DW_AT_location[DW_OP_regx 0x21]
-$C$DW$64	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
-	.dwattr $C$DW$64, DW_AT_location[DW_OP_regx 0x22]
-$C$DW$65	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
-	.dwattr $C$DW$65, DW_AT_location[DW_OP_regx 0x23]
-$C$DW$66	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
-	.dwattr $C$DW$66, DW_AT_location[DW_OP_regx 0x24]
-$C$DW$67	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
-	.dwattr $C$DW$67, DW_AT_location[DW_OP_regx 0x25]
-$C$DW$68	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
-	.dwattr $C$DW$68, DW_AT_location[DW_OP_regx 0x26]
-$C$DW$69	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
-	.dwattr $C$DW$69, DW_AT_location[DW_OP_regx 0x27]
-$C$DW$70	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
-	.dwattr $C$DW$70, DW_AT_location[DW_OP_regx 0x28]
-$C$DW$71	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
-	.dwattr $C$DW$71, DW_AT_location[DW_OP_regx 0x29]
-$C$DW$72	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
-	.dwattr $C$DW$72, DW_AT_location[DW_OP_regx 0x2a]
-$C$DW$73	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
-	.dwattr $C$DW$73, DW_AT_location[DW_OP_regx 0x2b]
-$C$DW$74	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
-	.dwattr $C$DW$74, DW_AT_location[DW_OP_regx 0x2c]
-$C$DW$75	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
-	.dwattr $C$DW$75, DW_AT_location[DW_OP_regx 0x2d]
-$C$DW$76	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
-	.dwattr $C$DW$76, DW_AT_location[DW_OP_regx 0x2e]
-$C$DW$77	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
-	.dwattr $C$DW$77, DW_AT_location[DW_OP_regx 0x2f]
-$C$DW$78	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
-	.dwattr $C$DW$78, DW_AT_location[DW_OP_regx 0x30]
-$C$DW$79	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
-	.dwattr $C$DW$79, DW_AT_location[DW_OP_regx 0x31]
-$C$DW$80	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
-	.dwattr $C$DW$80, DW_AT_location[DW_OP_regx 0x32]
-$C$DW$81	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
-	.dwattr $C$DW$81, DW_AT_location[DW_OP_regx 0x33]
-$C$DW$82	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
-	.dwattr $C$DW$82, DW_AT_location[DW_OP_regx 0x34]
-$C$DW$83	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
-	.dwattr $C$DW$83, DW_AT_location[DW_OP_regx 0x35]
-$C$DW$84	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
-	.dwattr $C$DW$84, DW_AT_location[DW_OP_regx 0x36]
-$C$DW$85	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
-	.dwattr $C$DW$85, DW_AT_location[DW_OP_regx 0x37]
-$C$DW$86	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
-	.dwattr $C$DW$86, DW_AT_location[DW_OP_regx 0x38]
-$C$DW$87	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
-	.dwattr $C$DW$87, DW_AT_location[DW_OP_regx 0x39]
-$C$DW$88	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
-	.dwattr $C$DW$88, DW_AT_location[DW_OP_regx 0x3a]
-$C$DW$89	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
-	.dwattr $C$DW$89, DW_AT_location[DW_OP_regx 0x3b]
-$C$DW$90	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
-	.dwattr $C$DW$90, DW_AT_location[DW_OP_regx 0x3c]
-$C$DW$91	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
-	.dwattr $C$DW$91, DW_AT_location[DW_OP_regx 0x3d]
-$C$DW$92	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
-	.dwattr $C$DW$92, DW_AT_location[DW_OP_regx 0x3e]
-$C$DW$93	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
-	.dwattr $C$DW$93, DW_AT_location[DW_OP_regx 0x3f]
-$C$DW$94	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
-	.dwattr $C$DW$94, DW_AT_location[DW_OP_regx 0x40]
-$C$DW$95	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
-	.dwattr $C$DW$95, DW_AT_location[DW_OP_regx 0x41]
-$C$DW$96	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
-	.dwattr $C$DW$96, DW_AT_location[DW_OP_regx 0x42]
-$C$DW$97	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
-	.dwattr $C$DW$97, DW_AT_location[DW_OP_regx 0x43]
-$C$DW$98	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
-	.dwattr $C$DW$98, DW_AT_location[DW_OP_regx 0x44]
-$C$DW$99	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
-	.dwattr $C$DW$99, DW_AT_location[DW_OP_regx 0x45]
-$C$DW$100	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
-	.dwattr $C$DW$100, DW_AT_location[DW_OP_regx 0x46]
-$C$DW$101	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
-	.dwattr $C$DW$101, DW_AT_location[DW_OP_regx 0x47]
-$C$DW$102	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
-	.dwattr $C$DW$102, DW_AT_location[DW_OP_regx 0x48]
-$C$DW$103	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
-	.dwattr $C$DW$103, DW_AT_location[DW_OP_regx 0x49]
-$C$DW$104	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
-	.dwattr $C$DW$104, DW_AT_location[DW_OP_regx 0x4a]
-$C$DW$105	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
-	.dwattr $C$DW$105, DW_AT_location[DW_OP_regx 0x4b]
-$C$DW$106	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
-	.dwattr $C$DW$106, DW_AT_location[DW_OP_regx 0x4c]
-$C$DW$107	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
-	.dwattr $C$DW$107, DW_AT_location[DW_OP_regx 0x4d]
-$C$DW$108	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
-	.dwattr $C$DW$108, DW_AT_location[DW_OP_regx 0x4e]
-$C$DW$109	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
-	.dwattr $C$DW$109, DW_AT_location[DW_OP_regx 0x4f]
-$C$DW$110	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
-	.dwattr $C$DW$110, DW_AT_location[DW_OP_regx 0x50]
-$C$DW$111	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
-	.dwattr $C$DW$111, DW_AT_location[DW_OP_regx 0x51]
-$C$DW$112	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
-	.dwattr $C$DW$112, DW_AT_location[DW_OP_regx 0x52]
-$C$DW$113	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
-	.dwattr $C$DW$113, DW_AT_location[DW_OP_regx 0x53]
-$C$DW$114	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
-	.dwattr $C$DW$114, DW_AT_location[DW_OP_regx 0x54]
-$C$DW$115	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
-	.dwattr $C$DW$115, DW_AT_location[DW_OP_regx 0x55]
-$C$DW$116	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
-	.dwattr $C$DW$116, DW_AT_location[DW_OP_regx 0x56]
-$C$DW$117	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
-	.dwattr $C$DW$117, DW_AT_location[DW_OP_regx 0x57]
-$C$DW$118	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
-	.dwattr $C$DW$118, DW_AT_location[DW_OP_regx 0x58]
-$C$DW$119	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
-	.dwattr $C$DW$119, DW_AT_location[DW_OP_regx 0x59]
-$C$DW$120	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
-	.dwattr $C$DW$120, DW_AT_location[DW_OP_regx 0x5a]
-$C$DW$121	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
-	.dwattr $C$DW$121, DW_AT_location[DW_OP_regx 0x5b]
+$C$DW$18	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+	.dwattr $C$DW$18, DW_AT_location[DW_OP_reg0]
+$C$DW$19	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+	.dwattr $C$DW$19, DW_AT_location[DW_OP_reg1]
+$C$DW$20	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+	.dwattr $C$DW$20, DW_AT_location[DW_OP_reg2]
+$C$DW$21	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+	.dwattr $C$DW$21, DW_AT_location[DW_OP_reg3]
+$C$DW$22	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+	.dwattr $C$DW$22, DW_AT_location[DW_OP_reg4]
+$C$DW$23	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+	.dwattr $C$DW$23, DW_AT_location[DW_OP_reg5]
+$C$DW$24	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+	.dwattr $C$DW$24, DW_AT_location[DW_OP_reg6]
+$C$DW$25	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+	.dwattr $C$DW$25, DW_AT_location[DW_OP_reg7]
+$C$DW$26	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+	.dwattr $C$DW$26, DW_AT_location[DW_OP_reg8]
+$C$DW$27	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+	.dwattr $C$DW$27, DW_AT_location[DW_OP_reg9]
+$C$DW$28	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+	.dwattr $C$DW$28, DW_AT_location[DW_OP_reg10]
+$C$DW$29	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+	.dwattr $C$DW$29, DW_AT_location[DW_OP_reg11]
+$C$DW$30	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+	.dwattr $C$DW$30, DW_AT_location[DW_OP_reg12]
+$C$DW$31	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+	.dwattr $C$DW$31, DW_AT_location[DW_OP_reg13]
+$C$DW$32	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+	.dwattr $C$DW$32, DW_AT_location[DW_OP_reg14]
+$C$DW$33	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+	.dwattr $C$DW$33, DW_AT_location[DW_OP_reg15]
+$C$DW$34	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+	.dwattr $C$DW$34, DW_AT_location[DW_OP_reg16]
+$C$DW$35	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+	.dwattr $C$DW$35, DW_AT_location[DW_OP_reg17]
+$C$DW$36	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+	.dwattr $C$DW$36, DW_AT_location[DW_OP_reg18]
+$C$DW$37	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+	.dwattr $C$DW$37, DW_AT_location[DW_OP_reg19]
+$C$DW$38	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+	.dwattr $C$DW$38, DW_AT_location[DW_OP_reg20]
+$C$DW$39	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+	.dwattr $C$DW$39, DW_AT_location[DW_OP_reg21]
+$C$DW$40	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+	.dwattr $C$DW$40, DW_AT_location[DW_OP_reg22]
+$C$DW$41	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+	.dwattr $C$DW$41, DW_AT_location[DW_OP_reg23]
+$C$DW$42	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+	.dwattr $C$DW$42, DW_AT_location[DW_OP_reg24]
+$C$DW$43	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+	.dwattr $C$DW$43, DW_AT_location[DW_OP_reg25]
+$C$DW$44	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+	.dwattr $C$DW$44, DW_AT_location[DW_OP_reg26]
+$C$DW$45	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+	.dwattr $C$DW$45, DW_AT_location[DW_OP_reg27]
+$C$DW$46	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+	.dwattr $C$DW$46, DW_AT_location[DW_OP_reg28]
+$C$DW$47	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+	.dwattr $C$DW$47, DW_AT_location[DW_OP_reg29]
+$C$DW$48	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+	.dwattr $C$DW$48, DW_AT_location[DW_OP_reg30]
+$C$DW$49	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+	.dwattr $C$DW$49, DW_AT_location[DW_OP_reg31]
+$C$DW$50	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+	.dwattr $C$DW$50, DW_AT_location[DW_OP_regx 0x20]
+$C$DW$51	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+	.dwattr $C$DW$51, DW_AT_location[DW_OP_regx 0x21]
+$C$DW$52	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+	.dwattr $C$DW$52, DW_AT_location[DW_OP_regx 0x22]
+$C$DW$53	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+	.dwattr $C$DW$53, DW_AT_location[DW_OP_regx 0x23]
+$C$DW$54	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+	.dwattr $C$DW$54, DW_AT_location[DW_OP_regx 0x24]
+$C$DW$55	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+	.dwattr $C$DW$55, DW_AT_location[DW_OP_regx 0x25]
+$C$DW$56	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+	.dwattr $C$DW$56, DW_AT_location[DW_OP_regx 0x26]
+$C$DW$57	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+	.dwattr $C$DW$57, DW_AT_location[DW_OP_regx 0x27]
+$C$DW$58	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+	.dwattr $C$DW$58, DW_AT_location[DW_OP_regx 0x28]
+$C$DW$59	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+	.dwattr $C$DW$59, DW_AT_location[DW_OP_regx 0x29]
+$C$DW$60	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+	.dwattr $C$DW$60, DW_AT_location[DW_OP_regx 0x2a]
+$C$DW$61	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+	.dwattr $C$DW$61, DW_AT_location[DW_OP_regx 0x2b]
+$C$DW$62	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+	.dwattr $C$DW$62, DW_AT_location[DW_OP_regx 0x2c]
+$C$DW$63	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+	.dwattr $C$DW$63, DW_AT_location[DW_OP_regx 0x2d]
+$C$DW$64	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+	.dwattr $C$DW$64, DW_AT_location[DW_OP_regx 0x2e]
+$C$DW$65	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+	.dwattr $C$DW$65, DW_AT_location[DW_OP_regx 0x2f]
+$C$DW$66	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+	.dwattr $C$DW$66, DW_AT_location[DW_OP_regx 0x30]
+$C$DW$67	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+	.dwattr $C$DW$67, DW_AT_location[DW_OP_regx 0x31]
+$C$DW$68	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+	.dwattr $C$DW$68, DW_AT_location[DW_OP_regx 0x32]
+$C$DW$69	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+	.dwattr $C$DW$69, DW_AT_location[DW_OP_regx 0x33]
+$C$DW$70	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+	.dwattr $C$DW$70, DW_AT_location[DW_OP_regx 0x34]
+$C$DW$71	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+	.dwattr $C$DW$71, DW_AT_location[DW_OP_regx 0x35]
+$C$DW$72	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+	.dwattr $C$DW$72, DW_AT_location[DW_OP_regx 0x36]
+$C$DW$73	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+	.dwattr $C$DW$73, DW_AT_location[DW_OP_regx 0x37]
+$C$DW$74	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+	.dwattr $C$DW$74, DW_AT_location[DW_OP_regx 0x38]
+$C$DW$75	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+	.dwattr $C$DW$75, DW_AT_location[DW_OP_regx 0x39]
+$C$DW$76	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+	.dwattr $C$DW$76, DW_AT_location[DW_OP_regx 0x3a]
+$C$DW$77	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+	.dwattr $C$DW$77, DW_AT_location[DW_OP_regx 0x3b]
+$C$DW$78	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+	.dwattr $C$DW$78, DW_AT_location[DW_OP_regx 0x3c]
+$C$DW$79	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+	.dwattr $C$DW$79, DW_AT_location[DW_OP_regx 0x3d]
+$C$DW$80	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+	.dwattr $C$DW$80, DW_AT_location[DW_OP_regx 0x3e]
+$C$DW$81	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+	.dwattr $C$DW$81, DW_AT_location[DW_OP_regx 0x3f]
+$C$DW$82	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+	.dwattr $C$DW$82, DW_AT_location[DW_OP_regx 0x40]
+$C$DW$83	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+	.dwattr $C$DW$83, DW_AT_location[DW_OP_regx 0x41]
+$C$DW$84	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+	.dwattr $C$DW$84, DW_AT_location[DW_OP_regx 0x42]
+$C$DW$85	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+	.dwattr $C$DW$85, DW_AT_location[DW_OP_regx 0x43]
+$C$DW$86	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+	.dwattr $C$DW$86, DW_AT_location[DW_OP_regx 0x44]
+$C$DW$87	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+	.dwattr $C$DW$87, DW_AT_location[DW_OP_regx 0x45]
+$C$DW$88	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+	.dwattr $C$DW$88, DW_AT_location[DW_OP_regx 0x46]
+$C$DW$89	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+	.dwattr $C$DW$89, DW_AT_location[DW_OP_regx 0x47]
+$C$DW$90	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+	.dwattr $C$DW$90, DW_AT_location[DW_OP_regx 0x48]
+$C$DW$91	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+	.dwattr $C$DW$91, DW_AT_location[DW_OP_regx 0x49]
+$C$DW$92	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+	.dwattr $C$DW$92, DW_AT_location[DW_OP_regx 0x4a]
+$C$DW$93	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+	.dwattr $C$DW$93, DW_AT_location[DW_OP_regx 0x4b]
+$C$DW$94	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+	.dwattr $C$DW$94, DW_AT_location[DW_OP_regx 0x4c]
+$C$DW$95	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+	.dwattr $C$DW$95, DW_AT_location[DW_OP_regx 0x4d]
+$C$DW$96	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+	.dwattr $C$DW$96, DW_AT_location[DW_OP_regx 0x4e]
+$C$DW$97	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+	.dwattr $C$DW$97, DW_AT_location[DW_OP_regx 0x4f]
+$C$DW$98	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+	.dwattr $C$DW$98, DW_AT_location[DW_OP_regx 0x50]
+$C$DW$99	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+	.dwattr $C$DW$99, DW_AT_location[DW_OP_regx 0x51]
+$C$DW$100	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+	.dwattr $C$DW$100, DW_AT_location[DW_OP_regx 0x52]
+$C$DW$101	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+	.dwattr $C$DW$101, DW_AT_location[DW_OP_regx 0x53]
+$C$DW$102	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+	.dwattr $C$DW$102, DW_AT_location[DW_OP_regx 0x54]
+$C$DW$103	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+	.dwattr $C$DW$103, DW_AT_location[DW_OP_regx 0x55]
+$C$DW$104	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+	.dwattr $C$DW$104, DW_AT_location[DW_OP_regx 0x56]
+$C$DW$105	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+	.dwattr $C$DW$105, DW_AT_location[DW_OP_regx 0x57]
+$C$DW$106	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+	.dwattr $C$DW$106, DW_AT_location[DW_OP_regx 0x58]
+$C$DW$107	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+	.dwattr $C$DW$107, DW_AT_location[DW_OP_regx 0x59]
+$C$DW$108	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+	.dwattr $C$DW$108, DW_AT_location[DW_OP_regx 0x5a]
+$C$DW$109	.dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+	.dwattr $C$DW$109, DW_AT_location[DW_OP_regx 0x5b]
 	.dwendtag $C$DW$CU
 

@@ -347,6 +347,8 @@ int t_run_test( size_t iterations, int argc, const char* argv[] )
     }
 #endif
 
+
+
    report_results( &results, EXPECTED_CRC, ITERATIONS );
    return SUCCESS;
  }

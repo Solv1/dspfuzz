@@ -1,10 +1,10 @@
 import mutator
-import time
 import subprocess
 import math
 import argparse
 import os
 import insturmentor
+import timeit
 
 
 SIM = False
@@ -67,13 +67,15 @@ def seed_generator(filename):
     """ Handles generating new seed files to be used in test cases.
         filename: The name of the seed file that will be mutated.
     """
-    # if(mutator.random_mutate("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
-    #     print("File not found please try again")
-    #     exit(-1)
-    if(mutator.random_one_input("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
+    if(mutator.random_mutate("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
         print("File not found please try again")
         exit(-1)
-    subprocess.run(('cp ./seeds/'+ filename + " ./test/"), shell=True)
+    subprocess.run(('cp ./seeds/'+ filename + " ./test_bench/"), shell=True)
+    # if(mutator.random_one_input("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
+    #     print("File not found please try again")
+    #     exit(-1)
+    # # subprocess.run(('cp ./seeds/'+ filename + " ./test/"), shell=True)
+        
     #TODO:Add a check here
     #print("File Copy complete.")
 
@@ -112,7 +114,7 @@ def load_and_run():
         Loads and runs the test case on either hardware or simulator
     """
     #print('Running main test...')
-    subprocess.call('cp ./test/main.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
+    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
     if(SIM):
         subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ; cmd.exe /c dss.bat sim_load.js', shell=True, stdout=subprocess.DEVNULL)
     elif(BOARD):
@@ -178,19 +180,19 @@ def _write_coverage_results():
 
 
 def main():
-    start_time = time.time()
     iterations = 1
-    filename = 'input.dat'
+    # filename = 'input.dat'
+    filename = 'xsinei.dat'
     # asm_file = './test/main.asm'
-    asm_file = './test/main.asm'
+    asm_file = './test_bench/bmark.asm'
    # setup()
-    
+    start = timeit.default_timer()
     compile_test()
     global_coverage = insturmentation(asm_file)
     seed_generator(filename)
     link_test()
     #TODO: Only do function detection once on each test file.
-    for iterations in range(0,200):
+    for iterations in range(0,10):
         #splash_screen(runtime=math.floor((time.time() - start_time)),iterations=iterations)
         
         #t1 = time.time()
@@ -217,8 +219,9 @@ def main():
         #print(run)
         #results = code_coverage_calc(trace, run)
         #print(results)
-    
+    stop = timeit.default_timer()
 
+    print('Time: ', stop - start + "s")  
 
 if __name__ == "__main__":
     main()

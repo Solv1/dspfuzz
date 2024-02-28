@@ -25,9 +25,10 @@ def _results_helper(results):
     coverage_array = string[1].replace('\n', '')
     coverage_array_redux = coverage_array.split(',')
     #coverage_array = map(int, coverage_array_redux)
-    print(coverage_array_redux)
+    #print(coverage_array_redux)
 
     return coverage_array_redux
+
 
 def calc_time(time):
     days = 0
@@ -42,6 +43,7 @@ def calc_time(time):
         hours = hours - days * 24
 
     return """{:02d}d {:02d}h {:02d}m {:02d}s""".format(days, hours, minutes, seconds)
+
 
 def splash_screen(runtime, iterations):
     os.system('cls||clear')
@@ -59,12 +61,8 @@ def splash_screen(runtime, iterations):
     print(string)
     print(string2)
 
-def setup():
-    """ 
-        Manages the building of nessciary tools on start up.
-    """
-    subprocess.Popen('make mutator', shell=True, stdout=subprocess.DEVNULL)
-#TODO: Add some way to buffer test cases before loading them onto the board
+    
+
 def seed_generator(filename):
     """ Handles generating new seed files to be used in test cases.
         filename: The name of the seed file that will be mutated.
@@ -79,9 +77,11 @@ def seed_generator(filename):
     #TODO:Add a check here
     #print("File Copy complete.")
 
+
 def insturmentation(asm_file):
     coverage = insturmentor.main(asm_file)
     return coverage
+
 
 def compile_test():
     """
@@ -90,11 +90,23 @@ def compile_test():
     #TODO: NEEDS PROPER SETUP FOR TEST CASE COMP
     subprocess.call('cd ./test/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST COMPILED")
-    
+
+
 def link_test():
-    subprocess.call('cd ./test/; make asm; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.call('cd ./test/; make asm; cd ..',shell=True,stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST LINKED")
     
+def re_insturmentation(breakpoints, asm_file, global_coverage):
+
+    compile_test()
+    #print(breakpoints)    
+    new_coverage = insturmentor.refresh_breakpoints(breakpoints, global_coverage)
+    #print(new_coverage)
+    insturmentor.re_insturment(asm_file, new_coverage)
+    return new_coverage
+
+
+
 def load_and_run():
     """
         Loads and runs the test case on either hardware or simulator
@@ -105,23 +117,20 @@ def load_and_run():
         subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ; cmd.exe /c dss.bat sim_load.js', shell=True, stdout=subprocess.DEVNULL)
     elif(BOARD):
         branch_string = 'cmd.exe /c dss.bat Breakpoints.js'
-        #print(branch_string)
         #Try Check_Output to screen grab output
         results = subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ;' + branch_string , shell=True, capture_output=True, text=True)
     else:
         print('Error please make sure to select a arch type to run the tests.')
     #TODO: Add Check Here....
-    #print(results.stdout)
+    
     
     results = _results_helper(results.stdout)
+    #print(results)
+
 
     return results
 
-def code_coverage_calc(coverage_map, run_result):
-    for identifier in run_result:
-        if identifier in coverage_map:
-            coverage_map[identifier][1] += 1
-    return coverage_map
+
 
 def set_edges(run_result):
     coverage = []
@@ -137,9 +146,14 @@ def set_edges(run_result):
     # This maintains path which we dont care about
     #print(coverage)
     # This is the coverage based on the current edges Note: they are not in order 
-    print("Test Result:" + str(coverage_set))
+    #print("Test Result:" + str(coverage_set))
     return coverage_set
+
+
 def check_increasing(run_edges):
+    """
+    Checks to see there is increasing coverage in the test case.
+    """
     global edges
     check = run_edges.difference(edges)
     if not check:
@@ -147,13 +161,11 @@ def check_increasing(run_edges):
         return False
     else:
         print("LOG: Coverage Increasing Test Case Noted:  ")
-        print(check)
+        #print(check)
         edges = edges.union(run_edges)
         return True
 
 
-# def coverage_track(tuples):
-#     if tuple in c 
 
 def _write_coverage_results():
     global edges
@@ -173,13 +185,14 @@ def main():
     asm_file = './test/main.asm'
    # setup()
     
+    compile_test()
+    global_coverage = insturmentation(asm_file)
+    seed_generator(filename)
+    link_test()
     #TODO: Only do function detection once on each test file.
-    for iterations in range(0,10000):
+    for iterations in range(0,200):
         #splash_screen(runtime=math.floor((time.time() - start_time)),iterations=iterations)
-        seed_generator(filename)
-        compile_test()
-        trace = insturmentation(asm_file)
-        link_test()
+        
         #t1 = time.time()
         run = load_and_run()
         #t2 = time.time()
@@ -187,7 +200,17 @@ def main():
         current_edges = set_edges(run)
         isIncreasing = check_increasing(current_edges)
         if isIncreasing:
-            _write_coverage_results()
+            seed_generator(filename)
+            global_coverage = re_insturmentation(run, asm_file, global_coverage)
+            link_test()
+        else:
+            ## Need to use global coverage information to reinsturment the file even if new
+            # coverage isnt found
+            run = None
+            seed_generator(filename)
+            re_insturmentation(run,asm_file, global_coverage)
+            link_test()
+            #_write_coverage_results()
         
 
         

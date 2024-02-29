@@ -5,7 +5,7 @@ import math
 import argparse
 import os
 import insturmentor
-
+import timeit
 
 SIM = False
 BOARD = True
@@ -25,7 +25,7 @@ def _results_helper(results):
     coverage_array = string[1].replace('\n', '')
     coverage_array_redux = coverage_array.split(',')
     #coverage_array = map(int, coverage_array_redux)
-    print(coverage_array_redux)
+    #print(coverage_array_redux)
 
     return coverage_array_redux
 
@@ -88,11 +88,11 @@ def compile_test():
         Handles compiling the appropriate test based on the data file.
     """
     #TODO: NEEDS PROPER SETUP FOR TEST CASE COMP
-    subprocess.call('cd ./test/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.call('cd ./test_bench/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST COMPILED")
     
 def link_test():
-    subprocess.call('cd ./test/; make asm; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.call('cd ./test_bench/; make asm; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST LINKED")
     
 def load_and_run():
@@ -100,7 +100,7 @@ def load_and_run():
         Loads and runs the test case on either hardware or simulator
     """
     #print('Running main test...')
-    subprocess.call('cp ./test/main.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
+    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
     if(SIM):
         subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ; cmd.exe /c dss.bat sim_load.js', shell=True, stdout=subprocess.DEVNULL)
     elif(BOARD):
@@ -147,7 +147,7 @@ def check_increasing(run_edges):
         return False
     else:
         print("LOG: Coverage Increasing Test Case Noted:  ")
-        print(check)
+        #print(check)
         edges = edges.union(run_edges)
         return True
 
@@ -168,13 +168,14 @@ def _write_coverage_results():
 def main():
     start_time = time.time()
     iterations = 1
-    filename = 'input.dat'
+    filename = 'xsinei.dat'
     # asm_file = './test/main.asm'
-    asm_file = './test/main.asm'
+    asm_file = './test_bench/bmark.asm'
    # setup()
     
     #TODO: Only do function detection once on each test file.
-    for iterations in range(0,10000):
+    start = time.time()
+    for iterations in range(0,100):
         #splash_screen(runtime=math.floor((time.time() - start_time)),iterations=iterations)
         seed_generator(filename)
         compile_test()
@@ -187,9 +188,13 @@ def main():
         current_edges = set_edges(run)
         isIncreasing = check_increasing(current_edges)
         if isIncreasing:
-            _write_coverage_results()
+            pass
+            # _write_coverage_results()
         
 
+    stop = time.time()
+
+    print('Time: ' + str(stop - start) +"s")
         
         #print(run)
         #results = code_coverage_calc(trace, run)

@@ -198,7 +198,7 @@ def main(filename):
     insturmented_asm = insturment(trace, lines)
     file.close()
     coverage = coverage_formater()
-    _write_file(insturmented_asm, './test/main')
+    _write_file(insturmented_asm, './test_bench/bmark')
     return(coverage)
 
 

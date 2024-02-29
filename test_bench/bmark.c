@@ -45,7 +45,7 @@ int    t_run_test( size_t iterations, int argc, const char* argv[] );
 #if CRC_CHECK
 #define ITERATIONS 5000	/* required iterations for crc */
 #else
-#define ITERATIONS 2	/* recommended iterations for benchmark */
+#define ITERATIONS 5000	/* recommended iterations for benchmark */
 #endif
 #endif
 

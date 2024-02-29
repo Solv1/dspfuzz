@@ -60,7 +60,7 @@ def random_mutate(filename):
                 random_num = random.randint(-2**31, 2**31)
 
                 number_str = f"     {random_num},\n"
-                print(f"Adding: {number_str}")
+                #print(f"Adding: {number_str}")
 
                 # Write the string to the file
                 fp.write(bytes(number_str, 'utf-8'))

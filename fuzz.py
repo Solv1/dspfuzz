@@ -69,13 +69,13 @@ def seed_generator(filename):
     """ Handles generating new seed files to be used in test cases.
         filename: The name of the seed file that will be mutated.
     """
-    # if(mutator.random_mutate("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
-    #     print("File not found please try again")
-    #     exit(-1)
-    if(mutator.random_one_input("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
+    if(mutator.random_mutate("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
         print("File not found please try again")
         exit(-1)
-    subprocess.run(('cp ./seeds/'+ filename + " ./test/"), shell=True)
+    # if(mutator.random_one_input("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
+    #     print("File not found please try again")
+    #     exit(-1)
+    subprocess.run(('cp ./seeds/'+ filename + " ./test_bench/"), shell=True)
     #TODO:Add a check here
     #print("File Copy complete.")
 

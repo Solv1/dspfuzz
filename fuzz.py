@@ -90,12 +90,12 @@ def compile_test():
         Handles compiling the appropriate test based on the data file.
     """
     #TODO: NEEDS PROPER SETUP FOR TEST CASE COMP
-    subprocess.call('cd ./test/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.call('cd ./test_bench/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST COMPILED")
 
 
 def link_test():
-    subprocess.call('cd ./test/; make asm; cd ..',shell=True,stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.call('cd ./test_bench/; make asm; cd ..',shell=True,stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST LINKED")
     
 def re_insturmentation(breakpoints, asm_file, global_coverage):
@@ -221,7 +221,7 @@ def main():
         #print(results)
     stop = timeit.default_timer()
 
-    print('Time: ', stop - start + "s")  
+    print('Time: ', str(stop - start) + "s")  
 
 if __name__ == "__main__":
     main()

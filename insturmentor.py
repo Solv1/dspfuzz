@@ -187,7 +187,7 @@ def refresh_breakpoints(removal_breakpoints, coverage):
             con_point = int(point)
             if con_point in coverage.keys():
                 coverage[con_point][4] = False
-    print(coverage)
+    #print(coverage)
     return coverage
 
 def _line_helper(coverage):

@@ -1,0 +1,4 @@
+"./fuzz.obj"
+"../55xConvolve2.cmd"
+-l"C:/Users/garci/OneDrive/Desktop/Projects/Research/TI Files/ChipSupportLibaries/55xdspx_r3.lib"
+-llibc.a

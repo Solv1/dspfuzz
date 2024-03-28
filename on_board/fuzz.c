@@ -8,13 +8,13 @@
 
 //#define NO_LOGGING
 
-#define TIMEOUT 1000 /*Timeout is in milliseconds*/
+#define TIMEOUT 5000 /*Timeout is in milliseconds*/
 
 /*---------------------Fuzzer Defines---------------------*/
 
 #define RANDOM 5
 #define SEED_CAPACITY 10
-#define MAX_COVERAGE 4095
+#define MAX_COVERAGE 16411 /*14 bits 2 entries per function = 32822 entries*/
 #define STORAGE_MAX 50
 #define CRASH 0x01       /* Fuzzer */
 #define HANG 0x02        /*        */
@@ -33,6 +33,8 @@ uint16_t  crash_iterator = 0;
 
 uint16_t hang_buffer[STORAGE_MAX] = {0};
 uint16_t hang_iterator = 0;
+
+uint32_t sut_start_address = 0;
 
 volatile bool    isHang = false;
 volatile bool isIncreasing = false;
@@ -181,6 +183,8 @@ int16_t setup(){
     memset(hang_buffer, 0, sizeof(hang_buffer));
     memset(crash_buffer, 0, sizeof(crash_buffer));
 
+    sut_start_address = (uint32_t)&intial_fuzz; /*Finds the offset in memory of the start of our sut */
+
     if (coverage_map == NULL || hang_buffer == NULL || crash_buffer == NULL){
 #ifdef NO_LOGGING
         printf("ERROR: Coverage map init failed \n");
@@ -213,6 +217,34 @@ int16_t mutator(uint8_t type){
     return 0;
 }
 
+void track_coverage(uint32_t raw_value)
+/*************************************************************************
+ * @brief coverage_hash: Takes a 24-bit address and indicates coverage in coverage map
+ * @param raw_value: raw 24-bit value to be hashed
+ * @return NONE
+*************************************************************************/
+{
+    /* How the coverage map is in memory (uint16_t) (00000000|00000000) */
+    /*                                               0x402    0x403     */
+    uint16_t index = 0;
+    uint16_t byte_index = 0;
+
+    raw_value = raw_value - sut_start_address; /*Minus start address from the current address to hopefully reduce collisions. */
+
+    index = (uint16_t)(raw_value % (MAX_COVERAGE*2)); /*Simple MOD hash * 2 because we are addressing in 2 byte chunks*/
+
+    index = index >> 1; /* divide by 2 in order to get hash map index */
+
+    byte_index = (raw_value >> 1) % 2; /*Which half of 2 byte we will use */
+
+    if (byte_index){ /*Using high byte */
+        coverage_map[index] |= 0x100;
+    }
+    else{ /* Using low byte */
+        coverage_map[index] |= 0x1;
+    }
+
+}
 
 void coverage_log(){
 /*******************************************************
@@ -221,10 +253,9 @@ void coverage_log(){
  * @param None
  * @return None
  *******************************************************/
-    uint16_t hash_result = 0;
     uint32_t call_address = 0;
     uint32_t  return_address = 0;           /* Addresses are 24-bits */
-    asm("\tMOV RETA, dbl(*SP(#06h)) ;");
+    asm("\tMOV RETA, dbl(*SP(#02h)) ;");
 
 
     asm("\tPSH T2 ;" );                     /*Save register context here (Table 6-2 SPRU281F)*/
@@ -234,26 +265,17 @@ void coverage_log(){
     asm("\tPSHBOTH XAR7 ;");
     asm("\tAADD #5, SP ;");                 /*Stack State Restored after pushing register context */
 
-
-
                                             /*Calculates where in memory the CALL is*/
     call_address = (return_address - 4);    /* 4 = Size of the CALL instruction*/
     call_address = call_address >> 1;       /*Because data memory is in 2 byte chunks and program memory is addressed in 1 byte chunks*/
     memset((uint32_t*)call_address,0x2020, 2);
-
 
 #ifdef NO_LOGGING
     printf("LOG: Current Function Tracking: %d\n\0",current_function);
     printf("LOG: Coverage is at : %p\n\0", program_counter);
 #endif
 
-    hash_result = return_address % 0xFFF >> 1; /*Magic Hash to store coverage data can handle 4096 entries...*/
-
-    if (coverage_map[hash_result] == 1){
-        printf("ERROR: Collision Detected in the hash map\n");
-    }
-
-    coverage_map[hash_result]++;
+    track_coverage((uint32_t)return_address);
 
     asm("\tAADD #-5, SP ;");                /*Pops saved register state back before returning to the function*/
     asm("\tPOPBOTH XAR7 ;");
@@ -261,6 +283,8 @@ void coverage_log(){
     asm("\tPOPBOTH XAR5 ;");
     asm("\tPOP T3 ;");
     asm("\tPOP T2 ;");
+
+    isIncreasing = true; /*If we go into this function that means that this branch is undiscovered :)*/
 
 }
 
@@ -294,6 +318,7 @@ void handle_results(uint16_t sid, uint16_t flag)
 }
 
 
+
 void fuzz_loop()
 /*************************************************************************
  * @brief fuzz_loop: The main fuzzing loop.
@@ -305,7 +330,7 @@ void fuzz_loop()
     uint16_t iterations = 0;
     uint16_t i;
     int16_t result;
-//    isBufferFull = false;
+    isBufferFull = false;
 
 
     setup();
@@ -316,9 +341,9 @@ void fuzz_loop()
 
 
         for(i = 0; i < SEED_CAPACITY; i++){ /*Iterates through the seed corpus before seeing if there are interesting inputs that caused crashes or hangs*/
-//            if(isBufferFull){
-//                while(1);
-//            }
+            if(isBufferFull){
+                while(1);
+            }
 
             printf("\nLOG: Trying %d, on loop interation %d \n", seed_corpus[i].seed_input, iterations);
 
@@ -327,26 +352,32 @@ void fuzz_loop()
             start_timer(&timer_handle);
 
             if (!isHang){
+
                 result = intial_fuzz(1, &seed_corpus[i].seed_input);
                 stop_timer(&timer_handle);
+
                 if ( result == -1){ /* -1 is just a simple way to mimic a "crash" */
                     printf("LOG: Found a 'crash' with input %d \n", seed_corpus[i].seed_input);
                     handle_results(i, CRASH);
                 }
             }
             else{
+
                 stop_timer(&timer_handle);
                 printf("LOG: Hang or Stall Detected with input %d \n", seed_corpus[i].seed_input);
                 handle_results(i, HANG);
                 isHang = false;
             }
             if(isIncreasing){
-                //insturmentor();
+
                 printf("LOG: Interesting Input Increased Coverage %d \n", seed_corpus[i].seed_input);
                 handle_results(i,INCREASING);
+                isIncreasing = false;
 
                 }
+
             iterations++;
+
             }
         if((iterations % 20) == 0){
             printf("LOG: Hanged inputs ");

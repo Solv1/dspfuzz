@@ -30,10 +30,10 @@ MEMORY
         SARAM9 (RWX)  : origin = 0034000h, length = 0004000h
         SARAM10 : origin = 0038000h, length = 0004000h
         SARAM11 : origin = 003c000h, length = 0004000h
-        SARAM12 : origin = 0040000h, length = 0004000h
-        SARAM13 (RWX): origin = 0044000h, length = 0004000h
-        SARAM14 : origin = 0048000h, length = 0004000h
-        SARAM15 : origin = 004c000h, length = 0004000h
+        SARAM12 : origin = 0040000h, length = 0010000h
+        //SARAM13 (RWX): origin = 0044000h, length = 000c000h /*Extend Current SARAM Location to fit coverage map*/
+        //SARAM14 : origin = 0048000h, length = 0004000h
+        //SARAM15 : origin = 004c000h, length = 0004000h
 
         CE0     : origin = 0050000h, length = 03b0000h 
         CE1     : origin = 0400000h, length = 0400000h
@@ -55,14 +55,15 @@ SECTIONS
         .sysstack: {} > DARAM0  PAGE 0 ALIGN = 4
         .sysmem  : {} > DARAM1  PAGE 0 ALIGN = 4
         .data    : {} > SARAM8  PAGE 0        /* force .data to not be on Page 0 */
-        .bss:saram  : {} > DARAM2  PAGE 0     /* must be a different on-chip block than .bss */
-        .bss:saram2 : {} > SARAM3  PAGE 0     /* must be a different on-chip block than .bss */
+        //.bss:saram  : {} > DARAM2  PAGE 0     /* must be a different on-chip block than .bss */
+        //.bss:saram2 : {} > SARAM3  PAGE 0     /* must be a different on-chip block than .bss */
         //.bss     : {} > SARAM15 PAGE 0      /* for normal testing, move .bss off of DARAM */
-        .bss    : {} > DARAM3  PAGE 0        /* for optimal timing tests, put .bss in DARAM */
+        .bss    :  {} > SARAM12        /* for optimal timing tests, put .bss in DARAM */
         .input   : {} > DARAM3  PAGE 0        /* for optimal timing tests, put .input in DARAM */
         .coeffs  : {} > DARAM0  PAGE 0        /* for optimal timing tests, put .coeffs in DARAM */
         .dbuffer : {} > DARAM1  PAGE 0        /* for optimal timing tests, put .dbuffer in DARAM */
         .const   : {} > SARAM8  PAGE 0        
         .cio     : {} > DARAM2  PAGE 0
+
         .sandbox : {test.obj} > SARAM9
 }

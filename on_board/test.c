@@ -41,7 +41,7 @@ int intial_fuzz(uint16_t argc ,uint16_t * args)
                         asm("\tNOP");
                         asm("\tCALL _coverage_log ;");
 
-                        if(h + j + k > 400){
+                       if(h + j + k > 400){
                             asm("\tNOP");
                             asm("\tCALL _coverage_log ;");
 

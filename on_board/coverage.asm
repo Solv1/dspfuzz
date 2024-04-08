@@ -33,8 +33,9 @@ _coverage_log:
 
 ;	AND #0x02000, T0;
 	BCC even, T0 == #0 					;Mod is odd
+odd:
 		MOV AR1, low_byte(*AR0);
-		MOV AR1, high_byte(*AR0);
+		;MOV AR1, high_byte(*AR0);
 		ADD #1, AR0;
 		MOV AR1, high_byte(*AR0);
 		MOV AR1, low_byte(*AR0);
@@ -51,7 +52,7 @@ even:
 		MOV AR1, high_byte(*AR0);
 		ADD #1, AR0;
 		;MOV AR1, low_byte(*AR0);
-		MOV AR1, high_byte(*AR0);
+		;MOV AR1, high_byte(*AR0);
 
 finish:
 	MOV dbl(*SP(#00h)), AC0;    	;Return address for hashing function.

@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
 	int random_num = 0;
 
 	for(int i = 0; i < lines; i++){
-    		random_num = rand()%1000;
+    		random_num = rand();
 
     		if((sprintf(number_buf,"     %d,\n", random_num)) < 0){
         	printf("Error with Random Number Generation\n");
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
     		printf("Adding: %s", number_buf);
 	
 	//printf("String Length: %ld\n", strlen(number_buf));
-		//printf("Number of Elements Writen: %ld \n", fwrite(number_buf,sizeof(char), strlen(number_buf), fp));
+		printf("Number of Elements Writen: %ld \n", fwrite(number_buf,sizeof(char), strlen(number_buf), fp));
 	}
     
 

@@ -3,7 +3,7 @@
 <projectOptions>
 	<ccsVariant value="0:Eclipse-based"/>
 	<ccsVersion value="12.5.0"/>
-	<deviceVariant value="TMS320C55XX.TMS320C5515"/>
+	<deviceVariant value="TMS320C55XX.TMS320C5515.USBSTK5515"/>
 	<deviceFamily value="C5500"/>
 	<deviceEndianness value="big"/>
 	<codegenToolVersion value="4.4.1"/>
@@ -14,5 +14,4 @@
 	<createSlaveProjects value=""/>
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate"/>
 	<filesToOpen value="main.c"/>
-	<isTargetManual value="false"/>
 </projectOptions>

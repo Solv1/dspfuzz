@@ -22,6 +22,9 @@
 
 #define SUCCESS 42
 #define FAILURE -1
+int __fuzz_log(){
+	return 0;
+}
 
 /*------------------------------------------------------------------------------
  * Clock Defines
@@ -42,7 +45,7 @@ int    t_run_test( size_t iterations, int argc, const char* argv[] );
 #if CRC_CHECK
 #define ITERATIONS 5000	/* required iterations for crc */
 #else
-#define ITERATIONS 5000	/* recommended iterations for benchmark */
+#define ITERATIONS 2	/* recommended iterations for benchmark */
 #endif
 #endif
 
@@ -146,7 +149,7 @@ static double test_buf[] = {
 
 #define MAX_DATA_SIZE 1024  /* this is the actual file size */ 
 #define OUTFILENAME "xsineiOutput.dat"
-static  short input_buf[] = {
+static  double input_buf[] = {
 #include "xsinei.dat"
 };
 static double test_buf[] = {
@@ -241,6 +244,9 @@ int t_run_test( size_t iterations, int argc, const char* argv[] )
     InputData	 = (short *)&input_buf;
     AutoCorrData = (short *)t_buf;
 	DataSize     = MAX_DATA_SIZE;  
+	if(argc < 3){
+		printf("This is a test to check for branch information. \n");
+	}
 
 	if (argc < 0)
 	{
@@ -341,6 +347,8 @@ int t_run_test( size_t iterations, int argc, const char* argv[] )
     }
 #endif
 
+
+
    report_results( &results, EXPECTED_CRC, ITERATIONS );
    return SUCCESS;
  }
@@ -353,7 +361,7 @@ int t_run_test( size_t iterations, int argc, const char* argv[] )
  * RETURNS: Any error value.
  * ---------------------------------------------------------------------------*/
 
-void main( struct TCDef** tcdef, int argc, const char* argv[] )
+int main( struct TCDef** tcdef, int argc, const char* argv[] )
 
 {
    argc=argc;
@@ -362,7 +370,6 @@ void main( struct TCDef** tcdef, int argc, const char* argv[] )
     * Point the test harness at our test defintion struction
     * Starts Benchmark.
    */
-   *tcdef = &the_tcdef;
    t_run_test(ITERATIONS, (char )argc, argv);
-   return;  
+   return 0;  
 }

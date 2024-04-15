@@ -1,4 +1,3 @@
-"./autcor00.obj"
-"./bmark.obj"
-"../55xConvolve2.cmd"
+"./main.obj"
+"../C5515.cmd"
 -llibc.a

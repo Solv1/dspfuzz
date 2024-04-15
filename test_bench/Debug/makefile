@@ -2,23 +2,24 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
+SHELL = /bin/sh
 
-CG_TOOL_ROOT := C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1
+CG_TOOL_ROOT := /home/santiago/ti/55x_Tools/bin
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./main.obj" \
-"../C5515.cmd" \
+"./autcor00.obj" \
+"./bmark.obj" \
+"../55xConvolve2.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
 
 -include ../makefile.init
 
-RM := DEL /F
-RMDIR := RMDIR /S/Q
+RM := rm 
+RMDIR := rm -r
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -120,30 +121,29 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-Intial_Fuzz.out \
+TeleBench_autcor.out \
 
 EXE_OUTPUTS__QUOTED += \
-"Intial_Fuzz.out" \
+"TeleBench_autcor.out" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "Intial_Fuzz.out"
+	@$(MAKE) --no-print-directory -Onone "TeleBench_autcor.out"
 
 # Tool invocations
-Intial_Fuzz.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+TeleBench_autcor.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C5500 Linker'
-	"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/bin/cl55" -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -k -z -m"Intial_Fuzz.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/include" --reread_libs --display_error_number --warn_sections --xml_link_info="Intial_Fuzz_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "Intial_Fuzz.out" $(ORDERED_OBJS)
+	"/home/santiago/ti/55x_Tools/bin/cl55" -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -z -m"TeleBench_autcor.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/include" --reread_libs --display_error_number --warn_sections --xml_link_info="TeleBench_autcor_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "TeleBench_autcor.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" 
-	-$(RM) "main.d" 
-	-$(RM) "main.asm" 
+	-$(RM) "autcor00.obj" "bmark.obj" 
+	-$(RM) "autcor00.d" "bmark.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

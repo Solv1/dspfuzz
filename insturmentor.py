@@ -14,7 +14,7 @@ from itertools import islice
 
 # Trampoline ASM - 
 # Have to save register context 
-#TODO: See if we need to push of registers to the stack for now this may work...
+#TODO: Need to add reference to fuzz_log function in the begining of the file or before each function via tracking the .global keyword
 #====================================================================
 trampoline_ti = ["\tPSH T0;\n","\tPSH T1;\n","\tPSH T2;\n","\tPSH T3;\n",
                  "\tMOV #{cov_number}, T3;\n", "\tCALL #___fuzz_log;\n",

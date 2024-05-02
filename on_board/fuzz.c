@@ -14,7 +14,7 @@
 
 #define RANDOM 5
 #define SEED_CAPACITY 10
-#define MAX_COVERAGE 16411 /*14 bits 2 entries per function = 32822 entries*/
+#define MAX_COVERAGE 16384 /*14 bits 2 entries per function = 32822 entries*/
 #define STORAGE_MAX 50
 #define CRASH 0x01       /* Fuzzer */
 #define HANG 0x02        /*        */
@@ -216,7 +216,7 @@ int16_t mutator(uint8_t type){
 
     return 0;
 }
-
++
 void track_coverage(uint32_t raw_value)
 /*************************************************************************
  * @brief coverage_hash: Takes a 24-bit address and indicates coverage in coverage map
@@ -263,7 +263,7 @@ void coverage_log(){
     asm("\tPSHBOTH XAR5 ;");
     asm("\tPSHBOTH XAR6 ;");
     asm("\tPSHBOTH XAR7 ;");
-    asm("\tAADD #5, SP ;");                 /*Stack State Restored after pushing register context */
+    asm("\tAADD #5, SP ;");                 /*Stack Pointer Restored after pushing register context */
 
                                             /*Calculates where in memory the CALL is*/
     call_address = (return_address - 4);    /* 4 = Size of the CALL instruction*/

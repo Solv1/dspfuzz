@@ -5,42 +5,64 @@
 #include "test.h"
 #include "fuzz.h"
 #include "fuzz_log.h"
+#include <stdio.h>
+#include <string.h>
+#include "imagelib.h"
+
 
 //#define NO_LOGGING
 
-#define TIMEOUT 5000 /*Timeout is in milliseconds*/
+#define TIMEOUT 10000 /*Timeout is in milliseconds*/
 
 /*---------------------Fuzzer Defines---------------------*/
 
 #define RANDOM 5
-#define SEED_CAPACITY 10
+#define NORMAL 1
+#define SEED_CAPACITY 5
 #define MAX_COVERAGE 16384 /*14 bits 2 entries per function = 32822 entries*/
-#define STORAGE_MAX 50
-#define CRASH 0x01       /* Fuzzer */
-#define HANG 0x02        /*        */
-#define INCREASING 0x04  /* Flags */
+#define STORAGE_MAX 5
+//#define CRASH 0x01       /* Fuzzer */
+#define NO_ERROR 0x00
+#define HANG 0x02
+#define BUS_ERROR 0x03
+#define DATA_LOG_ERROR 0x04        /*        */
+#define INCREASING 0x05  /* Flags */
+/*----------------------------------------------------------*/
+#define WIDTH 256 //Fixed size width for now.
+#define UINT_MAX 65535
+#define INT_MAX 32768
 
+typedef struct seed_t{
+    int16_t input[WIDTH];
+    int16_t rows;
+    int16_t cols;
+    int16_t XY[WIDTH];
+    int16_t output[WIDTH];
+    bool isInteresting;
+} seed_t;
 
-seed seed_corpus[SEED_CAPACITY];
-
-//writeover_pointers points[MAX_COVERAGE];
-
+#pragma DATA_SECTION(seed_corpus, ".data_sandbox") // Store the corpus in a sandbox away from program memory.
+seed_t seed_corpus[SEED_CAPACITY];
+uint16_t corpus_head = 0;
+uint16_t corpus_tail = 1; //This will not always be the case but for now it is. Will have to do something with user input potentailly
 
 uint16_t coverage_map[MAX_COVERAGE] = {0};
 
-uint16_t crash_buffer[STORAGE_MAX] = {0};
-uint16_t  crash_iterator = 0;
-
-uint16_t hang_buffer[STORAGE_MAX] = {0};
-uint16_t hang_iterator = 0;
-
 uint32_t sut_start_address = 0;
 
-volatile bool    isHang = false;
+uint16_t uninteresting_iterations = 0; // Will be set to 0 once a interesting input happens
+
 volatile bool isIncreasing = false;
+volatile uint16_t isError = NO_ERROR;
+
  bool isBufferFull = false;
 
-jmp_buf saved_context;
+
+ jmp_buf saved_context;
+
+void image_library_harness(); //processor define
+void seed_printf(struct seed_t * seed);
+void the_void();
 
 /*------------------------------------------------------------*/
 
@@ -48,12 +70,12 @@ jmp_buf saved_context;
 /*--------------------Interrupt Variables--------------------*/
 Uint32    cpuCycleCount = 0;
 Uint32    sysClk;
-volatile uint32_t count = 0;
+uint32_t count = 0;
 bool isTest = true;
 /*-----------------------------------------------------------*/
 
 
-interrupt void fuzzer_isr(void)
+__interrupt void fuzzer_isr(void)
 /********************************************************
  * @brief fuzzer_isr interrupt service reutine to track software stalls or hangs.
  * @param TIMEOUT: a define that sets the SUT timeout
@@ -63,13 +85,38 @@ interrupt void fuzzer_isr(void)
     IRQ_clear(TINT_EVENT);
     CSL_SYSCTRL_REGS->TIAFR = 0x01;/* Clear Timer Interrupt Aggregation Flag Register (TIAFR) */
     count++;
-    if (count % TIMEOUT == 0){
-            isHang = true;
+    if ((count % TIMEOUT) == 0){
+            isError = HANG;
             count = 0;
+            printf("\nLOG: Hit a software hang\n");
             longjmp(saved_context, true);
     }
 }
 
+__interrupt void bus_error_isr(void)
+{
+    //seed_printf(&seed_corpus[0]);
+    IRQ_clear(BERR_EVENT);
+    IRQ_clearAll(); /* Clear any pending interrupts */
+    printf("LOG: Found a bus error \n");
+    seed_printf(&seed_corpus[0]);
+    isError = BUS_ERROR; // Set the Error condition and go into a while loop waiting for a reset from the debugger.
+    the_void();
+
+}
+__interrupt void data_log_isr(void)
+{
+    IRQ_clear(DLOG_EVENT);
+    IRQ_clearAll(); // Set the Error condition and go into a while loop waiting for a reset from the debugger.
+    printf("LOG: Found a data log error \n");
+    seed_printf(&seed_corpus[0]);
+    isError = DATA_LOG_ERROR;
+    the_void();
+}
+
+void the_void(){ //The place where all bad errors go
+    while(1);
+}
 
 
 void start_timer(CSL_Handle * timer_handle){
@@ -110,11 +157,15 @@ void start_timer(CSL_Handle * timer_handle){
 
     IRQ_disableAll(); /* Disable all the interrupts */
 
-    IRQ_setVecs((Uint32)(&VECSTART));
-    IRQ_plug(TINT_EVENT, &fuzzer_isr);
+    IRQ_setVecs((Uint32)(&VECSTART));               // This section adds ISR to the interrupt vector table
+    IRQ_plug(BERR_EVENT, &bus_error_isr);           //Bus Handler ISR
+    IRQ_plug(DLOG_EVENT, &data_log_isr);            //Data Log ISR
+    IRQ_plug(TINT_EVENT, &fuzzer_isr);              //Timer ISR
+    IRQ_enable(DLOG_EVENT);
+    IRQ_enable(BERR_EVENT);
     IRQ_enable(TINT_EVENT);
 
-    hwConfig.autoLoad    = GPT_AUTO_ENABLE;
+    hwConfig.autoLoad    = GPT_AUTO_ENABLE;         // Some clock config
     hwConfig.ctrlTim     = GPT_TIMER_ENABLE;
     hwConfig.preScaleDiv = GPT_PRE_SC_DIV_1;
     hwConfig.prdLow      = (sysClk)/4;
@@ -159,256 +210,232 @@ void stop_timer(CSL_Handle * timer_handle){
     {
 #ifdef NO_LOGGING
         printf("LOG: GPT Stop Failed \n");
-        return (CSL_TEST_FAILED);
+        //return (CSL_TEST_FAILED);
     }
     else
     {
         printf("LOG: Timer Stopped Successful\n");
 #endif
     }
-
+    IRQ_globalEnable(); /* Enable CPU Interrupts */
     status = GPT_reset(*timer_handle);
 
 }
 
 
-int16_t setup(){
+int16_t setup(void * function_pointer){
 /********************************************************
  * @brief Inits fuzzer, testing random number generatation, and sets the coverage map to zero.
  * @param None
  * @return 0 on success, -1 on failure
 ********************************************************/
+    //TODO: This is where the intial seed would be pulled from somewhere.
+    memset(&coverage_map,0,sizeof(coverage_map));
+    memset(&seed_corpus, 0, sizeof(seed_t)*SEED_CAPACITY);
 
-    memset(coverage_map,0,sizeof(coverage_map));
-    memset(hang_buffer, 0, sizeof(hang_buffer));
-    memset(crash_buffer, 0, sizeof(crash_buffer));
+    sut_start_address = *((uint32_t *)function_pointer); /*Finds the offset in memory of the start of our sut */
 
-    sut_start_address = (uint32_t)&intial_fuzz; /*Finds the offset in memory of the start of our sut */
-
-    if (coverage_map == NULL || hang_buffer == NULL || crash_buffer == NULL){
+    if (coverage_map == NULL ){
 #ifdef NO_LOGGING
         printf("ERROR: Coverage map init failed \n");
 #endif
         return(-1);
     }
 
-
     return (int16_t)0;
 
 }
 
 
-int16_t mutator(uint8_t type){
+int16_t mutator(uint16_t type, struct seed_t * seed){
 /********************************************************
  * @brief Mutator: A input mutator
  * @param type: what type of mutation strategy to perform.
  * @return 0 if data successfully mutated, -1 on error
  ********************************************************/
+    //TODO: Update the mutation to acutally mutate aggressively we take it too easy.
+
+    int i;
+    //struct imglibseed * seed = &seed_corpus[0];
+    uint16_t rand_time;
+    rand_time = time(NULL);         //Use time() call because the clock is being used elsewhere.
+    srand(rand_time);
     if(type == RANDOM){
-        int i;
-        uint16_t rand_time;
-        for (i = 0; i < SEED_CAPACITY; i++){
-             rand_time = clock();
-             srand(rand_time);
-             seed_corpus[i].seed_input = (uint16_t)rand();
+
+        for (i = 0; i < WIDTH; i++){
+             //seed_corpus[i].seed_input = (uint16_t)rand();
+             seed->input[i] = (int16_t)rand();
+        }
+        seed->cols = (int16_t)rand();
+        seed->rows = (int16_t)rand();
+    }
+    else if(type == NORMAL){
+        uint16_t random_index;
+        if(uninteresting_iterations < 2){ //Be easy flip a random single bit size/4 times
+            for(i = 0; i < 4; i++){
+                random_index = rand() % (sizeof(seed->input)-1);
+                seed->input[random_index] = seed->input[random_index] ^ ( 1 << rand() % 15 ); //it needs to be at random values
+            }
+            //printf("LOG: Random Value Test %d \n", rand());
+            seed->cols = seed->cols ^ ( 1 << rand() % 15 );
+            seed->rows = seed-> rows ^ ( 1 << rand() % 15 );
+        }
+
+        else if (uninteresting_iterations > 2){ // Get aggressive flip 4 bits at a time
+            for(i = 0; i < (sizeof(seed->input)); i+=8){
+                random_index = rand() % (sizeof(seed->input)-1);
+                seed->input[random_index] = seed->input[random_index] ^ (0xF << ((rand() % 4)*4)); // it needs to be at random values
+            }
+        seed->cols = rand() % UINT_MAX;
+        seed->rows = rand() % UINT_MAX;
+        }
+        else if(uninteresting_iterations < 8){ //MORE aggressive
+
+        }
+        else if(uninteresting_iterations < 16){//MAXIMALLY AGRESSIVE
+
         }
     }
 
     return 0;
 }
-+
-void track_coverage(uint32_t raw_value)
-/*************************************************************************
- * @brief coverage_hash: Takes a 24-bit address and indicates coverage in coverage map
- * @param raw_value: raw 24-bit value to be hashed
+
+
+void seed_printf(struct seed_t * seed){
+/********************************************************
+ * @brief seed_printf: A seed printer
+ * @param type: seed struct of your choice
  * @return NONE
-*************************************************************************/
-{
-    /* How the coverage map is in memory (uint16_t) (00000000|00000000) */
-    /*                                               0x402    0x403     */
-    uint16_t index = 0;
-    uint16_t byte_index = 0;
-
-    raw_value = raw_value - sut_start_address; /*Minus start address from the current address to hopefully reduce collisions. */
-
-    index = (uint16_t)(raw_value % (MAX_COVERAGE*2)); /*Simple MOD hash * 2 because we are addressing in 2 byte chunks*/
-
-    index = index >> 1; /* divide by 2 in order to get hash map index */
-
-    byte_index = (raw_value >> 1) % 2; /*Which half of 2 byte we will use */
-
-    if (byte_index){ /*Using high byte */
-        coverage_map[index] |= 0x100;
+ ********************************************************/
+    int i;
+    //printf("--------Inputs--------\n");
+    printf("RESULTS: Input:");
+    for(i = 0; i < sizeof(seed->input); i++){
+        printf("%d",seed->input[i]);
     }
-    else{ /* Using low byte */
-        coverage_map[index] |= 0x1;
+//    printf("\nXY Matrix: ");
+//    for(i = 0; i < sizeof(seed->XY);i++){
+//            printf("%d",seed->XY[i]);
+//        }
+    printf(",Colum:%d,Row:%d\n",seed->cols,seed->rows);
+}
+
+
+int16_t corpus_queue(struct seed_t * seed){ //TODO: Implement this
+/********************************************************
+ * @brief corpus_queue: adds a seed from the corpus to the queue
+ * @param type: a pointer to the seed to add
+ * @return 0 on success -1 on failure
+ ********************************************************/
+
+    if(corpus_tail < SEED_CAPACITY){
+        seed->isInteresting = true;
+        seed_corpus[corpus_tail] = *seed;
+        corpus_tail++;
+        return 0;
+    }
+    else{
+        corpus_tail = corpus_head + 1;//Is this valid in certain cases? I dont know...
+        return 0;
+    }
+}
+
+
+int16_t corpus_dequeue(struct seed_t * seed){//Pulls next seed from the queue
+/********************************************************
+ * @brief corpus_dequeue: deqeues a seed from the corpus and returns it
+ * @param type: seed struct
+ * @return 0 on successful dequeue , -1 on error
+ ********************************************************/
+    if (seed_corpus[corpus_tail].input == NULL){
+            printf("ERROR: Seed failed to be dequeued. \n");
+            return -1;
+        }
+
+    if(corpus_head >= SEED_CAPACITY){
+        corpus_head = 0;
+    }
+    corpus_head++;
+    *seed = seed_corpus[corpus_head - 1];
+    return 0;
+}
+
+
+void prepare_intial_seed(struct seed_t * seed){//TODO: Eventially I would load a seed from some outside source via the debugger maybe? or we can link it in
+/********************************************************
+ * @brief prepare_intial_seed: Prepares a intial seed to use in mutation
+ * @param type: w
+ * @return 0 on successful dequeue , -1 on error
+ ********************************************************/
+
+    uint16_t i = 0;
+//    struct seed * seed = &seed_corpus[0];
+
+    for(i = 0; i< WIDTH; i++){
+        seed->input[i] = 0;
+        seed->output[i] = -1;
+    }
+    seed->rows = 32;
+    seed->cols = 16;
+    seed->input[0] = 15;
+    seed->input[1] = 5;
+    seed->input[2] = 10;
+    seed->input[3] = 99;
+    seed->isInteresting = false;
+}
+
+void handle_results(struct seed_t * seed){
+    if (isError == HANG){// I just dump my output to the terminal which will get caught by the debugger and logged in the python script.
+        seed_printf(seed);
+        //corpus_queue(seed);
+        isError = NO_ERROR;
+    }
+    else if(isIncreasing){
+        isIncreasing = false;
+        //corpus_queue(seed);
+    }
+    else{
+        uninteresting_iterations++;
     }
 
 }
 
-void coverage_log(){
-/*******************************************************
- * @brief coverage_log: logging function that is called from SUT instrumentation. Saves Register Context,
- * calculates where in memory the CALL _coverage_log is and then over writes it with four NOPs
- * @param None
- * @return None
- *******************************************************/
-    uint32_t call_address = 0;
-    uint32_t  return_address = 0;           /* Addresses are 24-bits */
-    asm("\tMOV RETA, dbl(*SP(#02h)) ;");
+void image_library_harness(){
 
-
-    asm("\tPSH T2 ;" );                     /*Save register context here (Table 6-2 SPRU281F)*/
-    asm("\tPSH T3 ;");
-    asm("\tPSHBOTH XAR5 ;");
-    asm("\tPSHBOTH XAR6 ;");
-    asm("\tPSHBOTH XAR7 ;");
-    asm("\tAADD #5, SP ;");                 /*Stack Pointer Restored after pushing register context */
-
-                                            /*Calculates where in memory the CALL is*/
-    call_address = (return_address - 4);    /* 4 = Size of the CALL instruction*/
-    call_address = call_address >> 1;       /*Because data memory is in 2 byte chunks and program memory is addressed in 1 byte chunks*/
-    memset((uint32_t*)call_address,0x2020, 2);
-
-#ifdef NO_LOGGING
-    printf("LOG: Current Function Tracking: %d\n\0",current_function);
-    printf("LOG: Coverage is at : %p\n\0", program_counter);
-#endif
-
-    track_coverage((uint32_t)return_address);
-
-    asm("\tAADD #-5, SP ;");                /*Pops saved register state back before returning to the function*/
-    asm("\tPOPBOTH XAR7 ;");
-    asm("\tPOPBOTH XAR6 ;");
-    asm("\tPOPBOTH XAR5 ;");
-    asm("\tPOP T3 ;");
-    asm("\tPOP T2 ;");
-
-    isIncreasing = true; /*If we go into this function that means that this branch is undiscovered :)*/
-
-}
-
-
-
-
-void handle_results(uint16_t sid, uint16_t flag)
-/*************************************************************************
- * @brief handle_results: Handles the results from the fuzzer changes the values of seeds in the
- * seed struct for storage later.
- * @param sid: 'seed id' what seed in the corpus we are acting on.
- * @return NONE
-*************************************************************************/
-{
-    if((hang_iterator > STORAGE_MAX) || (crash_iterator > STORAGE_MAX)){
-         isBufferFull = true;
-    }
-
-    if(flag == HANG){
-        hang_buffer[hang_iterator] = seed_corpus[sid].seed_input;
-        hang_iterator++;
-    }
-    else if(flag == CRASH){
-        crash_buffer[crash_iterator] = seed_corpus[sid].seed_input;
-        crash_iterator++;
-    }
-    else if(flag == INCREASING){
-        seed_corpus[sid].isIncreasing = true;
-    }
-    /*Room for more flags here*/
-}
-
-
-
-void fuzz_loop()
-/*************************************************************************
- * @brief fuzz_loop: The main fuzzing loop.
- * @param
- * @return 0 on success, -1 on failure
-*************************************************************************/
-{
+    seed_t * current_seed = &seed_corpus[0];
     CSL_Handle timer_handle;
     uint16_t iterations = 0;
-    uint16_t i;
-    int16_t result;
-    isBufferFull = false;
 
-
-    setup();
-
-    while(1)
-    {
-        mutator(RANDOM);
-
-
-        for(i = 0; i < SEED_CAPACITY; i++){ /*Iterates through the seed corpus before seeing if there are interesting inputs that caused crashes or hangs*/
-            if(isBufferFull){
-                while(1);
-            }
-
-            printf("\nLOG: Trying %d, on loop interation %d \n", seed_corpus[i].seed_input, iterations);
-
+    setup(&IMG_boundary);
+    //mutator(RANDOM, &seed); //First time init with random values. Really should have a valid input here.
+    prepare_intial_seed(current_seed); //prepare valid seed that we can mutate.
+    //printf("test \n");
+    //printf("Size of seed_corpus[0] %d \n", sizeof(seed_corpus[0]));
+    while(1){
+            printf("\nLOG: Trying, on loop interation %d \n",iterations);
             setjmp(saved_context); /*Saves context before entering the function to restore control in the case of a stall*/
+            mutator(NORMAL, current_seed);
+
+            //current_seed = corpus_dequeue();
 
             start_timer(&timer_handle);
-
-            if (!isHang){
-
-                result = intial_fuzz(1, &seed_corpus[i].seed_input);
-                stop_timer(&timer_handle);
-
-                if ( result == -1){ /* -1 is just a simple way to mimic a "crash" */
-                    printf("LOG: Found a 'crash' with input %d \n", seed_corpus[i].seed_input);
-                    handle_results(i, CRASH);
-                }
+            if (isError == NO_ERROR){
+                IMG_boundary((short *)current_seed->input, (int16_t)current_seed->rows, (int16_t)current_seed->cols, (int16_t *)current_seed->XY, (int16_t *)current_seed->output); //This is broken with weird inputs.
             }
-            else{
+            stop_timer(&timer_handle);
 
-                stop_timer(&timer_handle);
-                printf("LOG: Hang or Stall Detected with input %d \n", seed_corpus[i].seed_input);
-                handle_results(i, HANG);
-                isHang = false;
-            }
-            if(isIncreasing){
 
-                printf("LOG: Interesting Input Increased Coverage %d \n", seed_corpus[i].seed_input);
-                handle_results(i,INCREASING);
-                isIncreasing = false;
-
-                }
-
-            iterations++;
-
-            }
-        if((iterations % 20) == 0){
-            printf("LOG: Hanged inputs ");
-            for(i = 0; i < STORAGE_MAX; i++){
-                uint16_t input = hang_buffer[i];
-                if (input == 0){
-                    break;
-                }
-                else{
-                    printf("%d ",input);
-                }
-
-            }
-            printf("\nLOG: Crashed inputs ");
-            for(i = 0; i < STORAGE_MAX; i++){
-                uint16_t input = crash_buffer[i];
-                if (input == 0){
-                    break;
-                }
-                else{
-                    printf("%d ",input);
-                }
-            }
-         }
-
-   }
+           handle_results(current_seed);
+           iterations++;
+           //longjmp(saved_context, true);
+    }
 }
+
 
 int main(void){
 
-    fuzz_loop();
+    image_library_harness();
+    //fuzz_loop();
 }
 
 

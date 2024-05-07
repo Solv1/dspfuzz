@@ -16,11 +16,9 @@
 ; Copyright Texas instruments Inc, 2001
 ;****************************************************************
 
-	.ref _coverage_log;
 	.global _IMG_boundary
       .text
 _IMG_boundary:
-	CALL #_coverage_log;
 	PSH		T2						;store T2 into stack
 	PSH		T3						;store T3 into stack
 	AND		#001FFh, mmap(ST0_55)	;clear all ACOVx,TC1, TC2, C

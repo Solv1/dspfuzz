@@ -1,8 +1,7 @@
 
 #TODO LIST
 #====================================================================
-#TODO: Add the ability to insert '__fuzz_log' into the DSP firmware.
-#TODO: How are we going to get that information out.
+#
 #====================================================================
 
 import os 
@@ -10,15 +9,15 @@ import sys
 import re
 import random
 from itertools import islice
+import argparse
 
 
 # Trampoline ASM - 
 # Have to save register context 
 #TODO: Need to add reference to fuzz_log function in the begining of the file or before each function via tracking the .global keyword
 #====================================================================
-trampoline_ti = ["\tPSH T0;\n","\tPSH T1;\n","\tPSH T2;\n","\tPSH T3;\n",
-                 "\tMOV #{cov_number}, T3;\n", "\tCALL #___fuzz_log;\n",
-                 "\tPOP T3;\n","\tPOP T2;\n","\tPOP T1;\n","\tPOP T0;\n",]
+trampoline_ti = ["\tCALL #_coverage_log;\n"]
+extern_identifier = '\t.ref _coverage_log;\n'
 #====================================================================
 FUNCTION = 1
 BRANCH = 2
@@ -27,6 +26,22 @@ coverage = {}
 pre_coverage = {}
 branch_lines = set()
 function_lines = set()
+identifier_lines = set()
+
+
+
+
+# Argument Handling
+#===================================================================
+parser = argparse.ArgumentParser(
+    prog='Insturmentor.py',
+    description='insturments TI TMS320C5515 ASM code'
+)
+parser.add_argument('-f','--filename',dest='filename',action='store',
+    help='Filename for insturmention'
+)
+#===================================================================
+
 
         
 def _file_handling(filename):
@@ -35,6 +50,7 @@ def _file_handling(filename):
     file.close
     return lines
 
+
 def _call_helper(line):
     edited_line = line.replace('_','',1)
     edited_line = edited_line.replace('\n','')
@@ -42,11 +58,13 @@ def _call_helper(line):
     edited_line = edited_line.replace('#','')
     return edited_line
 
+
 def _write_file(lines, name):
     with open(name,'w+') as fp:
         for line in lines:
             fp.write(line)
     #print("All done...")
+
 
 def _function_helper(line):
     edited_line = line.replace('_','',1)
@@ -54,11 +72,13 @@ def _function_helper(line):
     edited_line = edited_line.replace('\n','')
     return edited_line
 
+
 def _label_helper(line):
     edited_line = line.replace(':','',1)
     edited_line = edited_line.replace('\n','')
     edited_line = edited_line.replace(' ','')
     return edited_line
+
 
 def _data_word_helper(line):
     split = line.split()
@@ -66,6 +86,7 @@ def _data_word_helper(line):
     edited_line = edited_line.replace('C','')
     edited_line = edited_line.replace('DW','')
     return edited_line
+
 
 def _branch_helper(line):
     """
@@ -77,189 +98,135 @@ def _branch_helper(line):
     return edited_line
 
 
-def find_coverage(file):
+def _label_ripper(requested_label, line_to_rip):
+    split_string = line_to_rip.split(requested_label)
+    #print(split_string)
+    pre_label = split_string[1].replace(' ', '')
+    label = re.split('[^a-zA-Z]', pre_label)
+    #print(label[0])
+    return label[0]
+
+def first_pass(lines):
     """
-        Loops through the given ASM file and finds branch, and function starts.
+    First pass of the insturmentor. We are tracking instruction count and look for block repeats.
     """
-    global coverage, pre_coverage, branch_lines, function_lines
+    isStarted = False
 
-    fun_count = 0
-    branc_count = 0
-    current_function = None
+    labels = [] #List of labels used in the rptbloc instruciton
 
-    for index ,line in enumerate(file,start=1):
-        if 'BCC' in line:
-            branch_label = _branch_helper(line)
-            #print(f'BCC in {current_function} branching to {branch_label} , located in Dataword {current_dataword}')
-            #Adds the line it found the branch in for further insturmentation
-            branch_lines.add(index)
-            pre_coverage[index] = [0, 'BCC '+ branch_label, BRANCH]
-            #print(index)
-            branc_count+=1
+    for index, line in enumerate(lines, start = 1):
 
-        elif re.match("_.*:",line):
-            #print("Found a function start: " + line)
-            if re.match("___fuzz_log:", line):
-                continue
-            fun_count+=1
-            current_function = _function_helper(line)
-            pre_coverage[index] = [0, current_function, FUNCTION]
-            #print(index)
+        #Found the real begining of the file
+        if not isStarted and re.match("_.*:",line):
+            #Track the line number for insturmentation later
             function_lines.add(index)
+            isStarted = True
+            continue
+        if isStarted:
+            #A local repeat block instuction have to treat this different.
+            #These instructions need a label to track where they end. We can use this to track it as well.
+            if 'rptblocal' in line:
+                labels.append(_label_ripper('rptblocal', line))
 
-                
-        elif re.match("CALL #_.*", line):
-            pre_coverage[index] = [0,_call_helper(line)]
+            elif 'RPTBLOCAL' in line:
+                labels.append(_label_ripper('RPTBLOCAL', line))
+
+            elif 'rptb' in line:
+                labels.append(_label_ripper('rptb', line))
+
+            elif 'RPTB' in line:
+                labels.append(_label_ripper('RPTB', line))
+        else:
             continue
 
-        elif re.match("^\$C\$L[0-9]+", line):
-            label = _label_helper(line)
-            #print(index)
-            pre_coverage[index] = [0, label, BRANCH]
+    #Found all Reapeat Blocks so return our found labels
+    return labels
+
+def second_pass(lines, labels):
+    #Now that we have checked for rpt blocks we can see where we need to add insturmentation
+    #We track line numbers where these instructions are and then add them to a list to be insturmented
+    print("These are the labels: ", labels)
+    inRepeatBlock = False
+    for index, pre_line in enumerate(lines, start = 1):
+        
+
+        #Make sure the line does not contain any comments that could cause issues in parsing.
+        line_comments = pre_line.split(';')
+        line = line_comments[0]
+
+        #Iterate and look for the instructions we need to add insturmentation after e.g branches and labels.
+
+        #Check if any of our labels in the line if it is then note it.
+        for label in labels:
+            if label in line and not inRepeatBlock:
+                #print(line)
+                inRepeatBlock = True
+                continue
+
+        #Condtional Branches, there are special cases which repeat blocks may have a BCC instruction.
+        if 'BCC' in line and not inRepeatBlock:
+            print(line)          
+            branch_lines.add(index)
+            #branc_count+=1
+
+        #Labels that begin with _ and end with : e.g _foo:
+        elif re.match("_.*:",line):
+            #Not going to be out of a repeat block until we see a new label
+            print(line)
+            if inRepeatBlock:
+                inRepeatBlock = False
             function_lines.add(index)
+            #fun_count+=1
         
-    # Sets need to be sorted it makes things eaiser later on.
-    branch_lines = sorted(branch_lines)
-    function_lines = sorted(function_lines)
+        #global label to add extern reference to coverage logging function
+        elif '.global' in line:
+            #print(line)
+            identifier_lines.add(index)
 
-
-    return (branch_lines, function_lines)
-
-def insturment(lines, file):
-    """
-    Adds the Trampoline notated by user.
-    """
-    global trampoline_ti, pre_coverage
-    #TODO Make Pre_coverage not global 
-    new_lines = []
-    cov_number = 0
-
-    for index, line in enumerate(file, start=1):
-        
-        if (index) in function_lines:
-            new_lines.append(line)
-            #Generate a new coverage number
-            cov_number += 1 
-            #TODO Add Check here if the number has been used before.
-            pre_coverage[index][0] = cov_number
-            for x in range(0, len(trampoline_ti)):
-                if x == 4:
-                    new_lines.append(trampoline_ti[x].format(cov_number=cov_number))
-                else:
-                    new_lines.append(trampoline_ti[x])
-            
-        elif (index+1) in branch_lines:
-            #Generate a new coverage number
-            cov_number += 1 
-            #TODO Add Check here if the number has been used before.
-            pre_coverage[(index + 1)][0] = cov_number
-            for x in range(0, len(trampoline_ti)):
-                if x == 4:
-                    new_lines.append(trampoline_ti[x].format(cov_number=cov_number))
-                else:
-                    new_lines.append(trampoline_ti[x])
-            new_lines.append(line)
-        else:
-            new_lines.append(line)
-
-    #print(pre_coverage)
-    return new_lines
-
-def coverage_formater():
-    """
-    Formats precoverage information into a global coverage structure.
-    """
-    global pre_coverage, coverage
-
-    for key in pre_coverage:
-        coverage[pre_coverage[key][0]] = [pre_coverage[key][1], 0, pre_coverage[key][2], key, True ]
-
-    #print(coverage)
-    return coverage
-
-def refresh_breakpoints(removal_breakpoints, coverage):
-    """
-    Discards Breakpoints when increasing coverage is discovered using them.
-    """
-    #print(removal_breakpoints)
-    if removal_breakpoints:
-        for point in removal_breakpoints:
-            con_point = int(point)
-            if con_point in coverage.keys():
-                coverage[con_point][4] = False
-    #print(coverage)
-    return coverage
-
-def _line_helper(coverage):
-    """
-    Uses struct labels to see rather or not coverage is a function or branch.
-    """
-    function_lines = dict()
-    branch_lines = dict()
-
-    for info in coverage:
-        if coverage[info][4]:
-            if coverage[info][2] == BRANCH:
-                branch_lines[coverage[info][3]] = info
-            elif coverage[info][2] == FUNCTION:
-                function_lines[coverage[info][3]] = info
-    
-
-    return function_lines, branch_lines
-
-def re_insturment(asm_file, new_coverage):
-    """
-    Does basically the same as the orginal insturmentation function but with a twist...
-    """
-    global trampoline_ti
+def third_pass(lines):
+    #This function takes the information gathered from previous passes and then adds insturmentation where it is needed.
 
     new_lines = []
-    with open(asm_file, 'r') as fp:
-        lines = fp.readlines()
-    result = _line_helper(new_coverage)
-    branch_lines = result[0]
-    function_lines = result[1]
+    identifierPlaced = False
 
     for index, line in enumerate(lines, start=1):
-        if index in function_lines.keys():
-            new_lines.append(line)
-            
-            cov_number = function_lines[index]
 
-            for x in range(0, len(trampoline_ti)):
-                if x == 4:
-                    new_lines.append(trampoline_ti[x].format(cov_number=cov_number))
-                else:
-                    new_lines.append(trampoline_ti[x])
-            
-        elif (index) in branch_lines.keys():
-            
-            cov_number = branch_lines[index]
-
-            for x in range(0, len(trampoline_ti)):
-                if x == 4:
-                    new_lines.append(trampoline_ti[x].format(cov_number=cov_number))
-                else:
-                    new_lines.append(trampoline_ti[x])
+        #Insert trampoline after the function label.  
+        if (index) in function_lines:
             new_lines.append(line)
+            new_lines.append(trampoline_ti[0])
+        
+        #Insert trampoline before the branch instruction.
+        elif (index) in branch_lines:
+            new_lines.append(trampoline_ti[0])
+            new_lines.append(line)
+
+        #Only need to place the extern indentifier once.
+        elif (index) in identifier_lines and not identifierPlaced:
+            new_lines.append(extern_identifier)
+            new_lines.append(line)
+            identifierPlaced = True
+
         else:
             new_lines.append(line)
-    _write_file(new_lines,asm_file)
 
+    #print(new_lines)
+    return new_lines
 
-
-def main(filename):
+def main():
     random.seed()
-    file = open(filename, 'r')
-    lines = file.readlines()
+    args = parser.parse_args()
+    filename = args.filename
+
+    with open(filename, 'r') as fp:
+        lines = fp.readlines()
     #for line in lines:
     #    print(line)
-    trace = find_coverage(lines)
-    insturmented_asm = insturment(trace, lines)
-    file.close()
-    coverage = coverage_formater()
-    _write_file(insturmented_asm, filename)
-    return(coverage)
+    labels = first_pass(lines)
+    pre_insturment = second_pass(lines, labels)
+    insturmented_lines = third_pass(lines)
+    new_filename = 'new_' + filename
+    _write_file(insturmented_lines, new_filename)
 
 
 

@@ -110,6 +110,7 @@ def re_insturmentation(breakpoints, asm_file, global_coverage):
     return new_coverage
 
 def scrape_fuzzer_log(fuzzer_output):
+    #TODO: Connect this up with fuzzer output and see what happens
     id = 0
     isHang = False
     isCrash = False

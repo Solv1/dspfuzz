@@ -1,10 +1,11 @@
-import mutator
+#import mutator
 import subprocess
 import math
 import argparse
 import os
 import insturmentor
 import timeit
+from pathlib import Path
 
 
 SIM = False
@@ -67,21 +68,21 @@ def seed_generator(filename):
     """ Handles generating new seed files to be used in test cases.
         filename: The name of the seed file that will be mutated.
     """
-    if(mutator.random_mutate("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
-        print("File not found please try again")
-        exit(-1)
-    subprocess.run(('cp ./seeds/'+ filename + " ./test_bench/"), shell=True)
-    # if(mutator.random_one_input("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
+    # if(mutator.random_mutate("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
     #     print("File not found please try again")
     #     exit(-1)
-    # # subprocess.run(('cp ./seeds/'+ filename + " ./test/"), shell=True)
+    # subprocess.run(('cp ./seeds/'+ filename + " ./test_bench/"), shell=True)
+    if(mutator.random_one_input("./seeds/"+filename) == mutator.FILE_DOES_NOT_EXIST):
+        print("File not found please try again")
+        exit(-1)
+    subprocess.run(('cp ./seeds/'+ filename + " ./test/"), shell=True)
         
     #TODO:Add a check here
     #print("File Copy complete.")
 
 
 def insturmentation(asm_file):
-    coverage = insturmentor.main(asm_file)
+    coverage = insturmentor.fuzz_insturment(asm_file)
     return coverage
 
 
@@ -89,17 +90,18 @@ def compile_test():
     """
         Handles compiling the appropriate test based on the data file.
     """
-    #TODO: NEEDS PROPER SETUP FOR TEST CASE COMP
-    subprocess.call('cd ./test_bench/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #TODO: Change for new test cases and make it more general and usable by anyone...
+    subprocess.call('cd ./test/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST COMPILED")
 
 
 def link_test():
-    subprocess.call('cd ./test_bench/; make asm; cd ..',shell=True,stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #TODO: Same as compile test make it more general and usable by any file...
+    subprocess.call('cd ./test/; make asm; cd ..',shell=True,stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST LINKED")
     
 def re_insturmentation(breakpoints, asm_file, global_coverage):
-
+    #TODO: This is old and needs to be removed.
     compile_test()
     #print(breakpoints)    
     new_coverage = insturmentor.refresh_breakpoints(breakpoints, global_coverage)
@@ -107,14 +109,53 @@ def re_insturmentation(breakpoints, asm_file, global_coverage):
     insturmentor.re_insturment(asm_file, new_coverage)
     return new_coverage
 
+def scrape_fuzzer_log(fuzzer_output):
+    #TODO: Connect this up with fuzzer output and see what happens
+    id = 0
+    isHang = False
+    isCrash = False
+    results = []
+    #TODO: Need to add granulatarity for instance 
+    crash_dir = './crashes/'
+
+    for line in fuzzer_output:
+        
+        if "hang" in line:
+            isHang = True
+            continue
+        elif "bus error" in line:
+            isCrash = True
+            continue
+        elif isHang and "RESULTS" in line:
+            fuzz_input = line.replace('RESULTS: ', '')
+            #TODO: Add mutation stratergy last used here. 
+            result = ('id:' + str(id) + ',sig:HANG' + ',strat:')
+            fp = open(os.path.join(crash_dir, result), 'w')
+            fp.write(fuzz_input)
+            fp.close
+            id +=1
+            isHang = False
+            continue
+        elif isCrash and "RESULTS" in line:
+            fuzz_input = line.replace('RESULTS: ', '')
+            result = ('id:' + str(id) + ',sig:BUSERROR' + ',strat:')
+            fp = open(os.path.join(crash_dir, result), 'w')
+            fp.write(fuzz_input)
+            fp.close
+            id +=1
+            isCrash = False
+            continue
+
+
 
 
 def load_and_run():
+    #TODO: Make this more general and provide options for this...
     """
         Loads and runs the test case on either hardware or simulator
     """
     #print('Running main test...')
-    subprocess.call('cp ./test_bench/TeleBench_autcor.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
+    subprocess.call('cp ./test/main.out /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin/test.out', shell=True)
     if(SIM):
         subprocess.run('cd /mnt/c/ti/ccsv5/ccsv5/ccs_base/scripting/bin ; cmd.exe /c dss.bat sim_load.js', shell=True, stdout=subprocess.DEVNULL)
     elif(BOARD):
@@ -135,6 +176,7 @@ def load_and_run():
 
 
 def set_edges(run_result):
+    #TODO: This is also old 
     coverage = []
     coverage_set = set()
     list_length = len(run_result)
@@ -153,6 +195,7 @@ def set_edges(run_result):
 
 
 def check_increasing(run_edges):
+    #TODO: This is old 
     """
     Checks to see there is increasing coverage in the test case.
     """
@@ -182,46 +225,56 @@ def _write_coverage_results():
 def main():
     iterations = 1
     # filename = 'input.dat'
-    filename = 'xsinei.dat'
+    # filename = 'input.dat'
     # asm_file = './test/main.asm'
-    asm_file = './test_bench/bmark.asm'
+    asm_file = './test/main.asm'
    # setup()
-    start = timeit.default_timer()
-    compile_test()
-    global_coverage = insturmentation(asm_file)
-    seed_generator(filename)
-    link_test()
+    
+
+    test_buffer = []
+    filename = 'test.txt'
+    with open(filename, 'r') as fp:
+        test_buffer = fp.read().splitlines()
+
+    scrape_fuzzer_log(test_buffer)
+
+    # compile_test()
+    # global_coverage = insturmentation(asm_file)
+    # seed_generator(filename)
+    # link_test()
     #TODO: Only do function detection once on each test file.
-    for iterations in range(0,10):
+    # for iterations in range(0,10):
         #splash_screen(runtime=math.floor((time.time() - start_time)),iterations=iterations)
-        
+        # start = timeit.default_timer()
         #t1 = time.time()
-        run = load_and_run()
+        # compile_test()
+        # link_test()
+        # run = load_and_run()
         #t2 = time.time()
         #print(f'Code executed in {(t2-t1):.4f}s')
-        current_edges = set_edges(run)
-        isIncreasing = check_increasing(current_edges)
-        if isIncreasing:
-            seed_generator(filename)
-            global_coverage = re_insturmentation(run, asm_file, global_coverage)
-            link_test()
-        else:
-            ## Need to use global coverage information to reinsturment the file even if new
-            # coverage isnt found
-            run = None
-            seed_generator(filename)
-            re_insturmentation(run,asm_file, global_coverage)
-            link_test()
-            #_write_coverage_results()
+        # current_edges = set_edges(run)
+        # isIncreasing = check_increasing(current_edges)
+        # if isIncreasing:
+        #     seed_generator(filename)
+        #     global_coverage = re_insturmentation(run, asm_file, global_coverage)
+        #     link_test()
+        # else:
+        #     ## Need to use global coverage information to reinsturment the file even if new
+        #     # coverage isnt found
+        #     run = None
+        #     seed_generator(filename)
+        #     re_insturmentation(run,asm_file, global_coverage)
+        #     link_test()
+        #     #_write_coverage_results()
         
 
         
         #print(run)
         #results = code_coverage_calc(trace, run)
         #print(results)
-    stop = timeit.default_timer()
+        #stop = timeit.default_timer()
 
-    print('Time: ', str(stop - start) + "s")  
+        #print('Time: ', str(stop - start) + "s")  
 
 if __name__ == "__main__":
     main()

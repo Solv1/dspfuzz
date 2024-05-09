@@ -5,7 +5,7 @@
 ;***********************************************************/
 
 	.global _coverage_log
-	.ref _coverage_map, _isIncreasing, _sut_start_address
+	.ref _coverage_map, _isIncreasing, _sut_start_address, _iterations
 
 _coverage_log:
 	AADD #-5, SP
@@ -78,6 +78,7 @@ finish:
     POP T2;
 
     MOV #1, *(#_isIncreasing);
+    MOV #0 , *(#_iterations);
     
     AADD #5, SP;
     

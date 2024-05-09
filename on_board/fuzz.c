@@ -29,8 +29,6 @@
 #define INCREASING 0x05  /* Flags */
 /*----------------------------------------------------------*/
 #define WIDTH 256 //Fixed size width for now.
-#define UINT_MAX 65535
-#define INT_MAX 32768
 
 typedef struct seed_t{
     int16_t input[WIDTH];
@@ -41,22 +39,21 @@ typedef struct seed_t{
     bool isInteresting;
 } seed_t;
 
+#pragma DATA_SECTION(shr_memory, ".data_sandbox")
+int16_t shr_memory[WIDTH * 4];
+
 #pragma DATA_SECTION(seed_corpus, ".data_sandbox") // Store the corpus in a sandbox away from program memory.
 seed_t seed_corpus[SEED_CAPACITY];
-uint16_t corpus_head = 0;
-uint16_t corpus_tail = 1; //This will not always be the case but for now it is. Will have to do something with user input potentailly
 
 uint16_t coverage_map[MAX_COVERAGE] = {0};
 
 uint32_t sut_start_address = 0;
 
-uint16_t uninteresting_iterations = 0; // Will be set to 0 once a interesting input happens
+uint16_t iterations = 0; // Will be set to 0 once a coverage increasing input happens
 
 volatile bool isIncreasing = false;
+
 volatile uint16_t isError = NO_ERROR;
-
- bool isBufferFull = false;
-
 
  jmp_buf saved_context;
 
@@ -89,6 +86,9 @@ __interrupt void fuzzer_isr(void)
             isError = HANG;
             count = 0;
             printf("\nLOG: Hit a software hang\n");
+            IRQ_globalDisable(); /* Disable the CPU interrupts */
+            IRQ_clearAll(); /* Clear any pending interrupts */
+            IRQ_disableAll(); /* Disable all the interrupts */
             longjmp(saved_context, true);
     }
 }
@@ -217,7 +217,7 @@ void stop_timer(CSL_Handle * timer_handle){
         printf("LOG: Timer Stopped Successful\n");
 #endif
     }
-    IRQ_globalEnable(); /* Enable CPU Interrupts */
+//    IRQ_globalEnable(); /* Enable CPU Interrupts */
     status = GPT_reset(*timer_handle);
 
 }
@@ -246,60 +246,188 @@ int16_t setup(void * function_pointer){
 
 }
 
-
-int16_t mutator(uint16_t type, struct seed_t * seed){
+//int16_t mutator(struct seed_t * seed, size_t input_size){
+///********************************************************
+// * @brief Mutator: A input mutator
+// * @param type: what type of mutation strategy to perform.
+// * @return 0 if data successfully mutated, -1 on error
+// ********************************************************/
+//        uint16_t i;
+//        uint16_t rand_time;
+//        uint16_t random_value;
+//        rand_time = time(NULL);         //Use time() call because the clock is being used elsewhere.
+//        srand(rand_time);
+//        random_value = rand();
+//
+////Flips a random bit in the 16 bit value
+//#define bitflip(value) (value ^ (1 << rand() % 15))
+//
+////Flips a random byte in the 16 bit value.
+//#define byteflip(value) (value ^ (0xFF << rand() % 2))
+//
+////Heavy Inspo From AFL: mind you there is no byte type don't exist in this arch....
+//        switch (random_value % 5){
+//
+//        case 0:
+//            for(i = 0; i < input_size; i++){
+//                //Walking bit
+//                seed->input[i] = bitflip(seed->input[i]);
+//
+//            }
+//            //seed->cols = bitflip(seed->cols);
+//            //seed->rows = bitflip(seed->rows);
+//            break;
+//        case 1:
+//            for(i = 0; i < input_size; i++){
+//                // Walking 2-bit
+//                seed->input[i] = bitflip(seed->input[i]);
+//                seed->input[i] = bitflip(seed->input[i]);
+//
+//
+//            }
+//            //seed->cols = bitflip(seed->cols);
+//            //seed->rows = bitflip(seed->rows);
+//            break;
+//        case 2:
+//            for(i = 0; i < input_size; i++){
+//                // Walking 4-bit
+//                seed->input[i] = bitflip(seed->input[i]);
+//                seed->input[i] = bitflip(seed->input[i]);
+//                seed->input[i] = bitflip(seed->input[i]);
+//                seed->input[i] = bitflip(seed->input[i]);
+//
+//
+//            }
+//            //seed->cols = bitflip(seed->cols);
+//            //seed->rows = bitflip(seed->rows);
+//            break;
+//        case 3:
+//            for(i = 0; i < input_size; i++){
+//                // Walking byte
+//                seed->input[i] = byteflip(seed->input[i]);
+//
+//           }
+//           //seed->cols = bitflip(seed->cols);
+//           //seed->rows = bitflip(seed->rows);
+//           break;
+//        case 4:
+//            // Chose a random operation to do on a value + - * or /
+//            switch (random_value % 3)
+//            {
+//            case 0:
+//                for(i = 0; i < input_size/3; i++){
+//                    seed->input[random_value % input_size] = seed->input[random_value % input_size] + (1 << random_value % 6);
+//                    seed->cols = seed->cols + (1 << random_value % 6);
+//                    seed->rows = seed->rows + (1 << random_value % 6);
+//                    random_value = rand();
+//                }
+//                break;
+//            case 1:
+//                for(i = 0; i < input_size/3; i++){
+//                    seed->input[random_value % input_size] = seed->input[random_value % input_size] - (1 << random_value % 6);
+//                    seed->cols = seed->cols - (1 << random_value % 6);
+//                    seed->rows = seed->rows - (1 << random_value % 6);
+//                    random_value = rand();
+//                }
+//                break;
+//            case 2:
+//                for(i = 0; i < input_size/3; i++){
+//                    seed->input[random_value % input_size] = seed->input[random_value % input_size] * (1 << random_value % 6);
+//                    seed->cols = seed->cols * (1 << random_value % 6);
+//                    seed->rows = seed->rows * (1 << random_value % 6);
+//                    random_value = rand();
+//                }
+//                break;
+//            }
+//
+//        }
+//}
+int16_t mutator(size_t input_size){
 /********************************************************
  * @brief Mutator: A input mutator
  * @param type: what type of mutation strategy to perform.
  * @return 0 if data successfully mutated, -1 on error
  ********************************************************/
-    //TODO: Update the mutation to acutally mutate aggressively we take it too easy.
+        uint16_t i;
+        uint16_t rand_time;
+        uint16_t random_value;
+        rand_time = time(NULL);         //Use time() call because the clock is being used elsewhere.
+        srand(rand_time);
+        random_value = rand();
 
-    int i;
-    //struct imglibseed * seed = &seed_corpus[0];
-    uint16_t rand_time;
-    rand_time = time(NULL);         //Use time() call because the clock is being used elsewhere.
-    srand(rand_time);
-    if(type == RANDOM){
+//Flips a random bit in the 16 bit value
+#define bitflip(value) (value ^ (1 << rand() % 15))
 
-        for (i = 0; i < WIDTH; i++){
-             //seed_corpus[i].seed_input = (uint16_t)rand();
-             seed->input[i] = (int16_t)rand();
-        }
-        seed->cols = (int16_t)rand();
-        seed->rows = (int16_t)rand();
-    }
-    else if(type == NORMAL){
-        uint16_t random_index;
-        if(uninteresting_iterations < 2){ //Be easy flip a random single bit size/4 times
-            for(i = 0; i < 4; i++){
-                random_index = rand() % (sizeof(seed->input)-1);
-                seed->input[random_index] = seed->input[random_index] ^ ( 1 << rand() % 15 ); //it needs to be at random values
+//Flips a random byte in the 16 bit value.
+#define byteflip(value) (value ^ (0xFF << rand() % 2))
+
+//Heavy Inspo From AFL: mind you there is no byte type don't exist in this arch....
+        switch (random_value % 5){
+
+        case 0:
+            for(i = 0; i < input_size; i++){
+                //Walking bit
+                shr_memory[i] = bitflip(shr_memory[i]);
+
             }
-            //printf("LOG: Random Value Test %d \n", rand());
-            seed->cols = seed->cols ^ ( 1 << rand() % 15 );
-            seed->rows = seed-> rows ^ ( 1 << rand() % 15 );
-        }
 
-        else if (uninteresting_iterations > 2){ // Get aggressive flip 4 bits at a time
-            for(i = 0; i < (sizeof(seed->input)); i+=8){
-                random_index = rand() % (sizeof(seed->input)-1);
-                seed->input[random_index] = seed->input[random_index] ^ (0xF << ((rand() % 4)*4)); // it needs to be at random values
+            break;
+        case 1:
+            for(i = 0; i < input_size; i++){
+                // Walking 2-bit
+                shr_memory[i] = bitflip(shr_memory[i]);
+                shr_memory[i+1] = bitflip(shr_memory[i + 1]);
+
+
             }
-        seed->cols = rand() % UINT_MAX;
-        seed->rows = rand() % UINT_MAX;
-        }
-        else if(uninteresting_iterations < 8){ //MORE aggressive
+
+            break;
+        case 2:
+            for(i = 0; i < input_size; i++){
+                // Walking 4-bit
+                shr_memory[i] = bitflip(shr_memory[i]);
+                shr_memory[i+1] = bitflip(shr_memory[i+1]);
+                shr_memory[i+2] = bitflip(shr_memory[i+2]);
+                shr_memory[i+3] = bitflip(shr_memory[i+3]);
+
+
+            }
+
+            break;
+        case 3:
+            for(i = 0; i < input_size; i++){
+                // Walking byte
+                shr_memory[i] = byteflip(shr_memory[i]);
+
+           }
+
+           break;
+        case 4:
+            // Chose a random operation to do on a value + - * or /
+            switch (random_value % 3)
+            {
+            case 0:
+                for(i = 0; i < input_size/3; i++){
+                    shr_memory[random_value % input_size] = shr_memory[random_value % input_size] + (1 << random_value % 6);
+                    random_value = rand();
+                }
+                break;
+            case 1:
+                for(i = 0; i < input_size/3; i++){
+                    shr_memory[random_value % input_size] = shr_memory[random_value % input_size] - (1 << random_value % 6);
+                    random_value = rand();
+                }
+                break;
+            case 2:
+                for(i = 0; i < input_size/3; i++){
+                    shr_memory[random_value % input_size] = shr_memory[random_value % input_size] * (1 << random_value % 6);
+                    random_value = rand();
+                }
+                break;
+            }
 
         }
-        else if(uninteresting_iterations < 16){//MAXIMALLY AGRESSIVE
-
-        }
-    }
-
-    return 0;
 }
-
 
 void seed_printf(struct seed_t * seed){
 /********************************************************
@@ -307,57 +435,28 @@ void seed_printf(struct seed_t * seed){
  * @param type: seed struct of your choice
  * @return NONE
  ********************************************************/
+//    int i;
+//    //printf("--------Inputs--------\n");
+//    printf("RESULTS: Input:");
+//    for(i = 0; i < sizeof(seed->input); i++){
+//        printf("%u",seed->input[i]);
+//    }
+////    printf("\nXY Matrix: ");
+////    for(i = 0; i < sizeof(seed->XY);i++){
+////            printf("%d",seed->XY[i]);
+////        }
+//    printf(",Colum:%u,Row:%u\n",seed->cols,seed->rows);
     int i;
     //printf("--------Inputs--------\n");
     printf("RESULTS: Input:");
-    for(i = 0; i < sizeof(seed->input); i++){
-        printf("%d",seed->input[i]);
+    for(i = 2; i < WIDTH; i++){
+        printf("%u",shr_memory[i]);
     }
 //    printf("\nXY Matrix: ");
 //    for(i = 0; i < sizeof(seed->XY);i++){
 //            printf("%d",seed->XY[i]);
 //        }
-    printf(",Colum:%d,Row:%d\n",seed->cols,seed->rows);
-}
-
-
-int16_t corpus_queue(struct seed_t * seed){ //TODO: Implement this
-/********************************************************
- * @brief corpus_queue: adds a seed from the corpus to the queue
- * @param type: a pointer to the seed to add
- * @return 0 on success -1 on failure
- ********************************************************/
-
-    if(corpus_tail < SEED_CAPACITY){
-        seed->isInteresting = true;
-        seed_corpus[corpus_tail] = *seed;
-        corpus_tail++;
-        return 0;
-    }
-    else{
-        corpus_tail = corpus_head + 1;//Is this valid in certain cases? I dont know...
-        return 0;
-    }
-}
-
-
-int16_t corpus_dequeue(struct seed_t * seed){//Pulls next seed from the queue
-/********************************************************
- * @brief corpus_dequeue: deqeues a seed from the corpus and returns it
- * @param type: seed struct
- * @return 0 on successful dequeue , -1 on error
- ********************************************************/
-    if (seed_corpus[corpus_tail].input == NULL){
-            printf("ERROR: Seed failed to be dequeued. \n");
-            return -1;
-        }
-
-    if(corpus_head >= SEED_CAPACITY){
-        corpus_head = 0;
-    }
-    corpus_head++;
-    *seed = seed_corpus[corpus_head - 1];
-    return 0;
+    printf(",Colum:%u,Row:%u\n",shr_memory[1],shr_memory[0]);
 }
 
 
@@ -394,9 +493,6 @@ void handle_results(struct seed_t * seed){
         isIncreasing = false;
         //corpus_queue(seed);
     }
-    else{
-        uninteresting_iterations++;
-    }
 
 }
 
@@ -404,8 +500,7 @@ void image_library_harness(){
 
     seed_t * current_seed = &seed_corpus[0];
     CSL_Handle timer_handle;
-    uint16_t iterations = 0;
-
+    memset(shr_memory, 0 , sizeof(shr_memory));
     setup(&IMG_boundary);
     //mutator(RANDOM, &seed); //First time init with random values. Really should have a valid input here.
     prepare_intial_seed(current_seed); //prepare valid seed that we can mutate.
@@ -414,13 +509,18 @@ void image_library_harness(){
     while(1){
             printf("\nLOG: Trying, on loop interation %d \n",iterations);
             setjmp(saved_context); /*Saves context before entering the function to restore control in the case of a stall*/
-            mutator(NORMAL, current_seed);
-
-            //current_seed = corpus_dequeue();
+            //mutator(NORMAL, current_seed);
+            mutator(WIDTH);
+            //int i;
+//            for(i = 0; i < WIDTH; i++){
+//                shr_memory[i] = 23;
+//            }
+            //current_seed->cols = 0; //Induces a bus error
 
             start_timer(&timer_handle);
             if (isError == NO_ERROR){
-                IMG_boundary((short *)current_seed->input, (int16_t)current_seed->rows, (int16_t)current_seed->cols, (int16_t *)current_seed->XY, (int16_t *)current_seed->output); //This is broken with weird inputs.
+                //IMG_boundary((short *)current_seed->input, (int16_t)current_seed->rows, (int16_t)current_seed->cols, (int16_t *)current_seed->XY, (int16_t *)current_seed->output); //This is broken with weird inputs.
+                IMG_boundary((short *)shr_memory, (int16_t)shr_memory[0], (int16_t)shr_memory[1], (int16_t *)(shr_memory + WIDTH), (int16_t *)(shr_memory + WIDTH)); //This is broken with weird inputs.
             }
             stop_timer(&timer_handle);
 

@@ -1,4 +1,3 @@
-#import mutator
 import subprocess
 import math
 import argparse
@@ -62,7 +61,6 @@ def splash_screen(runtime, iterations):
     print(string)
     print(string2)
 
-    
 
 def seed_generator(filename):
     """ Handles generating new seed files to be used in test cases.
@@ -80,11 +78,9 @@ def seed_generator(filename):
     #TODO:Add a check here
     #print("File Copy complete.")
 
-
 def insturmentation(asm_file):
     coverage = insturmentor.fuzz_insturment(asm_file)
     return coverage
-
 
 def compile_test():
     """
@@ -93,7 +89,6 @@ def compile_test():
     #TODO: Change for new test cases and make it more general and usable by anyone...
     subprocess.call('cd ./test/; make test; cd ..',shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("LOG: TEST COMPILED")
-
 
 def link_test():
     #TODO: Same as compile test make it more general and usable by any file...
@@ -146,9 +141,6 @@ def scrape_fuzzer_log(fuzzer_output):
             isCrash = False
             continue
 
-
-
-
 def load_and_run():
     #TODO: Make this more general and provide options for this...
     """
@@ -173,8 +165,6 @@ def load_and_run():
 
     return results
 
-
-
 def set_edges(run_result):
     #TODO: This is also old 
     coverage = []
@@ -193,7 +183,6 @@ def set_edges(run_result):
     #print("Test Result:" + str(coverage_set))
     return coverage_set
 
-
 def check_increasing(run_edges):
     #TODO: This is old 
     """
@@ -210,8 +199,6 @@ def check_increasing(run_edges):
         edges = edges.union(run_edges)
         return True
 
-
-
 def _write_coverage_results():
     global edges
     fp = open("coverage.txt", 'a')
@@ -221,15 +208,60 @@ def _write_coverage_results():
     fp.write(str(edges))
     fp.close()
 
+def _seed_setup(seed_directory, results_directory):
+    """
+        @_seed_setup: Gives each seeds an ID and then moves the newly id seeds into the results/intial_seeds directory
+                    This function is called once at startup
+        @Args: seed_directory: directory where all seeds are located.
+    """
+    id = 1
+
+    if(not os.path.isdir(seed_directory)):
+        print('ERROR: Seed directory is not valid, make sure it is created.')
+        exit(-1)
+    if(not os.path.isdir(results_directory)):
+        print('ERROR: Results directory is not valid, make sure it is created.')
+        exit(-1)
+
+    file_list = os.listdir(seed_directory)
+
+    #ID the seeds and store them in both the working seeds and results directories specified by the user.
+    for seed in file_list:
+        old_file = os.path.join(seed_directory, seed)
+        os.system('cp '+ old_file + ' ' + results_directory + 'intial_seeds')
+        new_file = os.path.join(seed_directory, str(id)) #TODO: Decided if padding the id with zeros is a good idea..... probably not :(
+
+        os.rename(old_file, new_file)
+
+        id+=1
+
+def _handle_arguments():
+    #TODO: Add more arguments as needed for fuzzing.
+    parser = argparse.ArgumentParser(
+        prog='fuzz.py',
+        description='Main host engine -> Talks to the DSP handles seeds, moving files and insturmenting.'
+    )
+    parser.add_argument('-s','--intialseeds',dest='seed_dir',action='store',
+        help='Directory where the intial seeds are stored.', required='true'
+    )
+    parser.add_argument('-r', '--results', dest = 'results_dir', action='store', required='true'
+    )
+    
+    return parser.parse_args()
 
 def main():
-    iterations = 1
-    # filename = 'input.dat'
-    # filename = 'input.dat'
-    # asm_file = './test/main.asm'
-    asm_file = './test/main.asm'
-   # setup()
     
+
+    args = _handle_arguments()
+
+
+    seed_dir = args.seed_dir
+    results_dir = args.results_dir
+
+    _seed_setup(seed_dir, results_dir)
+    exit(0)
+    iterations = 1
+    asm_file = './test/main.asm'    
 
     test_buffer = []
     filename = 'test.txt'

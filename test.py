@@ -2,10 +2,12 @@ import jpype
 import jpype.imports
 from jpype.types import *
 
-jpype.startJVM(classpath=['/mnt/c/ti/ccsv5/ccsv5/ccs_base/DebugServer/packages/ti/dss/java/com.ti.ccstudio.scripting.environment_3.1.0.jar:/mnt/c/ti/ccsv5/ccsv5/ccs_base/DebugServer/packages/ti/dss/java/dss.jar:/mnt/c/ti/ccsv5/ccsv5/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar'])
+jpype.startJVM(classpath=['/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.ccstudio.scripting.environment_3.1.0.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/dss.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar'])
 
 from com.ti.debug.engine.scripting import *
 from com.ti.ccstudio.scripting.environment import *
+
+script = ScriptingEnvironment.instance()
 
 script.traceBegin("BreakpointsTestLog.xml", "DefaultStylesheet.xsl")
 

@@ -208,28 +208,32 @@ def _write_coverage_results():
     fp.write(str(edges))
     fp.close()
 
-def _seed_setup(seed_directory, results_directory):
-    """
-        @_seed_setup: Gives each seeds an ID and then moves the newly id seeds into the results/intial_seeds directory
-                    This function is called once at startup
-        @Args: seed_directory: directory where all seeds are located.
+def _seed_setup(local_pool_directory, intial_seeds_directory):
+    """  Gives each seeds an ID and then moves the newly id seeds into the results/intial_seeds directory
+        @Args: local_pool_directory: directory where all seeds are located.
+               
     """
     id = 1
 
-    if(not os.path.isdir(seed_directory)):
-        print('ERROR: Seed directory is not valid, make sure it is created.')
+    if(not os.path.isdir(local_pool_directory)):
+        print('ERROR: Global seed pool directory is not valid, make sure it is created.')
         exit(-1)
-    if(not os.path.isdir(results_directory)):
-        print('ERROR: Results directory is not valid, make sure it is created.')
+    if(not os.path.isdir(intial_seeds_directory)):
+        print('ERROR: Inital seed directory is not valid, make sure it is created.')
         exit(-1)
 
-    file_list = os.listdir(seed_directory)
+    file_list = os.listdir(intial_seeds_directory)
+    print(file_list)
 
     #ID the seeds and store them in both the working seeds and results directories specified by the user.
     for seed in file_list:
-        old_file = os.path.join(seed_directory, seed)
-        os.system('cp '+ old_file + ' ' + results_directory + 'intial_seeds')
-        new_file = os.path.join(seed_directory, str(id)) #TODO: Decided if padding the id with zeros is a good idea..... probably not :(
+        old_file = os.path.join(intial_seeds_directory, seed)
+
+        #Copy all of the seeds in the intial seeds directory to the global pool and rename them with new labels.
+        os.system('cp '+ old_file + ' ' + local_pool_directory)
+        new_file = os.path.join(local_pool_directory, str(id)) #TODO: Decided if padding the id with zeros is a good idea..... probably not :(
+        
+        old_file = os.path.join(local_pool_directory, seed)
 
         os.rename(old_file, new_file)
 
@@ -241,10 +245,10 @@ def _handle_arguments():
         prog='fuzz.py',
         description='Main host engine -> Talks to the DSP handles seeds, moving files and insturmenting.'
     )
-    parser.add_argument('-s','--intialseeds',dest='seed_dir',action='store',
-        help='Directory where the intial seeds are stored.', required='true'
+    parser.add_argument('-p','--seedpool',dest='seed_dir',action='store',
+        help='Directory where the global seedpool is.', required='true'
     )
-    parser.add_argument('-r', '--results', dest = 'results_dir', action='store', required='true'
+    parser.add_argument('-s', '--intialseeds', dest = 'inital_dir', action='store', required='true'
     )
     
     return parser.parse_args()
@@ -256,9 +260,9 @@ def main():
 
 
     seed_dir = args.seed_dir
-    results_dir = args.results_dir
+    intial_dir = args.inital_dir
 
-    _seed_setup(seed_dir, results_dir)
+    _seed_setup(seed_dir, intial_dir)
     exit(0)
     iterations = 1
     asm_file = './test/main.asm'    

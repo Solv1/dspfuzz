@@ -12,6 +12,7 @@ from com.ti.ccstudio.scripting.environment import *
 
 
 seed_dir = ''
+results_dir = ''
 local_pool_size = 0
 global_pool_size = 0
 global_pool = [] #List of all seeds in the SEED_DIR of the users choosing.
@@ -21,6 +22,7 @@ refresh_function_address = 0
 seed_add_address = 0 #When we find coverage we will go into this function and wait for the seed to be pulled from the device for the global seed pull
 program_to_load = 'DSPFuzz.out'
 seed_number = 16
+seed_size = 514 #Size of current seed
 
 
 
@@ -35,6 +37,9 @@ def _handle_args():
     )
     parser.add_argument('-s','--seeds' ,dest='seed_dir',action='store',
         help='Directory of the global seed pool', required='true'
+    )
+    parser.add_argument('-r', '--results', dest='res_dir', action='store',
+                        help='Directory of results storage', required='true'
     )
     return parser.parse_args()
 
@@ -85,7 +90,27 @@ def set_intial_breakpoints():
 
     debugSession.target.run()
 
+def refresh_global_pool():
+
+    global global_pool, global_pool_size
+
+    #Seeds are number and managed by the fuzz engine all we have to do is read them.
+    global_pool = os.listdir(seed_dir)
+    #print(global_pool)
+    global_pool_size = len(global_pool)
+    #print(global_pool_size)
+
+
+    # #TODO: working seeds directory needs more seeds added to it. 
+    # if(len(global_pool) < local_pool_size):
+    #     #TODO: Add shutdown when we are out of seeds.
+    #     print("DSERROR: Not enough seeds in the global pool")
+    #     exit(-42)
+
 def select_seed():
+
+
+    refresh_global_pool()
 
     #TODO: Maybe a better way to select seeds for the local pool
     rnd_num = random.randint(0, global_pool_size - 1)
@@ -98,7 +123,10 @@ def select_seed():
     with open(seed_dir + selected_seed, 'r') as fp:
        str_seed = fp.read()
 
-    #Once the seed is selected for use on the device rm it from the global seed pool
+    try:
+        os.remove(seed_dir + selected_seed)
+    except OSError as e:
+        print('DSERROR: Failed to delete seed file.')
 
     seed = [int(ele) for ele in str_seed.split()]
 
@@ -106,20 +134,7 @@ def select_seed():
 
     return seed
 
-def refresh_global_pool():
 
-    global global_pool, global_pool_size
-
-    #Seeds are number and managed by the fuzz engine all we have to do is read them.
-    global_pool = os.listdir(seed_dir)
-    print(global_pool)
-    global_pool_size = len(global_pool)
-    print(global_pool_size)
-
-    if(len(global_pool) < local_pool_size):
-        #TODO: Add shutdown when we are out of seeds.
-        print("DSERROR: Not enough seeds in the global pool")
-        exit(-42)
 
 def refresh_local_pool():
 
@@ -138,18 +153,73 @@ def refresh_local_pool():
     #Continue fuzzing execution.
     debugSession.target.run()
 
+def _pull_seed(seed_address, seed_id, dir):
+    """Can pull a seed from memory at a specific address on the DSP.
+    
+        @Arguments: seed_address: address of where the seed starts.
+                    seed_id: id of the newly stored seed
+                    dir: directory to store it at.
+        @Return: None
+    """
+    global seed_size
+
+    #TODO: Add Check for empty seed spots?
+    for x in range (0, seed_size):
+        seed = str(debugSession.memory.readData(1, seed_address + x, 16))
+        if x == 0:
+            with open(dir+str(seed_id), 'w+') as fp:
+                fp.write(seed)
+        else:
+            with open(dir+str(seed_id), 'a+') as fp:
+                fp.write('\n'+seed)
+        
+
+def local_pool_to_global_pool():
+
+    global seed_number, local_pool_size, seed_dir
+    #Get the address of the local_pool
+    #TODO: local pool address is not moved in memory so maybe make a global value instead of asking the debugger each time for it.
+    local_pool_address = debugSession.symbol.getAddress('seed_corpus')
+
+    for x in range(0, local_pool_size):
+        _pull_seed(local_pool_address, seed_number, seed_dir)
+        local_pool_address += seed_size 
+        seed_number += 1
+
+
+def current_seed_to_global_pool():
+    """Pulls the current seed to the global pool this typically happens when there is a coverage increasing mutated input.
+        @Arguments: None
+        @Return: None
+    """
+    global seed_number, seed_dir
+
+    #Get the address of the current seed.
+    current_seed_address = debugSession.symbol.getAddress('current_seed')
+
+    _pull_seed(current_seed_address, seed_number, seed_dir)
+
+    seed_number+= 1
+
+    debugSession.target.run()
+
+
 def crash_reload():
     """When a condition causes a crash of the DSP pull the seed information from the device and store it then reload the device with new seeds and a fresh image of the fuzzer.
 
         @Arguments: None
         @Return: None
     """
+    global seed_number
 
-    #TODO: Pull Crashing seed information without relaying on a print statement.
-    #TODO: I must pull all of the other seeds that have not caused a crash and store them in the global seed pool
         #NOTE: Because I remove each of the seeds that I use when I load them onto the DSP I do not have to worry about duplicates :) 
-        
+    
+    #Pull remaining seeds from device to the global pool
+    local_pool_to_global_pool()
 
+    #Put the crashing seed in the crashes directory.
+    current_seed_address = debugSession.symbol.getAddress('current_seed')
+    _pull_seed(current_seed_address, seed_number, results_dir+'crashes')
 
     #Reset the target
     print('DSLOG: Reloading target after crash')
@@ -162,66 +232,54 @@ def crash_reload():
     set_intial_breakpoints()
 
     #Breakpoint is set ready for a seed refresh
-    debugSession.target.run()
-
-def pull_seed_to_global_pool():
-    global seed_number
-
-    # We are at a breakpoint the coverage increasing seed is in 'current_seed'
-
-    #Get the address of the current seed.
-    current_seed_address = debugSession.symbol.getAddress('current_seed')
-
-    for x in range (0, 514):
-        seed = str(debugSession.memory.readData(1, current_seed_address, 16))
-        if x == 0:
-            with open(seed_dir+str(seed_number), 'w+') as fp:
-                fp.write(seed)
-        else:
-            with open(seed_dir+str(seed_number), 'a+') as fp:
-                fp.write('\n'+seed)
-        current_seed_address+= 1
+    print('DSLOG: Running target program.')
     
-
     
-    seed_number+= 1
-
-    debugSession.target.run()
-    # print(seed)
-    
-
-
-
-
-
-
 
 def device_listener():
     """ After connection is established poll device to see if the following conditons are met: Timeout, Crash, or Coverage increasing seed needs to be bubbled up.
         @Arguments: None
         @Return: None
     """
+    #TODO: add fancy decorators for logging.
 
+    global seed_add_address, refresh_function_address
 
     corpus_waiting_address =  debugSession.symbol.getAddress("corpusWaiting")
+    
 
     while(1):
         #Poll the PC to check for both errors and refreshs
         pc = debugSession.expression.evaluate('PC')
         test_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
 
-        if((test_time % 10000 == 0) or (pc == crash_void_address)):
-            print('DSLOG: Refreshing Now')
+        if((test_time % 100000 == 0)):
+            print('DSLOG: Time for a local seed refresh')
+
             #Set corpus waiting to true and wait for the fuzzer to sit in the while loop.
             debugSession.memory.writeData(1,corpus_waiting_address, 1, 16)
+            
+            #Seeds that are currently on the fuzzer need to be moved back into the global pool.
+            local_pool_to_global_pool()
+
             refresh_global_pool()
+
             refresh_local_pool()
+
+        if (pc == refresh_function_address):
+            #Local seed pool is empty and needs to be refreshed with new inputs.
+            print('DSLOG: Local seed pool is empty refreshing now.')
+
+            refresh_global_pool()
+
+            refresh_local_pool()
+
 
         if(pc == crash_void_address):
             crash_reload()
         
         if(pc == seed_add_address):
-            pull_seed_to_global_pool()
+            current_seed_to_global_pool()
             
         
     
@@ -230,11 +288,12 @@ def device_listener():
     
 
 def main():
-    global local_pool_size, seed_dir
+    global local_pool_size, seed_dir, results_dir
 
     args = _handle_args()
     local_pool_size = args.corpus_size
     seed_dir = args.seed_dir
+    results_dir = args.res_dir
 
     print(time.clock_gettime_ns(time.CLOCK_BOOTTIME))
 

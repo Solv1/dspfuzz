@@ -62,7 +62,8 @@ SECTIONS
         .cio     : {} > DARAM2  PAGE 0
         .program_sandbox : > SARAM9 /* Store the device under test here */
         {
-        	--library=*ximagex.lib<Boundarymn.obj>(.text)
+        	new_test_fuzz.obj
+		/*--library=*ximagex.lib<Boundarymn.obj>(.text)*/
         }
         .data_sandbox : {} > SARAM10 				   /* Data may get muddled because of the SUT having a error */
 }

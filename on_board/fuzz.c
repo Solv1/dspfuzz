@@ -2,9 +2,9 @@
  * fuzz.c
  */
 
-#include "test.h"
+//#include "test.h"
 #include "fuzz.h"
-#include "fuzz_log.h"
+#include "test_fuzz.h"
 #include <stdio.h>
 #include <string.h>
 #include "imagelib.h"
@@ -12,12 +12,12 @@
 
 //#define NO_LOGGING
 
-#define TIMEOUT 10000 /*Timeout is in milliseconds*/
+#define TIMEOUT 1000000 /*Assuming a 100Mhz Clock*/
 
 /*---------------------Fuzzer Defines---------------------*/
 #define SEED_CAPACITY 15
 #define MAX_COVERAGE 16384      /*14 bits 2 entries per function = 32822 entries*/
-
+#define MAX_CYCLES 16           /*16 Cycles for varrious mutation strats before getting a new seed.*/
 #define NO_ERROR 0x00           /* Fuzzer Flags */
 #define HANG 0x02
 #define BUS_ERROR 0x03
@@ -27,29 +27,20 @@
 
 #define WIDTH 256 //Fixed size width for now.
 
-typedef struct seed_t{ //Add seed id?
-    int16_t input[WIDTH];
-    int16_t output[WIDTH];
-    uint16_t seed_id;
-    bool isInteresting;
-} seed_t;
 
+#pragma DATA_SECTION(local_pool, ".data_sandbox") // Store the corpus in a sandbox away from program memory.
 
-#pragma DATA_SECTION(seed_corpus, ".data_sandbox") // Store the corpus in a sandbox away from program memory.
-volatile seed_t seed_corpus[SEED_CAPACITY];
+volatile int16_t local_pool[SEED_CAPACITY][WIDTH]; // A bunch of inputs here
 
+#pragma DATA_SECTION(current_input, ".data_sandbox") // Store the current_seed in a sandbox away from program memory.
+int16_t current_input[WIDTH];
 
-#pragma DATA_SECTION(current_seed, ".data_sandbox") // Store the current_seed in a sandbox away from program memory.
-seed_t  current_seed;
-
-volatile uint16_t ids[SEED_CAPACITY]; //Need to keep track of these as the fuzzer executes testcases.
+#pragma DATA_SECTION(output_buffer, ".data_sandbox") //Keep the output here too
+uint16_t output_buffer[WIDTH] = {0};
 
 uint16_t coverage_map[MAX_COVERAGE] = {0};
 
 uint32_t sut_start_address = 0;
-
-
-uint16_t seeds_remaining = SEED_CAPACITY; //Assume that the debugger loads a total of 30 seeds.
 
 uint16_t seed_head = 0;
 uint16_t seed_tail = SEED_CAPACITY - 1;
@@ -63,10 +54,16 @@ jmp_buf saved_context;
 volatile bool corpusWaiting = true;     //Flag set by Host PC side
 
 
+uint16_t stage_cycles = 0;
+
+uint16_t current_corpus_size = SEED_CAPACITY; //It is assumed that we start with a full corpus.
+
+uint16_t mutation_frequency = 2; //1/4 of the time mutation is done.
+
 /* Preprocessor Defines */
 void image_library_harness();
-void seed_printf(struct seed_t * seed);
-void the_void();
+void input_printf(int16_t * input);
+void crash_void();
 
 /*------------------------------------------------------------*/
 
@@ -93,11 +90,12 @@ __interrupt void fuzzer_isr(void)
             isError = HANG;
             count = 0;
             printf("\nLOG: Hit a software hang\n");
-            seed_printf(&current_seed);
+            input_printf(current_input);
             IRQ_globalDisable(); /* Disable the CPU interrupts */
             IRQ_clearAll(); /* Clear any pending interrupts */
             IRQ_disableAll(); /* Disable all the interrupts */
-            longjmp(saved_context, true);
+            crash_void();
+
     }
 }
 
@@ -107,9 +105,9 @@ __interrupt void bus_error_isr(void)
     IRQ_clear(BERR_EVENT);
     IRQ_clearAll(); /* Clear any pending interrupts */
     printf("LOG: Found a bus error \n");
-    seed_printf(&current_seed);
+    input_printf(current_input);
     isError = BUS_ERROR; // Set the Error condition and go into a while loop waiting for a reset from the debugger.
-    the_void();
+    crash_void();
 
 }
 __interrupt void data_log_isr(void)
@@ -117,12 +115,12 @@ __interrupt void data_log_isr(void)
     IRQ_clear(DLOG_EVENT);
     IRQ_clearAll(); // Set the Error condition and go into a while loop waiting for a reset from the debugger.
     printf("LOG: Found a data log error \n");
-    seed_printf(&current_seed);
+    input_printf(current_input);
     isError = DATA_LOG_ERROR;
-    the_void();
+    crash_void();
 }
 
-void the_void(){ //The place where all bad errors go
+void crash_void(){ //The place where all bad errors go
     while(1);
 }
 
@@ -135,7 +133,7 @@ void memset_volatile(volatile void * addr, uint16_t ch, size_t range){ //Because
 
 }
 
-void seed_printf(struct seed_t * seed){
+void input_printf(int16_t * input){
 /********************************************************
  * @brief seed_printf: A seed printer
  * @param type: seed struct of your choice
@@ -144,10 +142,11 @@ void seed_printf(struct seed_t * seed){
     int i;
     //printf("--------Inputs--------\n");
     printf("RESULTS: Input:");
-    for(i = 0; i < sizeof(seed->input); i++){
-        printf("%u",seed->input[i]);
+    for(i = 0; i < WIDTH; i++){
+        printf("%x",input[i]);
     }
-    printf(",Colum:%u,Row:%u\n",seed->input[0],seed->input[1]);
+    printf("\n");
+    //printf(",Colum:%u,Row:%u\n",input[0],input[1]);
 
 }
 
@@ -199,7 +198,7 @@ void start_timer(CSL_Handle * timer_handle){
 
     hwConfig.autoLoad    = GPT_AUTO_ENABLE;         // Some clock config
     hwConfig.ctrlTim     = GPT_TIMER_ENABLE;
-    hwConfig.preScaleDiv = GPT_PRE_SC_DIV_1;
+    hwConfig.preScaleDiv = GPT_PRE_SC_DIV_0;
     hwConfig.prdLow      = (sysClk)/4;
     hwConfig.prdHigh     = 0x0000;
 
@@ -263,8 +262,7 @@ int16_t setup(void * function_pointer){
 ********************************************************/
 
     memset(&coverage_map,0,sizeof(coverage_map));
-    memset(&seed_corpus, 0, sizeof(seed_t)*SEED_CAPACITY);
-    //memset(&current_seed, 0, sizeof(seed_t));
+    memset(&local_pool, 0, WIDTH*SEED_CAPACITY);
 
     sut_start_address = *((uint32_t *)function_pointer); /*Finds the offset in memory of the start of our sut */
 
@@ -279,7 +277,7 @@ int16_t setup(void * function_pointer){
 
 }
 
-void mutator(struct seed_t * seed, size_t input_size){
+void mutator(int16_t * input, size_t input_size){
 /********************************************************
  * @brief Mutator: A input mutator
  * @param type: what type of mutation strategy to perform.
@@ -294,68 +292,87 @@ void mutator(struct seed_t * seed, size_t input_size){
 
 //TODO: Add block mutations in here.
 
+//TODO: Add more stages
+//TODO: Add the frequency of mutation in each stage. Make it adjustable.
+
 //Flips a random bit in the 16 bit value
 #define bitflip(value) (value ^ (1 << rand() % 15))
 
 //Flips a random byte in the 16 bit value.
 #define byteflip(value) (value ^ (0xFF << rand() % 2))
 
-//Heavy Inspo From AFL: mind you there is no byte type don't exist in this arch....
-        switch (random_value % 5){
+        //Implemented some AFL like mutation types.
 
-        case 0:
+        if(stage_cycles < 3){
             for(i = 0; i < input_size; i++){
+                if(rand()% mutation_frequency == 0){
                 //Walking bit
-                seed->input[i] = bitflip(seed->input[i]);
+                input[i] = bitflip(input[i]);
+                }
+                else
+                    continue;
             }
-
-            break;
-        case 1:
+        }
+        else if(stage_cycles < 7){
             for(i = 0; i < input_size; i++){
+                if(rand()% mutation_frequency == 0){
                 // Walking 2-bit
-                seed->input[i] = seed->input[i] ^ (0x03 << rand() % 9);
-            }
-
-            break;
-        case 2:
+                        input[i] = input[i] ^ (0x03 << rand() % 9);
+                    }
+                    else
+                        continue;
+                }
+        }
+        else if(stage_cycles < 9){
             for(i = 0; i < input_size; i++){
-                // Walking 4-bit
-                seed->input[i] = seed->input[i] ^ (0x0F << rand() % 5);
-            }
 
-            break;
-        case 3:
+                if(rand() % mutation_frequency == 0){
+                    // Walking 4-bit
+                    input[i] = input[i] ^ (0x0F << rand() % 5);
+                }
+                else
+                    continue;
+            }
+        }
+        else if(stage_cycles < 12){
+
             for(i = 0; i < input_size; i++){
-                // Walking byte
-                seed->input[i] = byteflip(seed->input[i]);
+                if(rand() % mutation_frequency == 0){
+                    // Walking byte
+                    input[i] = byteflip(input[i]);
+                }
+                else
+                   continue;
            }
+        }
+        else if(stage_cycles < 16){
 
-           break;
-        case 4:
             // Chose a random operation to do on a value + - * or /
             switch (random_value % 3)
             {
             case 0:
-                for(i = 0; i < input_size/3; i++){
-                    seed->input[random_value % input_size] = seed->input[random_value % input_size] + random_value % UINT_MAX;
+                for(i = 0; i < input_size/mutation_frequency; i++){
+                    input[random_value % input_size] = input[random_value % input_size] + random_value % UINT_MAX;
                     random_value = rand();
                 }
                 break;
             case 1:
-                for(i = 0; i < input_size/3; i++){
-                    seed->input[random_value % input_size] = seed->input[random_value % input_size] - random_value % UINT_MAX;
+                for(i = 0; i < input_size/mutation_frequency; i++){
+                    input[random_value % input_size] = input[random_value % input_size] - random_value % UINT_MAX;
                     random_value = rand();
                 }
                 break;
             case 2:
-                for(i = 0; i < input_size/3; i++){
-                    seed->input[random_value % input_size] = seed->input[random_value % input_size] * random_value % UINT_MAX;
+                for(i = 0; i < input_size/mutation_frequency; i++){
+                    input[random_value % input_size] = input[random_value % input_size] * random_value % UINT_MAX;
+
                     random_value = rand();
                 }
                 break;
             }
 
         }
+        stage_cycles++;
 }
 
 
@@ -363,145 +380,137 @@ void mutator(struct seed_t * seed, size_t input_size){
 
 void refresh_seed_corpus(){
 /********************************************************
- * @brief refresh_seed_corpus: Breakpointed by debugger and will load a new seed corpus once entered.
- * @param type: w
+ * @brief refresh_seed_corpus: Host loads a subset our global seed pool via the debugger.
+ * @param NONE
  * @return NONE
  ********************************************************/
 
-    uint16_t i = 0;
+    uint16_t i;
 
 
-//    /********Test for queueing system********/
+    /********Test for queueing system********/
 //    for(i = 0; i < SEED_CAPACITY; i++){
-//        memset(&seed_corpus[i].input, 1, WIDTH);
-//        memset(&seed_corpus[i].output, -1, WIDTH);
-//        seed_corpus[i].seed_id = i+1;
-//        seed_corpus[i].isInteresting = true;
+//        memset((uint16_t *)local_pool[i], 1, WIDTH);
 //    }
-//    /********End Testing Here********/
+    /********End Testing Here********/
     while(corpusWaiting){
         i = 0;
     }
 }
 
-void queue_seed(struct seed_t * seed){
+void dequeue_seed(int16_t * input){
 
-    //Inputs that result in increasing coverage get added back to the seed corpus queue.
-
-
-    if(seed_head == seed_tail){
-        seed_head = 0;
-    }
-
-
-    if(seed_head == 0){
-        seed_corpus[seed_head] = *seed;
-    }
-    //Seed head is incremented in the dequeue seed.
-    else{
-        seed_corpus[seed_head - 1] = *seed;
-    }
-
-}
-
-struct seed_t dequeue_seed(){
-    //This function selects a seed from the corpus.
-    struct seed_t  seed;
-
-
-    //Check if the corpus is half full if it is refresh seed corpus.
-    if(seed_head == (SEED_CAPACITY/2)){
-
-        //Let the debugger refresh the corpus.
-        corpusWaiting = true;
-        refresh_seed_corpus();
-
-    }
+    uint16_t * result;
     //At the end of queue set it back to the beggining
     if(seed_head == seed_tail){
         seed_head = 0;
     }
 
 
-    //Treating our corpus array as a first in first out queue.
-    seed = seed_corpus[seed_head];
+    //Corpus will loop continously.
+    result = memcpy(input, (int16_t *)local_pool[seed_head], WIDTH);
 
-    //After we assign it set it to zero.
-    memset_volatile(&seed_corpus[seed_head], 0, sizeof(seed_t));
+    if(result == NULL){
+        printf("ERROR: Failed to copy seed to input buffer. \n");
+    }
 
     //Increment the seed_head
     seed_head++;
-
-    return seed;
 }
 
-void handle_results(struct seed_t * seed){
+void seed_to_global_pool(){
+    uint16_t i = 0;
+}
 
-    if (isError == HANG){
+void handle_results(int16_t * input){
 
-        //Raw Input Dumped and Scraped by Host PC via Python Script
-        seed_printf(seed);
-        isError = NO_ERROR;
-    }
-    else if(isIncreasing){
+    //TODO: A better way to figure out increasing test cases.
+    if(isIncreasing){
 
+        input_printf(input);
+        seed_to_global_pool();
+        printf("LOG: Coverage Increasing\n");
         isIncreasing = false;
-        queue_seed(seed);
     }
     if (corpusWaiting){
 
-        //Host Side Corpus Refresh Waiting.
-        refresh_seed_corpus();
+     //Host Side Corpus Refresh Waiting.
+     refresh_seed_corpus();
 
-    }
-
+     }
+    longjmp(saved_context, true);
 
 }
 
-void image_library_harness(){
+void main_harness_loop(){
 
     CSL_Handle timer_handle;
     uint16_t iterations = 0;
-    setup(&IMG_boundary);
 
+    int16_t result;
+
+    setup(&test);
+
+    uint16_t num_of_seeds = 1;
 
     //Initial Loading of the Seed Corpus
     refresh_seed_corpus();
 
+    //Grab the intial seed from the corpus
+    dequeue_seed(current_input);
 
     while(1){
 
-            printf("\nLOG: Trying, on loop interation %d \n",iterations);
+            iterations++;
 
-            //Need to grab a seed to mutate from our corpus
-            current_seed = dequeue_seed();
-
-            mutator(&current_seed,WIDTH);
-
-            //Saves context before entering the function to restore control in the case of a stall
             setjmp(saved_context);
+
+            if(stage_cycles == MAX_CYCLES){
+                //Need to grab a new seed from the corpus.
+                dequeue_seed(current_input);
+                stage_cycles = 0;
+                input_printf(current_input);
+                num_of_seeds++;
+                num_of_seeds = num_of_seeds % 16;
+            }
+
+            mutator(current_input,WIDTH);
+
+           printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
 
             start_timer(&timer_handle);
 
-            if (isError == NO_ERROR){
-                IMG_boundary((short *)(&(current_seed.input) + 2), (int16_t)current_seed.input[0], (int16_t)current_seed.input[1], (int16_t *)&current_seed.output, (int16_t *)&current_seed.output); //This is broken with weird inputs.
+            result = test(sizeof(current_input),current_input);
+
+            if (result < 0){
+                crash_void();
             }
+//            if (isError == NO_ERROR){
+//                IMG_boundary((short *)(&(current_seed.input) + 2), (int16_t)current_seed.input[0], (int16_t)current_seed.input[1], (int16_t *)&current_seed.output, (int16_t *)&current_seed.output); //This is broken with weird inputs.
+//            }
+
+           //Fuzz Target is below
+           //IMG_boundary((short *)current_input + 2, current_input[0], current_input[1],output_buffer, output_buffer);
+           //IMG_boundary((short *)(&(current_seed.input) + 2), (int16_t)current_seed.input[0], (int16_t)current_seed.input[1], (int16_t *)&current_seed.output, (int16_t *)&current_seed.output); //This is broken with weird inputs.
 
            stop_timer(&timer_handle);
 
-           isIncreasing = true;
+           handle_results(current_input);
 
-           handle_results(&current_seed);
 
-           iterations++;
     }
 }
 
 
 int main(void){
 
-    image_library_harness();
+    main_harness_loop();
 }
+
+
+
+
+
 
 
 

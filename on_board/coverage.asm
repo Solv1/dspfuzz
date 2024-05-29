@@ -9,7 +9,7 @@
 
 _coverage_log:
 	AADD #-5, SP
-	MOV RETA, dbl(*SP(#00h)); ;Saving the return address here
+	
 	
 	PSH T2;			 		   ;Pushing Register Context to the stack.
 	PSH T3;
@@ -18,6 +18,7 @@ _coverage_log:
 	PSHBOTH XAR7;
 	AADD #5, SP;
 	
+	MOV RETA, dbl(*SP(#00h)); ;Saving the return address here
 	MOV dbl(*SP(#00h)), AC0;		;This is the address of where the coverage_logging function begins in the SUT
 	SUB #4, AC0;
 	AND #0x0001, AC0, T0;			; The "FLAG for evenness is stored in AC1

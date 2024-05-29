@@ -1,42 +1,47 @@
 #Makefile for Testing 
-TOOLS_DIR=../../ti/55x_Tools/
-LIB_DIR = ../../ti/55x_libaries/
+TOOLS_DIR= /home/santiago/Research/Ti/C55_Tools/
+LIB_DIR = /home/santiago/Research/Ti/C55_Libraries/
+INCLUDE_DIR = /home/santiago/Research/Ti/C55_Includes/
+CSL_INCLUDE_DIR = /home/santiago/Research/Ti/c55_csl_3.08.01/inc/
+CSL_LIB = /home/santiago/Research/Ti/c55_csl_3.08.01/ccs_v6.x_examples/C55XXCSL_LP/Debug/C55XXCSL_LP.lib
+IMG_LIB_INCLUDE_DIR = /home/santiago/Research/Ti/C55_ImgLib/include/
 
 OBJS += \
-./main.obj
+./coverage.obj \
+./fuzz.obj
 
 CMD_SRCS += \
 ./Custom_Linker.cmd
 
 C_SRCS += \
 ./fuzz.c  \
-./test.c
+./test_fuzz.c \
+./coverage.asm \
 
 ASM_SRCS += \
-./fuzz.asm  \
-./test.asm
+./coverage.asm
 
 C_DEPS += \
 ./fuzz.d \
-./test.d
 
 ORDERED_OBJS += \
+./coverage.obj \
 ./fuzz.obj \
-./test.obj \
+./test_fuzz.obj \
 ./Custom_Linker.cmd \
 
 
 asm:
-	$(TOOLS_DIR)bin/masm55  --memory_model=large -g  --include_path=./ --include_path=$(LIB_DIR) --include_path=$(TOOLS_DIR)include --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 --keep_asm  $(ASM_SRCS)
-	@echo "-----Done Compiling-----"
+	$(TOOLS_DIR)masm55  --memory_model=large -g  --include_path=./ --include_path=$(LIB_DIR) --include_path=$(INCLUDE_DIR) --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 --keep_asm  $(ASM_SRCS)
+	@echo "Assembled"
 	$(TOOLS_DIR)bin/cl55 -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -z  --stack_size=0x200 --heap_size=0x400 -i$(LIB_DIR) -i$(TOOLS_DIR)lib/ -i$(TOOLS_DIR)include/ --reread_libs --display_error_number --warn_sections  --rom_model --sys_stacksize=0x200 -o main.out $(ORDERED_OBJS)
 	@echo "------Done Linking------"
 
 
 test:
-	$(TOOLS_DIR)bin/cl55 -v5515 --memory_model=large -g --include_path=./ --include_path=$(LIB_DIR) --include_path=$(TOOLS_DIR)include --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 --keep_asm  $(C_SRCS)
+	$(TOOLS_DIR)cl55 -v5515 --memory_model=large -g --include_path=./ --include_path=$(LIB_DIR) --include_path=$(INCLUDE_DIR) --include_path=$(CSL_INCLUDE_DIR) --include_path=$(IMG_LIB_INCLUDE_DIR) --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 --keep_asm  $(C_SRCS)
 	@echo "-----Done Compiling-----"
-	$(TOOLS_DIR)bin/cl55 -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -z  --stack_size=0x200 --heap_size=0x400 -i$(LIB_DIR) -i$(TOOLS_DIR)lib/ -i$(TOOLS_DIR)include/ --reread_libs --display_error_number --warn_sections  --rom_model --sys_stacksize=0x200 -o main.out $(ORDERED_OBJS)
+	$(TOOLS_DIR)cl55 -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -z  --stack_size=0x200 --heap_size=0x400 -i$(LIB_DIR) -l./55ximagex.lib -i$(INCLUDE_DIR) -l$(CSL_LIB) --reread_libs --display_error_number --warn_sections  --rom_model --sys_stacksize=0x400 -o DSPFuzz.out $(ORDERED_OBJS)
 	@echo "-----Done Linking-----"
 
 clean:

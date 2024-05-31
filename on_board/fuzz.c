@@ -12,7 +12,7 @@
 
 //#define NO_LOGGING
 
-#define TIMEOUT 1000000 /*Assuming a 100Mhz Clock*/
+#define TIMEOUT 10000 /*Assuming a 100Mhz Clock*/
 
 /*---------------------Fuzzer Defines---------------------*/
 #define SEED_CAPACITY 15
@@ -469,17 +469,20 @@ void main_harness_loop(){
                 //Need to grab a new seed from the corpus.
                 dequeue_seed(current_input);
                 stage_cycles = 0;
-                input_printf(current_input);
+                //input_printf(current_input);
                 num_of_seeds++;
                 num_of_seeds = num_of_seeds % 16;
             }
 
             mutator(current_input,WIDTH);
 
-           printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
+            printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
 
             start_timer(&timer_handle);
-
+	    //current_input[0] = 56;
+	    //current_input[1] = 56;
+	    //current_input[2] = 56;
+	    input_printf(current_input);
             result = test(sizeof(current_input),current_input);
 
             if (result < 0){

@@ -177,6 +177,11 @@ def second_pass(lines, labels):
                 inRepeatBlock = False
             function_lines.add(index)
             #fun_count+=1
+
+        #TODO: This may break with a repeat block may have to check logic    
+        elif re.match("^\$C\$L[0-9]+", line):
+            print(line)
+            function_lines.add(index)
         
         #global label to add extern reference to coverage logging function
         elif '.global' in line:

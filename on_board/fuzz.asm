@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                        Unix v4.4.1 *
-;* Date/Time created: Thu May 30 15:53:24 2024                                 *
+;* Date/Time created: Tue Jun 11 15:48:46 2024                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -375,7 +375,7 @@ $C$DW$54	.dwtag  DW_TAG_variable, DW_AT_name("output_buffer")
 	.dwattr $C$DW$54, DW_AT_type(*$C$DW$T$122)
 	.dwattr $C$DW$54, DW_AT_external
 	.global	_coverage_map
-	.bss	_coverage_map,16384,0,0
+	.bss	_coverage_map,1024,0,0
 $C$DW$55	.dwtag  DW_TAG_variable, DW_AT_name("coverage_map")
 	.dwattr $C$DW$55, DW_AT_TI_symbol_name("_coverage_map")
 	.dwattr $C$DW$55, DW_AT_location[DW_OP_addr _coverage_map]
@@ -386,7 +386,7 @@ $C$DW$55	.dwtag  DW_TAG_variable, DW_AT_name("coverage_map")
 $C$DW$56	.dwtag  DW_TAG_variable, DW_AT_name("sut_start_address")
 	.dwattr $C$DW$56, DW_AT_TI_symbol_name("_sut_start_address")
 	.dwattr $C$DW$56, DW_AT_location[DW_OP_addr _sut_start_address]
-	.dwattr $C$DW$56, DW_AT_type(*$C$DW$T$134)
+	.dwattr $C$DW$56, DW_AT_type(*$C$DW$T$135)
 	.dwattr $C$DW$56, DW_AT_external
 	.global	_seed_head
 	.bss	_seed_head,1,0,0
@@ -479,7 +479,7 @@ $C$DW$69	.dwtag  DW_TAG_variable, DW_AT_name("isTest")
 	.dwattr $C$DW$69, DW_AT_location[DW_OP_addr _isTest]
 	.dwattr $C$DW$69, DW_AT_type(*$C$DW$T$120)
 	.dwattr $C$DW$69, DW_AT_external
-;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/21052xl4sUi 
+;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/20834GoIxZq 
 	.sect	".text:retain"
 	.global	_fuzzer_isr
 
@@ -1621,7 +1621,7 @@ $C$DW$L$_crash_void$2$B:
 $C$DW$L$_crash_void$2$E:
 
 $C$DW$95	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$95, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L2:1:1717098804")
+	.dwattr $C$DW$95, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L2:1:1718135326")
 	.dwattr $C$DW$95, DW_AT_TI_begin_file("./fuzz.c")
 	.dwattr $C$DW$95, DW_AT_TI_begin_line(0x7c)
 	.dwattr $C$DW$95, DW_AT_TI_end_line(0x7c)
@@ -1733,7 +1733,7 @@ $C$DW$105	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$106	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$106, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L3:1:1717098804")
+	.dwattr $C$DW$106, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L3:1:1718135326")
 	.dwattr $C$DW$106, DW_AT_TI_begin_file("./fuzz.c")
 	.dwattr $C$DW$106, DW_AT_TI_begin_line(0x82)
 	.dwattr $C$DW$106, DW_AT_TI_end_line(0x84)
@@ -1854,7 +1854,7 @@ $C$DW$115	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$116	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$116, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L5:1:1717098804")
+	.dwattr $C$DW$116, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L5:1:1718135326")
 	.dwattr $C$DW$116, DW_AT_TI_begin_file("./fuzz.c")
 	.dwattr $C$DW$116, DW_AT_TI_begin_line(0x91)
 	.dwattr $C$DW$116, DW_AT_TI_end_line(0x93)
@@ -2223,7 +2223,7 @@ $C$DW$151	.dwtag  DW_TAG_variable, DW_AT_name("function_pointer")
 	.dwattr $C$DW$151, DW_AT_location[DW_OP_bregx 0x24 0]
         MOV XAR0, dbl(*SP(#0))
 	.dwpsn	file "./fuzz.c",line 264,column 5,is_stmt
-        MOV #16384, T1 ; |264| 
+        MOV #1024, T1 ; |264| 
         AMOV #_coverage_map, XAR0 ; |264| 
 $C$DW$152	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$152, DW_AT_low_pc(0x00)
@@ -2246,24 +2246,23 @@ $C$DW$153	.dwtag  DW_TAG_TI_branch
 ||      MOV #0, T0
 
                                         ; call occurs [#_memset] ; |265| 
-	.dwpsn	file "./fuzz.c",line 267,column 5,is_stmt
-        MOV dbl(*SP(#0)), XAR3
-        MOV dbl(*AR3), AC0 ; |267| 
-        MOV AC0, dbl(*(#_sut_start_address)) ; |267| 
 	.dwpsn	file "./fuzz.c",line 269,column 5,is_stmt
-        MOV #(_coverage_map >> 16) << #16, AC0 ; |269| 
-        OR #(_coverage_map & 0xffff), AC0, AC0 ; |269| 
-        BCC $C$L7,AC0 != #0 ; |269| 
-                                        ; branchcc occurs ; |269| 
-	.dwpsn	file "./fuzz.c",line 273,column 9,is_stmt
+        MOV dbl(*SP(#0)), XAR3
+        MOV XAR3, dbl(*(#_sut_start_address))
+	.dwpsn	file "./fuzz.c",line 271,column 5,is_stmt
+        MOV #(_coverage_map >> 16) << #16, AC0 ; |271| 
+        OR #(_coverage_map & 0xffff), AC0, AC0 ; |271| 
+        BCC $C$L7,AC0 != #0 ; |271| 
+                                        ; branchcc occurs ; |271| 
+	.dwpsn	file "./fuzz.c",line 275,column 9,is_stmt
         MOV #-1, T0
-        B $C$L8   ; |273| 
-                                        ; branch occurs ; |273| 
+        B $C$L8   ; |275| 
+                                        ; branch occurs ; |275| 
 $C$L7:    
-	.dwpsn	file "./fuzz.c",line 276,column 5,is_stmt
+	.dwpsn	file "./fuzz.c",line 278,column 5,is_stmt
         MOV #0, T0
 $C$L8:    
-	.dwpsn	file "./fuzz.c",line 278,column 1,is_stmt
+	.dwpsn	file "./fuzz.c",line 280,column 1,is_stmt
         AADD #3, SP
 	.dwcfi	cfa_offset, 1
 $C$DW$154	.dwtag  DW_TAG_TI_branch
@@ -2272,7 +2271,7 @@ $C$DW$154	.dwtag  DW_TAG_TI_branch
         RET
                                         ; return occurs
 	.dwattr $C$DW$149, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$149, DW_AT_TI_end_line(0x116)
+	.dwattr $C$DW$149, DW_AT_TI_end_line(0x118)
 	.dwattr $C$DW$149, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$149
@@ -2286,10 +2285,10 @@ $C$DW$155	.dwtag  DW_TAG_subprogram, DW_AT_name("mutator")
 	.dwattr $C$DW$155, DW_AT_TI_symbol_name("_mutator")
 	.dwattr $C$DW$155, DW_AT_external
 	.dwattr $C$DW$155, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$155, DW_AT_TI_begin_line(0x118)
+	.dwattr $C$DW$155, DW_AT_TI_begin_line(0x11a)
 	.dwattr $C$DW$155, DW_AT_TI_begin_column(0x06)
 	.dwattr $C$DW$155, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "./fuzz.c",line 280,column 49,is_stmt,address _mutator
+	.dwpsn	file "./fuzz.c",line 282,column 49,is_stmt,address _mutator
 
 	.dwfde $C$DW$CIE, _mutator
 $C$DW$156	.dwtag  DW_TAG_formal_parameter, DW_AT_name("input")
@@ -2307,8 +2306,8 @@ $C$DW$157	.dwtag  DW_TAG_formal_parameter, DW_AT_name("input_size")
 ;*                        CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL                *
 ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
 ;*   Total Frame Size   : 8 words                                              *
-;*                        (2 return address/alignment)                         *
-;*                        (6 local values)                                     *
+;*                        (1 return address/alignment)                         *
+;*                        (7 local values)                                     *
 ;*   Min System Stack   : 1 word                                               *
 ;*******************************************************************************
 _mutator:
@@ -2336,432 +2335,422 @@ $C$DW$162	.dwtag  DW_TAG_variable, DW_AT_name("random_value")
 	.dwattr $C$DW$162, DW_AT_TI_symbol_name("_random_value")
 	.dwattr $C$DW$162, DW_AT_type(*$C$DW$T$73)
 	.dwattr $C$DW$162, DW_AT_location[DW_OP_bregx 0x24 5]
-        MOV T0, *SP(#2) ; |280| 
+$C$DW$163	.dwtag  DW_TAG_variable, DW_AT_name("random_stage")
+	.dwattr $C$DW$163, DW_AT_TI_symbol_name("_random_stage")
+	.dwattr $C$DW$163, DW_AT_type(*$C$DW$T$73)
+	.dwattr $C$DW$163, DW_AT_location[DW_OP_bregx 0x24 6]
+        MOV T0, *SP(#2) ; |282| 
         MOV XAR0, dbl(*SP(#0))
-	.dwpsn	file "./fuzz.c",line 289,column 9,is_stmt
-        AMOV #0, XAR0 ; |289| 
-$C$DW$163	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$163, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$163, DW_AT_name("_time")
-	.dwattr $C$DW$163, DW_AT_TI_call
-        CALL #_time ; |289| 
-                                        ; call occurs [#_time] ; |289| 
-        MOV AC0, *SP(#4) ; |289| 
-	.dwpsn	file "./fuzz.c",line 290,column 9,is_stmt
+	.dwpsn	file "./fuzz.c",line 291,column 9,is_stmt
+        AMOV #0, XAR0 ; |291| 
 $C$DW$164	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$164, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$164, DW_AT_name("_srand")
+	.dwattr $C$DW$164, DW_AT_name("_time")
 	.dwattr $C$DW$164, DW_AT_TI_call
-
-        CALL #_srand ; |290| 
-||      MOV AC0, T0
-
-                                        ; call occurs [#_srand] ; |290| 
-	.dwpsn	file "./fuzz.c",line 291,column 9,is_stmt
+        CALL #_time ; |291| 
+                                        ; call occurs [#_time] ; |291| 
+        MOV AC0, *SP(#4) ; |291| 
+	.dwpsn	file "./fuzz.c",line 292,column 9,is_stmt
 $C$DW$165	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$165, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$165, DW_AT_name("_rand")
+	.dwattr $C$DW$165, DW_AT_name("_srand")
 	.dwattr $C$DW$165, DW_AT_TI_call
-        CALL #_rand ; |291| 
-                                        ; call occurs [#_rand] ; |291| 
-        MOV T0, *SP(#5) ; |291| 
-	.dwpsn	file "./fuzz.c",line 306,column 9,is_stmt
-        MOV #3, AR2
-        MOV *(#_stage_cycles), AR1 ; |306| 
-        CMPU AR1 >= AR2, TC1 ; |306| 
-        BCC $C$L11,TC1 ; |306| 
-                                        ; branchcc occurs ; |306| 
-	.dwpsn	file "./fuzz.c",line 307,column 17,is_stmt
-        MOV #0, *SP(#3) ; |307| 
-	.dwpsn	file "./fuzz.c",line 307,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |307| 
-        MOV *SP(#3), AR2 ; |307| 
-        CMPU AR2 >= AR1, TC1 ; |307| 
-        BCC $C$L28,TC1 ; |307| 
-                                        ; branchcc occurs ; |307| 
-$C$L9:    
-$C$DW$L$_mutator$3$B:
-	.dwpsn	file "./fuzz.c",line 308,column 17,is_stmt
+
+        CALL #_srand ; |292| 
+||      MOV AC0, T0
+
+                                        ; call occurs [#_srand] ; |292| 
+	.dwpsn	file "./fuzz.c",line 293,column 9,is_stmt
 $C$DW$166	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$166, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$166, DW_AT_name("_rand")
 	.dwattr $C$DW$166, DW_AT_TI_call
-        CALL #_rand ; |308| 
-                                        ; call occurs [#_rand] ; |308| 
-        MOV *(#_mutation_frequency), T1 ; |308| 
+        CALL #_rand ; |293| 
+                                        ; call occurs [#_rand] ; |293| 
+        MOV T0, *SP(#5) ; |293| 
+	.dwpsn	file "./fuzz.c",line 295,column 18,is_stmt
+        MOV T0, AR1
+        AND #0x000f, AR1, AC0 ; |295| 
+        MOV AC0, *SP(#6) ; |295| 
+	.dwpsn	file "./fuzz.c",line 312,column 9,is_stmt
+
+        MOV #3, AR2
+||      MOV AC0, AR1
+
+        CMPU AR1 >= AR2, TC1 ; |312| 
+        BCC $C$L11,TC1 ; |312| 
+                                        ; branchcc occurs ; |312| 
+	.dwpsn	file "./fuzz.c",line 313,column 17,is_stmt
+        MOV #0, *SP(#3) ; |313| 
+	.dwpsn	file "./fuzz.c",line 313,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |313| 
+        MOV *SP(#3), AR2 ; |313| 
+        CMPU AR2 >= AR1, TC1 ; |313| 
+        BCC $C$L28,TC1 ; |313| 
+                                        ; branchcc occurs ; |313| 
+$C$L9:    
+$C$DW$L$_mutator$3$B:
+	.dwpsn	file "./fuzz.c",line 314,column 17,is_stmt
 $C$DW$167	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$167, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$167, DW_AT_name("__remu")
+	.dwattr $C$DW$167, DW_AT_name("_rand")
 	.dwattr $C$DW$167, DW_AT_TI_call
-        CALL #__remu ; |308| 
-                                        ; call occurs [#__remu] ; |308| 
-        BCC $C$L10,T0 != #0 ; |308| 
-                                        ; branchcc occurs ; |308| 
-$C$DW$L$_mutator$3$E:
-$C$DW$L$_mutator$4$B:
-	.dwpsn	file "./fuzz.c",line 310,column 17,is_stmt
+        CALL #_rand ; |314| 
+                                        ; call occurs [#_rand] ; |314| 
+        MOV *(#_mutation_frequency), T1 ; |314| 
 $C$DW$168	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$168, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$168, DW_AT_name("_rand")
+	.dwattr $C$DW$168, DW_AT_name("__remu")
 	.dwattr $C$DW$168, DW_AT_TI_call
-        CALL #_rand ; |310| 
-                                        ; call occurs [#_rand] ; |310| 
+        CALL #__remu ; |314| 
+                                        ; call occurs [#__remu] ; |314| 
+        BCC $C$L10,T0 != #0 ; |314| 
+                                        ; branchcc occurs ; |314| 
+$C$DW$L$_mutator$3$E:
+$C$DW$L$_mutator$4$B:
+	.dwpsn	file "./fuzz.c",line 316,column 17,is_stmt
 $C$DW$169	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$169, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$169, DW_AT_name("__remi")
+	.dwattr $C$DW$169, DW_AT_name("_rand")
 	.dwattr $C$DW$169, DW_AT_TI_call
+        CALL #_rand ; |316| 
+                                        ; call occurs [#_rand] ; |316| 
+$C$DW$170	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$170, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$170, DW_AT_name("__remi")
+	.dwattr $C$DW$170, DW_AT_TI_call
 
-        CALL #__remi ; |310| 
+        CALL #__remi ; |316| 
 ||      MOV #15, T1
 
-                                        ; call occurs [#__remi] ; |310| 
+                                        ; call occurs [#__remi] ; |316| 
         MOV dbl(*SP(#0)), XAR3
         MOV #1, AC0
 
-        MOV *SP(#3), T0 ; |310| 
-||      SFTS AC0, T0, AC0 ; |310| 
+        MOV *SP(#3), T0 ; |316| 
+||      SFTS AC0, T0, AC0 ; |316| 
 
-        XOR *AR3(T0), AC0, AR1 ; |310| 
-        MOV AR1, *AR3(T0) ; |310| 
-	.dwpsn	file "./fuzz.c",line 311,column 17,is_stmt
-        B $C$L10  ; |311| 
-                                        ; branch occurs ; |311| 
+        XOR *AR3(T0), AC0, AR1 ; |316| 
+        MOV AR1, *AR3(T0) ; |316| 
+	.dwpsn	file "./fuzz.c",line 317,column 17,is_stmt
+        B $C$L10  ; |317| 
+                                        ; branch occurs ; |317| 
 $C$DW$L$_mutator$4$E:
 $C$L10:    
 $C$DW$L$_mutator$6$B:
-	.dwpsn	file "./fuzz.c",line 307,column 40,is_stmt
-        ADD #1, *SP(#3) ; |307| 
-	.dwpsn	file "./fuzz.c",line 307,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |307| 
-        MOV *SP(#3), AR2 ; |307| 
-        CMPU AR2 < AR1, TC1 ; |307| 
-        BCC $C$L9,TC1 ; |307| 
-                                        ; branchcc occurs ; |307| 
+	.dwpsn	file "./fuzz.c",line 313,column 40,is_stmt
+        ADD #1, *SP(#3) ; |313| 
+	.dwpsn	file "./fuzz.c",line 313,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |313| 
+        MOV *SP(#3), AR2 ; |313| 
+        CMPU AR2 < AR1, TC1 ; |313| 
+        BCC $C$L9,TC1 ; |313| 
+                                        ; branchcc occurs ; |313| 
 $C$DW$L$_mutator$6$E:
-	.dwpsn	file "./fuzz.c",line 315,column 9,is_stmt
-        B $C$L28  ; |315| 
-                                        ; branch occurs ; |315| 
+	.dwpsn	file "./fuzz.c",line 321,column 9,is_stmt
+        B $C$L28  ; |321| 
+                                        ; branch occurs ; |321| 
 $C$L11:    
-	.dwpsn	file "./fuzz.c",line 316,column 14,is_stmt
+	.dwpsn	file "./fuzz.c",line 322,column 14,is_stmt
         MOV #7, AR2
-        CMPU AR1 >= AR2, TC1 ; |316| 
-        BCC $C$L14,TC1 ; |316| 
-                                        ; branchcc occurs ; |316| 
-	.dwpsn	file "./fuzz.c",line 317,column 17,is_stmt
-        MOV #0, *SP(#3) ; |317| 
-	.dwpsn	file "./fuzz.c",line 317,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |317| 
-        MOV *SP(#3), AR2 ; |317| 
-        CMPU AR2 >= AR1, TC1 ; |317| 
-        BCC $C$L28,TC1 ; |317| 
-                                        ; branchcc occurs ; |317| 
+        CMPU AR1 >= AR2, TC1 ; |322| 
+        BCC $C$L14,TC1 ; |322| 
+                                        ; branchcc occurs ; |322| 
+	.dwpsn	file "./fuzz.c",line 323,column 17,is_stmt
+        MOV #0, *SP(#3) ; |323| 
+	.dwpsn	file "./fuzz.c",line 323,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |323| 
+        MOV *SP(#3), AR2 ; |323| 
+        CMPU AR2 >= AR1, TC1 ; |323| 
+        BCC $C$L28,TC1 ; |323| 
+                                        ; branchcc occurs ; |323| 
 $C$L12:    
 $C$DW$L$_mutator$10$B:
-	.dwpsn	file "./fuzz.c",line 318,column 17,is_stmt
-$C$DW$170	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$170, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$170, DW_AT_name("_rand")
-	.dwattr $C$DW$170, DW_AT_TI_call
-        CALL #_rand ; |318| 
-                                        ; call occurs [#_rand] ; |318| 
-        MOV *(#_mutation_frequency), T1 ; |318| 
+	.dwpsn	file "./fuzz.c",line 324,column 17,is_stmt
 $C$DW$171	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$171, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$171, DW_AT_name("__remu")
+	.dwattr $C$DW$171, DW_AT_name("_rand")
 	.dwattr $C$DW$171, DW_AT_TI_call
-        CALL #__remu ; |318| 
-                                        ; call occurs [#__remu] ; |318| 
-        BCC $C$L13,T0 != #0 ; |318| 
-                                        ; branchcc occurs ; |318| 
-$C$DW$L$_mutator$10$E:
-$C$DW$L$_mutator$11$B:
-	.dwpsn	file "./fuzz.c",line 320,column 25,is_stmt
+        CALL #_rand ; |324| 
+                                        ; call occurs [#_rand] ; |324| 
+        MOV *(#_mutation_frequency), T1 ; |324| 
 $C$DW$172	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$172, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$172, DW_AT_name("_rand")
+	.dwattr $C$DW$172, DW_AT_name("__remu")
 	.dwattr $C$DW$172, DW_AT_TI_call
-        CALL #_rand ; |320| 
-                                        ; call occurs [#_rand] ; |320| 
+        CALL #__remu ; |324| 
+                                        ; call occurs [#__remu] ; |324| 
+        BCC $C$L13,T0 != #0 ; |324| 
+                                        ; branchcc occurs ; |324| 
+$C$DW$L$_mutator$10$E:
+$C$DW$L$_mutator$11$B:
+	.dwpsn	file "./fuzz.c",line 326,column 25,is_stmt
 $C$DW$173	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$173, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$173, DW_AT_name("__remi")
+	.dwattr $C$DW$173, DW_AT_name("_rand")
 	.dwattr $C$DW$173, DW_AT_TI_call
+        CALL #_rand ; |326| 
+                                        ; call occurs [#_rand] ; |326| 
+$C$DW$174	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$174, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$174, DW_AT_name("__remi")
+	.dwattr $C$DW$174, DW_AT_TI_call
 
-        CALL #__remi ; |320| 
+        CALL #__remi ; |326| 
 ||      MOV #9, T1
 
-                                        ; call occurs [#__remi] ; |320| 
+                                        ; call occurs [#__remi] ; |326| 
         MOV dbl(*SP(#0)), XAR3
         MOV #3, AC0
 
-        MOV *SP(#3), T0 ; |320| 
-||      SFTS AC0, T0, AC0 ; |320| 
+        MOV *SP(#3), T0 ; |326| 
+||      SFTS AC0, T0, AC0 ; |326| 
 
-        XOR *AR3(T0), AC0, AR1 ; |320| 
-        MOV AR1, *AR3(T0) ; |320| 
-	.dwpsn	file "./fuzz.c",line 321,column 21,is_stmt
-        B $C$L13  ; |321| 
-                                        ; branch occurs ; |321| 
+        XOR *AR3(T0), AC0, AR1 ; |326| 
+        MOV AR1, *AR3(T0) ; |326| 
+	.dwpsn	file "./fuzz.c",line 327,column 21,is_stmt
+        B $C$L13  ; |327| 
+                                        ; branch occurs ; |327| 
 $C$DW$L$_mutator$11$E:
 $C$L13:    
 $C$DW$L$_mutator$13$B:
-	.dwpsn	file "./fuzz.c",line 317,column 40,is_stmt
-        ADD #1, *SP(#3) ; |317| 
-	.dwpsn	file "./fuzz.c",line 317,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |317| 
-        MOV *SP(#3), AR2 ; |317| 
-        CMPU AR2 < AR1, TC1 ; |317| 
-        BCC $C$L12,TC1 ; |317| 
-                                        ; branchcc occurs ; |317| 
+	.dwpsn	file "./fuzz.c",line 323,column 40,is_stmt
+        ADD #1, *SP(#3) ; |323| 
+	.dwpsn	file "./fuzz.c",line 323,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |323| 
+        MOV *SP(#3), AR2 ; |323| 
+        CMPU AR2 < AR1, TC1 ; |323| 
+        BCC $C$L12,TC1 ; |323| 
+                                        ; branchcc occurs ; |323| 
 $C$DW$L$_mutator$13$E:
-	.dwpsn	file "./fuzz.c",line 325,column 9,is_stmt
-        B $C$L28  ; |325| 
-                                        ; branch occurs ; |325| 
+	.dwpsn	file "./fuzz.c",line 331,column 9,is_stmt
+        B $C$L28  ; |331| 
+                                        ; branch occurs ; |331| 
 $C$L14:    
-	.dwpsn	file "./fuzz.c",line 326,column 14,is_stmt
+	.dwpsn	file "./fuzz.c",line 332,column 14,is_stmt
         MOV #9, AR2
-        CMPU AR1 >= AR2, TC1 ; |326| 
-        BCC $C$L17,TC1 ; |326| 
-                                        ; branchcc occurs ; |326| 
-	.dwpsn	file "./fuzz.c",line 327,column 17,is_stmt
-        MOV #0, *SP(#3) ; |327| 
-	.dwpsn	file "./fuzz.c",line 327,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |327| 
-        MOV *SP(#3), AR2 ; |327| 
-        CMPU AR2 >= AR1, TC1 ; |327| 
-        BCC $C$L28,TC1 ; |327| 
-                                        ; branchcc occurs ; |327| 
+        CMPU AR1 >= AR2, TC1 ; |332| 
+        BCC $C$L17,TC1 ; |332| 
+                                        ; branchcc occurs ; |332| 
+	.dwpsn	file "./fuzz.c",line 333,column 17,is_stmt
+        MOV #0, *SP(#3) ; |333| 
+	.dwpsn	file "./fuzz.c",line 333,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |333| 
+        MOV *SP(#3), AR2 ; |333| 
+        CMPU AR2 >= AR1, TC1 ; |333| 
+        BCC $C$L28,TC1 ; |333| 
+                                        ; branchcc occurs ; |333| 
 $C$L15:    
 $C$DW$L$_mutator$17$B:
-	.dwpsn	file "./fuzz.c",line 329,column 17,is_stmt
-$C$DW$174	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$174, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$174, DW_AT_name("_rand")
-	.dwattr $C$DW$174, DW_AT_TI_call
-        CALL #_rand ; |329| 
-                                        ; call occurs [#_rand] ; |329| 
-        MOV *(#_mutation_frequency), T1 ; |329| 
+	.dwpsn	file "./fuzz.c",line 335,column 17,is_stmt
 $C$DW$175	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$175, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$175, DW_AT_name("__remu")
+	.dwattr $C$DW$175, DW_AT_name("_rand")
 	.dwattr $C$DW$175, DW_AT_TI_call
-        CALL #__remu ; |329| 
-                                        ; call occurs [#__remu] ; |329| 
-        BCC $C$L16,T0 != #0 ; |329| 
-                                        ; branchcc occurs ; |329| 
-$C$DW$L$_mutator$17$E:
-$C$DW$L$_mutator$18$B:
-	.dwpsn	file "./fuzz.c",line 331,column 21,is_stmt
+        CALL #_rand ; |335| 
+                                        ; call occurs [#_rand] ; |335| 
+        MOV *(#_mutation_frequency), T1 ; |335| 
 $C$DW$176	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$176, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$176, DW_AT_name("_rand")
+	.dwattr $C$DW$176, DW_AT_name("__remu")
 	.dwattr $C$DW$176, DW_AT_TI_call
-        CALL #_rand ; |331| 
-                                        ; call occurs [#_rand] ; |331| 
+        CALL #__remu ; |335| 
+                                        ; call occurs [#__remu] ; |335| 
+        BCC $C$L16,T0 != #0 ; |335| 
+                                        ; branchcc occurs ; |335| 
+$C$DW$L$_mutator$17$E:
+$C$DW$L$_mutator$18$B:
+	.dwpsn	file "./fuzz.c",line 337,column 21,is_stmt
 $C$DW$177	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$177, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$177, DW_AT_name("__remi")
+	.dwattr $C$DW$177, DW_AT_name("_rand")
 	.dwattr $C$DW$177, DW_AT_TI_call
+        CALL #_rand ; |337| 
+                                        ; call occurs [#_rand] ; |337| 
+$C$DW$178	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$178, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$178, DW_AT_name("__remi")
+	.dwattr $C$DW$178, DW_AT_TI_call
 
-        CALL #__remi ; |331| 
+        CALL #__remi ; |337| 
 ||      MOV #5, T1
 
-                                        ; call occurs [#__remi] ; |331| 
+                                        ; call occurs [#__remi] ; |337| 
         MOV dbl(*SP(#0)), XAR3
         MOV #15, AC0
 
-        MOV *SP(#3), T0 ; |331| 
-||      SFTS AC0, T0, AC0 ; |331| 
+        MOV *SP(#3), T0 ; |337| 
+||      SFTS AC0, T0, AC0 ; |337| 
 
-        XOR *AR3(T0), AC0, AR1 ; |331| 
-        MOV AR1, *AR3(T0) ; |331| 
-	.dwpsn	file "./fuzz.c",line 332,column 17,is_stmt
-        B $C$L16  ; |332| 
-                                        ; branch occurs ; |332| 
+        XOR *AR3(T0), AC0, AR1 ; |337| 
+        MOV AR1, *AR3(T0) ; |337| 
+	.dwpsn	file "./fuzz.c",line 338,column 17,is_stmt
+        B $C$L16  ; |338| 
+                                        ; branch occurs ; |338| 
 $C$DW$L$_mutator$18$E:
 $C$L16:    
 $C$DW$L$_mutator$20$B:
-	.dwpsn	file "./fuzz.c",line 327,column 40,is_stmt
-        ADD #1, *SP(#3) ; |327| 
-	.dwpsn	file "./fuzz.c",line 327,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |327| 
-        MOV *SP(#3), AR2 ; |327| 
-        CMPU AR2 < AR1, TC1 ; |327| 
-        BCC $C$L15,TC1 ; |327| 
-                                        ; branchcc occurs ; |327| 
+	.dwpsn	file "./fuzz.c",line 333,column 40,is_stmt
+        ADD #1, *SP(#3) ; |333| 
+	.dwpsn	file "./fuzz.c",line 333,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |333| 
+        MOV *SP(#3), AR2 ; |333| 
+        CMPU AR2 < AR1, TC1 ; |333| 
+        BCC $C$L15,TC1 ; |333| 
+                                        ; branchcc occurs ; |333| 
 $C$DW$L$_mutator$20$E:
-	.dwpsn	file "./fuzz.c",line 336,column 9,is_stmt
-        B $C$L28  ; |336| 
-                                        ; branch occurs ; |336| 
+	.dwpsn	file "./fuzz.c",line 342,column 9,is_stmt
+        B $C$L28  ; |342| 
+                                        ; branch occurs ; |342| 
 $C$L17:    
-	.dwpsn	file "./fuzz.c",line 337,column 14,is_stmt
+	.dwpsn	file "./fuzz.c",line 343,column 14,is_stmt
         MOV #12, AR2
-        CMPU AR1 >= AR2, TC1 ; |337| 
-        BCC $C$L20,TC1 ; |337| 
-                                        ; branchcc occurs ; |337| 
-	.dwpsn	file "./fuzz.c",line 339,column 17,is_stmt
-        MOV #0, *SP(#3) ; |339| 
-	.dwpsn	file "./fuzz.c",line 339,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |339| 
-        MOV *SP(#3), AR2 ; |339| 
-        CMPU AR2 >= AR1, TC1 ; |339| 
-        BCC $C$L28,TC1 ; |339| 
-                                        ; branchcc occurs ; |339| 
+        CMPU AR1 >= AR2, TC1 ; |343| 
+        BCC $C$L20,TC1 ; |343| 
+                                        ; branchcc occurs ; |343| 
+	.dwpsn	file "./fuzz.c",line 345,column 17,is_stmt
+        MOV #0, *SP(#3) ; |345| 
+	.dwpsn	file "./fuzz.c",line 345,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |345| 
+        MOV *SP(#3), AR2 ; |345| 
+        CMPU AR2 >= AR1, TC1 ; |345| 
+        BCC $C$L28,TC1 ; |345| 
+                                        ; branchcc occurs ; |345| 
 $C$L18:    
 $C$DW$L$_mutator$24$B:
-	.dwpsn	file "./fuzz.c",line 340,column 17,is_stmt
-$C$DW$178	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$178, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$178, DW_AT_name("_rand")
-	.dwattr $C$DW$178, DW_AT_TI_call
-        CALL #_rand ; |340| 
-                                        ; call occurs [#_rand] ; |340| 
-        MOV *(#_mutation_frequency), T1 ; |340| 
+	.dwpsn	file "./fuzz.c",line 346,column 17,is_stmt
 $C$DW$179	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$179, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$179, DW_AT_name("__remu")
+	.dwattr $C$DW$179, DW_AT_name("_rand")
 	.dwattr $C$DW$179, DW_AT_TI_call
-        CALL #__remu ; |340| 
-                                        ; call occurs [#__remu] ; |340| 
-        BCC $C$L19,T0 != #0 ; |340| 
-                                        ; branchcc occurs ; |340| 
-$C$DW$L$_mutator$24$E:
-$C$DW$L$_mutator$25$B:
-	.dwpsn	file "./fuzz.c",line 342,column 21,is_stmt
+        CALL #_rand ; |346| 
+                                        ; call occurs [#_rand] ; |346| 
+        MOV *(#_mutation_frequency), T1 ; |346| 
 $C$DW$180	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$180, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$180, DW_AT_name("_rand")
+	.dwattr $C$DW$180, DW_AT_name("__remu")
 	.dwattr $C$DW$180, DW_AT_TI_call
-        CALL #_rand ; |342| 
-                                        ; call occurs [#_rand] ; |342| 
+        CALL #__remu ; |346| 
+                                        ; call occurs [#__remu] ; |346| 
+        BCC $C$L19,T0 != #0 ; |346| 
+                                        ; branchcc occurs ; |346| 
+$C$DW$L$_mutator$24$E:
+$C$DW$L$_mutator$25$B:
+	.dwpsn	file "./fuzz.c",line 348,column 21,is_stmt
+$C$DW$181	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$181, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$181, DW_AT_name("_rand")
+	.dwattr $C$DW$181, DW_AT_TI_call
+        CALL #_rand ; |348| 
+                                        ; call occurs [#_rand] ; |348| 
         MOV #1, AR1
 
-        NOT AR1, AR1 ; |342| 
-||      MOV T0, AC0 ; |342| 
+        NOT AR1, AR1 ; |348| 
+||      MOV T0, AC0 ; |348| 
 
-        BFXTR #0x8000, AC0, AR2 ; |342| 
+        BFXTR #0x8000, AC0, AR2 ; |348| 
         MOV dbl(*SP(#0)), XAR3
 
-        MOV *SP(#3), T0 ; |342| 
-||      MOV AC0, T1 ; |342| 
+        MOV *SP(#3), T0 ; |348| 
+||      MOV AC0, T1 ; |348| 
 
-        ADD AC0, AR2 ; |342| 
-        AND AR2, AR1 ; |342| 
+        ADD AC0, AR2 ; |348| 
+        AND AR2, AR1 ; |348| 
 
-        SUB AR1, T1 ; |342| 
-||      MOV #255, AC0 ; |342| 
+        SUB AR1, T1 ; |348| 
+||      MOV #255, AC0 ; |348| 
 
-        SFTS AC0, T1, AC0 ; |342| 
-        XOR *AR3(T0), AC0, AR1 ; |342| 
-        MOV AR1, *AR3(T0) ; |342| 
-	.dwpsn	file "./fuzz.c",line 343,column 17,is_stmt
-        B $C$L19  ; |343| 
-                                        ; branch occurs ; |343| 
+        SFTS AC0, T1, AC0 ; |348| 
+        XOR *AR3(T0), AC0, AR1 ; |348| 
+        MOV AR1, *AR3(T0) ; |348| 
+	.dwpsn	file "./fuzz.c",line 349,column 17,is_stmt
+        B $C$L19  ; |349| 
+                                        ; branch occurs ; |349| 
 $C$DW$L$_mutator$25$E:
 $C$L19:    
 $C$DW$L$_mutator$27$B:
-	.dwpsn	file "./fuzz.c",line 339,column 40,is_stmt
-        ADD #1, *SP(#3) ; |339| 
-	.dwpsn	file "./fuzz.c",line 339,column 24,is_stmt
-        MOV *SP(#2), AR1 ; |339| 
-        MOV *SP(#3), AR2 ; |339| 
-        CMPU AR2 < AR1, TC1 ; |339| 
-        BCC $C$L18,TC1 ; |339| 
-                                        ; branchcc occurs ; |339| 
+	.dwpsn	file "./fuzz.c",line 345,column 40,is_stmt
+        ADD #1, *SP(#3) ; |345| 
+	.dwpsn	file "./fuzz.c",line 345,column 24,is_stmt
+        MOV *SP(#2), AR1 ; |345| 
+        MOV *SP(#3), AR2 ; |345| 
+        CMPU AR2 < AR1, TC1 ; |345| 
+        BCC $C$L18,TC1 ; |345| 
+                                        ; branchcc occurs ; |345| 
 $C$DW$L$_mutator$27$E:
-	.dwpsn	file "./fuzz.c",line 347,column 9,is_stmt
-        B $C$L28  ; |347| 
-                                        ; branch occurs ; |347| 
+	.dwpsn	file "./fuzz.c",line 353,column 9,is_stmt
+        B $C$L28  ; |353| 
+                                        ; branch occurs ; |353| 
 $C$L20:    
-	.dwpsn	file "./fuzz.c",line 348,column 14,is_stmt
-        MOV #16, AR2 ; |348| 
-        CMPU AR1 >= AR2, TC1 ; |348| 
-        BCC $C$L28,TC1 ; |348| 
-                                        ; branchcc occurs ; |348| 
-	.dwpsn	file "./fuzz.c",line 351,column 13,is_stmt
-        B $C$L27  ; |351| 
-                                        ; branch occurs ; |351| 
-$C$L21:    
-	.dwpsn	file "./fuzz.c",line 354,column 21,is_stmt
-        MOV #0, *SP(#3) ; |354| 
-	.dwpsn	file "./fuzz.c",line 354,column 28,is_stmt
-        MOV *(#_mutation_frequency), T1 ; |354| 
-        MOV *SP(#2), T0 ; |354| 
-$C$DW$181	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$181, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$181, DW_AT_name("__divu")
-	.dwattr $C$DW$181, DW_AT_TI_call
-        CALL #__divu ; |354| 
-                                        ; call occurs [#__divu] ; |354| 
-        MOV *SP(#3), AR1 ; |354| 
-        CMPU AR1 >= T0, TC1 ; |354| 
+	.dwpsn	file "./fuzz.c",line 354,column 14,is_stmt
+        MOV #16, AR2 ; |354| 
+        CMPU AR1 >= AR2, TC1 ; |354| 
         BCC $C$L28,TC1 ; |354| 
                                         ; branchcc occurs ; |354| 
-$C$L22:    
-$C$DW$L$_mutator$33$B:
-	.dwpsn	file "./fuzz.c",line 355,column 21,is_stmt
-        MOV #65535, AR1 ; |355| 
-        MOV uns(*SP(#5)), AC0 ; |355| 
-        AND #0xffff, AR1, AC1 ; |355| 
+	.dwpsn	file "./fuzz.c",line 357,column 13,is_stmt
+        B $C$L27  ; |357| 
+                                        ; branch occurs ; |357| 
+$C$L21:    
+	.dwpsn	file "./fuzz.c",line 360,column 21,is_stmt
+        MOV #0, *SP(#3) ; |360| 
+	.dwpsn	file "./fuzz.c",line 360,column 28,is_stmt
+        MOV *(#_mutation_frequency), T1 ; |360| 
+        MOV *SP(#2), T0 ; |360| 
 $C$DW$182	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$182, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$182, DW_AT_name("__remli")
+	.dwattr $C$DW$182, DW_AT_name("__divu")
 	.dwattr $C$DW$182, DW_AT_TI_call
-        CALL #__remli ; |355| 
-                                        ; call occurs [#__remli] ; |355| 
-        MOV *SP(#5), T0 ; |355| 
-        MOV *SP(#2), T1 ; |355| 
+        CALL #__divu ; |360| 
+                                        ; call occurs [#__divu] ; |360| 
+        MOV *SP(#3), AR1 ; |360| 
+        CMPU AR1 >= T0, TC1 ; |360| 
+        BCC $C$L28,TC1 ; |360| 
+                                        ; branchcc occurs ; |360| 
+$C$L22:    
+$C$DW$L$_mutator$33$B:
+	.dwpsn	file "./fuzz.c",line 361,column 21,is_stmt
+        MOV #65535, AR1 ; |361| 
+        MOV uns(*SP(#5)), AC0 ; |361| 
+        AND #0xffff, AR1, AC1 ; |361| 
 $C$DW$183	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$183, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$183, DW_AT_name("__remu")
+	.dwattr $C$DW$183, DW_AT_name("__remli")
 	.dwattr $C$DW$183, DW_AT_TI_call
-
-        CALL #__remu ; |355| 
-||      OR #0, AC0, AC1
-
-                                        ; call occurs [#__remu] ; |355| 
-        MOV dbl(*SP(#0)), XAR3
-        MOV *SP(#2), T1 ; |355| 
-        ADD *AR3(T0), AC1, AC1 ; |355| 
-        MOV *SP(#5), T0 ; |355| 
+        CALL #__remli ; |361| 
+                                        ; call occurs [#__remli] ; |361| 
+        MOV *SP(#5), T0 ; |361| 
+        MOV *SP(#2), T1 ; |361| 
 $C$DW$184	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$184, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$184, DW_AT_name("__remu")
 	.dwattr $C$DW$184, DW_AT_TI_call
-        CALL #__remu ; |355| 
-                                        ; call occurs [#__remu] ; |355| 
+
+        CALL #__remu ; |361| 
+||      OR #0, AC0, AC1
+
+                                        ; call occurs [#__remu] ; |361| 
         MOV dbl(*SP(#0)), XAR3
-        MOV AC1, *AR3(T0) ; |355| 
-	.dwpsn	file "./fuzz.c",line 356,column 21,is_stmt
+        MOV *SP(#2), T1 ; |361| 
+        ADD *AR3(T0), AC1, AC1 ; |361| 
+        MOV *SP(#5), T0 ; |361| 
 $C$DW$185	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$185, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$185, DW_AT_name("_rand")
+	.dwattr $C$DW$185, DW_AT_name("__remu")
 	.dwattr $C$DW$185, DW_AT_TI_call
-        CALL #_rand ; |356| 
-                                        ; call occurs [#_rand] ; |356| 
-        MOV T0, *SP(#5) ; |356| 
-	.dwpsn	file "./fuzz.c",line 354,column 63,is_stmt
-        ADD #1, *SP(#3) ; |354| 
-	.dwpsn	file "./fuzz.c",line 354,column 28,is_stmt
-        MOV *(#_mutation_frequency), T1 ; |354| 
-        MOV *SP(#2), T0 ; |354| 
+        CALL #__remu ; |361| 
+                                        ; call occurs [#__remu] ; |361| 
+        MOV dbl(*SP(#0)), XAR3
+        MOV AC1, *AR3(T0) ; |361| 
+	.dwpsn	file "./fuzz.c",line 362,column 21,is_stmt
 $C$DW$186	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$186, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$186, DW_AT_name("__divu")
+	.dwattr $C$DW$186, DW_AT_name("_rand")
 	.dwattr $C$DW$186, DW_AT_TI_call
-        CALL #__divu ; |354| 
-                                        ; call occurs [#__divu] ; |354| 
-        MOV *SP(#3), AR1 ; |354| 
-        CMPU AR1 < T0, TC1 ; |354| 
-        BCC $C$L22,TC1 ; |354| 
-                                        ; branchcc occurs ; |354| 
-$C$DW$L$_mutator$33$E:
-	.dwpsn	file "./fuzz.c",line 358,column 22,is_stmt
-        B $C$L28  ; |358| 
-                                        ; branch occurs ; |358| 
-$C$L23:    
-	.dwpsn	file "./fuzz.c",line 360,column 21,is_stmt
-        MOV #0, *SP(#3) ; |360| 
+        CALL #_rand ; |362| 
+                                        ; call occurs [#_rand] ; |362| 
+        MOV T0, *SP(#5) ; |362| 
+	.dwpsn	file "./fuzz.c",line 360,column 63,is_stmt
+        ADD #1, *SP(#3) ; |360| 
 	.dwpsn	file "./fuzz.c",line 360,column 28,is_stmt
         MOV *(#_mutation_frequency), T1 ; |360| 
         MOV *SP(#2), T0 ; |360| 
@@ -2772,74 +2761,74 @@ $C$DW$187	.dwtag  DW_TAG_TI_branch
         CALL #__divu ; |360| 
                                         ; call occurs [#__divu] ; |360| 
         MOV *SP(#3), AR1 ; |360| 
-        CMPU AR1 >= T0, TC1 ; |360| 
-        BCC $C$L28,TC1 ; |360| 
+        CMPU AR1 < T0, TC1 ; |360| 
+        BCC $C$L22,TC1 ; |360| 
                                         ; branchcc occurs ; |360| 
-$C$L24:    
-$C$DW$L$_mutator$36$B:
-	.dwpsn	file "./fuzz.c",line 361,column 21,is_stmt
-        MOV #65535, AR1 ; |361| 
-        MOV uns(*SP(#5)), AC0 ; |361| 
-        AND #0xffff, AR1, AC1 ; |361| 
+$C$DW$L$_mutator$33$E:
+	.dwpsn	file "./fuzz.c",line 364,column 22,is_stmt
+        B $C$L28  ; |364| 
+                                        ; branch occurs ; |364| 
+$C$L23:    
+	.dwpsn	file "./fuzz.c",line 366,column 21,is_stmt
+        MOV #0, *SP(#3) ; |366| 
+	.dwpsn	file "./fuzz.c",line 366,column 28,is_stmt
+        MOV *(#_mutation_frequency), T1 ; |366| 
+        MOV *SP(#2), T0 ; |366| 
 $C$DW$188	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$188, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$188, DW_AT_name("__remli")
+	.dwattr $C$DW$188, DW_AT_name("__divu")
 	.dwattr $C$DW$188, DW_AT_TI_call
-        CALL #__remli ; |361| 
-                                        ; call occurs [#__remli] ; |361| 
-        MOV *SP(#5), T0 ; |361| 
-        MOV *SP(#2), T1 ; |361| 
+        CALL #__divu ; |366| 
+                                        ; call occurs [#__divu] ; |366| 
+        MOV *SP(#3), AR1 ; |366| 
+        CMPU AR1 >= T0, TC1 ; |366| 
+        BCC $C$L28,TC1 ; |366| 
+                                        ; branchcc occurs ; |366| 
+$C$L24:    
+$C$DW$L$_mutator$36$B:
+	.dwpsn	file "./fuzz.c",line 367,column 21,is_stmt
+        MOV #65535, AR1 ; |367| 
+        MOV uns(*SP(#5)), AC0 ; |367| 
+        AND #0xffff, AR1, AC1 ; |367| 
 $C$DW$189	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$189, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$189, DW_AT_name("__remu")
+	.dwattr $C$DW$189, DW_AT_name("__remli")
 	.dwattr $C$DW$189, DW_AT_TI_call
-
-        CALL #__remu ; |361| 
-||      OR #0, AC0, AC1
-
-                                        ; call occurs [#__remu] ; |361| 
-        MOV dbl(*SP(#0)), XAR3
-        MOV *SP(#2), T1 ; |361| 
-        SUB AC1, *AR3(T0), AC1 ; |361| 
-        MOV *SP(#5), T0 ; |361| 
+        CALL #__remli ; |367| 
+                                        ; call occurs [#__remli] ; |367| 
+        MOV *SP(#5), T0 ; |367| 
+        MOV *SP(#2), T1 ; |367| 
 $C$DW$190	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$190, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$190, DW_AT_name("__remu")
 	.dwattr $C$DW$190, DW_AT_TI_call
-        CALL #__remu ; |361| 
-                                        ; call occurs [#__remu] ; |361| 
+
+        CALL #__remu ; |367| 
+||      OR #0, AC0, AC1
+
+                                        ; call occurs [#__remu] ; |367| 
         MOV dbl(*SP(#0)), XAR3
-        MOV AC1, *AR3(T0) ; |361| 
-	.dwpsn	file "./fuzz.c",line 362,column 21,is_stmt
+        MOV *SP(#2), T1 ; |367| 
+        SUB AC1, *AR3(T0), AC1 ; |367| 
+        MOV *SP(#5), T0 ; |367| 
 $C$DW$191	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$191, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$191, DW_AT_name("_rand")
+	.dwattr $C$DW$191, DW_AT_name("__remu")
 	.dwattr $C$DW$191, DW_AT_TI_call
-        CALL #_rand ; |362| 
-                                        ; call occurs [#_rand] ; |362| 
-        MOV T0, *SP(#5) ; |362| 
-	.dwpsn	file "./fuzz.c",line 360,column 63,is_stmt
-        ADD #1, *SP(#3) ; |360| 
-	.dwpsn	file "./fuzz.c",line 360,column 28,is_stmt
-        MOV *(#_mutation_frequency), T1 ; |360| 
-        MOV *SP(#2), T0 ; |360| 
+        CALL #__remu ; |367| 
+                                        ; call occurs [#__remu] ; |367| 
+        MOV dbl(*SP(#0)), XAR3
+        MOV AC1, *AR3(T0) ; |367| 
+	.dwpsn	file "./fuzz.c",line 368,column 21,is_stmt
 $C$DW$192	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$192, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$192, DW_AT_name("__divu")
+	.dwattr $C$DW$192, DW_AT_name("_rand")
 	.dwattr $C$DW$192, DW_AT_TI_call
-        CALL #__divu ; |360| 
-                                        ; call occurs [#__divu] ; |360| 
-        MOV *SP(#3), AR1 ; |360| 
-        CMPU AR1 < T0, TC1 ; |360| 
-        BCC $C$L24,TC1 ; |360| 
-                                        ; branchcc occurs ; |360| 
-$C$DW$L$_mutator$36$E:
-	.dwpsn	file "./fuzz.c",line 364,column 22,is_stmt
-        B $C$L28  ; |364| 
-                                        ; branch occurs ; |364| 
-$C$L25:    
-	.dwpsn	file "./fuzz.c",line 366,column 21,is_stmt
-        MOV #0, *SP(#3) ; |366| 
+        CALL #_rand ; |368| 
+                                        ; call occurs [#_rand] ; |368| 
+        MOV T0, *SP(#5) ; |368| 
+	.dwpsn	file "./fuzz.c",line 366,column 63,is_stmt
+        ADD #1, *SP(#3) ; |366| 
 	.dwpsn	file "./fuzz.c",line 366,column 28,is_stmt
         MOV *(#_mutation_frequency), T1 ; |366| 
         MOV *SP(#2), T0 ; |366| 
@@ -2850,207 +2839,228 @@ $C$DW$193	.dwtag  DW_TAG_TI_branch
         CALL #__divu ; |366| 
                                         ; call occurs [#__divu] ; |366| 
         MOV *SP(#3), AR1 ; |366| 
-        CMPU AR1 >= T0, TC1 ; |366| 
-        BCC $C$L28,TC1 ; |366| 
+        CMPU AR1 < T0, TC1 ; |366| 
+        BCC $C$L24,TC1 ; |366| 
                                         ; branchcc occurs ; |366| 
-$C$L26:    
-$C$DW$L$_mutator$39$B:
-	.dwpsn	file "./fuzz.c",line 367,column 21,is_stmt
-        MOV *SP(#5), T0 ; |367| 
-        MOV *SP(#2), T1 ; |367| 
+$C$DW$L$_mutator$36$E:
+	.dwpsn	file "./fuzz.c",line 370,column 22,is_stmt
+        B $C$L28  ; |370| 
+                                        ; branch occurs ; |370| 
+$C$L25:    
+	.dwpsn	file "./fuzz.c",line 372,column 21,is_stmt
+        MOV #0, *SP(#3) ; |372| 
+	.dwpsn	file "./fuzz.c",line 372,column 28,is_stmt
+        MOV *(#_mutation_frequency), T1 ; |372| 
+        MOV *SP(#2), T0 ; |372| 
 $C$DW$194	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$194, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$194, DW_AT_name("__remu")
+	.dwattr $C$DW$194, DW_AT_name("__divu")
 	.dwattr $C$DW$194, DW_AT_TI_call
-        CALL #__remu ; |367| 
-                                        ; call occurs [#__remu] ; |367| 
-        MOV dbl(*SP(#0)), XAR3
-        MOV #65535, AR1 ; |367| 
-        AND #0xffff, AR1, AC1 ; |367| 
-        MOV *SP(#5), T1 ; |367| 
-        MPYM *AR3(T0), T1, AC0 ; |367| 
-        AND #0xffff, AC0, AC0 ; |367| 
+        CALL #__divu ; |372| 
+                                        ; call occurs [#__divu] ; |372| 
+        MOV *SP(#3), AR1 ; |372| 
+        CMPU AR1 >= T0, TC1 ; |372| 
+        BCC $C$L28,TC1 ; |372| 
+                                        ; branchcc occurs ; |372| 
+$C$L26:    
+$C$DW$L$_mutator$39$B:
+	.dwpsn	file "./fuzz.c",line 373,column 21,is_stmt
+        MOV *SP(#5), T0 ; |373| 
+        MOV *SP(#2), T1 ; |373| 
 $C$DW$195	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$195, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$195, DW_AT_name("__remli")
+	.dwattr $C$DW$195, DW_AT_name("__remu")
 	.dwattr $C$DW$195, DW_AT_TI_call
-        CALL #__remli ; |367| 
-                                        ; call occurs [#__remli] ; |367| 
-        MOV *SP(#2), T1 ; |367| 
-        MOV *SP(#5), T0 ; |367| 
+        CALL #__remu ; |373| 
+                                        ; call occurs [#__remu] ; |373| 
+        MOV dbl(*SP(#0)), XAR3
+        MOV #65535, AR1 ; |373| 
+        AND #0xffff, AR1, AC1 ; |373| 
+        MOV *SP(#5), T1 ; |373| 
+        MPYM *AR3(T0), T1, AC0 ; |373| 
+        AND #0xffff, AC0, AC0 ; |373| 
 $C$DW$196	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$196, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$196, DW_AT_name("__remu")
+	.dwattr $C$DW$196, DW_AT_name("__remli")
 	.dwattr $C$DW$196, DW_AT_TI_call
-
-        CALL #__remu ; |367| 
-||      OR #0, AC0, AC1
-
-                                        ; call occurs [#__remu] ; |367| 
-        MOV dbl(*SP(#0)), XAR3
-        MOV AC1, *AR3(T0) ; |367| 
-	.dwpsn	file "./fuzz.c",line 369,column 21,is_stmt
+        CALL #__remli ; |373| 
+                                        ; call occurs [#__remli] ; |373| 
+        MOV *SP(#2), T1 ; |373| 
+        MOV *SP(#5), T0 ; |373| 
 $C$DW$197	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$197, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$197, DW_AT_name("_rand")
+	.dwattr $C$DW$197, DW_AT_name("__remu")
 	.dwattr $C$DW$197, DW_AT_TI_call
-        CALL #_rand ; |369| 
-                                        ; call occurs [#_rand] ; |369| 
-        MOV T0, *SP(#5) ; |369| 
-	.dwpsn	file "./fuzz.c",line 366,column 63,is_stmt
-        ADD #1, *SP(#3) ; |366| 
-	.dwpsn	file "./fuzz.c",line 366,column 28,is_stmt
-        MOV *(#_mutation_frequency), T1 ; |366| 
-        MOV *SP(#2), T0 ; |366| 
+
+        CALL #__remu ; |373| 
+||      OR #0, AC0, AC1
+
+                                        ; call occurs [#__remu] ; |373| 
+        MOV dbl(*SP(#0)), XAR3
+        MOV AC1, *AR3(T0) ; |373| 
+	.dwpsn	file "./fuzz.c",line 375,column 21,is_stmt
 $C$DW$198	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$198, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$198, DW_AT_name("__divu")
+	.dwattr $C$DW$198, DW_AT_name("_rand")
 	.dwattr $C$DW$198, DW_AT_TI_call
-        CALL #__divu ; |366| 
-                                        ; call occurs [#__divu] ; |366| 
-        MOV *SP(#3), AR1 ; |366| 
-        CMPU AR1 < T0, TC1 ; |366| 
-        BCC $C$L26,TC1 ; |366| 
-                                        ; branchcc occurs ; |366| 
-$C$DW$L$_mutator$39$E:
-	.dwpsn	file "./fuzz.c",line 371,column 22,is_stmt
-        B $C$L28  ; |371| 
-                                        ; branch occurs ; |371| 
-$C$L27:    
-	.dwpsn	file "./fuzz.c",line 351,column 13,is_stmt
+        CALL #_rand ; |375| 
+                                        ; call occurs [#_rand] ; |375| 
+        MOV T0, *SP(#5) ; |375| 
+	.dwpsn	file "./fuzz.c",line 372,column 63,is_stmt
+        ADD #1, *SP(#3) ; |372| 
+	.dwpsn	file "./fuzz.c",line 372,column 28,is_stmt
+        MOV *(#_mutation_frequency), T1 ; |372| 
+        MOV *SP(#2), T0 ; |372| 
 $C$DW$199	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$199, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$199, DW_AT_name("__remu")
+	.dwattr $C$DW$199, DW_AT_name("__divu")
 	.dwattr $C$DW$199, DW_AT_TI_call
-
-        CALL #__remu ; |351| 
-||      MOV #3, T1
-
-                                        ; call occurs [#__remu] ; |351| 
-        BCC $C$L21,T0 == #0 ; |351| 
-                                        ; branchcc occurs ; |351| 
-        MOV #1, AR1
-        CMPU T0 == AR1, TC1 ; |351| 
-        BCC $C$L23,TC1 ; |351| 
-                                        ; branchcc occurs ; |351| 
-        MOV #2, AR1
-        CMPU T0 == AR1, TC1 ; |351| 
-        BCC $C$L25,TC1 ; |351| 
-                                        ; branchcc occurs ; |351| 
-$C$L28:    
-	.dwpsn	file "./fuzz.c",line 375,column 9,is_stmt
-        ADD #1, *(#_stage_cycles) ; |375| 
-	.dwpsn	file "./fuzz.c",line 376,column 1,is_stmt
-        AADD #7, SP
-	.dwcfi	cfa_offset, 1
+        CALL #__divu ; |372| 
+                                        ; call occurs [#__divu] ; |372| 
+        MOV *SP(#3), AR1 ; |372| 
+        CMPU AR1 < T0, TC1 ; |372| 
+        BCC $C$L26,TC1 ; |372| 
+                                        ; branchcc occurs ; |372| 
+$C$DW$L$_mutator$39$E:
+	.dwpsn	file "./fuzz.c",line 377,column 22,is_stmt
+        B $C$L28  ; |377| 
+                                        ; branch occurs ; |377| 
+$C$L27:    
+	.dwpsn	file "./fuzz.c",line 357,column 13,is_stmt
+        MOV *SP(#5), T0 ; |357| 
 $C$DW$200	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$200, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$200, DW_AT_TI_return
+	.dwattr $C$DW$200, DW_AT_name("__remu")
+	.dwattr $C$DW$200, DW_AT_TI_call
+
+        CALL #__remu ; |357| 
+||      MOV #3, T1
+
+                                        ; call occurs [#__remu] ; |357| 
+        BCC $C$L21,T0 == #0 ; |357| 
+                                        ; branchcc occurs ; |357| 
+        MOV #1, AR1
+        CMPU T0 == AR1, TC1 ; |357| 
+        BCC $C$L23,TC1 ; |357| 
+                                        ; branchcc occurs ; |357| 
+        MOV #2, AR1
+        CMPU T0 == AR1, TC1 ; |357| 
+        BCC $C$L25,TC1 ; |357| 
+                                        ; branchcc occurs ; |357| 
+$C$L28:    
+	.dwpsn	file "./fuzz.c",line 381,column 9,is_stmt
+        ADD #1, *(#_stage_cycles) ; |381| 
+	.dwpsn	file "./fuzz.c",line 382,column 1,is_stmt
+        AADD #7, SP
+	.dwcfi	cfa_offset, 1
+$C$DW$201	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$201, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$201, DW_AT_TI_return
         RET
                                         ; return occurs
 
-$C$DW$201	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$201, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L26:1:1717098804")
-	.dwattr $C$DW$201, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$201, DW_AT_TI_begin_line(0x16e)
-	.dwattr $C$DW$201, DW_AT_TI_end_line(0x172)
-$C$DW$202	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$202, DW_AT_low_pc($C$DW$L$_mutator$39$B)
-	.dwattr $C$DW$202, DW_AT_high_pc($C$DW$L$_mutator$39$E)
-	.dwendtag $C$DW$201
+$C$DW$202	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$202, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L26:1:1718135326")
+	.dwattr $C$DW$202, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$202, DW_AT_TI_begin_line(0x174)
+	.dwattr $C$DW$202, DW_AT_TI_end_line(0x178)
+$C$DW$203	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$203, DW_AT_low_pc($C$DW$L$_mutator$39$B)
+	.dwattr $C$DW$203, DW_AT_high_pc($C$DW$L$_mutator$39$E)
+	.dwendtag $C$DW$202
 
 
-$C$DW$203	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$203, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L24:1:1717098804")
-	.dwattr $C$DW$203, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$203, DW_AT_TI_begin_line(0x168)
-	.dwattr $C$DW$203, DW_AT_TI_end_line(0x16b)
-$C$DW$204	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$204, DW_AT_low_pc($C$DW$L$_mutator$36$B)
-	.dwattr $C$DW$204, DW_AT_high_pc($C$DW$L$_mutator$36$E)
-	.dwendtag $C$DW$203
+$C$DW$204	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$204, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L24:1:1718135326")
+	.dwattr $C$DW$204, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$204, DW_AT_TI_begin_line(0x16e)
+	.dwattr $C$DW$204, DW_AT_TI_end_line(0x171)
+$C$DW$205	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$205, DW_AT_low_pc($C$DW$L$_mutator$36$B)
+	.dwattr $C$DW$205, DW_AT_high_pc($C$DW$L$_mutator$36$E)
+	.dwendtag $C$DW$204
 
 
-$C$DW$205	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$205, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L22:1:1717098804")
-	.dwattr $C$DW$205, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$205, DW_AT_TI_begin_line(0x162)
-	.dwattr $C$DW$205, DW_AT_TI_end_line(0x165)
-$C$DW$206	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$206, DW_AT_low_pc($C$DW$L$_mutator$33$B)
-	.dwattr $C$DW$206, DW_AT_high_pc($C$DW$L$_mutator$33$E)
-	.dwendtag $C$DW$205
+$C$DW$206	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$206, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L22:1:1718135326")
+	.dwattr $C$DW$206, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$206, DW_AT_TI_begin_line(0x168)
+	.dwattr $C$DW$206, DW_AT_TI_end_line(0x16b)
+$C$DW$207	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$207, DW_AT_low_pc($C$DW$L$_mutator$33$B)
+	.dwattr $C$DW$207, DW_AT_high_pc($C$DW$L$_mutator$33$E)
+	.dwendtag $C$DW$206
 
 
-$C$DW$207	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$207, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L18:1:1717098804")
-	.dwattr $C$DW$207, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$207, DW_AT_TI_begin_line(0x153)
-	.dwattr $C$DW$207, DW_AT_TI_end_line(0x15a)
-$C$DW$208	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$208, DW_AT_low_pc($C$DW$L$_mutator$24$B)
-	.dwattr $C$DW$208, DW_AT_high_pc($C$DW$L$_mutator$24$E)
+$C$DW$208	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$208, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L18:1:1718135326")
+	.dwattr $C$DW$208, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$208, DW_AT_TI_begin_line(0x159)
+	.dwattr $C$DW$208, DW_AT_TI_end_line(0x160)
 $C$DW$209	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$209, DW_AT_low_pc($C$DW$L$_mutator$25$B)
-	.dwattr $C$DW$209, DW_AT_high_pc($C$DW$L$_mutator$25$E)
+	.dwattr $C$DW$209, DW_AT_low_pc($C$DW$L$_mutator$24$B)
+	.dwattr $C$DW$209, DW_AT_high_pc($C$DW$L$_mutator$24$E)
 $C$DW$210	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$210, DW_AT_low_pc($C$DW$L$_mutator$27$B)
-	.dwattr $C$DW$210, DW_AT_high_pc($C$DW$L$_mutator$27$E)
-	.dwendtag $C$DW$207
+	.dwattr $C$DW$210, DW_AT_low_pc($C$DW$L$_mutator$25$B)
+	.dwattr $C$DW$210, DW_AT_high_pc($C$DW$L$_mutator$25$E)
+$C$DW$211	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$211, DW_AT_low_pc($C$DW$L$_mutator$27$B)
+	.dwattr $C$DW$211, DW_AT_high_pc($C$DW$L$_mutator$27$E)
+	.dwendtag $C$DW$208
 
 
-$C$DW$211	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$211, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L15:1:1717098804")
-	.dwattr $C$DW$211, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$211, DW_AT_TI_begin_line(0x147)
-	.dwattr $C$DW$211, DW_AT_TI_end_line(0x14f)
-$C$DW$212	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$212, DW_AT_low_pc($C$DW$L$_mutator$17$B)
-	.dwattr $C$DW$212, DW_AT_high_pc($C$DW$L$_mutator$17$E)
+$C$DW$212	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$212, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L15:1:1718135326")
+	.dwattr $C$DW$212, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$212, DW_AT_TI_begin_line(0x14d)
+	.dwattr $C$DW$212, DW_AT_TI_end_line(0x155)
 $C$DW$213	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$213, DW_AT_low_pc($C$DW$L$_mutator$18$B)
-	.dwattr $C$DW$213, DW_AT_high_pc($C$DW$L$_mutator$18$E)
+	.dwattr $C$DW$213, DW_AT_low_pc($C$DW$L$_mutator$17$B)
+	.dwattr $C$DW$213, DW_AT_high_pc($C$DW$L$_mutator$17$E)
 $C$DW$214	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$214, DW_AT_low_pc($C$DW$L$_mutator$20$B)
-	.dwattr $C$DW$214, DW_AT_high_pc($C$DW$L$_mutator$20$E)
-	.dwendtag $C$DW$211
+	.dwattr $C$DW$214, DW_AT_low_pc($C$DW$L$_mutator$18$B)
+	.dwattr $C$DW$214, DW_AT_high_pc($C$DW$L$_mutator$18$E)
+$C$DW$215	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$215, DW_AT_low_pc($C$DW$L$_mutator$20$B)
+	.dwattr $C$DW$215, DW_AT_high_pc($C$DW$L$_mutator$20$E)
+	.dwendtag $C$DW$212
 
 
-$C$DW$215	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$215, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L12:1:1717098804")
-	.dwattr $C$DW$215, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$215, DW_AT_TI_begin_line(0x13d)
-	.dwattr $C$DW$215, DW_AT_TI_end_line(0x144)
-$C$DW$216	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$216, DW_AT_low_pc($C$DW$L$_mutator$10$B)
-	.dwattr $C$DW$216, DW_AT_high_pc($C$DW$L$_mutator$10$E)
+$C$DW$216	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$216, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L12:1:1718135326")
+	.dwattr $C$DW$216, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$216, DW_AT_TI_begin_line(0x143)
+	.dwattr $C$DW$216, DW_AT_TI_end_line(0x14a)
 $C$DW$217	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$217, DW_AT_low_pc($C$DW$L$_mutator$11$B)
-	.dwattr $C$DW$217, DW_AT_high_pc($C$DW$L$_mutator$11$E)
+	.dwattr $C$DW$217, DW_AT_low_pc($C$DW$L$_mutator$10$B)
+	.dwattr $C$DW$217, DW_AT_high_pc($C$DW$L$_mutator$10$E)
 $C$DW$218	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$218, DW_AT_low_pc($C$DW$L$_mutator$13$B)
-	.dwattr $C$DW$218, DW_AT_high_pc($C$DW$L$_mutator$13$E)
-	.dwendtag $C$DW$215
+	.dwattr $C$DW$218, DW_AT_low_pc($C$DW$L$_mutator$11$B)
+	.dwattr $C$DW$218, DW_AT_high_pc($C$DW$L$_mutator$11$E)
+$C$DW$219	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$219, DW_AT_low_pc($C$DW$L$_mutator$13$B)
+	.dwattr $C$DW$219, DW_AT_high_pc($C$DW$L$_mutator$13$E)
+	.dwendtag $C$DW$216
 
 
-$C$DW$219	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$219, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L9:1:1717098804")
-	.dwattr $C$DW$219, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$219, DW_AT_TI_begin_line(0x133)
-	.dwattr $C$DW$219, DW_AT_TI_end_line(0x13a)
-$C$DW$220	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$220, DW_AT_low_pc($C$DW$L$_mutator$3$B)
-	.dwattr $C$DW$220, DW_AT_high_pc($C$DW$L$_mutator$3$E)
+$C$DW$220	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$220, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L9:1:1718135326")
+	.dwattr $C$DW$220, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$220, DW_AT_TI_begin_line(0x139)
+	.dwattr $C$DW$220, DW_AT_TI_end_line(0x140)
 $C$DW$221	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$221, DW_AT_low_pc($C$DW$L$_mutator$4$B)
-	.dwattr $C$DW$221, DW_AT_high_pc($C$DW$L$_mutator$4$E)
+	.dwattr $C$DW$221, DW_AT_low_pc($C$DW$L$_mutator$3$B)
+	.dwattr $C$DW$221, DW_AT_high_pc($C$DW$L$_mutator$3$E)
 $C$DW$222	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$222, DW_AT_low_pc($C$DW$L$_mutator$6$B)
-	.dwattr $C$DW$222, DW_AT_high_pc($C$DW$L$_mutator$6$E)
-	.dwendtag $C$DW$219
+	.dwattr $C$DW$222, DW_AT_low_pc($C$DW$L$_mutator$4$B)
+	.dwattr $C$DW$222, DW_AT_high_pc($C$DW$L$_mutator$4$E)
+$C$DW$223	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$223, DW_AT_low_pc($C$DW$L$_mutator$6$B)
+	.dwattr $C$DW$223, DW_AT_high_pc($C$DW$L$_mutator$6$E)
+	.dwendtag $C$DW$220
 
 	.dwattr $C$DW$155, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$155, DW_AT_TI_end_line(0x178)
+	.dwattr $C$DW$155, DW_AT_TI_end_line(0x17e)
 	.dwattr $C$DW$155, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$155
@@ -3058,16 +3068,16 @@ $C$DW$222	.dwtag  DW_TAG_TI_loop_range
 	.sect	".text"
 	.global	_refresh_seed_corpus
 
-$C$DW$223	.dwtag  DW_TAG_subprogram, DW_AT_name("refresh_seed_corpus")
-	.dwattr $C$DW$223, DW_AT_low_pc(_refresh_seed_corpus)
-	.dwattr $C$DW$223, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$223, DW_AT_TI_symbol_name("_refresh_seed_corpus")
-	.dwattr $C$DW$223, DW_AT_external
-	.dwattr $C$DW$223, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$223, DW_AT_TI_begin_line(0x17d)
-	.dwattr $C$DW$223, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$223, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "./fuzz.c",line 381,column 27,is_stmt,address _refresh_seed_corpus
+$C$DW$224	.dwtag  DW_TAG_subprogram, DW_AT_name("refresh_seed_corpus")
+	.dwattr $C$DW$224, DW_AT_low_pc(_refresh_seed_corpus)
+	.dwattr $C$DW$224, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$224, DW_AT_TI_symbol_name("_refresh_seed_corpus")
+	.dwattr $C$DW$224, DW_AT_external
+	.dwattr $C$DW$224, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$224, DW_AT_TI_begin_line(0x183)
+	.dwattr $C$DW$224, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$224, DW_AT_TI_max_frame_size(0x02)
+	.dwpsn	file "./fuzz.c",line 387,column 27,is_stmt,address _refresh_seed_corpus
 
 	.dwfde $C$DW$CIE, _refresh_seed_corpus
 ;*******************************************************************************
@@ -3085,68 +3095,68 @@ _refresh_seed_corpus:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-1, SP
 	.dwcfi	cfa_offset, 2
-$C$DW$224	.dwtag  DW_TAG_variable, DW_AT_name("i")
-	.dwattr $C$DW$224, DW_AT_TI_symbol_name("_i")
-	.dwattr $C$DW$224, DW_AT_type(*$C$DW$T$73)
-	.dwattr $C$DW$224, DW_AT_location[DW_OP_bregx 0x24 0]
-	.dwpsn	file "./fuzz.c",line 396,column 5,is_stmt
-        MOV *(#_corpusWaiting), AR1 ; |396| 
-        BCC $C$L30,AR1 == #0 ; |396| 
-                                        ; branchcc occurs ; |396| 
+$C$DW$225	.dwtag  DW_TAG_variable, DW_AT_name("i")
+	.dwattr $C$DW$225, DW_AT_TI_symbol_name("_i")
+	.dwattr $C$DW$225, DW_AT_type(*$C$DW$T$73)
+	.dwattr $C$DW$225, DW_AT_location[DW_OP_bregx 0x24 0]
+	.dwpsn	file "./fuzz.c",line 402,column 5,is_stmt
+        MOV *(#_corpusWaiting), AR1 ; |402| 
+        BCC $C$L30,AR1 == #0 ; |402| 
+                                        ; branchcc occurs ; |402| 
 $C$L29:    
 $C$DW$L$_refresh_seed_corpus$2$B:
-	.dwpsn	file "./fuzz.c",line 397,column 9,is_stmt
-        MOV #0, *SP(#0) ; |397| 
-	.dwpsn	file "./fuzz.c",line 398,column 5,is_stmt
-        MOV *(#_corpusWaiting), AR1 ; |398| 
-        BCC $C$L29,AR1 != #0 ; |398| 
-                                        ; branchcc occurs ; |398| 
+	.dwpsn	file "./fuzz.c",line 403,column 9,is_stmt
+        MOV #0, *SP(#0) ; |403| 
+	.dwpsn	file "./fuzz.c",line 404,column 5,is_stmt
+        MOV *(#_corpusWaiting), AR1 ; |404| 
+        BCC $C$L29,AR1 != #0 ; |404| 
+                                        ; branchcc occurs ; |404| 
 $C$DW$L$_refresh_seed_corpus$2$E:
-	.dwpsn	file "./fuzz.c",line 399,column 1,is_stmt
+	.dwpsn	file "./fuzz.c",line 405,column 1,is_stmt
 $C$L30:    
         AADD #1, SP
 	.dwcfi	cfa_offset, 1
-$C$DW$225	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$225, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$225, DW_AT_TI_return
+$C$DW$226	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$226, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$226, DW_AT_TI_return
         RET
                                         ; return occurs
 
-$C$DW$226	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$226, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L29:1:1717098804")
-	.dwattr $C$DW$226, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$226, DW_AT_TI_begin_line(0x18c)
-	.dwattr $C$DW$226, DW_AT_TI_end_line(0x18e)
-$C$DW$227	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$227, DW_AT_low_pc($C$DW$L$_refresh_seed_corpus$2$B)
-	.dwattr $C$DW$227, DW_AT_high_pc($C$DW$L$_refresh_seed_corpus$2$E)
-	.dwendtag $C$DW$226
+$C$DW$227	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$227, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L29:1:1718135326")
+	.dwattr $C$DW$227, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$227, DW_AT_TI_begin_line(0x192)
+	.dwattr $C$DW$227, DW_AT_TI_end_line(0x194)
+$C$DW$228	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$228, DW_AT_low_pc($C$DW$L$_refresh_seed_corpus$2$B)
+	.dwattr $C$DW$228, DW_AT_high_pc($C$DW$L$_refresh_seed_corpus$2$E)
+	.dwendtag $C$DW$227
 
-	.dwattr $C$DW$223, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$223, DW_AT_TI_end_line(0x18f)
-	.dwattr $C$DW$223, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$224, DW_AT_TI_end_file("./fuzz.c")
+	.dwattr $C$DW$224, DW_AT_TI_end_line(0x195)
+	.dwattr $C$DW$224, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$223
+	.dwendtag $C$DW$224
 
 	.sect	".text"
 	.global	_dequeue_seed
 
-$C$DW$228	.dwtag  DW_TAG_subprogram, DW_AT_name("dequeue_seed")
-	.dwattr $C$DW$228, DW_AT_low_pc(_dequeue_seed)
-	.dwattr $C$DW$228, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$228, DW_AT_TI_symbol_name("_dequeue_seed")
-	.dwattr $C$DW$228, DW_AT_external
-	.dwattr $C$DW$228, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$228, DW_AT_TI_begin_line(0x191)
-	.dwattr $C$DW$228, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$228, DW_AT_TI_max_frame_size(0x08)
-	.dwpsn	file "./fuzz.c",line 401,column 35,is_stmt,address _dequeue_seed
+$C$DW$229	.dwtag  DW_TAG_subprogram, DW_AT_name("dequeue_seed")
+	.dwattr $C$DW$229, DW_AT_low_pc(_dequeue_seed)
+	.dwattr $C$DW$229, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$229, DW_AT_TI_symbol_name("_dequeue_seed")
+	.dwattr $C$DW$229, DW_AT_external
+	.dwattr $C$DW$229, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$229, DW_AT_TI_begin_line(0x197)
+	.dwattr $C$DW$229, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$229, DW_AT_TI_max_frame_size(0x08)
+	.dwpsn	file "./fuzz.c",line 407,column 35,is_stmt,address _dequeue_seed
 
 	.dwfde $C$DW$CIE, _dequeue_seed
-$C$DW$229	.dwtag  DW_TAG_formal_parameter, DW_AT_name("input")
-	.dwattr $C$DW$229, DW_AT_TI_symbol_name("_input")
-	.dwattr $C$DW$229, DW_AT_type(*$C$DW$T$76)
-	.dwattr $C$DW$229, DW_AT_location[DW_OP_reg17]
+$C$DW$230	.dwtag  DW_TAG_formal_parameter, DW_AT_name("input")
+	.dwattr $C$DW$230, DW_AT_TI_symbol_name("_input")
+	.dwattr $C$DW$230, DW_AT_type(*$C$DW$T$76)
+	.dwattr $C$DW$230, DW_AT_location[DW_OP_reg17]
 ;*******************************************************************************
 ;* FUNCTION NAME: dequeue_seed                                                 *
 ;*                                                                             *
@@ -3164,97 +3174,97 @@ _dequeue_seed:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-7, SP
 	.dwcfi	cfa_offset, 8
-$C$DW$230	.dwtag  DW_TAG_variable, DW_AT_name("input")
-	.dwattr $C$DW$230, DW_AT_TI_symbol_name("_input")
-	.dwattr $C$DW$230, DW_AT_type(*$C$DW$T$76)
-	.dwattr $C$DW$230, DW_AT_location[DW_OP_bregx 0x24 2]
-$C$DW$231	.dwtag  DW_TAG_variable, DW_AT_name("result")
-	.dwattr $C$DW$231, DW_AT_TI_symbol_name("_result")
-	.dwattr $C$DW$231, DW_AT_type(*$C$DW$T$125)
-	.dwattr $C$DW$231, DW_AT_location[DW_OP_bregx 0x24 4]
+$C$DW$231	.dwtag  DW_TAG_variable, DW_AT_name("input")
+	.dwattr $C$DW$231, DW_AT_TI_symbol_name("_input")
+	.dwattr $C$DW$231, DW_AT_type(*$C$DW$T$76)
+	.dwattr $C$DW$231, DW_AT_location[DW_OP_bregx 0x24 2]
+$C$DW$232	.dwtag  DW_TAG_variable, DW_AT_name("result")
+	.dwattr $C$DW$232, DW_AT_TI_symbol_name("_result")
+	.dwattr $C$DW$232, DW_AT_type(*$C$DW$T$125)
+	.dwattr $C$DW$232, DW_AT_location[DW_OP_bregx 0x24 4]
         MOV XAR0, dbl(*SP(#2))
-	.dwpsn	file "./fuzz.c",line 405,column 5,is_stmt
-        MOV *(#_seed_tail), AR1 ; |405| 
-        MOV *(#_seed_head), AR2 ; |405| 
-        CMPU AR2 != AR1, TC1 ; |405| 
-        BCC $C$L31,TC1 ; |405| 
-                                        ; branchcc occurs ; |405| 
-	.dwpsn	file "./fuzz.c",line 406,column 9,is_stmt
-        MOV #0, *(#_seed_head) ; |406| 
-$C$L31:    
 	.dwpsn	file "./fuzz.c",line 411,column 5,is_stmt
-        MOV *(#_seed_head) << #8, AC0 ; |411| 
-        MOV AC0, AR1 ; |411| 
+        MOV *(#_seed_tail), AR1 ; |411| 
+        MOV *(#_seed_head), AR2 ; |411| 
+        CMPU AR2 != AR1, TC1 ; |411| 
+        BCC $C$L31,TC1 ; |411| 
+                                        ; branchcc occurs ; |411| 
+	.dwpsn	file "./fuzz.c",line 412,column 9,is_stmt
+        MOV #0, *(#_seed_head) ; |412| 
+$C$L31:    
+	.dwpsn	file "./fuzz.c",line 417,column 5,is_stmt
+        MOV *(#_seed_head) << #8, AC0 ; |417| 
+        MOV AC0, AR1 ; |417| 
         MOV dbl(*SP(#2)), XAR2
-        AMOV #_local_pool, XAR3 ; |411| 
-        AADD AR1, AR3 ; |411| 
+        AMOV #_local_pool, XAR3 ; |417| 
+        AADD AR1, AR3 ; |417| 
 
-        RPT #255  ; |411| 
+        RPT #255  ; |417| 
 ||      AMAR *AR2, XAR1
 
-                                            ; loop starts ; |411| 
+                                            ; loop starts ; |417| 
 $C$L32:    
 $C$DW$L$_dequeue_seed$4$B:
-            MOV *AR3+, *AR2+ ; |411| 
-                                        ; loop ends ; |411| 
+            MOV *AR3+, *AR2+ ; |417| 
+                                        ; loop ends ; |417| 
 $C$DW$L$_dequeue_seed$4$E:
 $C$L33:    
         MOV XAR1, dbl(*SP(#4))
-	.dwpsn	file "./fuzz.c",line 413,column 5,is_stmt
+	.dwpsn	file "./fuzz.c",line 419,column 5,is_stmt
         MOV dbl(*SP(#4)), XAR3
         MOV XAR3, AC0
-        BCC $C$L34,AC0 != #0 ; |413| 
-                                        ; branchcc occurs ; |413| 
-	.dwpsn	file "./fuzz.c",line 414,column 9,is_stmt
-        AMOV #$C$FSL7, XAR3 ; |414| 
+        BCC $C$L34,AC0 != #0 ; |419| 
+                                        ; branchcc occurs ; |419| 
+	.dwpsn	file "./fuzz.c",line 420,column 9,is_stmt
+        AMOV #$C$FSL7, XAR3 ; |420| 
         MOV XAR3, dbl(*SP(#0))
-$C$DW$232	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$232, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$232, DW_AT_name("_printf")
-	.dwattr $C$DW$232, DW_AT_TI_call
-        CALL #_printf ; |414| 
-                                        ; call occurs [#_printf] ; |414| 
-$C$L34:    
-	.dwpsn	file "./fuzz.c",line 418,column 5,is_stmt
-        ADD #1, *(#_seed_head) ; |418| 
-	.dwpsn	file "./fuzz.c",line 419,column 1,is_stmt
-        AADD #7, SP
-	.dwcfi	cfa_offset, 1
 $C$DW$233	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$233, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$233, DW_AT_TI_return
+	.dwattr $C$DW$233, DW_AT_name("_printf")
+	.dwattr $C$DW$233, DW_AT_TI_call
+        CALL #_printf ; |420| 
+                                        ; call occurs [#_printf] ; |420| 
+$C$L34:    
+	.dwpsn	file "./fuzz.c",line 424,column 5,is_stmt
+        ADD #1, *(#_seed_head) ; |424| 
+	.dwpsn	file "./fuzz.c",line 425,column 1,is_stmt
+        AADD #7, SP
+	.dwcfi	cfa_offset, 1
+$C$DW$234	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$234, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$234, DW_AT_TI_return
         RET
                                         ; return occurs
 
-$C$DW$234	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$234, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L32:1:1717098804")
-	.dwattr $C$DW$234, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$234, DW_AT_TI_begin_line(0x19b)
-	.dwattr $C$DW$234, DW_AT_TI_end_line(0x19b)
-$C$DW$235	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$235, DW_AT_low_pc($C$DW$L$_dequeue_seed$4$B)
-	.dwattr $C$DW$235, DW_AT_high_pc($C$DW$L$_dequeue_seed$4$E)
-	.dwendtag $C$DW$234
+$C$DW$235	.dwtag  DW_TAG_TI_loop
+	.dwattr $C$DW$235, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L32:1:1718135326")
+	.dwattr $C$DW$235, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$235, DW_AT_TI_begin_line(0x1a1)
+	.dwattr $C$DW$235, DW_AT_TI_end_line(0x1a1)
+$C$DW$236	.dwtag  DW_TAG_TI_loop_range
+	.dwattr $C$DW$236, DW_AT_low_pc($C$DW$L$_dequeue_seed$4$B)
+	.dwattr $C$DW$236, DW_AT_high_pc($C$DW$L$_dequeue_seed$4$E)
+	.dwendtag $C$DW$235
 
-	.dwattr $C$DW$228, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$228, DW_AT_TI_end_line(0x1a3)
-	.dwattr $C$DW$228, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$229, DW_AT_TI_end_file("./fuzz.c")
+	.dwattr $C$DW$229, DW_AT_TI_end_line(0x1a9)
+	.dwattr $C$DW$229, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$228
+	.dwendtag $C$DW$229
 
 	.sect	".text"
 	.global	_seed_to_global_pool
 
-$C$DW$236	.dwtag  DW_TAG_subprogram, DW_AT_name("seed_to_global_pool")
-	.dwattr $C$DW$236, DW_AT_low_pc(_seed_to_global_pool)
-	.dwattr $C$DW$236, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$236, DW_AT_TI_symbol_name("_seed_to_global_pool")
-	.dwattr $C$DW$236, DW_AT_external
-	.dwattr $C$DW$236, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$236, DW_AT_TI_begin_line(0x1a5)
-	.dwattr $C$DW$236, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$236, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "./fuzz.c",line 421,column 27,is_stmt,address _seed_to_global_pool
+$C$DW$237	.dwtag  DW_TAG_subprogram, DW_AT_name("seed_to_global_pool")
+	.dwattr $C$DW$237, DW_AT_low_pc(_seed_to_global_pool)
+	.dwattr $C$DW$237, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$237, DW_AT_TI_symbol_name("_seed_to_global_pool")
+	.dwattr $C$DW$237, DW_AT_external
+	.dwattr $C$DW$237, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$237, DW_AT_TI_begin_line(0x1ab)
+	.dwattr $C$DW$237, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$237, DW_AT_TI_max_frame_size(0x02)
+	.dwpsn	file "./fuzz.c",line 427,column 27,is_stmt,address _seed_to_global_pool
 
 	.dwfde $C$DW$CIE, _seed_to_global_pool
 ;*******************************************************************************
@@ -3272,45 +3282,45 @@ _seed_to_global_pool:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-1, SP
 	.dwcfi	cfa_offset, 2
-$C$DW$237	.dwtag  DW_TAG_variable, DW_AT_name("i")
-	.dwattr $C$DW$237, DW_AT_TI_symbol_name("_i")
-	.dwattr $C$DW$237, DW_AT_type(*$C$DW$T$73)
-	.dwattr $C$DW$237, DW_AT_location[DW_OP_bregx 0x24 0]
-	.dwpsn	file "./fuzz.c",line 422,column 14,is_stmt
-        MOV #0, *SP(#0) ; |422| 
-	.dwpsn	file "./fuzz.c",line 423,column 1,is_stmt
+$C$DW$238	.dwtag  DW_TAG_variable, DW_AT_name("i")
+	.dwattr $C$DW$238, DW_AT_TI_symbol_name("_i")
+	.dwattr $C$DW$238, DW_AT_type(*$C$DW$T$73)
+	.dwattr $C$DW$238, DW_AT_location[DW_OP_bregx 0x24 0]
+	.dwpsn	file "./fuzz.c",line 428,column 14,is_stmt
+        MOV #0, *SP(#0) ; |428| 
+	.dwpsn	file "./fuzz.c",line 429,column 1,is_stmt
         AADD #1, SP
 	.dwcfi	cfa_offset, 1
-$C$DW$238	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$238, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$238, DW_AT_TI_return
+$C$DW$239	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$239, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$239, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$236, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$236, DW_AT_TI_end_line(0x1a7)
-	.dwattr $C$DW$236, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$237, DW_AT_TI_end_file("./fuzz.c")
+	.dwattr $C$DW$237, DW_AT_TI_end_line(0x1ad)
+	.dwattr $C$DW$237, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$236
+	.dwendtag $C$DW$237
 
 	.sect	".text"
 	.global	_handle_results
 
-$C$DW$239	.dwtag  DW_TAG_subprogram, DW_AT_name("handle_results")
-	.dwattr $C$DW$239, DW_AT_low_pc(_handle_results)
-	.dwattr $C$DW$239, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$239, DW_AT_TI_symbol_name("_handle_results")
-	.dwattr $C$DW$239, DW_AT_external
-	.dwattr $C$DW$239, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$239, DW_AT_TI_begin_line(0x1a9)
-	.dwattr $C$DW$239, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$239, DW_AT_TI_max_frame_size(0x06)
-	.dwpsn	file "./fuzz.c",line 425,column 37,is_stmt,address _handle_results
+$C$DW$240	.dwtag  DW_TAG_subprogram, DW_AT_name("handle_results")
+	.dwattr $C$DW$240, DW_AT_low_pc(_handle_results)
+	.dwattr $C$DW$240, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$240, DW_AT_TI_symbol_name("_handle_results")
+	.dwattr $C$DW$240, DW_AT_external
+	.dwattr $C$DW$240, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$240, DW_AT_TI_begin_line(0x1af)
+	.dwattr $C$DW$240, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$240, DW_AT_TI_max_frame_size(0x06)
+	.dwpsn	file "./fuzz.c",line 431,column 37,is_stmt,address _handle_results
 
 	.dwfde $C$DW$CIE, _handle_results
-$C$DW$240	.dwtag  DW_TAG_formal_parameter, DW_AT_name("input")
-	.dwattr $C$DW$240, DW_AT_TI_symbol_name("_input")
-	.dwattr $C$DW$240, DW_AT_type(*$C$DW$T$76)
-	.dwattr $C$DW$240, DW_AT_location[DW_OP_reg17]
+$C$DW$241	.dwtag  DW_TAG_formal_parameter, DW_AT_name("input")
+	.dwattr $C$DW$241, DW_AT_TI_symbol_name("_input")
+	.dwattr $C$DW$241, DW_AT_type(*$C$DW$T$76)
+	.dwattr $C$DW$241, DW_AT_location[DW_OP_reg17]
 ;*******************************************************************************
 ;* FUNCTION NAME: handle_results                                               *
 ;*                                                                             *
@@ -3328,89 +3338,89 @@ _handle_results:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-5, SP
 	.dwcfi	cfa_offset, 6
-$C$DW$241	.dwtag  DW_TAG_variable, DW_AT_name("input")
-	.dwattr $C$DW$241, DW_AT_TI_symbol_name("_input")
-	.dwattr $C$DW$241, DW_AT_type(*$C$DW$T$76)
-	.dwattr $C$DW$241, DW_AT_location[DW_OP_bregx 0x24 2]
+$C$DW$242	.dwtag  DW_TAG_variable, DW_AT_name("input")
+	.dwattr $C$DW$242, DW_AT_TI_symbol_name("_input")
+	.dwattr $C$DW$242, DW_AT_type(*$C$DW$T$76)
+	.dwattr $C$DW$242, DW_AT_location[DW_OP_bregx 0x24 2]
         MOV XAR0, dbl(*SP(#2))
-	.dwpsn	file "./fuzz.c",line 428,column 5,is_stmt
-        MOV *(#_isIncreasing), AR1 ; |428| 
-        BCC $C$L35,AR1 == #0 ; |428| 
-                                        ; branchcc occurs ; |428| 
-	.dwpsn	file "./fuzz.c",line 430,column 9,is_stmt
-$C$DW$242	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$242, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$242, DW_AT_name("_input_printf")
-	.dwattr $C$DW$242, DW_AT_TI_call
-        CALL #_input_printf ; |430| 
-                                        ; call occurs [#_input_printf] ; |430| 
-	.dwpsn	file "./fuzz.c",line 431,column 9,is_stmt
+	.dwpsn	file "./fuzz.c",line 434,column 5,is_stmt
+        MOV *(#_isIncreasing), AR1 ; |434| 
+        BCC $C$L35,AR1 == #0 ; |434| 
+                                        ; branchcc occurs ; |434| 
+	.dwpsn	file "./fuzz.c",line 436,column 9,is_stmt
 $C$DW$243	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$243, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$243, DW_AT_name("_seed_to_global_pool")
+	.dwattr $C$DW$243, DW_AT_name("_input_printf")
 	.dwattr $C$DW$243, DW_AT_TI_call
-        CALL #_seed_to_global_pool ; |431| 
-                                        ; call occurs [#_seed_to_global_pool] ; |431| 
-	.dwpsn	file "./fuzz.c",line 432,column 9,is_stmt
-        AMOV #$C$FSL8, XAR3 ; |432| 
-        MOV XAR3, dbl(*SP(#0))
+        CALL #_input_printf ; |436| 
+                                        ; call occurs [#_input_printf] ; |436| 
+	.dwpsn	file "./fuzz.c",line 437,column 9,is_stmt
 $C$DW$244	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$244, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$244, DW_AT_name("_printf")
+	.dwattr $C$DW$244, DW_AT_name("_seed_to_global_pool")
 	.dwattr $C$DW$244, DW_AT_TI_call
-        CALL #_printf ; |432| 
-                                        ; call occurs [#_printf] ; |432| 
-	.dwpsn	file "./fuzz.c",line 433,column 9,is_stmt
-        MOV #0, *(#_isIncreasing) ; |433| 
-$C$L35:    
-	.dwpsn	file "./fuzz.c",line 435,column 5,is_stmt
-        MOV *(#_corpusWaiting), AR1 ; |435| 
-        BCC $C$L36,AR1 == #0 ; |435| 
-                                        ; branchcc occurs ; |435| 
-	.dwpsn	file "./fuzz.c",line 438,column 6,is_stmt
+        CALL #_seed_to_global_pool ; |437| 
+                                        ; call occurs [#_seed_to_global_pool] ; |437| 
+	.dwpsn	file "./fuzz.c",line 438,column 9,is_stmt
+        AMOV #$C$FSL8, XAR3 ; |438| 
+        MOV XAR3, dbl(*SP(#0))
 $C$DW$245	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$245, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$245, DW_AT_name("_refresh_seed_corpus")
+	.dwattr $C$DW$245, DW_AT_name("_printf")
 	.dwattr $C$DW$245, DW_AT_TI_call
-        CALL #_refresh_seed_corpus ; |438| 
-                                        ; call occurs [#_refresh_seed_corpus] ; |438| 
-$C$L36:    
+        CALL #_printf ; |438| 
+                                        ; call occurs [#_printf] ; |438| 
+	.dwpsn	file "./fuzz.c",line 439,column 9,is_stmt
+        MOV #0, *(#_isIncreasing) ; |439| 
+$C$L35:    
 	.dwpsn	file "./fuzz.c",line 441,column 5,is_stmt
-        AMOV #_saved_context, XAR0 ; |441| 
-        MOV #1, T0
+        MOV *(#_corpusWaiting), AR1 ; |441| 
+        BCC $C$L36,AR1 == #0 ; |441| 
+                                        ; branchcc occurs ; |441| 
+	.dwpsn	file "./fuzz.c",line 444,column 6,is_stmt
 $C$DW$246	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$246, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$246, DW_AT_name("_longjmp")
+	.dwattr $C$DW$246, DW_AT_name("_refresh_seed_corpus")
 	.dwattr $C$DW$246, DW_AT_TI_call
-        CALL #_longjmp ; |441| 
-                                        ; call occurs [#_longjmp] ; |441| 
-	.dwpsn	file "./fuzz.c",line 443,column 1,is_stmt
-        AADD #5, SP
-	.dwcfi	cfa_offset, 1
+        CALL #_refresh_seed_corpus ; |444| 
+                                        ; call occurs [#_refresh_seed_corpus] ; |444| 
+$C$L36:    
+	.dwpsn	file "./fuzz.c",line 447,column 5,is_stmt
+        AMOV #_saved_context, XAR0 ; |447| 
+        MOV #1, T0
 $C$DW$247	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$247, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$247, DW_AT_TI_return
+	.dwattr $C$DW$247, DW_AT_name("_longjmp")
+	.dwattr $C$DW$247, DW_AT_TI_call
+        CALL #_longjmp ; |447| 
+                                        ; call occurs [#_longjmp] ; |447| 
+	.dwpsn	file "./fuzz.c",line 449,column 1,is_stmt
+        AADD #5, SP
+	.dwcfi	cfa_offset, 1
+$C$DW$248	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$248, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$248, DW_AT_TI_return
         RET
                                         ; return occurs
-	.dwattr $C$DW$239, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$239, DW_AT_TI_end_line(0x1bb)
-	.dwattr $C$DW$239, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$240, DW_AT_TI_end_file("./fuzz.c")
+	.dwattr $C$DW$240, DW_AT_TI_end_line(0x1c1)
+	.dwattr $C$DW$240, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$239
+	.dwendtag $C$DW$240
 
 	.sect	".text"
 	.global	_main_harness_loop
 
-$C$DW$248	.dwtag  DW_TAG_subprogram, DW_AT_name("main_harness_loop")
-	.dwattr $C$DW$248, DW_AT_low_pc(_main_harness_loop)
-	.dwattr $C$DW$248, DW_AT_high_pc(0x00)
-	.dwattr $C$DW$248, DW_AT_TI_symbol_name("_main_harness_loop")
-	.dwattr $C$DW$248, DW_AT_external
-	.dwattr $C$DW$248, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$248, DW_AT_TI_begin_line(0x1bd)
-	.dwattr $C$DW$248, DW_AT_TI_begin_column(0x06)
-	.dwattr $C$DW$248, DW_AT_TI_max_frame_size(0x0a)
-	.dwpsn	file "./fuzz.c",line 445,column 25,is_stmt,address _main_harness_loop
+$C$DW$249	.dwtag  DW_TAG_subprogram, DW_AT_name("main_harness_loop")
+	.dwattr $C$DW$249, DW_AT_low_pc(_main_harness_loop)
+	.dwattr $C$DW$249, DW_AT_high_pc(0x00)
+	.dwattr $C$DW$249, DW_AT_TI_symbol_name("_main_harness_loop")
+	.dwattr $C$DW$249, DW_AT_external
+	.dwattr $C$DW$249, DW_AT_TI_begin_file("./fuzz.c")
+	.dwattr $C$DW$249, DW_AT_TI_begin_line(0x1c3)
+	.dwattr $C$DW$249, DW_AT_TI_begin_column(0x06)
+	.dwattr $C$DW$249, DW_AT_TI_max_frame_size(0x0a)
+	.dwpsn	file "./fuzz.c",line 451,column 25,is_stmt,address _main_harness_loop
 
 	.dwfde $C$DW$CIE, _main_harness_loop
 ;*******************************************************************************
@@ -3430,180 +3440,172 @@ _main_harness_loop:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-9, SP
 	.dwcfi	cfa_offset, 10
-$C$DW$249	.dwtag  DW_TAG_variable, DW_AT_name("timer_handle")
-	.dwattr $C$DW$249, DW_AT_TI_symbol_name("_timer_handle")
-	.dwattr $C$DW$249, DW_AT_type(*$C$DW$T$42)
-	.dwattr $C$DW$249, DW_AT_location[DW_OP_bregx 0x24 4]
-$C$DW$250	.dwtag  DW_TAG_variable, DW_AT_name("iterations")
-	.dwattr $C$DW$250, DW_AT_TI_symbol_name("_iterations")
-	.dwattr $C$DW$250, DW_AT_type(*$C$DW$T$73)
-	.dwattr $C$DW$250, DW_AT_location[DW_OP_bregx 0x24 6]
-$C$DW$251	.dwtag  DW_TAG_variable, DW_AT_name("result")
-	.dwattr $C$DW$251, DW_AT_TI_symbol_name("_result")
-	.dwattr $C$DW$251, DW_AT_type(*$C$DW$T$75)
-	.dwattr $C$DW$251, DW_AT_location[DW_OP_bregx 0x24 7]
-$C$DW$252	.dwtag  DW_TAG_variable, DW_AT_name("num_of_seeds")
-	.dwattr $C$DW$252, DW_AT_TI_symbol_name("_num_of_seeds")
-	.dwattr $C$DW$252, DW_AT_type(*$C$DW$T$73)
-	.dwattr $C$DW$252, DW_AT_location[DW_OP_bregx 0x24 8]
-	.dwpsn	file "./fuzz.c",line 448,column 14,is_stmt
-        MOV #0, *SP(#6) ; |448| 
-	.dwpsn	file "./fuzz.c",line 452,column 5,is_stmt
-        MOV #(_test >> 16) << #16, AC0 ; |452| 
-        OR #(_test & 0xffff), AC0, AC0 ; |452| 
-        MOV AC0, XAR0
-$C$DW$253	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$253, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$253, DW_AT_name("_setup")
-	.dwattr $C$DW$253, DW_AT_TI_call
-        CALL #_setup ; |452| 
-                                        ; call occurs [#_setup] ; |452| 
+$C$DW$250	.dwtag  DW_TAG_variable, DW_AT_name("timer_handle")
+	.dwattr $C$DW$250, DW_AT_TI_symbol_name("_timer_handle")
+	.dwattr $C$DW$250, DW_AT_type(*$C$DW$T$42)
+	.dwattr $C$DW$250, DW_AT_location[DW_OP_bregx 0x24 4]
+$C$DW$251	.dwtag  DW_TAG_variable, DW_AT_name("iterations")
+	.dwattr $C$DW$251, DW_AT_TI_symbol_name("_iterations")
+	.dwattr $C$DW$251, DW_AT_type(*$C$DW$T$73)
+	.dwattr $C$DW$251, DW_AT_location[DW_OP_bregx 0x24 6]
+$C$DW$252	.dwtag  DW_TAG_variable, DW_AT_name("result")
+	.dwattr $C$DW$252, DW_AT_TI_symbol_name("_result")
+	.dwattr $C$DW$252, DW_AT_type(*$C$DW$T$75)
+	.dwattr $C$DW$252, DW_AT_location[DW_OP_bregx 0x24 7]
+$C$DW$253	.dwtag  DW_TAG_variable, DW_AT_name("num_of_seeds")
+	.dwattr $C$DW$253, DW_AT_TI_symbol_name("_num_of_seeds")
+	.dwattr $C$DW$253, DW_AT_type(*$C$DW$T$73)
+	.dwattr $C$DW$253, DW_AT_location[DW_OP_bregx 0x24 8]
 	.dwpsn	file "./fuzz.c",line 454,column 14,is_stmt
-        MOV #1, *SP(#8) ; |454| 
-	.dwpsn	file "./fuzz.c",line 457,column 5,is_stmt
+        MOV #0, *SP(#6) ; |454| 
+	.dwpsn	file "./fuzz.c",line 458,column 5,is_stmt
+        MOV #(_test >> 16) << #16, AC0 ; |458| 
+        OR #(_test & 0xffff), AC0, AC0 ; |458| 
+        MOV AC0, XAR0
 $C$DW$254	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$254, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$254, DW_AT_name("_refresh_seed_corpus")
+	.dwattr $C$DW$254, DW_AT_name("_setup")
 	.dwattr $C$DW$254, DW_AT_TI_call
-        CALL #_refresh_seed_corpus ; |457| 
-                                        ; call occurs [#_refresh_seed_corpus] ; |457| 
-	.dwpsn	file "./fuzz.c",line 460,column 5,is_stmt
-        AMOV #_current_input, XAR0 ; |460| 
+        CALL #_setup ; |458| 
+                                        ; call occurs [#_setup] ; |458| 
+	.dwpsn	file "./fuzz.c",line 460,column 14,is_stmt
+        MOV #1, *SP(#8) ; |460| 
+	.dwpsn	file "./fuzz.c",line 463,column 5,is_stmt
 $C$DW$255	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$255, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$255, DW_AT_name("_dequeue_seed")
+	.dwattr $C$DW$255, DW_AT_name("_refresh_seed_corpus")
 	.dwattr $C$DW$255, DW_AT_TI_call
-        CALL #_dequeue_seed ; |460| 
-                                        ; call occurs [#_dequeue_seed] ; |460| 
-	.dwpsn	file "./fuzz.c",line 462,column 11,is_stmt
-$C$L37:    
-$C$DW$L$_main_harness_loop$2$B:
-	.dwpsn	file "./fuzz.c",line 464,column 13,is_stmt
-        ADD #1, *SP(#6) ; |464| 
-	.dwpsn	file "./fuzz.c",line 466,column 13,is_stmt
-        AMOV #_saved_context, XAR0 ; |466| 
+        CALL #_refresh_seed_corpus ; |463| 
+                                        ; call occurs [#_refresh_seed_corpus] ; |463| 
+	.dwpsn	file "./fuzz.c",line 466,column 5,is_stmt
+        AMOV #_current_input, XAR0 ; |466| 
 $C$DW$256	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$256, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$256, DW_AT_name("__setjmp")
+	.dwattr $C$DW$256, DW_AT_name("_dequeue_seed")
 	.dwattr $C$DW$256, DW_AT_TI_call
-        CALL #__setjmp ; |466| 
-                                        ; call occurs [#__setjmp] ; |466| 
-$C$DW$L$_main_harness_loop$2$E:
-$C$DW$L$_main_harness_loop$3$B:
-	.dwpsn	file "./fuzz.c",line 468,column 13,is_stmt
-        CMP *(#_stage_cycles) == #16, TC1 ; |468| 
-        BCC $C$L38,!TC1 ; |468| 
-                                        ; branchcc occurs ; |468| 
-$C$DW$L$_main_harness_loop$3$E:
-$C$DW$L$_main_harness_loop$4$B:
-	.dwpsn	file "./fuzz.c",line 470,column 17,is_stmt
-        AMOV #_current_input, XAR0 ; |470| 
+        CALL #_dequeue_seed ; |466| 
+                                        ; call occurs [#_dequeue_seed] ; |466| 
+	.dwpsn	file "./fuzz.c",line 468,column 11,is_stmt
+$C$L37:    
+$C$DW$L$_main_harness_loop$2$B:
+	.dwpsn	file "./fuzz.c",line 470,column 13,is_stmt
+        ADD #1, *SP(#6) ; |470| 
+	.dwpsn	file "./fuzz.c",line 472,column 13,is_stmt
+        AMOV #_saved_context, XAR0 ; |472| 
 $C$DW$257	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$257, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$257, DW_AT_name("_dequeue_seed")
+	.dwattr $C$DW$257, DW_AT_name("__setjmp")
 	.dwattr $C$DW$257, DW_AT_TI_call
-        CALL #_dequeue_seed ; |470| 
-                                        ; call occurs [#_dequeue_seed] ; |470| 
-	.dwpsn	file "./fuzz.c",line 471,column 17,is_stmt
-        MOV #0, *(#_stage_cycles) ; |471| 
-	.dwpsn	file "./fuzz.c",line 473,column 17,is_stmt
-        ADD #1, *SP(#8) ; |473| 
-	.dwpsn	file "./fuzz.c",line 474,column 17,is_stmt
-        AND #0x000f, *SP(#8) ; |474| 
+        CALL #__setjmp ; |472| 
+                                        ; call occurs [#__setjmp] ; |472| 
+$C$DW$L$_main_harness_loop$2$E:
+$C$DW$L$_main_harness_loop$3$B:
+	.dwpsn	file "./fuzz.c",line 474,column 13,is_stmt
+        CMP *(#_stage_cycles) == #16, TC1 ; |474| 
+        BCC $C$L38,!TC1 ; |474| 
+                                        ; branchcc occurs ; |474| 
+$C$DW$L$_main_harness_loop$3$E:
+$C$DW$L$_main_harness_loop$4$B:
+	.dwpsn	file "./fuzz.c",line 476,column 17,is_stmt
+        AMOV #_current_input, XAR0 ; |476| 
+$C$DW$258	.dwtag  DW_TAG_TI_branch
+	.dwattr $C$DW$258, DW_AT_low_pc(0x00)
+	.dwattr $C$DW$258, DW_AT_name("_dequeue_seed")
+	.dwattr $C$DW$258, DW_AT_TI_call
+        CALL #_dequeue_seed ; |476| 
+                                        ; call occurs [#_dequeue_seed] ; |476| 
+	.dwpsn	file "./fuzz.c",line 477,column 17,is_stmt
+        MOV #0, *(#_stage_cycles) ; |477| 
+	.dwpsn	file "./fuzz.c",line 479,column 17,is_stmt
+        ADD #1, *SP(#8) ; |479| 
+	.dwpsn	file "./fuzz.c",line 480,column 17,is_stmt
+        AND #0x000f, *SP(#8) ; |480| 
 $C$DW$L$_main_harness_loop$4$E:
 $C$L38:    
 $C$DW$L$_main_harness_loop$5$B:
-	.dwpsn	file "./fuzz.c",line 477,column 13,is_stmt
-        AMOV #_current_input, XAR0 ; |477| 
-        MOV #256, T0 ; |477| 
-$C$DW$258	.dwtag  DW_TAG_TI_branch
-	.dwattr $C$DW$258, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$258, DW_AT_name("_mutator")
-	.dwattr $C$DW$258, DW_AT_TI_call
-        CALL #_mutator ; |477| 
-                                        ; call occurs [#_mutator] ; |477| 
-	.dwpsn	file "./fuzz.c",line 479,column 13,is_stmt
-        AMOV #$C$FSL9, XAR3 ; |479| 
-        MOV XAR3, dbl(*SP(#0))
-        MOV *SP(#8), AR1 ; |479| 
-        MOV AR1, *SP(#2) ; |479| 
-        MOV *(#_stage_cycles), AR1 ; |479| 
-        MOV AR1, *SP(#3) ; |479| 
+	.dwpsn	file "./fuzz.c",line 483,column 13,is_stmt
+        AMOV #_current_input, XAR0 ; |483| 
+        MOV #256, T0 ; |483| 
 $C$DW$259	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$259, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$259, DW_AT_name("_printf")
+	.dwattr $C$DW$259, DW_AT_name("_mutator")
 	.dwattr $C$DW$259, DW_AT_TI_call
-        CALL #_printf ; |479| 
-                                        ; call occurs [#_printf] ; |479| 
-	.dwpsn	file "./fuzz.c",line 481,column 13,is_stmt
-        AMAR *SP(#4), XAR0
+        CALL #_mutator ; |483| 
+                                        ; call occurs [#_mutator] ; |483| 
+	.dwpsn	file "./fuzz.c",line 485,column 13,is_stmt
+        AMOV #$C$FSL9, XAR3 ; |485| 
+        MOV XAR3, dbl(*SP(#0))
+        MOV *SP(#8), AR1 ; |485| 
+        MOV AR1, *SP(#2) ; |485| 
+        MOV *(#_stage_cycles), AR1 ; |485| 
+        MOV AR1, *SP(#3) ; |485| 
 $C$DW$260	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$260, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$260, DW_AT_name("_start_timer")
+	.dwattr $C$DW$260, DW_AT_name("_printf")
 	.dwattr $C$DW$260, DW_AT_TI_call
-        CALL #_start_timer ; |481| 
-                                        ; call occurs [#_start_timer] ; |481| 
-	.dwpsn	file "./fuzz.c",line 485,column 6,is_stmt
-        AMOV #_current_input, XAR0 ; |485| 
+        CALL #_printf ; |485| 
+                                        ; call occurs [#_printf] ; |485| 
+	.dwpsn	file "./fuzz.c",line 487,column 13,is_stmt
+        AMAR *SP(#4), XAR0
 $C$DW$261	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$261, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$261, DW_AT_name("_input_printf")
+	.dwattr $C$DW$261, DW_AT_name("_start_timer")
 	.dwattr $C$DW$261, DW_AT_TI_call
-        CALL #_input_printf ; |485| 
-                                        ; call occurs [#_input_printf] ; |485| 
-	.dwpsn	file "./fuzz.c",line 486,column 13,is_stmt
-        AMOV #_current_input, XAR0 ; |486| 
-        MOV #256, T0 ; |486| 
+        CALL #_start_timer ; |487| 
+                                        ; call occurs [#_start_timer] ; |487| 
+	.dwpsn	file "./fuzz.c",line 492,column 13,is_stmt
+        AMOV #_current_input, XAR0 ; |492| 
+        MOV #256, T0 ; |492| 
 $C$DW$262	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$262, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$262, DW_AT_name("_test")
 	.dwattr $C$DW$262, DW_AT_TI_call
-        CALL #_test ; |486| 
-                                        ; call occurs [#_test] ; |486| 
-        MOV T0, *SP(#7) ; |486| 
-	.dwpsn	file "./fuzz.c",line 488,column 13,is_stmt
+        CALL #_test ; |492| 
+                                        ; call occurs [#_test] ; |492| 
+        MOV T0, *SP(#7) ; |492| 
+	.dwpsn	file "./fuzz.c",line 494,column 13,is_stmt
         MOV T0, AR1
-        BCC $C$L39,AR1 >= #0 ; |488| 
-                                        ; branchcc occurs ; |488| 
+        BCC $C$L39,AR1 >= #0 ; |494| 
+                                        ; branchcc occurs ; |494| 
 $C$DW$L$_main_harness_loop$5$E:
 $C$DW$L$_main_harness_loop$6$B:
-	.dwpsn	file "./fuzz.c",line 489,column 17,is_stmt
+	.dwpsn	file "./fuzz.c",line 495,column 17,is_stmt
 $C$DW$263	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$263, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$263, DW_AT_name("_crash_void")
 	.dwattr $C$DW$263, DW_AT_TI_call
-        CALL #_crash_void ; |489| 
-                                        ; call occurs [#_crash_void] ; |489| 
+        CALL #_crash_void ; |495| 
+                                        ; call occurs [#_crash_void] ; |495| 
 $C$DW$L$_main_harness_loop$6$E:
 $C$L39:    
 $C$DW$L$_main_harness_loop$7$B:
-	.dwpsn	file "./fuzz.c",line 499,column 12,is_stmt
+	.dwpsn	file "./fuzz.c",line 505,column 12,is_stmt
         AMAR *SP(#4), XAR0
 $C$DW$264	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$264, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$264, DW_AT_name("_stop_timer")
 	.dwattr $C$DW$264, DW_AT_TI_call
-        CALL #_stop_timer ; |499| 
-                                        ; call occurs [#_stop_timer] ; |499| 
-	.dwpsn	file "./fuzz.c",line 501,column 12,is_stmt
-        AMOV #_current_input, XAR0 ; |501| 
+        CALL #_stop_timer ; |505| 
+                                        ; call occurs [#_stop_timer] ; |505| 
+	.dwpsn	file "./fuzz.c",line 507,column 12,is_stmt
+        AMOV #_current_input, XAR0 ; |507| 
 $C$DW$265	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$265, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$265, DW_AT_name("_handle_results")
 	.dwattr $C$DW$265, DW_AT_TI_call
-        CALL #_handle_results ; |501| 
-                                        ; call occurs [#_handle_results] ; |501| 
-	.dwpsn	file "./fuzz.c",line 462,column 11,is_stmt
-        B $C$L37  ; |462| 
-                                        ; branch occurs ; |462| 
+        CALL #_handle_results ; |507| 
+                                        ; call occurs [#_handle_results] ; |507| 
+	.dwpsn	file "./fuzz.c",line 468,column 11,is_stmt
+        B $C$L37  ; |468| 
+                                        ; branch occurs ; |468| 
 $C$DW$L$_main_harness_loop$7$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$266	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$266, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L37:1:1717098804")
+	.dwattr $C$DW$266, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L37:1:1718135326")
 	.dwattr $C$DW$266, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$266, DW_AT_TI_begin_line(0x1ce)
-	.dwattr $C$DW$266, DW_AT_TI_end_line(0x1f8)
+	.dwattr $C$DW$266, DW_AT_TI_begin_line(0x1d4)
+	.dwattr $C$DW$266, DW_AT_TI_end_line(0x1fe)
 $C$DW$267	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$267, DW_AT_low_pc($C$DW$L$_main_harness_loop$2$B)
 	.dwattr $C$DW$267, DW_AT_high_pc($C$DW$L$_main_harness_loop$2$E)
@@ -3624,11 +3626,11 @@ $C$DW$272	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$272, DW_AT_high_pc($C$DW$L$_main_harness_loop$7$E)
 	.dwendtag $C$DW$266
 
-	.dwattr $C$DW$248, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$248, DW_AT_TI_end_line(0x1f9)
-	.dwattr $C$DW$248, DW_AT_TI_end_column(0x01)
+	.dwattr $C$DW$249, DW_AT_TI_end_file("./fuzz.c")
+	.dwattr $C$DW$249, DW_AT_TI_end_line(0x1ff)
+	.dwattr $C$DW$249, DW_AT_TI_end_column(0x01)
 	.dwendentry
-	.dwendtag $C$DW$248
+	.dwendtag $C$DW$249
 
 	.sect	".text"
 	.global	_main
@@ -3640,10 +3642,10 @@ $C$DW$273	.dwtag  DW_TAG_subprogram, DW_AT_name("main")
 	.dwattr $C$DW$273, DW_AT_external
 	.dwattr $C$DW$273, DW_AT_type(*$C$DW$T$10)
 	.dwattr $C$DW$273, DW_AT_TI_begin_file("./fuzz.c")
-	.dwattr $C$DW$273, DW_AT_TI_begin_line(0x1fc)
+	.dwattr $C$DW$273, DW_AT_TI_begin_line(0x202)
 	.dwattr $C$DW$273, DW_AT_TI_begin_column(0x05)
 	.dwattr $C$DW$273, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "./fuzz.c",line 508,column 15,is_stmt,address _main
+	.dwpsn	file "./fuzz.c",line 514,column 15,is_stmt,address _main
 
 	.dwfde $C$DW$CIE, _main
 ;*******************************************************************************
@@ -3660,14 +3662,14 @@ _main:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-1, SP
 	.dwcfi	cfa_offset, 2
-	.dwpsn	file "./fuzz.c",line 510,column 5,is_stmt
+	.dwpsn	file "./fuzz.c",line 516,column 5,is_stmt
 $C$DW$274	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$274, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$274, DW_AT_name("_main_harness_loop")
 	.dwattr $C$DW$274, DW_AT_TI_call
-        CALL #_main_harness_loop ; |510| 
-                                        ; call occurs [#_main_harness_loop] ; |510| 
-	.dwpsn	file "./fuzz.c",line 511,column 1,is_stmt
+        CALL #_main_harness_loop ; |516| 
+                                        ; call occurs [#_main_harness_loop] ; |516| 
+	.dwpsn	file "./fuzz.c",line 517,column 1,is_stmt
         MOV #0, T0
         AADD #1, SP
 	.dwcfi	cfa_offset, 1
@@ -3677,7 +3679,7 @@ $C$DW$275	.dwtag  DW_TAG_TI_branch
         RET
                                         ; return occurs
 	.dwattr $C$DW$273, DW_AT_TI_end_file("./fuzz.c")
-	.dwattr $C$DW$273, DW_AT_TI_end_line(0x1ff)
+	.dwattr $C$DW$273, DW_AT_TI_end_line(0x205)
 	.dwattr $C$DW$273, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$273
@@ -4428,9 +4430,9 @@ $C$DW$381	.dwtag  DW_TAG_subrange_type
 $C$DW$T$123	.dwtag  DW_TAG_array_type
 	.dwattr $C$DW$T$123, DW_AT_type(*$C$DW$T$73)
 	.dwattr $C$DW$T$123, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$123, DW_AT_byte_size(0x4000)
+	.dwattr $C$DW$T$123, DW_AT_byte_size(0x400)
 $C$DW$382	.dwtag  DW_TAG_subrange_type
-	.dwattr $C$DW$382, DW_AT_upper_bound(0x3fff)
+	.dwattr $C$DW$382, DW_AT_upper_bound(0x3ff)
 	.dwendtag $C$DW$T$123
 
 $C$DW$T$125	.dwtag  DW_TAG_pointer_type
@@ -4471,6 +4473,9 @@ $C$DW$T$131	.dwtag  DW_TAG_pointer_type
 $C$DW$T$134	.dwtag  DW_TAG_typedef, DW_AT_name("uint32_t")
 	.dwattr $C$DW$T$134, DW_AT_type(*$C$DW$T$13)
 	.dwattr $C$DW$T$134, DW_AT_language(DW_LANG_C)
+$C$DW$T$135	.dwtag  DW_TAG_pointer_type
+	.dwattr $C$DW$T$135, DW_AT_type(*$C$DW$T$134)
+	.dwattr $C$DW$T$135, DW_AT_address_class(0x17)
 $C$DW$T$14	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
 	.dwattr $C$DW$T$14, DW_AT_name("long long")

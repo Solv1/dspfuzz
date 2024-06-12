@@ -1,3 +1,5 @@
+import binary_tools
+import shutil
 import time
 import threading
 import os 
@@ -14,12 +16,14 @@ from com.ti.debug.engine.scripting import *
 from com.ti.ccstudio.scripting.environment import *
 
 
-COVERAGE_SIZE = 16384
+COVERAGE_SIZE = 1024
 SEED_SIZE = 256
 
 
 global_coverage_map = [0] * COVERAGE_SIZE
 
+
+coverage_dict = {}
 new_map = True
 seed_dir = ''
 results_dir = ''
@@ -74,7 +78,21 @@ def _handle_args():
     parser.add_argument('-t', '--timeout', type=int, dest='timeout', action='store',
                         help='Timeout for a local pool refresh.', default=10
     )
+    parser.add_argument('-b', '--bin', dest='binary', action='store',
+                        help='Path to the binary.', required='true'
+    )
+
+
     return parser.parse_args()
+
+def coverage_setup(bin_path):
+    global coverage_dict
+
+    coverage_dict = binary_tools.find_calls(bin_path)
+    
+    shutil.copyfile(bin_path, './DSPFuzz.out')
+
+
 
 @log
 def debug_server_setup():
@@ -91,8 +109,8 @@ def debug_server_setup():
     script.setScriptTimeout(1500000000)
 
     # Log everything
-    script.traceSetConsoleLevel(TraceLevel.OFF)
-    script.traceSetFileLevel(TraceLevel.OFF)
+    script.traceSetConsoleLevel(TraceLevel.FINE)
+    script.traceSetFileLevel(TraceLevel.FINE)
 
     # Get the Debug Server and start a Debug Session
     debugServer = script.getServer('DebugServer.1')
@@ -117,7 +135,9 @@ def _write_coverage(coverage, path) -> None:
     """
     with open(path, 'w') as fp: 
         for x in range(0,len(coverage)):
-                fp.write(str(coverage[x]))
+                #if (x % 4) == 0:
+                    #fp.write('\n')
+                fp.write(("{0:016b}".format(coverage[x])[::-1]))
 
 def _pull_coverage(coverage_map_address) -> list:
     """
@@ -128,6 +148,8 @@ def _pull_coverage(coverage_map_address) -> list:
     """
     coverage_map = []
     for x in range(0, COVERAGE_SIZE):
+
+        #Pull the coverage map when we find new coverage
         try:
             cov = debugSession.memory.readData(1,coverage_map_address + x, 16)
         except(Exception):
@@ -135,7 +157,17 @@ def _pull_coverage(coverage_map_address) -> list:
             print('ERROR: Failed to read memory.. sleeping and trying again.')
             time.sleep(2.5)
             cov = debugSession.memory.readData(1,coverage_map_address + x, 16)
+
+        #clear the coverage map when we find new coverage 
+        try:
+            debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
+        except(Exception):
+            print('ERROR: Failed to writting memory.. sleeping and trying again.')
+            time.sleep(2.5)
+            debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
+        #bin_cov = "{0:016b}".format(cov)
         coverage_map.append(cov)
+    
     return coverage_map
 
 def _update_global_map(coverage_map) -> None:
@@ -146,8 +178,8 @@ def _update_global_map(coverage_map) -> None:
 
     global results_dir, new_map, global_coverage_map
 
-
-    map_path = results_dir + 'coverage.map'
+    run_map_path = results_dir + 'coverage.map' 
+    map_path = results_dir + 'global_coverage.map'
     new_coverage = []
 
     #Calculate the new map
@@ -156,9 +188,10 @@ def _update_global_map(coverage_map) -> None:
 
     global_coverage_map = new_coverage
     
-    t1 = threading.Thread(target=_write_coverage, args=[new_coverage, map_path])
-    t1.start()
-    #_write_coverage(new_coverage, map_path)
+    # t1 = threading.Thread(target=_write_coverage, args=[new_coverage, map_path])
+    # t1.start()
+    _write_coverage(new_coverage, map_path)
+    _write_coverage(coverage_map, run_map_path)
     
 
 
@@ -231,13 +264,13 @@ def refresh_local_pool() -> None:
     
     global seed_size
 
-    #Pull coverage map before loading
-    coverage_map_address = debugSession.symbol.getAddress('coverage_map')
-    cov = _pull_coverage(coverage_map_address)
-    #Run the acutal map update on a thread to decrease overhead.
-    #t1 = threading.Thread(target=_update_global_map, args=[cov])
-    #t1.start()
-    _update_global_map(cov)
+    # #Pull coverage map before loading
+    # coverage_map_address = debugSession.symbol.getAddress('coverage_map')
+    # cov = _pull_coverage(coverage_map_address)
+    # #Run the acutal map update on a thread to decrease overhead.
+    # #t1 = threading.Thread(target=_update_global_map, args=[cov])
+    # #t1.start()
+    # _update_global_map(cov)
 
     corpus_waiting_address =  debugSession.symbol.getAddress("corpusWaiting")
     corpus_address = debugSession.symbol.getAddress('local_pool')
@@ -290,7 +323,19 @@ def current_seed_to_global_pool() -> None:
         @Arguments: None
         @Return: None
     """
-    global global_pool_size, seed_dir
+    global global_pool_size, seed_dir, coverage_dict
+
+    #Pull coverage map before loading
+    coverage_map_address = debugSession.symbol.getAddress('coverage_map')
+    cov = _pull_coverage(coverage_map_address)
+    #Run the acutal map update on a thread to decrease overhead.
+    #t1 = threading.Thread(target=_update_global_map, args=[cov])
+    #t1.start()
+    _update_global_map(cov)
+
+    #Lets use that found coverage to UNinsturment our binary.
+    new_coverage_dict = binary_tools.uninsturment(coverage_dict)
+    coverage_dict = new_coverage_dict
 
     #Get the address of the current seed.
     current_seed_address = debugSession.symbol.getAddress('current_input')
@@ -311,7 +356,7 @@ def crash_reload() -> None:
         @Arguments: None
         @Return: None
     """
-    global amount_of_crashes, start_time, timer_thread
+    global amount_of_crashes, start_time, timer_thread, coverage_dict
 
     #crash_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
     #print('Found Crash in '+ str(crash_time - start_time)+ ' ns')
@@ -332,12 +377,26 @@ def crash_reload() -> None:
     current_seed_address = debugSession.symbol.getAddress('current_input')
     _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/')
 
+
+    #Pull coverage map before loading
+    coverage_map_address = debugSession.symbol.getAddress('coverage_map')
+    cov = _pull_coverage(coverage_map_address)
+    #Run the acutal map update on a thread to decrease overhead.
+    #t1 = threading.Thread(target=_update_global_map, args=[cov])
+    #t1.start()
+    _update_global_map(cov)
+
     #Reset the target
     logging.info('Reloading target after crash')
     debugSession.target.reset()
 
+    #uinsturment bin file as coverage is found.
+    new_coverage_dict = binary_tools.uninsturment(coverage_dict)
+    coverage_dict = new_coverage_dict
+
     #Load the Fuzzer back onto the DSP
     debugSession.memory.loadProgram('DSPFuzz.out')
+    #debugSession.memory.loadProgram('DSPFuzz.out')
 
     #Set breakpoints again
     set_intial_breakpoints()
@@ -413,6 +472,9 @@ def main():
     seed_dir = args.seed_dir
     results_dir = args.res_dir
     timeout = args.timeout
+    bin_path = args.binary
+
+    coverage_setup(bin_path)
 
     debug_server_setup()
 

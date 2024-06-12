@@ -8,19 +8,15 @@
 	.ref _coverage_map, _isIncreasing, _sut_start_address;, _iterations
 
 _coverage_log:
-	AADD #-10, SP
+	AADD #-5, SP
+	
 	
 	PSH T2;			 		   ;Pushing Register Context to the stack.
 	PSH T3;
-	PSHBOTH XAR0;
-	PSHBOTH XAR1;
-	PSHBOTH XAR2;
-	PSHBOTH XAR3;
-	PSHBOTH XAR4;
 	PSHBOTH XAR5;
 	PSHBOTH XAR6;
 	PSHBOTH XAR7;
-	AADD #10, SP;
+	AADD #5, SP;
 	
 	MOV RETA, dbl(*SP(#00h)); ;Saving the return address here
 	MOV dbl(*SP(#00h)), AC0;		;This is the address of where the coverage_logging function begins in the SUT
@@ -61,46 +57,31 @@ even:
 
 finish:
 	MOV dbl(*SP(#00h)), AC0;    	;Return address for hashing function.
-	SUB #4, AC0;
     MOV dbl(*(#_sut_start_address)), AC1; ;SUT address offset
     SUB AC1, AC0; 					;Raw Value = Return address - Start address -> AC0
-    MOV AC0, AC1;					;Offset -> AC0 and AC1
+    MOV AC0, AC1; 
+    AND #0x7FFF, AC0, AC0; 			;index = raw_value % (MAX_COVERAGE*2) Because MAX_COVERAGE is a power of 2 we can use a & to mimic a modulo -> (i^2 -1)
+    SFTL AC0, #-1; 					;This is now the hash map index
+    
 
-	;Byte Postion in BitMap
-    SFTL AC0, #-4 					; byte_address = offset >> 4
     AMOV #_coverage_map, XAR3;		;Accessing the coverage map at label _coverage_map
-    ADD AC0, AR3;					; Adding the which byte this to the orginal address
+    ADD AC0, AR3;
+    XCC T0 != #0 ||
+    	OR #0x0100, *AR3;
+    XCC T0 == #0  ||
+    	OR #0x0001, *AR3;
 
-	;Bit Position in BitMap
-    AND #0xF, AC1, T0				; offset & 15 = bit index
-    MOV #1, AC2						; Moves 1 into AC3
-    SFTL AC2, T0					; 1 << index = set_value
-
-	;Setting Bit in the BitMap
-    MOV AC2, T0						; Move the bit that needs to be set to a temp register
-    MOV *AR3, AC1					; Move current value @ AR3 to AC1
-	OR T0, AC1						; Set the bit in the byte of the bitmap
-	MOV AC1, *AR3					; Store this change in the bitmap
-
-
-	;Restore the Register Context
-    AADD #-10, SP;
-
+    AADD #-5, SP;       ;Restore the Register Context
     POPBOTH XAR7;
     POPBOTH XAR6;
     POPBOTH XAR5;
-    POPBOTH XAR4;
-	POPBOTH XAR3;
-	POPBOTH XAR2;
-	POPBOTH XAR1;
-	POPBOTH XAR0;
     POP T3;
     POP T2;
 
     MOV #1, *(#_isIncreasing);
     ;MOV #0 , *(#_iterations);
     
-    AADD #10, SP;
+    AADD #5, SP;
     
     RET;
 

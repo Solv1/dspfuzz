@@ -16,7 +16,7 @@
 
 /*---------------------Fuzzer Defines---------------------*/
 #define SEED_CAPACITY 15
-#define MAX_COVERAGE 16384      /*14 bits 2 entries per function = 32822 entries*/
+#define MAX_COVERAGE 1024      /*14 bits 2 entries per function = 32822 entries*/
 #define MAX_CYCLES 16           /*16 Cycles for varrious mutation strats before getting a new seed.*/
 #define NO_ERROR 0x00           /* Fuzzer Flags */
 #define HANG 0x02
@@ -40,7 +40,7 @@ uint16_t output_buffer[WIDTH] = {0};
 
 uint16_t coverage_map[MAX_COVERAGE] = {0};
 
-uint32_t sut_start_address = 0;
+uint32_t * sut_start_address = 0;
 
 uint16_t seed_head = 0;
 uint16_t seed_tail = SEED_CAPACITY - 1;
@@ -262,9 +262,11 @@ int16_t setup(void * function_pointer){
 ********************************************************/
 
     memset(&coverage_map,0,sizeof(coverage_map));
-    memset(&local_pool, 0, WIDTH*SEED_CAPACITY);
+    memset(&local_pool, 0, sizeof(local_pool));
 
-    sut_start_address = *((uint32_t *)function_pointer); /*Finds the offset in memory of the start of our sut */
+   // printf("LOG: Function pointer equals: %p ", function_pointer);
+
+    sut_start_address = ((uint32_t *)function_pointer); /*Finds the offset in memory of the start of our sut */
 
     if (coverage_map == NULL ){
 #ifdef NO_LOGGING
@@ -290,6 +292,8 @@ void mutator(int16_t * input, size_t input_size){
         srand(rand_time);
         random_value = rand();
 
+        uint16_t random_stage = random_value % 16;
+
 //TODO: Add block mutations in here.
 
 //TODO: Add more stages
@@ -303,7 +307,9 @@ void mutator(int16_t * input, size_t input_size){
 
         //Implemented some AFL like mutation types.
 
-        if(stage_cycles < 3){
+
+
+        if(random_stage < 3){
             for(i = 0; i < input_size; i++){
                 if(rand()% mutation_frequency == 0){
                 //Walking bit
@@ -313,7 +319,7 @@ void mutator(int16_t * input, size_t input_size){
                     continue;
             }
         }
-        else if(stage_cycles < 7){
+        else if(random_stage < 7){
             for(i = 0; i < input_size; i++){
                 if(rand()% mutation_frequency == 0){
                 // Walking 2-bit
@@ -323,7 +329,7 @@ void mutator(int16_t * input, size_t input_size){
                         continue;
                 }
         }
-        else if(stage_cycles < 9){
+        else if(random_stage < 9){
             for(i = 0; i < input_size; i++){
 
                 if(rand() % mutation_frequency == 0){
@@ -334,7 +340,7 @@ void mutator(int16_t * input, size_t input_size){
                     continue;
             }
         }
-        else if(stage_cycles < 12){
+        else if(random_stage < 12){
 
             for(i = 0; i < input_size; i++){
                 if(rand() % mutation_frequency == 0){
@@ -345,7 +351,7 @@ void mutator(int16_t * input, size_t input_size){
                    continue;
            }
         }
-        else if(stage_cycles < 16){
+        else if(random_stage < 16){
 
             // Chose a random operation to do on a value + - * or /
             switch (random_value % 3)
@@ -482,7 +488,7 @@ void main_harness_loop(){
 	    //current_input[0] = 56;
 	    //current_input[1] = 56;
 	    //current_input[2] = 56;
-	    input_printf(current_input);
+	    //input_printf(current_input);
             result = test(sizeof(current_input),current_input);
 
             if (result < 0){

@@ -31,6 +31,12 @@
 #define ULONG_LONG_MAX 1099511627775 //40-bit long long
 
 
+//Define floats and double with their standard types for readability.
+typedef float float32_t;
+typedef double float64_t;
+
+
+
 
 
 extern void VECSTART(void);

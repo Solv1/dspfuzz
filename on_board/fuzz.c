@@ -13,10 +13,11 @@
 //#define NO_LOGGING
 
 #define TIMEOUT 10000 /*Assuming a 100Mhz Clock*/
+//#define TIMEOUT 1000000000 /*Assuming a 100Mhz Clock*/
 
 /*---------------------Fuzzer Defines---------------------*/
 #define SEED_CAPACITY 15
-#define MAX_COVERAGE 1024      /*14 bits 2 entries per function = 32822 entries*/
+#define MAX_COVERAGE 1024      /*1024 * 16bits with each bit represetning an address */
 #define MAX_CYCLES 16           /*16 Cycles for varrious mutation strats before getting a new seed.*/
 #define NO_ERROR 0x00           /* Fuzzer Flags */
 #define HANG 0x02
@@ -60,6 +61,16 @@ uint16_t current_corpus_size = SEED_CAPACITY; //It is assumed that we start with
 
 uint16_t mutation_frequency = 2; //1/4 of the time mutation is done.
 
+uint16_t iterations = 0;
+
+
+/*** Timing Variables ***/
+float64_t total_time = 0;
+float64_t execution_time = 0;
+uint32_t start_time = 0;
+uint32_t end_time = 0;
+
+
 /* Preprocessor Defines */
 void image_library_harness();
 void input_printf(int16_t * input);
@@ -90,7 +101,7 @@ __interrupt void fuzzer_isr(void)
             isError = HANG;
             count = 0;
             printf("\nLOG: Hit a software hang\n");
-            input_printf(current_input);
+            //input_printf(current_input);
             IRQ_globalDisable(); /* Disable the CPU interrupts */
             IRQ_clearAll(); /* Clear any pending interrupts */
             IRQ_disableAll(); /* Disable all the interrupts */
@@ -105,7 +116,7 @@ __interrupt void bus_error_isr(void)
     IRQ_clear(BERR_EVENT);
     IRQ_clearAll(); /* Clear any pending interrupts */
     printf("LOG: Found a bus error \n");
-    input_printf(current_input);
+    //input_printf(current_input);
     isError = BUS_ERROR; // Set the Error condition and go into a while loop waiting for a reset from the debugger.
     crash_void();
 
@@ -115,7 +126,7 @@ __interrupt void data_log_isr(void)
     IRQ_clear(DLOG_EVENT);
     IRQ_clearAll(); // Set the Error condition and go into a while loop waiting for a reset from the debugger.
     printf("LOG: Found a data log error \n");
-    input_printf(current_input);
+    //input_printf(current_input);
     isError = DATA_LOG_ERROR;
     crash_void();
 }
@@ -433,7 +444,7 @@ void handle_results(int16_t * input){
     //TODO: A better way to figure out increasing test cases.
     if(isIncreasing){
 
-        input_printf(input);
+        //input_printf(input);
         seed_to_global_pool();
         printf("LOG: Coverage Increasing\n");
         isIncreasing = false;
@@ -448,10 +459,28 @@ void handle_results(int16_t * input){
 
 }
 
+void track_time(){
+
+
+    execution_time = (end_time - start_time);
+    //execution_time = (count * 2)/ 100000000.0;
+
+    //printf("Time taken for test input %Lf \n", execution_time/100000000.0);
+    total_time = total_time + execution_time;
+    //printf("Total time taken so far %Lf \n", total_time/ 100000000.0);
+    //printf("Average time per test case is %Lf \n", total_time/100000000.0 *iterations);
+
+    count = 0;
+
+}
+
+
 void main_harness_loop(){
 
     CSL_Handle timer_handle;
-    uint16_t iterations = 0;
+
+
+
 
     int16_t result;
 
@@ -467,9 +496,10 @@ void main_harness_loop(){
 
     while(1){
 
-            iterations++;
+
 
             setjmp(saved_context);
+            iterations++;
 
             if(stage_cycles == MAX_CYCLES){
                 //Need to grab a new seed from the corpus.
@@ -482,27 +512,26 @@ void main_harness_loop(){
 
             mutator(current_input,WIDTH);
 
-            printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
+            //printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
 
             start_timer(&timer_handle);
-	    //current_input[0] = 56;
-	    //current_input[1] = 56;
-	    //current_input[2] = 56;
-	    //input_printf(current_input);
-            result = test(sizeof(current_input),current_input);
 
+            //start_time = clock();
+            result = test(sizeof(current_input),current_input);
+            //end_time = clock();
             if (result < 0){
                 crash_void();
             }
-//            if (isError == NO_ERROR){
-//                IMG_boundary((short *)(&(current_seed.input) + 2), (int16_t)current_seed.input[0], (int16_t)current_seed.input[1], (int16_t *)&current_seed.output, (int16_t *)&current_seed.output); //This is broken with weird inputs.
-//            }
 
-           //Fuzz Target is below
-           //IMG_boundary((short *)current_input + 2, current_input[0], current_input[1],output_buffer, output_buffer);
-           //IMG_boundary((short *)(&(current_seed.input) + 2), (int16_t)current_seed.input[0], (int16_t)current_seed.input[1], (int16_t *)&current_seed.output, (int16_t *)&current_seed.output); //This is broken with weird inputs.
+
+
+//           while(i > 10000000){
+//               i--;
+//           }
 
            stop_timer(&timer_handle);
+
+           //track_time();
 
            handle_results(current_input);
 

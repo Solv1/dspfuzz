@@ -8,6 +8,7 @@ import random
 import argparse
 import jpype
 import jpype.imports
+
 from jpype.types import *
 #TODO: Set this to be a enviorment varriable.
 jpype.startJVM(classpath=['/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.ccstudio.scripting.environment_3.1.0.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/dss.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar'])
@@ -42,6 +43,10 @@ start_time = 0
 end_time = 0
 corpus_waiting_address = 0
 timeout = 5 #Default timeout is seconds
+
+average_testcase_time = 0
+total_testcase_time = 0
+iterations = 0
 
 logging.getLogger()
 logging.basicConfig(filename='fuzz.log', level=logging.DEBUG)
@@ -139,6 +144,7 @@ def _write_coverage(coverage, path) -> None:
                     #fp.write('\n')
                 fp.write(("{0:016b}".format(coverage[x])[::-1]))
 
+
 def _pull_coverage(coverage_map_address) -> list:
     """
         Pulls coverage from our on board coverage map and stores it.
@@ -172,6 +178,7 @@ def _pull_coverage(coverage_map_address) -> list:
 
 def _update_global_map(coverage_map) -> None:
     """ Updates the global coverage map for our SUT, performed in the back ground using a thread.
+        
         @Arguments: coverage_map -> list of ints that represent coverage from a test run.
         @Return:    NONE
     """
@@ -192,7 +199,37 @@ def _update_global_map(coverage_map) -> None:
     # t1.start()
     _write_coverage(new_coverage, map_path)
     _write_coverage(coverage_map, run_map_path)
+
+def _pull_statistics():
+    """Pulls total time and number of iterations performed and adds them to global statistics for the campaign.
     
+        @Arguments: NONE
+        @Return:    NONE
+    """
+    global start_time, iterations
+
+    end_time = time.clock_gettime(time.CLOCK_REALTIME)
+    it_address = debugSession.symbol.getAddress('iterations')
+    #time_address = debugSession.symbol.getAddress('total_time')
+
+    #Read the number of iterations.
+    iterations = debugSession.memory.readData(1, it_address ,16) + iterations
+    if iterations == 0:
+        return
+    #total_testcase_time = float(debugSession.memory.readData(1, time_address ,32)/ 100000000.0) + total_testcase_time
+
+    #Need to clear the number of iterations on the device so that we can track them properly...
+    debugSession.memory.writeData(1, it_address, 0, 16)
+    #debugSession.memory.writeData(1,time_address, 0, 32)
+
+
+
+
+
+    elapsed_time = end_time - start_time
+    print('DSLOG: Total number of iterations: ' + str(iterations))
+    #print('DSLOG: Total time for test cases: '+ str(total_testcase_time))
+    print('DSLOG: Average throughput time: ' + str(elapsed_time/iterations))
 
 
 @log
@@ -275,6 +312,9 @@ def refresh_local_pool() -> None:
     corpus_waiting_address =  debugSession.symbol.getAddress("corpusWaiting")
     corpus_address = debugSession.symbol.getAddress('local_pool')
 
+    #Pull timing statistics here
+    _pull_statistics()
+
     #Refresh the global pool incase there have been coverage increasing test cases added.
     refresh_global_pool()
 
@@ -325,12 +365,10 @@ def current_seed_to_global_pool() -> None:
     """
     global global_pool_size, seed_dir, coverage_dict
 
+
     #Pull coverage map before loading
     coverage_map_address = debugSession.symbol.getAddress('coverage_map')
     cov = _pull_coverage(coverage_map_address)
-    #Run the acutal map update on a thread to decrease overhead.
-    #t1 = threading.Thread(target=_update_global_map, args=[cov])
-    #t1.start()
     _update_global_map(cov)
 
     #Lets use that found coverage to UNinsturment our binary.
@@ -372,6 +410,8 @@ def crash_reload() -> None:
     #_update_global_map(cov)
     #threading.Thread(target=_update_global_map, args=cov).start()
 
+    #Pull timing statistics here
+    _pull_statistics()
 
     #Put the crashing input in the crashes directory.
     current_seed_address = debugSession.symbol.getAddress('current_input')
@@ -482,7 +522,7 @@ def main():
 
     refresh_local_pool()
 
-    start_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
+    start_time = time.clock_gettime(time.CLOCK_REALTIME)
 
     #start the refresh thread
     timer_thread = threading.Timer(timeout, refresh_interrupt)

@@ -32,6 +32,7 @@
 #pragma DATA_SECTION(local_pool, ".data_sandbox") // Store the corpus in a sandbox away from program memory.
 
 volatile int16_t local_pool[SEED_CAPACITY][WIDTH]; // A bunch of inputs here
+volatile int16_t local_pool_tracker[SEED_CAPACITY]; //Track which seeds are in use 
 
 #pragma DATA_SECTION(current_input, ".data_sandbox") // Store the current_seed in a sandbox away from program memory.
 int16_t current_input[WIDTH];
@@ -59,7 +60,7 @@ uint16_t stage_cycles = 0;
 
 uint16_t current_corpus_size = SEED_CAPACITY; //It is assumed that we start with a full corpus.
 
-uint16_t mutation_frequency = 2; //1/4 of the time mutation is done.
+uint16_t mutation_frequency = 2; 
 
 uint16_t iterations = 0;
 
@@ -73,7 +74,7 @@ uint32_t end_time = 0;
 
 /* Preprocessor Defines */
 void image_library_harness();
-void input_printf(int16_t * input);
+void input_printf(int16_t * input, int16_t size);
 void crash_void();
 
 /*------------------------------------------------------------*/
@@ -144,7 +145,7 @@ void memset_volatile(volatile void * addr, uint16_t ch, size_t range){ //Because
 
 }
 
-void input_printf(int16_t * input){
+void input_printf(int16_t * input, int16_t size){
 /********************************************************
  * @brief seed_printf: A seed printer
  * @param type: seed struct of your choice
@@ -153,8 +154,8 @@ void input_printf(int16_t * input){
     int i;
     //printf("--------Inputs--------\n");
     printf("RESULTS: Input:");
-    for(i = 0; i < WIDTH; i++){
-        printf("%x",input[i]);
+    for(i = 0; i < size; i++){
+        printf("%c",input[i]);
     }
     printf("\n");
     //printf(",Colum:%u,Row:%u\n",input[0],input[1]);
@@ -290,20 +291,23 @@ int16_t setup(void * function_pointer){
 
 }
 
+
+
+
 void mutator(int16_t * input, size_t input_size){
 /********************************************************
  * @brief Mutator: A input mutator
  * @param type: what type of mutation strategy to perform.
  * @return 0 if data successfully mutated, -1 on error
  ********************************************************/
-        uint16_t i;
+        uint16_t i, j, k;
         uint16_t rand_time;
         uint16_t random_value;
         rand_time = time(NULL);         //Use time() call because the clock is being used elsewhere.
         srand(rand_time);
-        random_value = rand();
+        //random_value = rand() % 16;
 
-        uint16_t random_stage = random_value % 16;
+        //uint16_t random_stage = random_value % 16;
 
 //TODO: Add block mutations in here.
 
@@ -311,85 +315,156 @@ void mutator(int16_t * input, size_t input_size){
 //TODO: Add the frequency of mutation in each stage. Make it adjustable.
 
 //Flips a random bit in the 16 bit value
-#define bitflip(value) (value ^ (1 << rand() % 15))
+#define bitflip(value, bit) (value ^ (1 << bit))
 
 //Flips a random byte in the 16 bit value.
-#define byteflip(value) (value ^ (0xFF << rand() % 2))
+#define byteflip(value) (value ^ (0xFF << ((rand() % 2)*8)))
 
         //Implemented some AFL like mutation types.
+        //They have been shown to be affective until proven otherwise.
 
 
 
-        if(random_stage < 3){
+        // if(stage_cycles < 5){
+        //     for(i = 0; i < input_size; i++){
+    
+        //     // Random bit
+            
+        //         input[i] = bitflip(input[i], (rand() % 16));
+		    
+        //     }
+        // }
+
+
+
+        if(stage_cycles < 2){
             for(i = 0; i < input_size; i++){
-                if(rand()% mutation_frequency == 0){
-                //Walking bit
-                input[i] = bitflip(input[i]);
+                //Choose at random rather we start with the first bit postion or the second
+                random_value = rand();
+                //Walking 1-bit flip with one bit step over
+                for(j = (random_value % 2); j < 16; j++){
+                    input[i] = bitflip(input[i], j);
+                    j++;
                 }
-                else
-                    continue;
+		    
             }
         }
-        else if(random_stage < 7){
+        else if(stage_cycles < 4){
             for(i = 0; i < input_size; i++){
-                if(rand()% mutation_frequency == 0){
-                // Walking 2-bit
-                        input[i] = input[i] ^ (0x03 << rand() % 9);
-                    }
-                    else
-                        continue;
+                // Walking 2-bit flip with one bit step over
+                random_value = rand();
+                for(j = (random_value % 2); j < 16; j ++){
+                    input[i] = bitflip(input[i], j);
+                    input[i] = bitflip(input[i], j+1);
+                    j = j + 2;
                 }
-        }
-        else if(random_stage < 9){
-            for(i = 0; i < input_size; i++){
-
-                if(rand() % mutation_frequency == 0){
-                    // Walking 4-bit
-                    input[i] = input[i] ^ (0x0F << rand() % 5);
-                }
-                else
-                    continue;
             }
         }
-        else if(random_stage < 12){
+        else if(stage_cycles < 7){
+            for(i = 0; i < input_size; i++){
+
+                // Walking 4-bit with one bit step over
+                random_value = rand();
+                for(j = (random_value % 2); j < 16; j ++){
+                    input[i] = bitflip(input[i], j);
+                    input[i] = bitflip(input[i], j+1);
+                    input[i] = bitflip(input[i], j+2);
+                    input[i] = bitflip(input[i], j+3);
+                    j = j + 4;
+                }            
+            }
+        }
+        else if(stage_cycles < 9){
 
             for(i = 0; i < input_size; i++){
-                if(rand() % mutation_frequency == 0){
-                    // Walking byte
-                    input[i] = byteflip(input[i]);
-                }
-                else
-                   continue;
+                input[i] = byteflip(input[i]);
            }
         }
-        else if(random_stage < 16){
+        else if(stage_cycles < 11){
 
-            // Chose a random operation to do on a value + - * or /
-            switch (random_value % 3)
+            // Chose a random operation to do on a value + or -
+            random_value = rand();
+            switch (random_value % 2)
             {
             case 0:
-                for(i = 0; i < input_size/mutation_frequency; i++){
-                    input[random_value % input_size] = input[random_value % input_size] + random_value % UINT_MAX;
+                //TODO: This could use some work...
+                for(i = 0; i < input_size; i++){
+                    input[i] = input[i] + (random_value % 33);
                     random_value = rand();
                 }
                 break;
             case 1:
-                for(i = 0; i < input_size/mutation_frequency; i++){
-                    input[random_value % input_size] = input[random_value % input_size] - random_value % UINT_MAX;
+                for(i = 0; i < input_size; i++){
+                    input[i] = input[i] - (random_value % 33);
                     random_value = rand();
                 }
                 break;
-            case 2:
-                for(i = 0; i < input_size/mutation_frequency; i++){
-                    input[random_value % input_size] = input[random_value % input_size] * random_value % UINT_MAX;
-
-                    random_value = rand();
-                }
-                break;
+    
             }
 
         }
-        stage_cycles++;
+        else if(stage_cycles < 16){
+            //Do a random amount of mutations
+            int16_t mutation_pick = rand() % 5;
+            random_value = rand() % 5 + 2;
+            for(i = 0; i < random_value; i++){
+                switch (mutation_pick)
+                {
+                case 0:
+                    //TODO: This could use some work...
+                    for(j = 0; j < input_size; j++){
+                        input[j] = input[j] + (rand() % 33);
+                        
+                    }
+                    break;
+                case 1:
+                    for(j = 0; j < input_size; j++){
+                        input[j] = input[j] - (rand() % 33);
+                    }
+                    break;
+                case 2:
+                    //Walking 1-bit flip with one bit step over
+                    for(j = 0; j < input_size; j++){
+                        for(k = (rand() % 2); k < 16; k++){
+                            input[j] = bitflip(input[j], k);
+                            k++;
+                        }   
+                    }
+                    break;
+                case 3: 
+                    for(j = 0; j < input_size; j++){
+                        for(k = (rand() % 2); k < 16; k++){
+                            input[j] = bitflip(input[j], k);
+                            input[j] = bitflip(input[j], k+1);
+                            k = k + 2;
+                        }       
+                    }
+                    break;
+                case 4:
+                    for(j = 0; j < input_size; j++){
+                        for(k = (rand() % 2); k < 16; k++){
+                            input[j] = bitflip(input[j], k);
+                            input[j] = bitflip(input[j], k+1);
+                            input[j] = bitflip(input[j], k+2);
+                            input[j] = bitflip(input[j], k+3);
+                            k = k + 4;
+                        }
+                    }
+                    break;
+                case 5:
+                    for(j = 0; j < input_size; j++){
+                        input[j] = byteflip(input[j]);
+                    }    
+
+                }
+
+                //Choose another random mutator to oo.
+                mutation_pick = rand() % 6;
+
+            }
+        
+    }
+    stage_cycles++;
 }
 
 
@@ -419,12 +494,15 @@ void dequeue_seed(int16_t * input){
 
     uint16_t * result;
     //At the end of queue set it back to the beggining
+    //Corpus will loop continously.
     if(seed_head == seed_tail){
         seed_head = 0;
     }
 
-
-    //Corpus will loop continously.
+    if(local_pool_tracker[seed_head] == 0){
+        seed_head = 0 ;
+    }
+    
     result = memcpy(input, (int16_t *)local_pool[seed_head], WIDTH);
 
     if(result == NULL){
@@ -500,7 +578,7 @@ void main_harness_loop(){
 
             setjmp(saved_context);
             iterations++;
-
+            //TODO: Add the ability to detect the number of seeds present.
             if(stage_cycles == MAX_CYCLES){
                 //Need to grab a new seed from the corpus.
                 dequeue_seed(current_input);
@@ -517,7 +595,8 @@ void main_harness_loop(){
             start_timer(&timer_handle);
 
             //start_time = clock();
-            result = test(sizeof(current_input),current_input);
+            input_printf(current_input, sizeof(current_input));
+            result = test(32,current_input);
             //end_time = clock();
             if (result < 0){
                 crash_void();

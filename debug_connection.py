@@ -19,6 +19,8 @@ from com.ti.ccstudio.scripting.environment import *
 
 COVERAGE_SIZE = 1024
 SEED_SIZE = 256
+SENQUENCIAL = 1
+RANDOM = 2
 
 
 global_coverage_map = [0] * COVERAGE_SIZE
@@ -269,27 +271,42 @@ def refresh_global_pool():
     global_pool_size = len(global_pool)
     #print(global_pool_size)
 
+    return global_pool_size
+
 
 #@log
-def select_seed() -> list:
+def select_random_seed() -> list:
     """Selects a random seed to be loaded
 
-        @Arguments: NONE
+        @Arguments: type: what type of selection we want to d
         @Return: A list of lines representing input to our DUT
     """
-
     #TODO: Maybe a better way to select seeds for the local pool
     rnd_num = random.randint(0, global_pool_size - 1)
-    
+
     selected_seed = global_pool[rnd_num]
-    
+
     with open(seed_dir + selected_seed, 'r') as fp:
-       str_seed = fp.read()
+        str_seed = fp.read()
 
     seed = [int(ele) for ele in str_seed.split()]
 
     return seed
+def select_seed(num) -> list:
+    """Selects a seed to be loaded based on number
 
+        @Arguments: type: what type of selection we want to d
+        @Return: A list of lines representing input to our DUT
+    """
+
+    selected_seed = global_pool[num]
+
+    with open(seed_dir + selected_seed, 'r') as fp:
+        str_seed = fp.read()
+
+    seed = [int(ele) for ele in str_seed.split()]
+
+    return seed
 
 @log
 def refresh_local_pool() -> None:
@@ -311,18 +328,38 @@ def refresh_local_pool() -> None:
 
     corpus_waiting_address =  debugSession.symbol.getAddress("corpusWaiting")
     corpus_address = debugSession.symbol.getAddress('local_pool')
+    corpus_tracker_address = debugSession.symbol.getAddress('local_pool_tracker')
 
     #Pull timing statistics here
     _pull_statistics()
 
     #Refresh the global pool incase there have been coverage increasing test cases added.
-    refresh_global_pool()
+    num_seeds = refresh_global_pool()
+    print(num_seeds)
 
-    for x in range(0, local_pool_size):
-        seed = select_seed()
-        debugSession.memory.writeData(1, corpus_address, seed, 16)
-        #514 -> offset for the next seed to be loaded.
-        corpus_address = corpus_address + seed_size
+    #If the global pool only has less then the number of seeds to load then load them sequencially 
+    if num_seeds < local_pool_size:
+        for x in range(0, num_seeds):
+            print(x)
+            seed = select_seed(x)
+            debugSession.memory.writeData(1, corpus_address, seed, 16)
+            corpus_address = corpus_address + seed_size
+
+            #Make sure the corpus tracker is updated.
+            debugSession.memory.writeData(1, corpus_tracker_address, 1, 16)
+            corpus_tracker_address += 1
+    #Else just choose random seeds to load 
+    #TODO: Better seeds selection.
+    elif num_seeds >= local_pool_size:
+        for x in range(0, local_pool_size):
+            seed = select_random_seed()
+            debugSession.memory.writeData(1, corpus_address, seed, 16)
+            #514 -> offset for the next seed to be loaded.
+            corpus_address = corpus_address + seed_size
+
+            #Make sure the corpus tracker is updated.
+            debugSession.memory.writeData(1, corpus_tracker_address, 1, 16)
+            corpus_tracker_address += 1
 
     #All done with loading seeds now set corpusWaiting to be false
     debugSession.memory.writeData(1,corpus_waiting_address, 0, 16)
@@ -481,7 +518,7 @@ def refresh_interrupt() -> None:
         @Return: None
     """
 
-    global corpus_waiting_address, timeout, timer_thread
+    global corpus_waiting_address, timer_thread
 
     #print('DSLOG: Time for a local pool refresh.')
     
@@ -493,6 +530,12 @@ def refresh_interrupt() -> None:
     refresh_local_pool()
     
     #Reschedule the timer.
+    seed_num = refresh_global_pool()
+
+    # Timeout gets smaller the more seeds we get
+    timeout = 400 - (seed_num * 15)
+    timeout = min(90, timeout)
+
     timer_thread = threading.Timer(timeout, refresh_interrupt)
     timer_thread.start()
 
@@ -505,13 +548,12 @@ def main():
         @Return: None
     """
 
-    global local_pool_size, seed_dir, results_dir, start_time, timeout, timer_thread
+    global local_pool_size, seed_dir, results_dir, start_time, timer_thread
 
     args = _handle_args()
     local_pool_size = args.corpus_size
     seed_dir = args.seed_dir
     results_dir = args.res_dir
-    timeout = args.timeout
     bin_path = args.binary
 
     coverage_setup(bin_path)
@@ -525,7 +567,7 @@ def main():
     start_time = time.clock_gettime(time.CLOCK_REALTIME)
 
     #start the refresh thread
-    timer_thread = threading.Timer(timeout, refresh_interrupt)
+    timer_thread = threading.Timer(90, refresh_interrupt)
     timer_thread.start()
 
     device_listener()

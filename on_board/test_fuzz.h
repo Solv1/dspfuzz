@@ -8,7 +8,7 @@
 #ifndef TEST_FUZZ_H_
 #define TEST_FUZZ_H_
 
-int16_t test(uint16_t argc, int16_t * args);
+int16_t test(uint16_t argc, int16_t args[]);
 
 
 

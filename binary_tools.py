@@ -68,9 +68,9 @@ def find_calls(bin_path) -> dict:
             flag_6c = True
         elif byte == b'01' and flag_6c:
             flag_01 = True
-        elif byte == b'4a' and flag_01:
+        elif byte == b'4d' and flag_01:
             flag_4a = True
-        elif byte == b'90' and flag_4a:
+        elif byte == b'11' and flag_4a:
             #Store the byte number and reset the flags.
             call_function_starts.append(count - 3)
             #print(count - 3)

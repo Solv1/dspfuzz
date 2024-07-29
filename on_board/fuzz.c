@@ -524,7 +524,7 @@ void handle_results(int16_t * input){
 
         //input_printf(input);
         seed_to_global_pool();
-        printf("LOG: Coverage Increasing\n");
+        //printf("LOG: Coverage Increasing\n");
         isIncreasing = false;
     }
     if (corpusWaiting){
@@ -595,7 +595,7 @@ void main_harness_loop(){
             start_timer(&timer_handle);
 
             //start_time = clock();
-            input_printf(current_input, sizeof(current_input));
+            //input_printf(current_input, sizeof(current_input));
             result = test(32,current_input);
             //end_time = clock();
             if (result < 0){

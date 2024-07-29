@@ -53,23 +53,13 @@ uint16_t isError = NO_ERROR;
 
 jmp_buf saved_context;
 
-volatile bool corpusWaiting = true;     //Flag set by Host PC side
-
 
 uint16_t stage_cycles = 0;
 
 uint16_t current_corpus_size = SEED_CAPACITY; //It is assumed that we start with a full corpus.
 
-uint16_t mutation_frequency = 2; 
-
 uint16_t iterations = 0;
 
-
-/*** Timing Variables ***/
-float64_t total_time = 0;
-float64_t execution_time = 0;
-uint32_t start_time = 0;
-uint32_t end_time = 0;
 
 
 /* Preprocessor Defines */
@@ -136,14 +126,6 @@ void crash_void(){ //The place where all bad errors go
     while(1);
 }
 
-void memset_volatile(volatile void * addr, uint16_t ch, size_t range){ //Because of undefined behavior with memset and volatile pointers we have to write one ourself.
-    uint16_t i;
-
-    for(i = 0; i < range; i++){
-        *((volatile uint16_t *)(addr) + i) = ch;
-    }
-
-}
 
 void input_printf(int16_t * input, int16_t size){
 /********************************************************
@@ -233,6 +215,7 @@ void start_timer(CSL_Handle * timer_handle){
 
 }
 
+
 void stop_timer(CSL_Handle * timer_handle){
 /*************************************************************************
  * @brief stop_timer: Stops the timer and does stuff.
@@ -280,17 +263,20 @@ int16_t setup(void * function_pointer){
 
     sut_start_address = ((uint32_t *)function_pointer); /*Finds the offset in memory of the start of our sut */
 
-    if (coverage_map == NULL ){
-#ifdef NO_LOGGING
-        printf("ERROR: Coverage map init failed \n");
-#endif
-        return(-1);
-    }
+    asm("setupLocalPool:");         /*Intial pool load label for debugger*/
+
+        if (coverage_map == NULL ){
+    #ifdef NO_LOGGING
+            printf("ERROR: Coverage map init failed \n");
+    #endif
+            return(-1);
+        }
+
+
 
     return 0;
 
 }
-
 
 
 
@@ -309,33 +295,11 @@ void mutator(int16_t * input, size_t input_size){
 
         //uint16_t random_stage = random_value % 16;
 
-//TODO: Add block mutations in here.
-
-//TODO: Add more stages
-//TODO: Add the frequency of mutation in each stage. Make it adjustable.
-
 //Flips a random bit in the 16 bit value
 #define bitflip(value, bit) (value ^ (1 << bit))
 
 //Flips a random byte in the 16 bit value.
 #define byteflip(value) (value ^ (0xFF << ((rand() % 2)*8)))
-
-        //Implemented some AFL like mutation types.
-        //They have been shown to be affective until proven otherwise.
-
-
-
-        // if(stage_cycles < 5){
-        //     for(i = 0; i < input_size; i++){
-    
-        //     // Random bit
-            
-        //         input[i] = bitflip(input[i], (rand() % 16));
-		    
-        //     }
-        // }
-
-
 
         if(stage_cycles < 2){
             for(i = 0; i < input_size; i++){
@@ -455,9 +419,7 @@ void mutator(int16_t * input, size_t input_size){
                     for(j = 0; j < input_size; j++){
                         input[j] = byteflip(input[j]);
                     }    
-
                 }
-
                 //Choose another random mutator to oo.
                 mutation_pick = rand() % 6;
 
@@ -467,28 +429,6 @@ void mutator(int16_t * input, size_t input_size){
     stage_cycles++;
 }
 
-
-
-
-void refresh_seed_corpus(){
-/********************************************************
- * @brief refresh_seed_corpus: Host loads a subset our global seed pool via the debugger.
- * @param NONE
- * @return NONE
- ********************************************************/
-
-    uint16_t i;
-
-
-    /********Test for queueing system********/
-//    for(i = 0; i < SEED_CAPACITY; i++){
-//        memset((uint16_t *)local_pool[i], 1, WIDTH);
-//    }
-    /********End Testing Here********/
-    while(corpusWaiting){
-        i = 0;
-    }
-}
 
 void dequeue_seed(int16_t * input){
 
@@ -513,42 +453,13 @@ void dequeue_seed(int16_t * input){
     seed_head++;
 }
 
-void seed_to_global_pool(){
-    uint16_t i = 0;
-}
 
 void handle_results(int16_t * input){
 
     //TODO: A better way to figure out increasing test cases.
-    if(isIncreasing){
 
-        //input_printf(input);
-        seed_to_global_pool();
-        //printf("LOG: Coverage Increasing\n");
-        isIncreasing = false;
-    }
-    if (corpusWaiting){
 
-     //Host Side Corpus Refresh Waiting.
-     refresh_seed_corpus();
-
-     }
     longjmp(saved_context, true);
-
-}
-
-void track_time(){
-
-
-    execution_time = (end_time - start_time);
-    //execution_time = (count * 2)/ 100000000.0;
-
-    //printf("Time taken for test input %Lf \n", execution_time/100000000.0);
-    total_time = total_time + execution_time;
-    //printf("Total time taken so far %Lf \n", total_time/ 100000000.0);
-    //printf("Average time per test case is %Lf \n", total_time/100000000.0 *iterations);
-
-    count = 0;
 
 }
 
@@ -556,63 +467,48 @@ void track_time(){
 void main_harness_loop(){
 
     CSL_Handle timer_handle;
-
-
-
-
+    uint16_t num_of_seeds = 1;
     int16_t result;
 
     setup(&test);
 
-    uint16_t num_of_seeds = 1;
-
-    //Initial Loading of the Seed Corpus
-    refresh_seed_corpus();
-
-    //Grab the intial seed from the corpus
+    //Grab the intial seed from the pool.
     dequeue_seed(current_input);
 
     while(1){
 
-
+            asm("localPoolRefresh:");       /*Local label used for debugger breakpoint*/
 
             setjmp(saved_context);
+
             iterations++;
-            //TODO: Add the ability to detect the number of seeds present.
+
             if(stage_cycles == MAX_CYCLES){
                 //Need to grab a new seed from the corpus.
                 dequeue_seed(current_input);
                 stage_cycles = 0;
-                //input_printf(current_input);
                 num_of_seeds++;
                 num_of_seeds = num_of_seeds % 16;
             }
 
             mutator(current_input,WIDTH);
 
-            //printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
+//            printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
 
             start_timer(&timer_handle);
-
-            //start_time = clock();
-            //input_printf(current_input, sizeof(current_input));
             result = test(32,current_input);
-            //end_time = clock();
+            stop_timer(&timer_handle);
+
             if (result < 0){
                 crash_void();
             }
 
+            if(isIncreasing){
+               asm("bubbleCoverage:");
+               isIncreasing = false;
+            }
 
-
-//           while(i > 10000000){
-//               i--;
-//           }
-
-           stop_timer(&timer_handle);
-
-           //track_time();
-
-           handle_results(current_input);
+            longjmp(saved_context, true);
 
 
     }

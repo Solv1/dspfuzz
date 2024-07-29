@@ -100,7 +100,6 @@ def coverage_setup(bin_path):
     shutil.copyfile(bin_path, './DSPFuzz.out')
 
 
-
 @log
 def debug_server_setup():
     """ Sets up the varrious functions for the debug connection
@@ -197,8 +196,6 @@ def _update_global_map(coverage_map) -> None:
 
     global_coverage_map = new_coverage
     
-    # t1 = threading.Thread(target=_write_coverage, args=[new_coverage, map_path])
-    # t1.start()
     _write_coverage(new_coverage, map_path)
     _write_coverage(coverage_map, run_map_path)
 
@@ -225,9 +222,6 @@ def _pull_statistics():
     #debugSession.memory.writeData(1,time_address, 0, 32)
 
 
-
-
-
     elapsed_time = end_time - start_time
     print('DSLOG: Total number of iterations: ' + str(iterations))
     #print('DSLOG: Total time for test cases: '+ str(total_testcase_time))
@@ -240,24 +234,22 @@ def set_intial_breakpoints():
         @Arguments: TODO: DSPObject that controlls one DSP at a tome
         @Return:    NONE
     """
-    global crash_void_address, refresh_function_address, seed_add_address, corpus_waiting_address
 
+    global crash_void_address, setup_pool_id, coverage_bubble_id, coverage_bubble_address
     
 
     #Adds a breakpoint at the void
     crash_void_address = debugSession.symbol.getAddress('crash_void')
     debugSession.breakpoint.add(crash_void_address) 
 
-    #Adds a breakpoint at the refresh_seed_corpus address.
-    refresh_function_address = debugSession.symbol.getAddress("refresh_seed_corpus")
-    debugSession.breakpoint.add(refresh_function_address)
 
-    #Adds a breakpoint at the seed_to_global_pool
-    seed_add_address = debugSession.symbol.getAddress('seed_to_global_pool')
-    debugSession.breakpoint.add(seed_add_address)
-
-    corpus_waiting_address =  debugSession.symbol.getAddress("corpusWaiting")
-
+    #Adds a breakpoint in the setup to load a intial local pool
+    setup_pool_id = debugSession.breakpoint.add('setupLocalPool')
+    
+    #Adds a breakpoint in the results handler if we have a coverage increasing input.
+    coverage_bubble_id = debugSession.breakpoint.add('bubbleCoverage')
+    coverage_bubble_address = debugSession.symbol.getAddress('bubbleCoverage')
+    
     debugSession.target.runAsynch()
 
 @log
@@ -273,8 +265,6 @@ def refresh_global_pool():
 
     return global_pool_size
 
-
-#@log
 def select_random_seed() -> list:
     """Selects a random seed to be loaded
 
@@ -318,15 +308,6 @@ def refresh_local_pool() -> None:
     
     global seed_size
 
-    # #Pull coverage map before loading
-    # coverage_map_address = debugSession.symbol.getAddress('coverage_map')
-    # cov = _pull_coverage(coverage_map_address)
-    # #Run the acutal map update on a thread to decrease overhead.
-    # #t1 = threading.Thread(target=_update_global_map, args=[cov])
-    # #t1.start()
-    # _update_global_map(cov)
-
-    corpus_waiting_address =  debugSession.symbol.getAddress("corpusWaiting")
     corpus_address = debugSession.symbol.getAddress('local_pool')
     corpus_tracker_address = debugSession.symbol.getAddress('local_pool_tracker')
 
@@ -335,12 +316,12 @@ def refresh_local_pool() -> None:
 
     #Refresh the global pool incase there have been coverage increasing test cases added.
     num_seeds = refresh_global_pool()
-    print(num_seeds)
+    #print(num_seeds)
 
     #If the global pool only has less then the number of seeds to load then load them sequencially 
     if num_seeds < local_pool_size:
         for x in range(0, num_seeds):
-            print(x)
+            #print(x)
             seed = select_seed(x)
             debugSession.memory.writeData(1, corpus_address, seed, 16)
             corpus_address = corpus_address + seed_size
@@ -348,8 +329,7 @@ def refresh_local_pool() -> None:
             #Make sure the corpus tracker is updated.
             debugSession.memory.writeData(1, corpus_tracker_address, 1, 16)
             corpus_tracker_address += 1
-    #Else just choose random seeds to load 
-    #TODO: Better seeds selection.
+    
     elif num_seeds >= local_pool_size:
         for x in range(0, local_pool_size):
             seed = select_random_seed()
@@ -361,8 +341,6 @@ def refresh_local_pool() -> None:
             debugSession.memory.writeData(1, corpus_tracker_address, 1, 16)
             corpus_tracker_address += 1
 
-    #All done with loading seeds now set corpusWaiting to be false
-    debugSession.memory.writeData(1,corpus_waiting_address, 0, 16)
 
     #Continue fuzzing execution.
     debugSession.target.runAsynch()
@@ -439,14 +417,6 @@ def crash_reload() -> None:
     #Stop the local pool refresh until we can reload the board.
     timer_thread.cancel()
 
-    #Pull coverage map before loading
-    #coverage_map_address = debugSession.symbol.getAddress('coverage_map')
-    #cov = _pull_coverage(coverage_map_address)
-
-    #Run the acutal map update on a thread to decrease overhead.
-    #_update_global_map(cov)
-    #threading.Thread(target=_update_global_map, args=cov).start()
-
     #Pull timing statistics here
     _pull_statistics()
 
@@ -454,13 +424,9 @@ def crash_reload() -> None:
     current_seed_address = debugSession.symbol.getAddress('current_input')
     _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/')
 
-
     #Pull coverage map before loading
     coverage_map_address = debugSession.symbol.getAddress('coverage_map')
     cov = _pull_coverage(coverage_map_address)
-    #Run the acutal map update on a thread to decrease overhead.
-    #t1 = threading.Thread(target=_update_global_map, args=[cov])
-    #t1.start()
     _update_global_map(cov)
 
     #Reset the target
@@ -494,18 +460,19 @@ def device_listener() -> None:
         @Return: None
     """
 
-    global seed_add_address
+    global coverage_bubble_address
 
     
     while(1):    
-        #Poll the PC to check for both errors and refreshs
+        #Poll the PC to check for both errors and coverage bubbling
+
         pc = debugSession.expression.evaluate('PC')
 
         if(pc == crash_void_address):
             #If there is crash reload the DSP program.
             crash_reload()
 
-        if(pc == seed_add_address):
+        if(pc == coverage_bubble_address):
             #If there is a covereage increasing input found bubble it up to the global pool.
             current_seed_to_global_pool()
 
@@ -518,21 +485,27 @@ def refresh_interrupt() -> None:
         @Return: None
     """
 
-    global corpus_waiting_address, timer_thread
+    global timer_thread
 
-    #print('DSLOG: Time for a local pool refresh.')
-    
-    # #Set corpus waiting to true and wait for the fuzzer to sit in the while loop.
-    debugSession.memory.writeData(1,corpus_waiting_address, 1, 16)
-    
+    #Sets a breakpoint to refresh the pool.
+    # lp_refresh_id = debugSession.breakpoint.add('main_harness_loop + 0x15')
+    lp_refresh_id = debugSession.breakpoint.add('localPoolRefresh')
+    print(lp_refresh_id)
+
     #Sleep for a second and wait for the fuzzer to finish its latest run.
-    time.sleep(1)
+    time.sleep(2)
+
     refresh_local_pool()
     
+    #Remove the breakpoint untill the next refresh.
+    debugSession.breakpoint.remove(lp_refresh_id)
+    debugSession.target.runAsynch()
+
     #Reschedule the timer.
+
     seed_num = refresh_global_pool()
 
-    # Timeout gets smaller the more seeds we get
+    # Timeout gets smaller the more seeds we have in the global pool
     timeout = 400 - (seed_num * 15)
     timeout = min(90, timeout)
 
@@ -548,7 +521,7 @@ def main():
         @Return: None
     """
 
-    global local_pool_size, seed_dir, results_dir, start_time, timer_thread
+    global local_pool_size, seed_dir, results_dir, start_time, timer_thread, setup_pool_id
 
     args = _handle_args()
     local_pool_size = args.corpus_size
@@ -561,8 +534,9 @@ def main():
     debug_server_setup()
 
     set_intial_breakpoints()
-
+    
     refresh_local_pool()
+
 
     start_time = time.clock_gettime(time.CLOCK_REALTIME)
 

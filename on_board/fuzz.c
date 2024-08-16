@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "imagelib.h"
-
+#include <setjmp.h>
 
 //#define NO_LOGGING
 
@@ -32,7 +32,7 @@
 #pragma DATA_SECTION(local_pool, ".data_sandbox") // Store the corpus in a sandbox away from program memory.
 
 volatile int16_t local_pool[SEED_CAPACITY][WIDTH]; // A bunch of inputs here
-volatile int16_t local_pool_tracker[SEED_CAPACITY]; //Track which seeds are in use 
+volatile int16_t current_seed_num; //Track which seeds are in use 
 
 #pragma DATA_SECTION(current_input, ".data_sandbox") // Store the current_seed in a sandbox away from program memory.
 int16_t current_input[WIDTH];
@@ -53,12 +53,11 @@ uint16_t isError = NO_ERROR;
 
 jmp_buf saved_context;
 
+volatile uint16_t map_postion;
 
 uint16_t stage_cycles = 0;
 
-uint16_t current_corpus_size = SEED_CAPACITY; //It is assumed that we start with a full corpus.
-
-uint16_t iterations = 0;
+volatile uint16_t iterations = 0;
 
 
 
@@ -439,74 +438,68 @@ void dequeue_seed(int16_t * input){
         seed_head = 0;
     }
 
-    if(local_pool_tracker[seed_head] == 0){
-        seed_head = 0 ;
-    }
-    
+   if(stage_cycles == MAX_CYCLES){
+	stage_cycles = 0;
+	seed_head++;
+   }
+   if(seed_head >= current_seed_num){
+	seed_head = 0;
+   }
     result = memcpy(input, (int16_t *)local_pool[seed_head], WIDTH);
 
     if(result == NULL){
         printf("ERROR: Failed to copy seed to input buffer. \n");
     }
 
-    //Increment the seed_head
-    seed_head++;
 }
 
 
-void handle_results(int16_t * input){
-
-    //TODO: A better way to figure out increasing test cases.
-
-
-    longjmp(saved_context, true);
-
+void bubble_coverage(){
+	return;
 }
+
+bool check_coverage_map(){
+	uint16_t i;
+	for(i = 0; i < MAX_COVERAGE; i++){
+		if(coverage_map[i] != 0){
+			map_postion = i;
+			return true;
+		}
+	}
+
+	return false;
+}
+
 
 
 void main_harness_loop(){
 
     CSL_Handle timer_handle;
-    uint16_t num_of_seeds = 1;
-    int16_t result;
 
     setup(&test);
 
-    //Grab the intial seed from the pool.
-    dequeue_seed(current_input);
-
+    setjmp(saved_context);
+    
     while(1){
-
-            asm("localPoolRefresh:");       /*Local label used for debugger breakpoint*/
-
-            setjmp(saved_context);
-
-            iterations++;
-
-            if(stage_cycles == MAX_CYCLES){
-                //Need to grab a new seed from the corpus.
-                dequeue_seed(current_input);
-                stage_cycles = 0;
-                num_of_seeds++;
-                num_of_seeds = num_of_seeds % 16;
-            }
-
-            mutator(current_input,WIDTH);
+        
+	iterations++;
+	dequeue_seed(current_input);
+        
+	mutator(current_input,WIDTH);
 
 //            printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
 
             start_timer(&timer_handle);
-            result = test(32,current_input);
+            test(32,current_input);
             stop_timer(&timer_handle);
 
-            if (result < 0){
-                crash_void();
+            if(isIncreasing && check_coverage_map()){
+		bubble_coverage();
+		isIncreasing = false;
             }
-
-            if(isIncreasing){
-               asm("bubbleCoverage:");
-               isIncreasing = false;
-            }
+	    else if(isIncreasing){
+		printf("ERROR: Coverage map is zeroed but flag is set. \n");
+	    }
 
             longjmp(saved_context, true);
 

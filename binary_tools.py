@@ -70,7 +70,7 @@ def find_calls(bin_path) -> dict:
             flag_01 = True
         elif byte == b'4c' and flag_01:
             flag_4a = True
-        elif byte == b'5d' and flag_4a:
+        elif byte == b'85' and flag_4a:
             #Store the byte number and reset the flags.
             call_function_starts.append(count - 3)
             #print(count - 3)
@@ -93,7 +93,7 @@ def find_calls(bin_path) -> dict:
 
 
 
-def uninsturment(coverage_dict):
+def uninsturment(coverage_dict,coverage_map):
     """Adds NOP's to provided binary file based on coverage map information
 
     @Arguments:  NONE
@@ -101,11 +101,15 @@ def uninsturment(coverage_dict):
     @Return:    #TODO: Make sure this is successful and throw an exception if not.
     """
     #print('This needs to be fixed to be done in the setup')    
-    coverage_map = './results/coverage.map'
+    # coverage_map = './results/coverage.map'
 
     raw_bin = _read_raw_binary('./DSPFuzz.out')
 
     uncoverage = _read_coverage_map(coverage_map)
+
+    #Checks for a empty read coverage map this is a problem.
+    if not uncoverage:
+        return None
 
     new_coverage = coverage_dict
 
@@ -121,7 +125,8 @@ def uninsturment(coverage_dict):
             del new_coverage[offset]
         else:
             #TODO: Handle Misses in the coverage_dict. Fix the maping function on board. -> Context isnt being saved. 
-            print('DSLOG: Coverage not found in the coverage_dict but thats okay')
+            #print('DSLOG: Coverage not found in the coverage_dict but thats okay')
+            i = 0 
 
     with open ('./DSPFuzz.out', 'wb') as bp:
         for byte in raw_bin:

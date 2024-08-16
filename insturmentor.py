@@ -170,12 +170,12 @@ def second_pass(lines,repeat_labels):
                 continue
             labels_to_insturment.append(dummy_label)
             #branc_count+=1
-        elif 'B' in line and not inRepeatBlock:
-            print(line)
-            dummy_label = _branch_helper(line)
-            if dummy_label in labels_to_insturment:
-                continue
-            labels_to_insturment.append(dummy_label)
+        # elif 'B' in line and not inRepeatBlock:
+        #     print(line)
+        #     dummy_label = _branch_helper(line)
+        #     if dummy_label in labels_to_insturment:
+        #         continue
+        #     labels_to_insturment.append(dummy_label)
         
     return labels_to_insturment
 

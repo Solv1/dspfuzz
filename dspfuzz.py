@@ -111,8 +111,8 @@ def debug_server_setup():
 
     # Get the Debug Server and start a Debug Session
     debugServer = script.getServer('DebugServer.1')
-    debugServer.setConfig('./Board_Configuation/USBSTK5515_BOARD.ccxml')
-    #debugServer.setConfig('./Board_Configuation/USBSTK5515_SIM.ccxml')
+    debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
+    #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
     debugSession = debugServer.openSession('.*')
     debugSession.target.connect()
     debugSession.clock.enable()
@@ -155,8 +155,8 @@ def reset_and_reload():
 
     # Get the Debug Server and start a Debug Session
     debugServer = script.getServer('DebugServer.1')
-    debugServer.setConfig('./Board_Configuation/USBSTK5515_BOARD.ccxml')
-    #debugServer.setConfig('./Board_Configuation/USBSTK5515_SIM.ccxml')
+    debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
+    #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
     debugSession = debugServer.openSession('.*')
     debugSession.target.connect()
     debugSession.clock.enable()
@@ -203,8 +203,8 @@ def reset_target():
 
     # Get the Debug Server and start a Debug Session
     debugServer = script.getServer('DebugServer.1')
-    debugServer.setConfig('./Board_Configuation/USBSTK5515_BOARD.ccxml')
-    #debugServer.setConfig('./Board_Configuation/USBSTK5515_SIM.ccxml')
+    debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
+    #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
     debugSession = debugServer.openSession('.*')
     debugSession.target.connect()
     debugSession.clock.enable()

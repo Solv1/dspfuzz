@@ -1,5 +1,6 @@
 import binary_tools
 import shutil
+import subprocess
 import time
 import threading
 import os 
@@ -18,7 +19,7 @@ from com.ti.debug.engine.scripting import *
 from com.ti.ccstudio.scripting.environment import *
 
 
-COVERAGE_SIZE = 1024
+COVERAGE_SIZE = 20 #This is equal to the max number of blocks we can support tracing at once.
 SEED_SIZE = 256
 SENQUENCIAL = 1
 RANDOM = 2
@@ -122,6 +123,61 @@ def debug_server_setup():
         print("Error: failed to load program please check if current location is valid.")
         exit(-1)
 
+def reset_and_reload():
+    global debugServer, debugSession, script, timer_thread
+    id_num = ''
+    
+
+    debugSession.target.reset()
+    debugSession.terminate()
+    debugServer.stop()
+
+    #This scrapes the id number for the usbreset command
+    result = subprocess.getoutput('usbreset')
+    result_list = result.split()
+    for count, item in enumerate(result_list,0):
+        if 'Texas' in item:
+            id_num = result_list[count - 3]
+    
+    result = subprocess.run(['usbreset',id_num], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print('DSLOG: '+result)
+
+    script = ScriptingEnvironment.instance()
+
+    script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
+
+    # Set our TimeOut
+    script.setScriptTimeout(1500000000)
+
+    # Log everything
+    script.traceSetConsoleLevel(TraceLevel.INFO)
+    script.traceSetFileLevel(TraceLevel.INFO)
+
+    # Get the Debug Server and start a Debug Session
+    debugServer = script.getServer('DebugServer.1')
+    debugServer.setConfig('./Board_Configuation/USBSTK5515_BOARD.ccxml')
+    #debugServer.setConfig('./Board_Configuation/USBSTK5515_SIM.ccxml')
+    debugSession = debugServer.openSession('.*')
+    debugSession.target.connect()
+    debugSession.clock.enable()
+    #Load the Fuzzer back onto the DSP
+    debugSession.memory.loadProgram('DSPFuzz.out')
+    #debugSession.memory.loadProgram('DSPFuzz.out')
+
+    #Set breakpoints again
+    set_intial_breakpoints()
+
+    #Breakpoint is set ready for a seed refresh
+    logging.info('Running target program.')
+    
+    refresh_local_pool()
+
+    #start the refresh thread
+    timeout = calculate_timeout(refresh_global_pool(), 15)
+    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+    timer_thread.start()
+
+
 def _write_coverage(coverage, path) -> None:
     """
         Writes coverage to coverage.map file
@@ -135,7 +191,8 @@ def _write_coverage(coverage, path) -> None:
         for x in range(0,len(coverage)):
                 #if (x % 4) == 0:
                     #fp.write('\n')
-                fp.write(("{0:016b}".format(coverage[x])[::-1]))
+                # fp.write(("{0:016b}".format(coverage[x])[::-1]))
+                fp.write(str(coverage[x]))
 
 def reset_target():
     global debugServer, debugSession, script
@@ -165,7 +222,7 @@ def reset_target():
 
     #start the refresh thread
     timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, refresh_interrupt)
+    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
     timer_thread.start()
 
 
@@ -178,20 +235,14 @@ def _pull_coverage() -> list:
     """
     global coverage_map_address
     coverage_map = []
-    map_loc_address = debugSession.symbol.getAddress('map_postion')
-    map_loc = debugSession.memory.readData(1,  map_loc_address, 16)
-    print(map_loc)
 
     for x in range(0, COVERAGE_SIZE):
-
         #Pull the coverage map when we find new coverage
         try:
-            # cov = debugSession.memory.readData(1,coverage_map_address + x, 16)
-            cov = debugSession.memory.readWord(1,coverage_map_address + x)
-            if ((x == map_loc) and (cov == 0)):
-                print('DSERROR: Covarage Map failed to be read properly... resetting the board.')
-                reset_target()
-                return -1
+            cov = debugSession.memory.readData(1,coverage_map_address + x, 16)
+            if ((x > 0) and (cov == 0)):
+                print('DSLOG: Found the end of the coverage map.')
+                break
                 # time.sleep(.05)
                 # cov = debugSession.memory.readWord(1,coverage_map_address + x)
                 # while (x == map_loc) and (cov == 0):
@@ -203,22 +254,22 @@ def _pull_coverage() -> list:
         except(Exception):
             #Sleep for a time and try again.
             time.sleep(.05)
-            cov = debugSession.memory.readWord(1,coverage_map_address + x)
-            # cov = debugSession.memory.readData(1,coverage_map_address + x, 16)
-        print(cov, end='')
-        
+            cov = debugSession.memory.readData(1,coverage_map_address + x, 16)
+        # print(cov)
+    #Clearing the coverage map is done by the DSP side Fuzzer.
         #print(f"{cov:016b}", end=' ')
         coverage_map.append(cov)
-
-    for x in range(0, COVERAGE_SIZE):
-        #clear the coverage map when we find new coverage 
-        try:
-            debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
-        except(Exception):
-            print('DSERROR: Failed to writting memory.. sleeping and trying again.')
-            time.sleep(.05)
-            debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
-    print('')
+        
+    # for x in range(0, COVERAGE_SIZE):
+    #     #clear the coverage map when we find new coverage 
+    #     try:
+    #         debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
+    #     except(Exception):
+    #         print('DSERROR: Failed to writting memory.. sleeping and trying again.')
+    #         time.sleep(.05)
+    #         debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
+    # print('')
+    print(coverage_map)
     return coverage_map
 
 def _update_global_map(coverage_map,seed_id, isCrash) -> None:
@@ -238,13 +289,13 @@ def _update_global_map(coverage_map,seed_id, isCrash) -> None:
     map_path = results_dir + 'global_coverage.map'
     new_coverage = []
 
-    #Calculate the new map
-    for x in range(0, COVERAGE_SIZE):
-        new_coverage.append(coverage_map[x] | global_coverage_map[x])
+    # #Calculate the new map
+    # for x in range(0, COVERAGE_SIZE):
+    #     new_coverage.append(coverage_map[x] | global_coverage_map[x])
 
-    global_coverage_map = new_coverage
+    # global_coverage_map = new_coverage
     
-    _write_coverage(new_coverage, map_path)
+    # _write_coverage(new_coverage, map_path)
     _write_coverage(coverage_map, run_map_path)
 
 def _pull_statistics():
@@ -304,18 +355,22 @@ def set_intial_breakpoints():
     # setup_pool_id = debugSession.breakpoint.add(setup_pool_address)
     lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
     lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
+    print(lp_refresh_id)
 
 
     #Adds a breakpoint in the results handler if we have a coverage increasing input.
     coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
     coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address)
-    debugSession.target.runAsynch()
+    #debugSession.target.runAsynch()
 
 def calculate_timeout(global_pool_size, local_pool_size) -> int:
 
     if global_pool_size <= local_pool_size:
         #If the global pool is smaller or the same as the local pool it 'never' needs to be refreshed.
-        timeout = 600
+        
+        
+        # timeout = 3600
+        timeout = 1200
     else:
         timeout = max(90, 1200 - (global_pool_size  * 15))
 
@@ -369,7 +424,7 @@ def select_seed(num) -> list:
     return seed
 
 @log
-def refresh_local_pool() -> None:
+def write_local_pool() -> None:
     """Refreshes the local pool on the DSP
         
         @Arguments: None
@@ -385,7 +440,7 @@ def refresh_local_pool() -> None:
 
     #Refresh the global pool incase there have been coverage increasing test cases added.
     num_seeds = refresh_global_pool()
-    #print(num_seeds)
+    print('DSLOG: We have '+ str(num_seeds) + ' in the global pool.')
 
     #If the global pool only has less then the number of seeds to load then load them sequencially 
     if num_seeds < local_pool_size:
@@ -396,7 +451,7 @@ def refresh_local_pool() -> None:
             corpus_address = corpus_address + seed_size
 
         #Make sure the corpus tracker is updated.
-        debugSession.memory.writeData(1, corpus_tracker_address, 0, 16)
+        # debugSession.memory.writeData(1, corpus_tracker_address, 0, 16)
         debugSession.memory.writeData(1, corpus_tracker_address, num_seeds, 16)
         
     
@@ -407,13 +462,9 @@ def refresh_local_pool() -> None:
             
             corpus_address = corpus_address + seed_size
 
-        #Make sure the corpus tracker is updated.
-        debugSession.memory.writeData(1, corpus_tracker_address, 0, 16)
-        debugSession.memory.writeData(1, corpus_tracker_address, local_pool_size, 16)
-
 
     #Continue fuzzing execution.
-    debugSession.target.runAsynch()
+    #debugSession.target.runAsynch()
 
 def _pull_seed(seed_address, seed_id, dir) -> None:
     """Can pull a seed from memory at a specific address on the DSP.
@@ -465,13 +516,14 @@ def current_seed_to_global_pool() -> None:
     #Pull coverage map
     
     cov = _pull_coverage()
-    if cov == -1:
-        print('DSERROR: Un winding from coverage map read failure.')
+    if(cov[0] == 65535):
+        reset_and_reload()
         return
     _update_global_map(cov, global_pool_size + 1, isCrash=False)
 
     #Lets use that found coverage to UNinsturment our binary.
-    new_coverage_dict = binary_tools.uninsturment(coverage_dict,run_map_path)
+    new_coverage_dict = binary_tools.uninsturment(coverage_dict,cov)
+
     if new_coverage_dict:
         coverage_dict = new_coverage_dict
 
@@ -488,13 +540,11 @@ def current_seed_to_global_pool() -> None:
         _pull_seed(current_seed_address, global_pool_size, "./results/bugs/")
         # #If the coverage map reutrns empty we can assume the device is stalled and needs to be reset.
         # reload_binary()
-
-
-    debugSession.target.runAsynch()
+    write_local_pool()
 
     #Recalc the timeout with new global pool
     timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, refresh_interrupt)
+    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
     timer_thread.start()
 
 
@@ -505,13 +555,12 @@ def crash_reload() -> None:
         @Arguments: None
         @Return: None
     """
-    global amount_of_crashes, start_time, timer_thread, coverage_dict, run_map_path
+    global amount_of_crashes, start_time, timer_thread, coverage_dict, run_map_path, timer_thread
 
     #crash_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
     #print('Found Crash in '+ str(crash_time - start_time)+ ' ns')
 
     #Stop the local pool refresh until we can reload the board.
-    timer_thread.cancel()
 
     print("Found crash:")
 
@@ -520,41 +569,66 @@ def crash_reload() -> None:
     #Pull timing statistics here
     _pull_statistics()
 
+    retValAddress = debugSession.symbol.getAddress('retVal')
+    retVal = debugSession.memory.readData(1, retValAddress ,16)
+
+
+
     #Put the crashing input in the crashes directory.
     current_seed_address = debugSession.symbol.getAddress('current_input')
-    _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/')
+    _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/R:'+ str(retVal))
 
-    #Pull coverage map before loading
-    coverage_map_address = debugSession.symbol.getAddress('coverage_map')
+    # #Pull coverage map before loading
     cov = _pull_coverage()
-    _update_global_map(cov, amount_of_crashes, crash=True )
-
-    #Reset the target
-    logging.info('Reloading target after crash')
-    debugSession.target.reset()
+    _update_global_map(cov, amount_of_crashes, isCrash=True )
 
     #uinsturment bin file as coverage is found.
     new_coverage_dict = binary_tools.uninsturment(coverage_dict, run_map_path)
     coverage_dict = new_coverage_dict
+
+    reset_and_reload()
+
+    #Reset the target
+    # logging.info('Reloading target after crash')
+    # debugSession.target.reset()
+
+    
     
     #Load the Fuzzer back onto the DSP
-    debugSession.memory.loadProgram('DSPFuzz.out')
+    # debugSession.memory.loadProgram('DSPFuzz.out')
     #debugSession.memory.loadProgram('DSPFuzz.out')
 
     #Set breakpoints again
-    set_intial_breakpoints()
+    # set_intial_breakpoints()
 
-    #Breakpoint is set ready for a seed refresh
-    logging.info('Running target program.')
+    # #Breakpoint is set ready for a seed refresh
+    # logging.info('Running target program.')
     
-    refresh_local_pool()
+    # refresh_local_pool()
 
-    #start the refresh thread
+    # #start the refresh thread
+    # timeout = calculate_timeout(refresh_global_pool(), 15)
+    # timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+    # timer_thread.start()
+
+@log
+def refresh_local_pool():
+    global timer_thread, lp_refresh_id
+    timer_thread.cancel()
+    _pull_statistics()
+    write_local_pool()
+    #Remove the breakpoint untill the next refresh.
+    try:
+        debugSession.breakpoint.remove(lp_refresh_id )
+    except:
+        print('DSERROR: Breakpoint can not be unset.')
+    # debugSession.target.runAsynch()
+
+    #Reschedule the timer.
     timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, refresh_interrupt)
-    timer_thread.start()
 
-    
+    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+    timer_thread.start()
             
 @log
 def device_listener() -> None:
@@ -563,11 +637,14 @@ def device_listener() -> None:
         @Return: None
     """
 
-    global coverage_bubble_address, crash_void_address
-
+    global coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession
+    
     
     while(1):    
-        #Poll the PC to check for both errors and coverage bubbling
+        #Once the device is halted check to see what breakpoint was hit.
+        # debugSession.target.waitForHalt()
+        debugSession.target.run()
+        
         pc = debugSession.expression.evaluate('PC')
         if(pc ==  8388608):
             #There is accumulator overflow here and this device needs to be reset.
@@ -581,37 +658,42 @@ def device_listener() -> None:
             #If there is a covereage increasing input found bubble it up to the global pool.
             current_seed_to_global_pool()
 
+        if(pc == lp_refresh_address):
+            refresh_local_pool()
+
+
     
 @log
-def refresh_interrupt() -> None:
+def set_refresh_breakpoint() -> None:
     """Sets our corpusWaiting flag to true and waits till the DSP is ready to refresh the local pool.
         
         @Arguments: None
         @Return: None
     """
 
-    global timer_thread, lp_refresh_address
+    global timer_thread, lp_refresh_address, lp_refresh_id, timer_thread
+    timer_thread.cancel()
 
     #Sets a breakpoint to refresh the pool.
     # lp_refresh_id = debugSession.breakpoint.add('main_harness_loop + 0x15')
     lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
-    #print(lp_refresh_id)
+    print(lp_refresh_id)
 
     #Sleep for a second and wait for the fuzzer to finish its latest run.
-    time.sleep(0.05)
+    # time.sleep(0.05)
 
-    _pull_statistics()
-    refresh_local_pool()
+    # _pull_statistics()
+    # refresh_local_pool()
     
-    #Remove the breakpoint untill the next refresh.
-    debugSession.breakpoint.remove(lp_refresh_id)
-    debugSession.target.runAsynch()
+    # #Remove the breakpoint untill the next refresh.
+    # debugSession.breakpoint.remove(lp_refresh_id)
+    # debugSession.target.runAsynch()
 
-    #Reschedule the timer.
-    timeout = calculate_timeout(refresh_global_pool(), 15)
+    # #Reschedule the timer.
+    # timeout = calculate_timeout(refresh_global_pool(), 15)
 
-    timer_thread = threading.Timer(timeout, refresh_interrupt)
-    timer_thread.start()
+    # timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+    # timer_thread.start()
 
     
 @log
@@ -630,17 +712,18 @@ def main():
     results_dir = args.res_dir
     bin_path = args.binary
 
+    
+
     coverage_setup(bin_path)
 
     debug_server_setup()
-
     set_intial_breakpoints()
     
-    refresh_local_pool()
+    write_local_pool()
     
     #Remove the breakpoint untill the next refresh.
     debugSession.breakpoint.remove(lp_refresh_id)
-    debugSession.target.runAsynch()
+    #debugSession.target.runAsynch()
 
 
     start_time = time.clock_gettime(time.CLOCK_REALTIME)
@@ -652,7 +735,7 @@ def main():
 
     #start the refresh thread
     timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, refresh_interrupt)
+    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
     timer_thread.start()
 
     device_listener()

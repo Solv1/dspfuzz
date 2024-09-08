@@ -205,7 +205,7 @@ def third_pass(lines, insturment_labels):
 
         #TODO: This may break with a repeat block may have to check logic 
         for label in insturment_labels:   
-            if label in line:
+            if label in line and ('.dwattr' not in line):
                 print(line)
                 branch_lines.add(index)
         

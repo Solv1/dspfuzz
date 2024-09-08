@@ -1,0 +1,164 @@
+/******************************************************************************
+ * FILE PURPOSE: Build description for package ti.mas.ecu.test
+ ******************************************************************************
+ * FILE NAME: package.bld  
+ *
+ * DESCRIPTION: This file contains build attributes for package ti.mas.vpe.test
+ *
+ * TABS: NONE
+ *
+ * Copyright (C) 2007, Texas Instruments, Inc.
+ *****************************************************************************/
+  var Package = xdc.loadCapsule('ti/mas/swtools/CommonBld.xs'); 
+  Package.name = "vpe_test"; 
+  
+  /**************************************
+   *  File List
+   *************************************/
+  Package.files["commonCsrc"] = {
+    base_directory: "src",
+    target:["c64Ple", "c64Pbe", "c674le", "ce64Ple", "ce64Pbe", "ce674le", 
+            "c66le", "ce66le", "c66be", "ce66be", "c55l"], 
+    files: ["vpesim.c", "nrsim.c", "nrbufs.c", "vpesim_setup.c"],
+    compiler_flags:"default-size",    
+  };
+
+  Package.files["ArmCsrc"] = {
+    base_directory: "src",
+    target: ["gcarmv7a"], 
+    files: ["vpesim.c", "nrsim.c", "nrbufs.c", "vpesim_setup.c"],
+    compiler_flags:"default-size",    
+    def_flags: " -pg ",     
+  };
+
+  /**************************************
+   * Executables 
+   **************************************/
+  Package.exeTarget["c55l"] = {
+    name:   "test_rel_c55l",
+    target: "c55l",
+  };   
+
+  Package.exeTarget["c64Ple"] = {
+    name:   "test_rel_c64Ple",
+    target: "c64Ple",
+
+  };   
+    
+  Package.exeTarget["c64Pbe"] = {
+    name:   "test_rel_c64Pbe",
+    target: "c64Pbe",
+  };   
+
+  Package.exeTarget["c66le"] = 
+  {
+     target:  "c66le",
+   
+     name:  "test_rel_c66le"
+   
+  };   
+
+  Package.exeTarget["c66be"] = 
+  {
+     target:  "c66be",
+   
+     name:  "test_rel_c66be"
+   
+  }; 
+
+  Package.exeTarget["ce66le"] = 
+  {
+     target:  "ce66le",
+   
+     name:  "test_rel_ce66le"
+   
+  };   
+
+  Package.exeTarget["ce66be"] = 
+  {
+     target:  "ce66be",
+   
+     name:  "test_rel_ce66be"
+   
+  }; 
+    
+  Package.exeTarget["c674le"] = 
+  {
+    name:   "test_rel_c674le",
+    target: "c674le",
+  };   
+
+  Package.exeTarget["ce64Ple"] = {
+    name:   "test_rel_ce64Ple",
+    target: "ce64Ple",
+
+  };   
+    
+  Package.exeTarget["ce64Pbe"] = {
+    name:   "test_rel_ce64Pbe",
+    target: "ce64Pbe",
+  };   
+
+  Package.exeTarget["ce674le"] = 
+  {
+    name:   "test_rel_ce674le",
+    target: "ce674le",
+  };   
+
+  Package.exeTarget["gcarmv7a"] = 
+  {
+     name:   "test_rel_a8",
+     target: "gcarmv7a",
+     lopts: " -pg ",
+  };   
+
+  Package.args["automate"]=
+  {
+    value:"automate",
+
+    action: function()
+    {
+      Package.files["commonCsrc"].def_flags = " -DAUTOMATE_PATH"
+    },
+
+    usageComment: "Making test automation build."
+  }
+  
+  Package.archiveFiles["source"] = {
+    delivery_type: "src",
+ 
+    files:["src",
+           "vectors/vpecfg.txt",
+           "vectors/sigIn.pcm",
+           "vectors/refout/sigOut_c55l.pcm",
+           "vectors/refout/sigOut_c64P.pcm",
+          ] 
+   }
+
+  /**********************************************************************************************
+    The main package.bld routine starts here 
+  ***********************************************************************************************/
+
+  /* Setup the targets */
+  Package.targets = [C55, C55_large, C64, C64_big_endian, C64P, C64P_big_endian, C674, C674_big_endian, GCArmv7A, , C64P_elf, C64P_big_endian_elf, C674_elf, C674_big_endian_elf, C66, C66_big_endian, C66_elf, C66_big_endian_elf];
+
+  /* Include custom makefile to generate doxygen documents */
+  Package.includeMake ("Makedocs.mk");
+
+  /* Parse Arguments */
+  Package.parseArgs (arguments);
+
+  /* Generate Users Manual Doxyfile */
+  var tplt = xdc.loadTemplate("./docs/doxygen/doxyfile.xdt");
+  tplt.genFile("./docs/doxygen/Doxyfile",Package);      
+
+  /* Create Executable */
+  Package.createExe (Package.name); 
+
+  /* Create archive */
+  Package.createArchive ();
+
+  /* Clean the creates docs directory during clean */
+  Package.packageClean ();
+
+/* nothing past this point */

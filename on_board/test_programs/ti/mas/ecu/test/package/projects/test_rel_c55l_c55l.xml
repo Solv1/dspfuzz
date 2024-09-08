@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+	<params>
+		<name>test_rel_c55l</name>
+		<location>ccsProjects</location>
+		<target>c55l</target>
+		<buildArtifact>executable</buildArtifact>
+		 <files name="lnkr/c55l/test_rel_c55l_ccs.cmd"/>
+		 <files name="src/ecmemdef.c"/>
+		 <files name="src/ecusim.c"/>
+		 <files name="src/ecusimfunc.c"/>
+		 <files name="src/ecuprof.c"/>
+		 <files name="src/ecufio.c"/>
+		 <files name="src/ecuiram.c"/>
+		 <files name="src/vheap.c"/>
+		 <files name="src/cheap.c"/>
+		 <files name="src/siu.c"/>
+		 <files name="src/piu.c"/>
+		 <files name="src/piutxrx.c"/>
+		 <files name="src/piuinit.c"/>
+		 <files name="src/piuisr.c"/>
+		 <files name="src/piufutil.c"/>
+		 <files name="src/piuexpan.c"/>
+		 <files name="src/siumgr.c"/>
+		 <files name="src/siutx.c"/>
+		  <cFlags> -c -pds1112 -pds825 -pds838 -pds828 -pds827 -pds77 -pds837 -pds824 -vcpu:2.1 -mg -ss -k -dC5510 -as -g --ptrdiff_size=16 -o2 -mn -dENABLE_SEARCH -dENABLE_COMPRESS -dENABLE_RELOC -dENABLE_CPD -dENABLE_03DB</cFlags>
+	</params>
+</Project>

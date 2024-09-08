@@ -2,7 +2,7 @@ import binascii
 import argparse
 from functools import partial
 
-COVERAGE_SIZE = 1024
+COVERAGE_SIZE = 20
 
 def _handle_args():
     #TODO: Add more arguments as needed for fuzzing.
@@ -60,17 +60,23 @@ def find_calls(bin_path) -> dict:
     flag_6c = False
     flag_01 = False
     flag_4a = False
+    # elif byte == b'01' and flag_6c:
+    #         flag_01 = True
+    #     elif byte == b'4d' and flag_01:
+    #         flag_4a = True
+    #     elif byte == b'21' and flag_4a:
+
 
     raw_binary = _read_raw_binary(bin_path)
 
     for count, byte in enumerate(raw_binary):
         if byte == b'6c':
             flag_6c = True
-        elif byte == b'01' and flag_6c:
+        elif byte == b'02' and flag_6c:
             flag_01 = True
-        elif byte == b'4c' and flag_01:
+        elif byte == b'c6' and flag_01:
             flag_4a = True
-        elif byte == b'85' and flag_4a:
+        elif byte == b'b2' and flag_4a:
             #Store the byte number and reset the flags.
             call_function_starts.append(count - 3)
             #print(count - 3)
@@ -105,7 +111,7 @@ def uninsturment(coverage_dict,coverage_map):
 
     raw_bin = _read_raw_binary('./DSPFuzz.out')
 
-    uncoverage = _read_coverage_map(coverage_map)
+    uncoverage = coverage_map
 
     #Checks for a empty read coverage map this is a problem.
     if not uncoverage:

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.ecu.test" version="1, 0, 0, 0" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_ecu_src_c55l_10_92_1_0_test.zip.dep" src="package/rel/ti_mas_ecu_src_c55l_10_92_1_0_test.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_ecu_src_c55l_10_92_1_0_test"
+        pname="ti_mas_ecu_src_c55l_10_92_1_0_test.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="makefile"/>
+        <file name="lnkr/c55l/test_rel_c55l_ccs.cmd"/>
+        <file name="lnkr/c55l/test_rel_c55l.xdt"/>
+        <file name="lnkr/c55l/test_rel_c55l.cmd"/>
+        <file name="lnkr/c55l/test_rel_c55l.x55L"/>
+        <file name="lnkr/c55l/test_rel_c55l.x55L.mk"/>
+        <file name="src/ecmemdef.c"/>
+        <file name="src/ecusim.c"/>
+        <file name="src/ecusimfunc.c"/>
+        <file name="src/ecuprof.c"/>
+        <file name="src/ecufio.c"/>
+        <file name="src/ecuiram.c"/>
+        <file name="src/vheap.c"/>
+        <file name="src/cheap.c"/>
+        <file name="src/siu.c"/>
+        <file name="src/piu.c"/>
+        <file name="src/piutxrx.c"/>
+        <file name="src/piuinit.c"/>
+        <file name="src/piuisr.c"/>
+        <file name="src/piufutil.c"/>
+        <file name="src/piuexpan.c"/>
+        <file name="src/siumgr.c"/>
+        <file name="src/siutx.c"/>
+        <file name="./package/projects"/>
+        <file name="ccsmake.mk"/>
+        <file name="ccsProjects/test_rel_c55l_C55L_COFF"/>
+        <file name="package.bld"/>
+        <file name="test.cfg"/>
+        <file name="Makedocs.mk"/>
+        <file name="docs/doxygen/ecu_test.chm"/>
+        <file name="src/ecuprof.h"/>
+        <file name="src/ecusimport.h"/>
+        <file name="src/ecusim.h"/>
+        <file name="src/ecufio.h"/>
+        <file name="src/ecuiram.h"/>
+        <file name="src/vheap.h"/>
+        <file name="src/vctypes.h"/>
+        <file name="src/cheap.h"/>
+        <file name="src/siu.h"/>
+        <file name="src/siuloc.h"/>
+        <file name="src/siuport.h"/>
+        <file name="src/piu.h"/>
+        <file name="src/piuloc.h"/>
+        <file name="src/piuport.h"/>
+        <file name="vectors"/>
+        <file name="src/c55/ecusimport.h"/>
+        <file name="src/c55/piuport.h"/>
+        <file name="docs/doxygen/ECU_TEST.chm"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

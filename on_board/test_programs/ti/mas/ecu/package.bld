@@ -1,0 +1,333 @@
+/******************************************************************************
+ * FILE PURPOSE: Build description for package ti.mas.ecu
+ ******************************************************************************
+ * FILE NAME: package.bld  
+ *
+ * DESCRIPTION: This file contains build attributes for package ti.mas.ecu
+ *
+ * TABS: NONE
+ *
+ * Copyright (C) 2008, Texas Instruments, Inc.
+ *****************************************************************************/
+
+  var Package  = xdc.loadCapsule('ti/mas/swtools/CommonBld.xs'); 
+  Package.name = "ecu"; 
+
+  /* Global defines Applicable to all C files */
+  var cdefs_globals = "  ";
+
+  /* Global defines Applicable to all ASM files */
+  var adefs_globals = "  ";
+  
+  /**************************************
+   *  File List
+   *************************************/
+  /* common c files for all the builds */  
+  Package.files["commonCsrc"] = { 
+    base_directory: "src",
+    files: ["ecu.c",
+            "ecufg.c",
+            "ecubg.c",
+            "ecuinit.c",
+            ],
+    def_flags: cdefs_globals
+  }; 
+
+  /* asm files for C54 targets */
+  Package.files["C54AsmFiles"] = { 
+    base_directory: "src/c54",
+    target:["c54n", 
+            "c54f"
+           ],
+    files: ["ecuerm.s",
+            "eculms.s",
+            "ecunum.s",
+            "ecupnk.s"
+           ],
+    def_flags: adefs_globals + " -pds77",
+  }; 
+
+  /* asm files for C55 targets */  
+  Package.files["C55AsmFiles"] = { 
+    base_directory: "src/c55",
+    target:["c55s", 
+            "c55l"
+           ],
+    files: ["ecuerm.s",
+    	      "eculms.s",
+    	      "ecunum.s",
+    	      "ecupnk.s"
+           ],
+    def_flags: adefs_globals + " -ar5505 -ar5503 -ar5673 -ar5688",
+  }; 
+
+  /* asm files for C64 and C64P targets */
+  Package.files["C64AsmFiles"] = { 
+    base_directory: "src/c64",
+    target:["c64le", 
+            "c64be", 
+            "c64Ple", 
+            "c64Pbe",
+            "ce64Ple",
+            "ce64Pbe",
+            "c66le", 
+            "c66be",
+            "ce66le",
+            "ce66be"
+           ],
+    files: ["ecunum.s",
+    	      "ecupnk.s",
+           ],
+    def_flags: adefs_globals
+  }; 
+
+  /* asm files for C64 targets */
+  Package.files["C64XAsmFiles"] = { 
+    base_directory: "src/c64",
+    target:["c64le", 
+            "c64be"
+           ],
+    files: ["ecuerm.s",
+    	      "eculms.s"
+           ],
+    def_flags: adefs_globals
+  }; 
+
+  /* asm files for C64P targets */
+  Package.files["C64PAsmFiles"] = { 
+    base_directory: "src/c64P",
+    target:["c64Ple", 
+            "c64Pbe",
+            "ce64Ple",
+            "ce64Pbe",
+            "c66le", 
+            "c66be",
+            "ce66le",
+            "ce66be"
+           ],
+    files: ["ecuerm.s",
+    	      "eculms.s",
+           ],
+    def_flags: adefs_globals
+  };
+
+  /* c files for cmodel build */
+  Package.files["CmodelFiles"] = { 
+    base_directory: "src",
+    target:["c54n", 
+            "c54f", 
+            "c55s", 
+            "c55l", 
+            "c64le", 
+            "c64be", 
+            "c64Ple", 
+            "c64Pbe",
+            "ce64Ple",
+            "ce64Pbe",
+            "c66le", 
+            "c66be",
+            "ce66le",
+            "ce66be"
+           ],
+    files: ["ecunum.c",
+    	      "ecupnk.c",
+    	      "ecuerm.c",
+    	      "eculms.c"
+           ],
+    cmodel: true,
+    def_flags: cdefs_globals
+  }; 
+ 
+
+  /**************************************
+   *  Build time options
+   *************************************/
+  Package.args["ECU_DLCOMP"] = {
+    value: "dlcomp",
+
+    action: function() {
+      /* Add delay line compression flag */
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_COMPRESS";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_COMPRESS";
+
+      /* Add files for each target */
+      Package.files["commonCsrc" ].files = Package.files["commonCsrc" ].files.concat(["ecudline.c"]);
+      Package.files["C54AsmFiles"].files = Package.files["C54AsmFiles"].files.concat(["ecudlnum.s"]);
+      Package.files["C55AsmFiles"].files = Package.files["C55AsmFiles"].files.concat(["ecudlnum.s"]);
+      Package.files["C64AsmFiles"].files = Package.files["C64AsmFiles"].files.concat(["ecudlnum.s"]); 
+      Package.files["CmodelFiles"].files = Package.files["CmodelFiles"].files.concat(["ecudline.c"]);
+      Package.files["CmodelFiles"].files = Package.files["CmodelFiles"].files.concat(["ecudlnum.c"]);
+    },
+    
+    usageComment: "    Enable delay line compression"
+  };
+
+  Package.args["ECU_RELOC"] = {
+    value: "reloc",
+
+    action: function() {
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_RELOC";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_RELOC";
+    },
+    
+    usageComment: "     Enable ECU instance relocation"
+  };
+
+  Package.args["ECU_TAIL"] = {
+    value: "mseg",
+
+    action: function() {
+      /* Add search flag */
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_SEARCH";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_SEARCH";
+
+      /* Add files for each target */
+      Package.files["commonCsrc" ].files = Package.files["commonCsrc" ].files.concat(["ecusrch.c"]);
+      Package.files["C54AsmFiles"].files = Package.files["C54AsmFiles"].files.concat(["ecusnum.s"]);
+      Package.files["C55AsmFiles"].files = Package.files["C55AsmFiles"].files.concat(["ecusnum.s"]);
+      Package.files["C64AsmFiles"].files = Package.files["C64AsmFiles"].files.concat(["ecusnum.s"]);
+      Package.files["CmodelFiles"].files = Package.files["CmodelFiles"].files.concat(["ecusnum.c"]);
+    },
+
+    usageComment: "      Multi-segment ECU"
+  };
+
+  Package.args["ECU_5P5MS"] = {
+    value: "aalfrm",
+
+    action: function() {
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_5P5MS";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_5P5MS";
+    },
+
+    usageComment: "    Support 5.5 ms frame size for AAL1/AAL2"
+  };
+
+  Package.args["ECU_DEBUG"] = {
+    value: "ecdbg",
+
+    action: function() {
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_DEBUG";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_DEBUG";
+    },
+
+    usageComment: "     Include ECU debug messaging"
+  };
+
+  Package.args["ECU_03DB"] = {
+    value: "loerl",
+
+    action: function() {
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_03DB";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_03DB";
+    },
+
+    usageComment: "     Include 0/3dB ERL configuration"
+  };
+
+  Package.args["ECU_CPD"] = {
+    value: "cpdet",
+
+    action: function() {
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_CPD";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_CPD";
+    },
+
+    usageComment: "     Include constant pcm pattern detection"
+  };
+
+  Package.args["ECU_RERL"] = {
+    value: "rerl",
+
+    action: function() {
+      Package.files["commonCsrc" ].def_flags += " -dENABLE_RERL";
+      Package.files["CmodelFiles"].def_flags += " -dENABLE_RERL";
+    },
+
+    usageComment: "      Include RERL estimation for RTCP-XR"
+  };
+
+  /**************************************
+   *  Archive files for delivery
+   *************************************/
+  Package.archiveFiles["default"] = {
+    files: ["makefile",
+            "Makedocs.mk.xdt", 
+            "package.bld",
+            "docs/manifest/Software_Manifest.html",
+            "docs/design/ECU.pdf"
+           ]
+  };
+
+  /**********************************************************************************************
+    The main package.bld routine starts here 
+  ***********************************************************************************************/
+  /* Setup the targets */
+  Package.targets = [C54, 
+                     C54_far, 
+                     C55, 
+                     C55_large, 
+                     C64, 
+                     C64_big_endian, 
+                     C64P, 
+                     C64P_big_endian, 
+                     C64P_elf,
+                     C64P_big_endian_elf,
+                     C66, 
+                     C66_big_endian, 
+                     C66_elf,
+                     C66_big_endian_elf
+                    ];
+  
+  /* Setup the version number */
+  Package.pkgStdVer = "2.0";
+  Package.version = [10,92,1,0, 3, 0];
+
+  Package.createVersion();
+
+  /* Parse Arguments */
+  Package.parseArgs(arguments);
+
+  /* Generate Software Manifest XML files */
+  var tplt = xdc.loadTemplate("./docs/manifest/manifest_slao.xml.xdt");
+  tplt.genFile("./docs/manifest/manifest_slao.xml",Package);      
+  var tplt = xdc.loadTemplate("./docs/manifest/manifest_slas.xml.xdt");
+  tplt.genFile("./docs/manifest/manifest_slas.xml",Package);      
+  var tplt = xdc.loadTemplate("./docs/manifest/manifest_tspa.xml.xdt");
+  tplt.genFile("./docs/manifest/manifest_tspa.xml",Package);      
+
+  /* Generate Users Manual Doxyfile */
+  var tplt = xdc.loadTemplate("./docs/doxygen/doxyfile.xdt");
+  tplt.genFile("./docs/doxygen/Doxyfile",Package);      
+
+  /* Generate API Users Manual Doxyfile */
+  var tplt = xdc.loadTemplate("./docs/doxygen/apidoxyfile.xdt");
+  tplt.genFile("./docs/doxygen/APIDoxyfile",Package);      
+
+  /* Generate Makedocs.mk*/  
+  var makedocs = xdc.loadTemplate("Makedocs.mk.xdt"); 
+  makedocs.genFile("Makedocs.mk", Package);
+
+  /* Include custom makefile to generate doxygen documents */
+  Package.includeMake("Makedocs.mk");
+
+  /* Create library (8k) */
+  Package.createLib (Package.name); 
+
+  /* Create library (16k) */
+  Package.files["commonCsrc" ].def_flags += " -dENABLE_WB -uENABLE_COMPRESS";
+  Package.files["CmodelFiles"].def_flags += " -dENABLE_WB -uENABLE_COMPRESS";
+  Package.createLib ("ecu16"); 
+
+  /* Create archive */
+  Package.createArchive();
+
+  /* Clean the creates docs directory during clean */
+  Package.generatedFiles.push("./Makedocs.mk");
+  Package.generatedFiles.push("./docs/doxygen/Doxyfile");
+  Package.generatedFiles.push("./docs/doxygen/APIDoxyfile");
+  Package.generatedFiles.push("./docs/manifest/*.xml");
+  Package.generatedFiles.push("./docs/manifest/Software_Manifest.html");
+  Package.packageClean();
+
+/* nothing past this point */

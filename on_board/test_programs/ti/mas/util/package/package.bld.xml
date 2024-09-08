@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.util" version="5, 0, 0, 0" producerId="undefined">
+    <units>
+        <module name="Version"/>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_util_obj_c55l_4_7_6_0.zip.dep" src="package/rel/ti_mas_util_obj_c55l_4_7_6_0.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_util_obj_c55l_4_7_6_0"
+        pname="ti_mas_util_obj_c55l_4_7_6_0.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="lib/util_cm.a55L"/>
+        <file name="lib/util_cm.a55L_size.txt"/>
+        <file name="lib/util_c.a55L"/>
+        <file name="lib/util_c.a55L_size.txt"/>
+        <file name="lib/util_a.a55L"/>
+        <file name="lib/util_a.a55L_size.txt"/>
+        <file name="docs//doxygen//doxyfile.xdt"/>
+        <file name=".//docs//doxygen//html//../UTIL.chm"/>
+        <file name="./debug.h"/>
+        <file name="./cb.h"/>
+        <file name="./mua.h"/>
+        <file name="./wng.h"/>
+        <file name="./pkt.h"/>
+        <file name="./utl.h"/>
+        <file name="./png.h"/>
+        <file name="./ecomem.h"/>
+        <file name="./ecoxdaisxlat.h"/>
+        <file name="./cga.h"/>
+        <file name="./util_4_7_6_0_release_notes.html"/>
+        <file name="./Version.h"/>
+        <file name="src/c55/cga.h"/>
+        <file name="src/c55/utilNumPort.h"/>
+        <file name="src/c55/pkt_m.h"/>
+        <file name="src/utilNumPort.h"/>
+        <file name="src/pkt_m.h"/>
+        <file name="docs/relnotes_archive"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

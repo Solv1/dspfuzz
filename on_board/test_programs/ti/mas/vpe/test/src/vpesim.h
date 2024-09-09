@@ -279,12 +279,13 @@ typedef struct {
   char   baseDir[vpe_SIM_MAX_STRING]; /* Base directory for file I/O                */
 } vpeSimConfig_t;
 						
-void test();
+int16_t telecom_test(int16_t * input, int16_t size );
 extern void  vpe_sim_fileio_init   (vpeSimFileIo_t *fioptr, tuint code);
 extern void  vpe_sim_fileio_end    (vpeSimFileIo_t *fioptr);
 extern void  vpe_sim_init          ();
-extern void  vpe_init              (void);
-extern tbool vpe_sim_fread         (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
+extern int16_t  vpe_init              (void);
+// extern tbool vpe_sim_fread         (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
+extern tbool vpe_sim_fread         (linSample *buf, tint buf_size, int16_t * inptr, int16_t size);
 extern void  vpe_sim_fwrite        (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
 extern void  vpe_sim_input_mux     (void);
 extern void  vpe_sim_output_mux    (void);
@@ -296,9 +297,9 @@ extern void  vpe_sim_set_sgn (void *inst, vpeSGNPars_t *sgn, tint Fs);
 extern void  vpe_sim_gen_frame     (void *inst, tint frame_size, linSample *frame);
 extern sgnFileIo_t *vpe_sim_in_file(sgnFileIo_t *dsc);
 extern sgnFileIo_t *vpe_sim_in_file(sgnFileIo_t *dsc);
-extern void  vpe_instantiate_nr(tint srate);
-extern void  vpe_config_nr(vpeASNRPars_t *asnr_params);
-extern void  vpe_deinstantiate_nr();
+extern int16_t  vpe_instantiate_nr(tint srate);
+extern int16_t  vpe_config_nr(vpeASNRPars_t *asnr_params);
+extern int16_t  vpe_deinstantiate_nr();
 extern void  vpe_halt (tbool *exec);
 extern void  vpe_sim_flush_cache();
 extern void  vpe_sim_read_cfg();

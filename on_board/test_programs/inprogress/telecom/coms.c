@@ -85,8 +85,6 @@ int16_t communcation_test(int16_t * input, int16_t size){
     memcpy(in_buf, out_buf, real_size);
     noise_reduction(in_buf, out_buf, real_size);
 
-    
-
 
     free(in_buf);
     free(out_buf);

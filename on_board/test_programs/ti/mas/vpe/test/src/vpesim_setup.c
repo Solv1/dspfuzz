@@ -121,16 +121,16 @@ extern vpeSimConfig_t *vpeSim;
  *                            
  * Description: Utility to provide simulation breakpoint.
  *-----------------------------------------------------------------*/
-void vpe_halt (tbool *exec)
-{
-  /* Wait for further actions - exit when user sets "halt" to FALSE */
-  while (!(*exec)) {
-    asm ("  NOP");
-    asm ("Set_BP_Here:  ");
-    asm ("  NOP");
-    asm ("  NOP");
-  }
-}
+// void vpe_halt (tbool *exec)
+// {
+//   /* Wait for further actions - exit when user sets "halt" to FALSE */
+//   while (!(*exec)) {
+//     asm ("  NOP");
+//     asm ("Set_BP_Here:  ");
+//     asm ("  NOP");
+//     asm ("  NOP");
+//   }
+// }
 
 /* slm instance */
 extern void *slmInst_ptr;
@@ -160,12 +160,12 @@ extern void *sgnInst_ptr;
  *                            
  * Description: Utility to provide static progress information.
  *-----------------------------------------------------------------*/
-void vpe_print (char *str)
-{
-  if (vpeSim->exec) {
-    printf (str);
-  }
-}
+// void vpe_print (char *str)
+// {
+//   if (vpeSim->exec) {
+//     printf (str);
+//   }
+// }
 
 
 /*-----------------------------------------------------------------
@@ -173,11 +173,11 @@ void vpe_print (char *str)
  *                            
  * Description: Utility to provide integer progress information.
  *-----------------------------------------------------------------*/
-void vpe_iprint (char *str, tlong ivar)
-{
-  sprintf   (vpe_sim_print_str, str, ivar);
-  vpe_print (vpe_sim_print_str);
-}
+// void vpe_iprint (char *str, tlong ivar)
+// {
+//   sprintf   (vpe_sim_print_str, str, ivar);
+//   vpe_print (vpe_sim_print_str);
+// }
 
 
 /*-----------------------------------------------------------------
@@ -185,53 +185,53 @@ void vpe_iprint (char *str, tlong ivar)
  *                            
  * Description: Utility to provide string progress information.
  *-----------------------------------------------------------------*/
-void vpe_sprint (char *str, char *svar)
-{
-  sprintf   (vpe_sim_print_str, str, svar);
-  vpe_print (vpe_sim_print_str);
-}
+// void vpe_sprint (char *str, char *svar)
+// {
+//   sprintf   (vpe_sim_print_str, str, svar);
+//   vpe_print (vpe_sim_print_str);
+// }
 
 /*-----------------------------------------------------------------
  * Function:  vpe_sim_fileio_init
  *                            
  * Description: Initialize simulation for file I/O
  *-----------------------------------------------------------------*/
-void vpe_sim_fileio_init (vpeSimFileIo_t *fioptr, tuint code)
-{
-  if (fioptr->fio) {
-    /* Create file path string */
-    strcpy (vpe_sim_global_str, vpeSim->baseDir);
-    strcat (vpe_sim_global_str, fioptr->fname);
+// void vpe_sim_fileio_init (vpeSimFileIo_t *fioptr, tuint code)
+// {
+//   if (fioptr->fio) {
+//     /* Create file path string */
+//     strcpy (vpe_sim_global_str, vpeSim->baseDir);
+//     strcat (vpe_sim_global_str, fioptr->fname);
 
-    /* Ensure that file pointer is NULL (closed) */
-    if (fioptr->fptr != NULL) {
-      vpe_sprint (" - File already open: %s\n", vpe_sim_global_str);
-      return;
-    }
+//     /* Ensure that file pointer is NULL (closed) */
+//     if (fioptr->fptr != NULL) {
+//       vpe_sprint (" - File already open: %s\n", vpe_sim_global_str);
+//       return;
+//     }
     
-    /* Open file (read/write binary) and assign file pointer */
-    if (code == vpe_SIM_FILEIO_READ) {
-      fioptr->fptr = fopen (vpe_sim_global_str, "rb");
-    }
-    else if (code == vpe_SIM_FILEIO_WRITE) {
-      fioptr->fptr = fopen (vpe_sim_global_str, "wb");
-    }
-    else {
-      vpe_iprint ("Error: unrecognized file action %d \n", code);
-      return;
-    }
+//     /* Open file (read/write binary) and assign file pointer */
+//     if (code == vpe_SIM_FILEIO_READ) {
+//       fioptr->fptr = fopen (vpe_sim_global_str, "rb");
+//     }
+//     else if (code == vpe_SIM_FILEIO_WRITE) {
+//       fioptr->fptr = fopen (vpe_sim_global_str, "wb");
+//     }
+//     else {
+//       vpe_iprint ("Error: unrecognized file action %d \n", code);
+//       return;
+//     }
 
-    /* Ensure open success */
-    if (fioptr->fptr == NULL) {
-      vpe_sprint ("Unable to open file: %s\n", vpe_sim_global_str);
-      fioptr->fio = FALSE;
-    }
-    else {
-      vpe_sprint (" - Opened file: %s\n", vpe_sim_global_str);
-      fioptr->eof = FALSE;      
-    }
-  }
-}
+//     /* Ensure open success */
+//     if (fioptr->fptr == NULL) {
+//       vpe_sprint ("Unable to open file: %s\n", vpe_sim_global_str);
+//       fioptr->fio = FALSE;
+//     }
+//     else {
+//       vpe_sprint (" - Opened file: %s\n", vpe_sim_global_str);
+//       fioptr->eof = FALSE;      
+//     }
+//   }
+// }
 
 
 /*-----------------------------------------------------------------
@@ -239,25 +239,25 @@ void vpe_sim_fileio_init (vpeSimFileIo_t *fioptr, tuint code)
  *                            
  * Description: Clear simulation after file I/O
  *-----------------------------------------------------------------*/
-void vpe_sim_fileio_end (vpeSimFileIo_t *fioptr)
-{
-  if (fioptr->fio) {
-    /* Close file pointer */
-    if (fioptr->fptr == NULL) {
-      vpe_print ("Warning: premature file close\n");
-    }
-    else {
-      if (fioptr->eof) {
-        fclose (fioptr->fptr);
-        fioptr->fptr = (FILE *) NULL;
-        /* Print progress */
-        strcpy (vpe_sim_global_str, vpeSim->baseDir);
-        strcat (vpe_sim_global_str, fioptr->fname);
-        vpe_sprint (" - Closed file: %s\n", vpe_sim_global_str);
-      }
-    }
-  }    
-}
+// void vpe_sim_fileio_end (vpeSimFileIo_t *fioptr)
+// {
+//   if (fioptr->fio) {
+//     /* Close file pointer */
+//     if (fioptr->fptr == NULL) {
+//       vpe_print ("Warning: premature file close\n");
+//     }
+//     else {
+//       if (fioptr->eof) {
+//         fclose (fioptr->fptr);
+//         fioptr->fptr = (FILE *) NULL;
+//         /* Print progress */
+//         strcpy (vpe_sim_global_str, vpeSim->baseDir);
+//         strcat (vpe_sim_global_str, fioptr->fname);
+//         vpe_sprint (" - Closed file: %s\n", vpe_sim_global_str);
+//       }
+//     }
+//   }    
+// }
 
 
 
@@ -269,23 +269,26 @@ void vpe_sim_fileio_end (vpeSimFileIo_t *fioptr)
 #define VPESIM_NUM_BYTES_LINSAMP 2
 tword vpe_temp_io_buf[vpe_SIM_MAX_SAMPLES*VPESIM_NUM_BYTES_LINSAMP];
 
-tbool vpe_sim_fread (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr)
+// tbool vpe_sim_fread (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr)
+tbool vpe_sim_fread (linSample *buf, tint buf_size, int16_t * inptr, int16_t size)
 {
-  tuint num_read;
+  //tuint num_read;
   tint  i, j;
 
-  if(fioptr->fptr == NULL){
+  if(inptr == NULL){
     return FALSE;
   }
   
   /* read the file*/
-  num_read = fread(vpe_temp_io_buf, VPESIM_NUM_BYTES_LINSAMP, buf_size, fioptr->fptr);
+  memcpy(vpe_temp_io_buf, inptr, size);
+  // num_read = fread(vpe_temp_io_buf, VPESIM_NUM_BYTES_LINSAMP, buf_size, fioptr->fptr);
   
-  /* check for endo of file */
-  if (num_read != (buf_size)) {
-      fioptr->eof = TRUE;
-      return FALSE;
-  }
+  // /* check for endo of file */
+  // if (num_read != (buf_size)) {
+  //     fioptr->eof = TRUE;
+  //     return FALSE;
+  // }
+
 
   /* pack bytes into words */
   for (i = 0, j = 0; i < buf_size; i++, j+=2)
@@ -301,23 +304,23 @@ tbool vpe_sim_fread (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr)
  *                            
  * Description: Perform file output
  *-----------------------------------------------------------------*/
-void vpe_sim_fwrite (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr)
-{
-  tuint i, j;
+// void vpe_sim_fwrite (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr)
+// {
+//   tuint i, j;
 
-  if(fioptr->fptr == NULL){
-    return;
-  }
+//   if(fioptr->fptr == NULL){
+//     return;
+//   }
 
-  for (i = 0, j = 0; i < buf_size; i++, j+=2)
-  {
-    vpe_temp_io_buf[j]   = (buf[i]     ) & 0x00ff;
-    vpe_temp_io_buf[j+1] = (buf[i] >> 8) & 0x00ff;
-  }
+//   for (i = 0, j = 0; i < buf_size; i++, j+=2)
+//   {
+//     vpe_temp_io_buf[j]   = (buf[i]     ) & 0x00ff;
+//     vpe_temp_io_buf[j+1] = (buf[i] >> 8) & 0x00ff;
+//   }
 
-  fwrite(vpe_temp_io_buf, VPESIM_NUM_BYTES_LINSAMP, buf_size, fioptr->fptr);
+//   fwrite(vpe_temp_io_buf, VPESIM_NUM_BYTES_LINSAMP, buf_size, fioptr->fptr);
 
-}
+// }
 
 /*-----------------------------------------------------------------
  * Function:  vpe_sim_init
@@ -330,16 +333,16 @@ void vpe_sim_init ()
   vpeSim->hlc_on        = FALSE;
   vpeSim->slm_on        = FALSE;
   vpeSim->snl_on        = FALSE;
-  vpeSim->svd_on        = FALSE;
-  vpeSim->nr_on         = FALSE;
+  vpeSim->svd_on        = TRUE;
+  vpeSim->nr_on         = TRUE;
   vpeSim->decim_on      = FALSE;
   vpeSim->interp_on     = FALSE;
   vpeSim->ulaw_enc_on   = FALSE;
   vpeSim->ulaw_dec_on   = FALSE;
   vpeSim->alaw_enc_on   = FALSE;
   vpeSim->alaw_dec_on   = FALSE;
-  vpeSim->sgn           = TRUE;
-  vpeSim->cfg_sgn       = TRUE;
+  vpeSim->sgn           = FALSE;
+  vpeSim->cfg_sgn       = FALSE;
   vpeSim->cfg_hlc       = FALSE;
   vpeSim->cfg_slm       = TRUE;
   vpeSim->slm_mod       = slm_MODE5;
@@ -369,10 +372,11 @@ void vpe_sim_init ()
  *-----------------------------------------------------------------*/
 void vpe_sim_read_cfg()
 {
-  FILE *test_cfg;
-  int samp_freq, asnr_delay, asnr_band_bin1, asnr_band_bin2, asnr_noise_thresh; 
-  int asnr_sig_upd_rate_max, asnr_sig_upd_rate_min, asnr_noise_hangover; 
-  int asnr_band1_max_atten, asnr_band2_max_atten, asnr_band3_max_atten; 
+  //FILE *test_cfg;
+  int samp_freq;
+  //, asnr_delay, asnr_band_bin1, asnr_band_bin2, asnr_noise_thresh; 
+  //int asnr_sig_upd_rate_max, asnr_sig_upd_rate_min, asnr_noise_hangover; 
+  //int asnr_band1_max_atten, asnr_band2_max_atten, asnr_band3_max_atten; 
   
   /* Create file path string */
 //  strcpy (vpe_sim_global_str, vpeSim->baseDir);
@@ -398,6 +402,7 @@ void vpe_sim_read_cfg()
 //  fscanf(test_cfg, "%d\n", &asnr_noise_hangover);
 //
 //  vpeSim->Fs = (tint)samp_freq;
+samp_freq = 16000;
   vpeSim->Fs = 16000;
   if(samp_freq == VPE_SIM_SAMPLE_FREQ_16000) {
     vpeSim->asnrParam.samp_rate = asnr_SRATE_16K;
@@ -433,7 +438,7 @@ void vpe_sim_read_cfg()
  *                            
  * Description: Create and initialize VPE modules.
  *-----------------------------------------------------------------*/
-void vpe_init (void)
+int16_t vpe_init (void)
 {
   hlcConfig_t hlc_cfg_info;
   slmConfig_t slm_cfg_info;
@@ -467,7 +472,8 @@ void vpe_init (void)
     if (retVal != hlc_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_3;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_3;
+      // vpe_halt (&vpeSim->exec);
     }
 
     hlcInst_ptr = malloc (hlcSize);
@@ -492,14 +498,16 @@ void vpe_init (void)
     else{
       vpeSim->error_id = vpe_SIM_ERR_4;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_4;
+      // vpe_halt (&vpeSim->exec);
     }
 
     retVal = hlcInit(hlcInst_ptr, &hlc_cfg_info);
     if (retVal != hlc_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_4;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_4;
+      // vpe_halt (&vpeSim->exec);
     }
     /* Enable HLC */
     hctrlInst_ptr->ctl_code = hlc_CTL_ENA;
@@ -507,7 +515,8 @@ void vpe_init (void)
     if (retVal != hlc_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_6;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_6;
+      // vpe_halt (&vpeSim->exec);
     }
   } /* if testing HLC */
 
@@ -518,7 +527,8 @@ void vpe_init (void)
     if (retVal != slm_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_9;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_9;
+      // vpe_halt (&vpeSim->exec);
     }
     slmInst_ptr = malloc (slmSize);
 
@@ -537,7 +547,8 @@ void vpe_init (void)
     if (retVal != slm_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_7;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_7;
+      // vpe_halt (&vpeSim->exec);
     }
   } /* if testing SLM */
 
@@ -547,7 +558,8 @@ void vpe_init (void)
     if (retVal != snl_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_10;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_10;
+      // vpe_halt (&vpeSim->exec);
     }
     snlInst_ptr = malloc (snlSize); 
     /* initialize SNL */
@@ -562,7 +574,8 @@ void vpe_init (void)
     if (retVal != snl_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_11;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_11;
+      // vpe_halt (&vpeSim->exec);
     }
 //    strcpy (snlLevOut.fname, "snlLevOut.pcm");
 //    snlLevOut.fio   = TRUE;
@@ -575,7 +588,8 @@ void vpe_init (void)
     if (retVal != svd_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_17;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_17;
+      // vpe_halt (&vpeSim->exec);
     }
     svdInst_ptr = malloc (svdSize); 
     /* initialize SVD */
@@ -590,7 +604,8 @@ void vpe_init (void)
     if (retVal != svd_NOERR){
       vpeSim->error_id = vpe_SIM_ERR_18;
       vpeSim->exec = FALSE;
-      vpe_halt (&vpeSim->exec);
+      return vpe_SIM_ERR_18;
+      // vpe_halt (&vpeSim->exec);
     }
 
 //    strcpy (svdOut.fname, "svdOut.pcm");
@@ -606,9 +621,16 @@ void vpe_init (void)
       srate_factor = asnr_SRATE_16K;
     }
   
-    vpe_instantiate_nr(srate_factor);
+  retVal = vpe_instantiate_nr(srate_factor);
+  if (retVal != 0){
+    return retVal;
+  }
 	
-	vpe_config_nr(&vpeSim->asnrParam);
+	retVal = vpe_config_nr(&vpeSim->asnrParam);
+  if (retVal != 0){
+    return retVal;
+  }
+
   }
 
   /* init sgn */
@@ -637,6 +659,7 @@ void vpe_init (void)
 #if _VPESIM_C64||_VPESIM_C64_BIG_ENDIAN||_VPESIM_C64P||_VPESIM_C64P_BIG_ENDIAN
   memarchcfg_cacheEnable();
 #endif
+  return 0;
 } /* vpe_init */
 
 /*-----------------------------------------------------------------

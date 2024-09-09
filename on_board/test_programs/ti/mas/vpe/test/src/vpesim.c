@@ -102,14 +102,14 @@ linSample interpDelayLine[VPE_SIM_INTERP_DELAY_LEN];
  *                            
  * Description: Utility to provide major progress information.
  *-----------------------------------------------------------------*/
-static inline void vpe_banner_print (char *str)
-{
-  vpe_print ("\n");
-  vpe_print ("------------------------------\n");
-  vpe_print (str);
-  vpe_print ("------------------------------\n");
-  vpe_print ("\n");
-}
+// static inline void vpe_banner_print (char *str)
+// {
+//   vpe_print ("\n");
+//   vpe_print ("------------------------------\n");
+//   vpe_print (str);
+//   vpe_print ("------------------------------\n");
+//   vpe_print ("\n");
+// }
 
 
 /* slm instance */
@@ -144,7 +144,7 @@ void *sgnInst_ptr = NULL;
  *                            
  * Description: Test the vpe API functions.
  *-----------------------------------------------------------------*/
-void test(void)
+int16_t telecom_test(int16_t * input, int16_t size)
 {
   linSample *buf_Inptr = (linSample *)sigInBuffer;
   linSample *buf_Outptr = (linSample *)sigOutBuffer;
@@ -163,12 +163,15 @@ void test(void)
   vpe_sim_read_cfg();
   
   /* Opportunity to uniquely configure simulation */
-  vpe_halt (&vpeSim->exec);
+  // vpe_halt (&vpeSim->exec);
 
   /* Progress (verbose only) */
 //  vpe_banner_print ("Simulation:  BEGIN\n");
 
-  vpe_init();
+  retVal = vpe_init();
+  if (retVal > 0){
+    return retVal;
+  }
   
   /* Main (file) simulation loop */ 
 //  while (vpeSim->exec) {
@@ -176,16 +179,16 @@ void test(void)
     vpeSim->data = TRUE;
     if (!vpeSim->sgn){
       /* Load I/O files */
-      vpe_sim_fileio_init (&vpeSim->sigIn,  vpe_SIM_FILEIO_READ);
-      vpe_sim_fileio_init (&vpeSim->sigOut, vpe_SIM_FILEIO_WRITE);
+      // vpe_sim_fileio_init (&vpeSim->sigIn,  vpe_SIM_FILEIO_READ);
+      // vpe_sim_fileio_init (&vpeSim->sigOut, vpe_SIM_FILEIO_WRITE);
     }
     if(vpeSim->snl_on){
       /* Load I/O files */
-      vpe_sim_fileio_init (&snlLevOut, vpe_SIM_FILEIO_WRITE);
+      // vpe_sim_fileio_init (&snlLevOut, vpe_SIM_FILEIO_WRITE);
     }
     if(vpeSim->svd_on){
       /* Load I/O files */
-      vpe_sim_fileio_init (&svdOut, vpe_SIM_FILEIO_WRITE);
+      // vpe_sim_fileio_init (&svdOut, vpe_SIM_FILEIO_WRITE);
     }
 
     /* Single test/example simulation loop */
@@ -210,7 +213,7 @@ void test(void)
         if(vpeSim->ulaw_dec_on || vpeSim->alaw_dec_on) {
           num_tuint_in /= 2; /* mu-law or A-law input is byte */
         }
-        sigIn_data = vpe_sim_fread (vpeIOBufs, num_tuint_in, &vpeSim->sigIn);
+        sigIn_data = vpe_sim_fread (vpeIOBufs, num_tuint_in, input, size);
         vpeSim->data = sigIn_data;
 
         /* change little endian to big endian */
@@ -237,8 +240,9 @@ void test(void)
       if(vpeSim->nr_on) {
         retVal = asnrProcess(nrInst_ptr, buf_Inptr, buf_Inptr);
         if (retVal != asnr_NOERR) {
-          printf("Error returned by asnrProcessn() = %d!\n", retVal);
-          exit(0);
+          // printf("Error returned by asnrProcessn() = %d!\n", retVal);
+          // exit(0);
+          return retVal;
         }
       }
       
@@ -250,14 +254,17 @@ void test(void)
           if (retVal != hlc_NOERR){
             vpeSim->error_id = vpe_SIM_ERR_5;
             vpeSim->exec = FALSE;
-            vpe_halt (&vpeSim->exec);
+            // vpe_halt (&vpeSim->exec);
+            return vpe_SIM_ERR_5;
           }
         }
         retVal = hlcProcess(hlcInst_ptr, buf_Inptr);
         if (retVal != hlc_NOERR){
           vpeSim->error_id = vpe_SIM_ERR_1;
           vpeSim->exec = FALSE;
-          vpe_halt (&vpeSim->exec);
+          return vpe_SIM_ERR_1;
+          // vpe_halt (&vpeSim->exec);
+
         }
       }
 	  
@@ -333,14 +340,16 @@ void test(void)
           if (retVal != slm_NOERR){
             vpeSim->error_id = vpe_SIM_ERR_8;
             vpeSim->exec = FALSE;
-            vpe_halt (&vpeSim->exec);
+            return vpe_SIM_ERR_8;
+            // vpe_halt (&vpeSim->exec);
           }
         }
         retVal = slmProcess (slmInst_ptr, buf_Outptr, vpeSim->frame_size_out);
         if (retVal != slm_NOERR){
           vpeSim->error_id = vpe_SIM_ERR_2;
           vpeSim->exec = FALSE;
-          vpe_halt (&vpeSim->exec);
+          return vpe_SIM_ERR_2;
+          // vpe_halt (&vpeSim->exec);
         }
       }
       
@@ -390,7 +399,8 @@ void test(void)
           (sample_total  - vpeSim->sample_bp) < vpeSim->frame_size_in) {
 //        vpe_iprint (" - Halting after %d samples\n", sample_total);
         vpeSim->exec = FALSE;
-        vpe_halt (&vpeSim->exec);
+        // return vpe_SIM_ERR_5;
+        // vpe_halt (&vpeSim->exec);
       }
       vpeSim->sample_cnt = sample_total;
 //    } /* vpeSim->data */
@@ -419,10 +429,15 @@ void test(void)
 //  } /* vpeSim->exec */
 
   if(vpeSim->nr_on) {
-    vpe_deinstantiate_nr();
+    retVal = vpe_deinstantiate_nr();
+    if (retVal != 0){
+      return 1;
+    }
+
   }
   
   /* End of simulation */
+  return 0;
 //  printf("Simulation done.\n");
 } /* main */
 

@@ -47,7 +47,7 @@ def _read_raw_binary(bin_path):
 
     return raw_binary
 
-def find_calls(bin_path) -> dict:
+def find_calls(bin_path, disasm) -> dict:
     """Searches binary file for our distinct byte value for our insturmentation i.e 0x6c014b19.
     When the begining of a call is found its offset from the first call made in the program is saved along with the byte number to uninsturment later.
 
@@ -57,43 +57,44 @@ def find_calls(bin_path) -> dict:
     raw_binary = []
     call_function_starts = []
     coverage_locations = dict()
-    flag_6c = False
-    flag_01 = False
-    flag_4a = False
-    # elif byte == b'01' and flag_6c:
-    #         flag_01 = True
-    #     elif byte == b'4d' and flag_01:
-    #         flag_4a = True
-    #     elif byte == b'21' and flag_4a:
+
+    flag_1 = False
+    flag_2 = False
+    flag_3 = False
+    byte_1 = binascii.hexlify((((disasm >> 24) & 0xFF)).to_bytes(1,byteorder='big'))
+    byte_2 = binascii.hexlify((((disasm >> 16) & 0xFF)).to_bytes(1,byteorder='big'))
+    byte_3 = binascii.hexlify((((disasm >> 8) & 0xFF)).to_bytes(1,byteorder='big'))
+    byte_4 = binascii.hexlify((((disasm) & 0xFF)).to_bytes(1,byteorder='big'))
+    
 
 
     raw_binary = _read_raw_binary(bin_path)
 
     for count, byte in enumerate(raw_binary):
-        if byte == b'6c':
-            flag_6c = True
-        elif byte == b'02' and flag_6c:
-            flag_01 = True
-        elif byte == b'c6' and flag_01:
-            flag_4a = True
-        elif byte == b'b2' and flag_4a:
+        if byte == byte_1:
+            flag_1 = True
+        elif byte == byte_2 and flag_1:
+            flag_2 = True
+        elif byte == byte_3 and flag_2:
+            flag_3 = True
+        elif byte == byte_4 and flag_3:
             #Store the byte number and reset the flags.
             call_function_starts.append(count - 3)
             #print(count - 3)
-            flag_6c = False
-            flag_01 = False
-            flag_4a = False
+            flag_1 = False
+            flag_2 = False
+            flag_3 = False
         else:
             #Failed to find the patern completely dump the try.
-            flag_6c = False
-            flag_01 = False
-            flag_4a = False
+            flag_1 = False
+            flag_2 = False
+            flag_3 = False
 
     for x in range(0,  len(call_function_starts)):
         # Saves the offset|byte number pair for later referance and uninsturmentation.
         coverage_locations[call_function_starts[x] - call_function_starts[0]] = call_function_starts[x]
         
-    #print(coverage_locations)
+    print(coverage_locations)
     return coverage_locations
 
 

@@ -41,6 +41,8 @@ amount_of_crashes = 0
 start_time = 0
 end_time = 0
 
+asm_in_mem = 0  #The asm signature of coverage function call
+
 average_testcase_time = 0
 total_testcase_time = 0
 iterations = 0
@@ -85,11 +87,27 @@ def _handle_args():
     return parser.parse_args()
 
 def coverage_setup(bin_path):
-    global coverage_dict
+    global coverage_dict, asm_in_mem
+    shutil.copyfile(bin_path, './DSPFuzz.out')
 
-    coverage_dict = binary_tools.find_calls(bin_path)
+    coverage_dict = binary_tools.find_calls(bin_path, asm_in_mem)
     
     shutil.copyfile(bin_path, './DSPFuzz.out')
+
+@log
+def find_coverage_call():
+    """
+        Locates the asm instructions for a call to the coverage logging function.
+        This only done once at the start to find what the call is.
+    """
+    global debugServer, debugSession, script, asm_in_mem
+    
+    sut_address_var = debugSession.symbol.getAddress('sut_start_address')
+    sut_address = debugSession.memory.readData(1, sut_address_var, 32)
+    asm_in_mem = debugSession.memory.readData(1, sut_address//2, 32)
+    print(hex(sut_address))
+    print(hex(asm_in_mem))
+
 
 @log
 def debug_server_setup():
@@ -355,13 +373,13 @@ def set_intial_breakpoints():
     # setup_pool_id = debugSession.breakpoint.add(setup_pool_address)
     lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
     lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
-    print(lp_refresh_id)
+    # print(lp_refresh_id)
 
 
     #Adds a breakpoint in the results handler if we have a coverage increasing input.
     coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
     coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address)
-    #debugSession.target.runAsynch()
+    debugSession.target.run()
 
 def calculate_timeout(global_pool_size, local_pool_size) -> int:
 
@@ -704,7 +722,7 @@ def main():
         @Return: None
     """
 
-    global lp_refresh_id, local_pool_size, seed_dir, results_dir, start_time, timer_thread, setup_pool_id
+    global asm_in_mem, lp_refresh_id, local_pool_size, seed_dir, results_dir, start_time, timer_thread, setup_pool_id
 
     args = _handle_args()
     local_pool_size = args.localpool
@@ -714,15 +732,17 @@ def main():
 
     
 
-    coverage_setup(bin_path)
+    
 
     debug_server_setup()
     set_intial_breakpoints()
     
     write_local_pool()
+
     
     #Remove the breakpoint untill the next refresh.
     debugSession.breakpoint.remove(lp_refresh_id)
+    
     #debugSession.target.runAsynch()
 
 
@@ -730,14 +750,16 @@ def main():
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     print("Time of start =", dt_string)
+    print("------Finding Coverage Calls in Binary------")
+    find_coverage_call()
+    coverage_setup(bin_path)
 
-
-
+    
     #start the refresh thread
     timeout = calculate_timeout(refresh_global_pool(), 15)
     timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
     timer_thread.start()
-
+    print("------Starting the Device Listener------")
     device_listener()
 
 

@@ -1,0 +1,482 @@
+/******************************************************************************
+ * FILE PURPOSE: Build description for package ti.mas.ecu.test
+ ******************************************************************************
+ * FILE NAME: package.bld  
+ *
+ * DESCRIPTION: This file contains build attributes for package ti.mas.ecu.test
+ *
+ * TABS: NONE
+ *
+ * Copyright (C) 2007, Texas Instruments, Inc.
+ *****************************************************************************/
+  var Package = xdc.loadCapsule('ti/mas/swtools/CommonBld.xs'); 
+  Package.archiveTypeDefault = false;
+  Package.name = "ecu_test"; 
+  var auto_arg_found = false;
+
+  /**************************************
+   *  File List
+   *************************************/
+  Package.files["commonCsrc"] = {
+    base_directory: "src",
+
+    files: ["ecmemdef.c",
+            "ecusim.c",
+            "ecusimfunc.c",
+            "ecuprof.c",
+            "ecufio.c",
+            "ecuiram.c",
+            "vheap.c",
+            "cheap.c",
+            "siu.c",
+            "piu.c",
+            "piutxrx.c",
+            "piuinit.c",
+            "piuisr.c",
+            "piufutil.c",
+            "piuexpan.c",
+            "siumgr.c",
+            "siutx.c",
+           ],
+
+    compiler_flags: "default-speed",
+
+    def_flags: ""    
+  };
+
+  Package.files["autoCsrc"] = {
+    base_directory: "src",
+ 
+    files: ["ecuauto.c",
+            "ecuuta.c",
+            "ecumem.c"
+           ],
+
+    compiler_flags: "default-speed",
+
+    def_flags: "",
+
+    compile: false
+  };
+
+
+  /**************************************
+   *  Build time options
+   *************************************/
+  Package.args["AUTO"] = {
+    value: "auto",
+
+    action: function() {
+      Package.archiveTypeDefault = true;
+      Package.files["autoCsrc"].compile = true;
+      Package.files["commonCsrc"].compile = false;
+      Package.exeTarget["c54n"].name    = "ecuauto_int";
+      Package.exeTarget["c54f"].name    = "ecuauto_int";
+      Package.exeTarget["c55s"].name    = "ecuauto_int";
+      Package.exeTarget["c55l"].name    = "ecuauto_int";
+      Package.exeTarget["c64le"].name   = "ecuauto_int";
+      Package.exeTarget["c64be"].name   = "ecuauto_int";
+      Package.exeTarget["c64Ple"].name  = "ecuauto_int"; 
+      Package.exeTarget["c64Pbe"].name  = "ecuauto_int"; 
+      Package.exeTarget["ce64Ple"].name = "ecuauto_int"; 
+      Package.exeTarget["ce64Pbe"].name = "ecuauto_int"; 
+      Package.exeTarget["c66le"].name   = "ecuauto_int"; 
+      Package.exeTarget["c66be"].name   = "ecuauto_int"; 
+      Package.exeTarget["ce66le"].name  = "ecuauto_int"; 
+      Package.exeTarget["ce66be"].name  = "ecuauto_int"; 
+      auto_arg_found = true;
+    },
+  
+    usageComment: "      Build automation code rather than simulation"
+  };
+
+  Package.args["ECU_DLCOMP"] = {
+    value: "dlcomp",
+  
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_COMPRESS";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_COMPRESS";
+    },
+
+    usageComment: "    Enable delay line compression"
+  }
+
+  Package.args["ECU_RELOC"] = {
+    value: "reloc",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_RELOC";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_RELOC";
+    },
+    
+    usageComment: "     Enable ECU instance relocation"
+  };
+
+  Package.args["ECU_TAIL"] = {
+    value: "mseg",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_SEARCH";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_SEARCH";
+    },
+
+    usageComment: "      Multi-segment ECU"
+  };
+
+  Package.args["ECU_5P5MS"] = {
+    value: "aalfrm",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_5P5MS";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_5P5MS";
+    },
+
+    usageComment: "    Support 5.5 ms frame size for AAL1/AAL2"
+  };
+
+  Package.args["ECU_DEBUG"] = {
+    value: "ecdbg",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_DEBUG";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_DEBUG";
+    },
+
+    usageComment: "     Include ECU debug messaging"
+  };
+
+  Package.args["ECU_03DB"] = {
+    value: "loerl",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_03DB";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_03DB";
+    },
+
+    usageComment: "     Include 0/3dB ERL configuration"
+  };
+
+  Package.args["ECU_CPD"] = {
+    value: "cpdet",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_CPD";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_CPD";
+    },
+
+    usageComment: "     Include constant pcm pattern detection"
+  };
+
+  Package.args["ECU_RERL"] = {
+    value: "rerl",
+
+    action: function() {
+      Package.files["commonCsrc"].def_flags += " -dENABLE_RERL";
+      Package.files["autoCsrc"].def_flags += " -dENABLE_RERL";
+    },
+
+    usageComment: "      Include RERL estimation for RTCP-XR"
+  };
+
+  /**************************************
+   *  Archive files for delivery
+   *************************************/
+ 
+  Package.archiveFiles["src"] = {
+    delivery_type: "src",
+    
+    files: ["makefile",
+            "package.bld",
+            "test.cfg",
+            "Makedocs.mk",
+            "docs/doxygen/ecu_test.chm",
+            "src/ecusim.c", 
+            "src/ecusimfunc.c", 
+            "src/ecuprof.c",
+            "src/ecuprof.h",
+            "src/ecusimport.h", 
+            "src/ecusim.h",         
+            "src/ecmemdef.c",
+            "src/ecufio.c", 
+            "src/ecufio.h",
+            "src/ecuiram.c", 
+            "src/ecuiram.h",
+            "src/vheap.c", 
+            "src/vheap.h", 
+            "src/vctypes.h",
+            "src/cheap.c", 
+            "src/cheap.h",
+            "src/siu.c", 
+            "src/siu.h", 
+            "src/siuloc.h", 
+            "src/siuport.h",
+            "src/piu.c", 
+            "src/piu.h", 
+            "src/piuloc.h", 
+            "src/piuport.h",
+            "src/piutxrx.c",
+            "src/piuinit.c",
+            "src/piuisr.c",
+            "src/piufutil.c",
+            "src/piuexpan.c",
+            "src/siumgr.c",
+            "src/siutx.c", 
+            "vectors"
+           ]
+  };
+
+  Package.archiveFiles["src_c54"] = {
+    delivery_type: "src",
+
+    target:["c54n",
+            "c54f",
+           ],
+    
+    files: ["src/c54/ecusimport.h", 
+            "src/c54/piuport.h", 
+           ]
+  };
+  
+  Package.archiveFiles["src_c55"] = {
+    delivery_type: "src",
+
+    target:["c55l",
+            "c55s",
+           ],
+    
+    files: ["src/c55/ecusimport.h", 
+            "src/c55/piuport.h", 
+           ]
+  };
+  
+  Package.archiveFiles["src_c64"] = {
+    delivery_type: "src",
+
+    target:["c64le", 
+            "c64be", 
+            "c64Ple", 
+            "c64Pbe", 
+            "ce64Ple", 
+            "ce64Pbe", 
+            "c66le", 
+            "c66be", 
+            "ce66le", 
+            "ce66be", 
+           ],
+    
+    files: ["src/c64/ecusimport.h", 
+            "src/c64/piuport.h", 
+           ]
+  };
+  
+  Package.archiveFiles["default"] = {
+    delivery_type: "obj",
+    
+    files: ["docs/doxygen/ECU_TEST.chm",
+            "src/ecusim.c",
+            "src/ecusim.h",
+            "src/ecusimfunc.c", 
+            "vectors"
+           ]
+  };
+
+  /**************************************
+   * Executables 
+   **************************************/
+
+  Package.exeTarget["c54n"] = {
+    target: "c54n",
+    base_directory: "lnkr/c54",
+    name: "test_rel_c54",
+  };   
+
+  Package.exeTarget["c54f"] = {
+    target: "c54f",
+    base_directory: "lnkr/c54f",
+    name: "test_rel_c54f",
+  };
+  
+  Package.exeTarget["c55s"] = {
+    target: "c55s",
+    base_directory: "lnkr/c55s",
+    name: "test_rel_c55s",
+  };   
+
+  Package.exeTarget["c55l"] = {
+    target: "c55l",  
+    base_directory: "lnkr/c55l",
+    name: "test_rel_c55l", 
+  };   
+
+  Package.exeTarget["c64le"] = {
+    target: "c64le", 
+    base_directory: "lnkr/c64le",
+    name: "test_rel_c64le", 
+  };
+
+  Package.exeTarget["c64be"] = {
+    target: "c64be",
+    base_directory: "lnkr/c64be",
+    name: "test_rel_c64be",
+  };
+
+  Package.exeTarget["c64Ple"] = {
+    target: "c64Ple",   
+    base_directory: "lnkr/c64Ple",
+    name: "test_rel_c64Ple", 
+  };
+
+  Package.exeTarget["c64Pbe"] = {
+    target: "c64Pbe",   
+    base_directory: "lnkr/c64Pbe",
+    name: "test_rel_c64Pbe",  
+  };
+
+  Package.exeTarget["ce64Ple"] = {
+    target: "ce64Ple",   
+    base_directory: "lnkr/ce64Ple",
+    name: "test_rel_ce64Ple", 
+  };
+
+  Package.exeTarget["ce64Pbe"] = {
+    target: "ce64Pbe",   
+    base_directory: "lnkr/ce64Pbe",
+    name: "test_rel_ce64Pbe",  
+  };
+
+  Package.exeTarget["c66le"] = {
+    target: "c66le",
+    base_directory: "lnkr/c66le",
+    name:   "test_rel_c66le"
+  }
+
+  Package.exeTarget["c66be"] = {
+    target: "c66be",
+    base_directory: "lnkr/c66be",
+    name:   "test_rel_c66be"
+  }
+
+  Package.exeTarget["ce66le"] = {
+    target: "ce66le",
+    base_directory: "lnkr/ce66le",
+    name:   "test_rel_ce66le"
+  }
+
+  Package.exeTarget["ce66be"] = {
+    target: "ce66be",
+    base_directory: "lnkr/ce66be",
+    name:   "test_rel_ce66be"
+  }
+  
+  
+  /**********************************************************************************************
+    Routine to build automation archive
+  ***********************************************************************************************/
+  function createAutoArchive()
+  {
+    var rel_name = "ti_mas_ecu_" + Package.delivery_type;
+
+    /* Check if all the targets were build */
+    if (Package.targs.length > 1) {
+      ext = "all";
+    }
+    else {
+      var targParams = Package.getTargParams (Package.targs[0]);
+      ext = targParams.ext;  
+    }     
+
+    /* Check if the package is target independent */
+    rel_name = rel_name + "_" + ext;
+
+    /* Get version from the parent package */
+    var verModNotFound = 0;
+    try {
+	    var versionMod = xdc.module ("ti.mas.ecu.Version");
+    } 
+    catch (e) { 
+	    verModNotFound = 1;
+	    print ("The main package of the test package could not be loaded\n" + e);
+    }
+    versionString = versionMod.MAJOR+"_"+versionMod.MINOR+"_"+versionMod.PATCH+"_"+versionMod.BUILD;
+    rel_name = rel_name + "_" + versionString + "_auto";
+
+    if (Package.archiveTypeDefault == true) {
+      Package.archiveObject ();
+      Package.archiveHeaders (".",false);
+    }
+
+    /* Archive package specific files */
+    Package.archiveOtherFiles (Package.archiveFiles);  
+
+    /* Archive relnotes_archive folder*/
+    if (xdc.findFile (".\\docs\\relnotes_archive")) {
+      Package.fileArray.push ("docs/relnotes_archive");
+    }
+       
+    if (Package.delivery_type == "obj") {
+      var obj = Pkg.addRelease (rel_name,{archiver: "zip"});
+      obj.otherFiles = Package.fileArray;
+      Pkg.defaultRelease = obj;
+    }
+    else if (Package.delivery_type == "src") {
+      var src = Pkg.addRelease (rel_name, {exportSrc: true, exportCfg: true, archiver: "zip"});
+      /* Archive Common Object Release files */
+      if (Package.archiveTypeDefault == true) {
+        Package.archiveSource ();
+        Package.archiveHeaders ("src",true);
+      }
+      src.otherFiles = Package.fileArray;
+      Pkg.defaultRelease = src;
+    }
+  }  
+
+
+  /**********************************************************************************************
+    The main package.bld routine starts here 
+  ***********************************************************************************************/
+  /* Setup the targets */
+  Package.targets = [C54, 
+                     C54_far, 
+                     C55, 
+                     C55_large, 
+                     C64, 
+                     C64_big_endian, 
+                     C64P, 
+                     C64P_big_endian, 
+                     C64P_elf,
+                     C64P_big_endian_elf,
+                     C66, 
+                     C66_big_endian, 
+                     C66_elf,
+                     C66_big_endian_elf
+                    ];
+
+  /* Include custom makefile to generate doxygen documents */
+  Package.includeMake("Makedocs.mk");
+    
+  /* Parse Arguments */
+  Package.parseArgs(arguments);
+
+  /* Generate Users Manual Doxyfile */
+  var tplt = xdc.loadTemplate("./docs/doxygen/doxyfile.xdt");
+  tplt.genFile("./docs/doxygen/Doxyfile",Package);      
+
+  /* Create Executable */
+  Package.createExe (); 
+
+  /* Create Archive */ 
+  if (auto_arg_found) {
+    createAutoArchive();
+  }
+  else {
+    Package.createArchive();
+  }
+
+  /* Clean the creates docs directory during clean */
+  Package.generatedFiles.push("./temp.xml");
+  Package.generatedFiles.push("./docs/doxygen/Doxyfile");
+  Package.generatedFiles.push("./ecuauto_*");
+  Package.generatedFiles.push("./ecusim_*");
+  Package.packageClean();
+
+  /* nothing past this point */

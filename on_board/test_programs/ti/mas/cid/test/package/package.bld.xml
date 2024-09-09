@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.cid.test" version="3, 0, 0, 0" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_cid_src_c55l_2_2_1_0_test.zip.dep" src="package/rel/ti_mas_cid_src_c55l_2_2_1_0_test.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_cid_src_c55l_2_2_1_0_test"
+        pname="ti_mas_cid_src_c55l_2_2_1_0_test.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="makefile"/>
+        <file name="lnkr/c55l/test_rel_c5510_ccs.cmd"/>
+        <file name="lnkr/c55l/test_rel_c5510.xdt"/>
+        <file name="lnkr/c55l/test_rel_c5510.cmd"/>
+        <file name="lnkr/c55l/test_rel_c5510.x55L"/>
+        <file name="lnkr/c55l/test_rel_c5510.x55L.mk"/>
+        <file name="src/cidsim.c"/>
+        <file name="./package/projects"/>
+        <file name="ccsmake.mk"/>
+        <file name="ccsProjects/test_rel_c5510_C55L_COFF"/>
+        <file name="docs//doxygen//doxyfile.xdt"/>
+        <file name=".//docs//doxygen//html//../CID_TEST.chm"/>
+        <file name="package.bld"/>
+        <file name="Makedocs.mk"/>
+        <file name="docs//doxygen//doxygen.h"/>
+        <file name="docs//doxygen//Doxyfile"/>
+        <file name="test.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

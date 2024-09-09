@@ -141,11 +141,10 @@ def first_pass(lines):
 
     #Found all Reapeat Blocks so return our found labels
     return labels
+def second_pass(lines,repeat_labels):
+    labels_to_insturment = []
 
-def second_pass(lines, labels):
-    #Now that we have checked for rpt blocks we can see where we need to add insturmentation
-    #We track line numbers where these instructions are and then add them to a list to be insturmented
-    print("These are the labels: ", labels)
+    print("These are the repeat labels: ", repeat_labels)
     inRepeatBlock = False
     for index, pre_line in enumerate(lines, start = 1):
         
@@ -157,33 +156,65 @@ def second_pass(lines, labels):
         #Iterate and look for the instructions we need to add insturmentation after e.g branches and labels.
 
         #Check if any of our labels in the line if it is then note it.
-        for label in labels:
+        for label in repeat_labels:
             if label in line and not inRepeatBlock:
                 #print(line)
                 inRepeatBlock = True
                 continue
-
         #Condtional Branches, there are special cases which repeat blocks may have a BCC instruction.
         if 'BCC' in line and not inRepeatBlock:
             print(line)          
-            branch_lines.add(index)
+            # branch_lines.add(index)
+            dummy_label = _branch_helper(line)
+            if dummy_label in labels_to_insturment:
+                continue
+            labels_to_insturment.append(dummy_label)
             #branc_count+=1
+        # elif 'B' in line and not inRepeatBlock:
+        #     print(line)
+        #     dummy_label = _branch_helper(line)
+        #     if dummy_label in labels_to_insturment:
+        #         continue
+        #     labels_to_insturment.append(dummy_label)
+        
+    return labels_to_insturment
 
+
+def third_pass(lines, insturment_labels):
+    global function_lines, branch_lines
+
+    #Now that we have checked for rpt blocks we can see where we need to add insturmentation
+    #We track line numbers where these instructions are and then add them to a list to be insturmented
+    print("These are the labels: ", insturment_labels)
+    inRepeatBlock = False
+    for index, pre_line in enumerate(lines, start = 1):
+        
+
+        #Make sure the line does not contain any comments that could cause issues in parsing.
+        line_comments = pre_line.split(';')
+        line = line_comments[0]
         #Labels that begin with _ and end with : e.g _foo:
-        elif re.match("_.*:",line):
+        if re.match("_.*:",line):
             #Not going to be out of a repeat block until we see a new label
             print(line)
             if inRepeatBlock:
                 inRepeatBlock = False
             function_lines.add(index)
+            continue
             #fun_count+=1
+
+        #TODO: This may break with a repeat block may have to check logic 
+        for label in insturment_labels:   
+            if label in line and ('.dwattr' not in line):
+                print(line)
+                branch_lines.add(index)
         
         #global label to add extern reference to coverage logging function
-        elif '.global' in line:
+        if '.global' in line:
             #print(line)
             identifier_lines.add(index)
 
-def third_pass(lines):
+def forth_pass(lines):
     #This function takes the information gathered from previous passes and then adds insturmentation where it is needed.
 
     new_lines = []
@@ -196,10 +227,11 @@ def third_pass(lines):
             new_lines.append(line)
             new_lines.append(trampoline_ti[0])
         
-        #Insert trampoline before the branch instruction.
+        #Insert trampoline after the label of a branch instruction.
         elif (index) in branch_lines:
-            new_lines.append(trampoline_ti[0])
             new_lines.append(line)
+            new_lines.append(trampoline_ti[0])
+            
 
         #Only need to place the extern indentifier once.
         elif (index) in identifier_lines and not identifierPlaced:
@@ -222,9 +254,11 @@ def main():
         lines = fp.readlines()
     #for line in lines:
     #    print(line)
-    labels = first_pass(lines)
-    pre_insturment = second_pass(lines, labels)
-    insturmented_lines = third_pass(lines)
+    bad_labels = first_pass(lines)
+    good_labels = second_pass(lines, bad_labels)
+    third_pass(lines, good_labels)
+    insturmented_lines = forth_pass(lines)
+
     new_filename = 'new_' + filename
     _write_file(insturmented_lines, new_filename)
 

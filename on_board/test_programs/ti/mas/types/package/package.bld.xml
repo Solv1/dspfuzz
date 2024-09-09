@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.types" version="5, 0, 8, 1" producerId="undefined">
+    <units>
+        <module name="Version"/>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_types_obj_c55l_5_5_5_0.zip.dep" src="package/rel/ti_mas_types_obj_c55l_5_5_5_0.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_types_obj_c55l_5_5_5_0"
+        pname="ti_mas_types_obj_c55l_5_5_5_0.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="c55L/types.h"/>
+        <file name="docs//doxygen//doxyfile.xdt"/>
+        <file name=".//docs//doxygen//html//../TYPES.chm"/>
+        <file name="./types.h"/>
+        <file name="./const.h"/>
+        <file name="./types_5_5_5_0_release_notes.html"/>
+        <file name="./Version.h"/>
+        <file name="docs/relnotes_archive"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

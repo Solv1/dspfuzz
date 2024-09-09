@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.sdk" version="4, 0, 0, 0" producerId="undefined">
+    <units>
+        <module name="Version"/>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_sdk_obj_c55l_3_3_9_0.zip.dep" src="package/rel/ti_mas_sdk_obj_c55l_3_3_9_0.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_sdk_obj_c55l_3_3_9_0"
+        pname="ti_mas_sdk_obj_c55l_3_3_9_0.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="lib/sdk_cm.a55L"/>
+        <file name="lib/sdk_cm.a55L_size.txt"/>
+        <file name="lib/sdk_c.a55L"/>
+        <file name="lib/sdk_c.a55L_size.txt"/>
+        <file name="lib/sdk_a.a55L"/>
+        <file name="lib/sdk_a.a55L_size.txt"/>
+        <file name="docs//doxygen//APIDoxyfile.xdt"/>
+        <file name="docs//doxygen//html//../SDKAPI.chm"/>
+        <file name="./aep.h"/>
+        <file name="./p651.h"/>
+        <file name="./sgn.h"/>
+        <file name="./profile.h"/>
+        <file name="./memArchCfg.h"/>
+        <file name="./hyb.h"/>
+        <file name="./uta.h"/>
+        <file name="./sdk_3_3_9_0_release_notes.html"/>
+        <file name="./Version.h"/>
+        <file name="src/c55/memArchCfg.h"/>
+        <file name="src/c55/profile.h"/>
+        <file name="src/c55/emuCounters.h"/>
+        <file name="src/c55/emureg.h"/>
+        <file name="src/aeploc.h"/>
+        <file name="docs/relnotes_archive"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

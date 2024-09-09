@@ -1,0 +1,103 @@
+====================================================================
+REPORT FOR LIBRARY: lib/sdk_c.a55L
+====================================================================
+
+
+************************************************************
+REPORT FOR FILE: aep.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+                         .text :       1257  0x000004e9  CODE 
+         .const:_aepdBLinTable :         24  0x00000018  DATA 
+                     .const:_a :         10  0x0000000a  DATA 
+                        AEPSEC :       1920  0x00000780  UDATA
+           .switch:_aepControl :         36  0x00000024  DATA 
+                .const:.string :        126  0x0000007e  DATA 
+
+************************************************************
+REPORT FOR FILE: aepcoef.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+      .const:_aepFilterTemp_8K :        640  0x00000280  DATA 
+     .const:_aepFilterTemp_16K :       1280  0x00000500  DATA 
+  .const:_aepFilterTemp_8K_new :        640  0x00000280  DATA 
+ .const:_aepFilterTemp_16K_new :       1280  0x00000500  DATA 
+
+************************************************************
+REPORT FOR FILE: p651num.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+                         .text :        414  0x0000019e  CODE 
+
+************************************************************
+REPORT FOR FILE: sgn.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+                         .text :       3404  0x00000d4c  CODE 
+           .switch:_sgnControl :         40  0x00000028  DATA 
+                .const:.string :         94  0x0000005e  DATA 
+
+************************************************************
+REPORT FOR FILE: sgntab.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+     .const:_sgn_css_v_samples :        146  0x00000092  DATA 
+     .const:_sgn_dtk_v_samples :        166  0x000000a6  DATA 
+     .const:_sgn_css_n_samples :       2978  0x00000ba2  DATA 
+     .const:_sgn_dtk_n_samples :       2978  0x00000ba2  DATA 
+ .const:_sgn_css_v_samples_16k :       1556  0x00000614  DATA 
+ .const:_sgn_dtk_v_samples_16k :       2326  0x00000916  DATA 
+ .const:_sgn_css_n_samples_16k :       6400  0x00001900  DATA 
+ .const:_sgn_dtk_n_samples_16k :       6400  0x00001900  DATA 
+
+************************************************************
+REPORT FOR FILE: sgnum.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+                         .text :        203  0x000000cb  CODE 
+        .const:_sgnHNGainTable :        148  0x00000094  DATA 
+
+************************************************************
+REPORT FOR FILE: hyb.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+                         .text :       2753  0x00000ac1  CODE 
+                          .bss :         60  0x0000003c  UDATA
+                        .cinit :         66  0x00000042  DATA 
+      .switch:_hyb_add_segment :         36  0x00000024  DATA 
+
+************************************************************
+REPORT FOR FILE: hybnum.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+                         .text :        284  0x0000011c  CODE 
+
+************************************************************
+REPORT FOR FILE: hybmodels.o55L
+************************************************************
+                          Name : Size (dec)  Size (hex)  Type
+------------------------------ : ----------  ----------  ----
+             .const:_hybG168m1 :        128  0x00000080  DATA 
+             .const:_hybG168m2 :        192  0x000000c0  DATA 
+             .const:_hybG168m3 :        192  0x000000c0  DATA 
+             .const:_hybG168m4 :        256  0x00000100  DATA 
+             .const:_hybG168m5 :        192  0x000000c0  DATA 
+             .const:_hybG168m6 :        240  0x000000f0  DATA 
+             .const:_hybG168m7 :        192  0x000000c0  DATA 
+             .const:_hybG168m8 :        198  0x000000c6  DATA 
+        .const:_hybDb2LinTable :         10  0x0000000a  DATA 
+
+------------------------------------------------------------
+Totals by section type
+------------------------------------------------------------
+  Uninitialized Data :       1980  0x000007bc
+    Initialized Data :      28970  0x0000712a
+                Code :       8315  0x0000207b

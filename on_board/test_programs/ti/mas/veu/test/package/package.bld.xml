@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.veu.test" version="4, 0, 0, 0" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_veu_src_c55l_4_4_1_0_test.zip.dep" src="package/rel/ti_mas_veu_src_c55l_4_4_1_0_test.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_veu_src_c55l_4_4_1_0_test"
+        pname="ti_mas_veu_src_c55l_4_4_1_0_test.zip"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="makefile"/>
+        <file name="lnkr/c55l/test_rel_c55l_ccs.cmd"/>
+        <file name="lnkr/c55l/test_rel_c55l.xdt"/>
+        <file name="lnkr/c55l/test_rel_c55l.cmd"/>
+        <file name="lnkr/c55l/test_rel_c55l.x55L"/>
+        <file name="lnkr/c55l/test_rel_c55l.x55L.mk"/>
+        <file name="src/veusim.c"/>
+        <file name="./package/projects"/>
+        <file name="ccsmake.mk"/>
+        <file name="ccsProjects/test_rel_c55l_C55L_COFF"/>
+        <file name="docs//doxygen//doxyfile.xdt"/>
+        <file name=".//docs//doxygen//html//../VEU_TEST.chm"/>
+        <file name="vectors/inp"/>
+        <file name="vectors/refout"/>
+        <file name="vectors/out"/>
+        <file name="inp_list_file_8k.txt"/>
+        <file name="inp_list_file_16k.txt"/>
+        <file name="package.bld"/>
+        <file name="Makedocs.mk"/>
+        <file name="docs//doxygen//doxygen.h"/>
+        <file name="docs//doxygen//Doxyfile"/>
+        <file name="test.cfg"/>
+        <file name="src/veusim.h"/>
+        <file name="src/veusimport.h"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.cfg.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

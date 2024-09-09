@@ -1,0 +1,1063 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Fri Jul 05 14:12:19 2013
+
+OUTPUT FILE NAME:   <test_rel_c55l_C55L_COFF.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0001e479
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  DARAM                 00002000   0000e000  00006610  000079f0  RWIX
+  SARAM_P1              00010000   00030000  0000e5e9  00021a17  RWIX
+  SARAM_P2              00040000   00008000  000075ce  00000a32  RWIX
+  SARAM_P3              00048000   00008000  0000757c  00000a84  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.bss         0   [ 00002000 ]  00001000          *   00003288   UNINITIALIZED
+                 [ 00002000 ]  00001000          *   0000113a   ecuiram.obj (.bss)
+                 [ 00004274 ]  0000213a          *   00000c00   cheap.obj (.bss)
+                 [ 00005a74 ]  00002d3a          *   000008a1   ecusimfunc.obj (.bss)
+                 [ 00006bb6 ]  000035db          *   00000800   vheap.obj (.bss)
+                 [ 00007bb6 ]  00003ddb          *   00000001   rts55x.lib : fopen.obj (.bss)
+                 [ 00007bb8 ]  00003ddc          *   0000012b   siu.obj (.bss)
+                 [ 00007e0e ]  00003f07          *   00000001   --HOLE--
+                 [ 00007e10 ]  00003f08          *   00000119   rts55x.lib : defs.obj (.bss)
+                 [ 00008042 ]  00004021          *   000000d0              : trgdrv.obj (.bss)
+                 [ 000081e2 ]  000040f1          *   00000001   --HOLE--
+                 [ 000081e4 ]  000040f2          *   00000071              : lowlev.obj (.bss)
+                 [ 000082c6 ]  00004163          *   00000001   --HOLE--
+                 [ 000082c8 ]  00004164          *   00000066   ecu_c.a55L : ecuinit.o55L (.bss)
+                 [ 00008394 ]  000041ca          *   0000004a   ecusim.obj (.bss)
+                 [ 00008428 ]  00004214          *   0000001e   sdk_c.a55L : hyb.o55L (.bss)
+                 [ 00008464 ]  00004232          *   0000001a   ecmemdef.obj (.bss)
+                 [ 00008498 ]  0000424c          *   00000018   piuinit.obj (.bss)
+                 [ 000084c8 ]  00004264          *   0000000c   piu.obj (.bss)
+                 [ 000084e0 ]  00004270          *   0000000a   ecuprof.obj (.bss)
+                 [ 000084f4 ]  0000427a          *   00000006   rts55x.lib : memory.obj (.bss)
+                 [ 00008500 ]  00004280          *   00000004              : _lock.obj (.bss)
+                 [ 00008508 ]  00004284          *   00000004              : exit.obj (.bss)
+
+.data        0   [ 00002000 ]  00001000          *   00000000   UNINITIALIZED
+
+vectors      0     00008510  [ 00004288 ] 00000100          *   
+                   00008510  [ 00004288 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.text        0     00010000  [ 00008000 ] 0000e5e9          *   
+                   00010000  [ 00008000 ] 000017fd          *   ecu_c.a55L : ecufg.o55L (.text)
+                   000117fd  [ 00008bfe+] 000015a4          *   rts55x.lib : _printfi.obj (.text)
+                   00012da1  [ 000096d0+] 0000106e          *   ecusimfunc.obj (.text)
+                   00013e0f  [ 00009f07+] 00000d6b          *   ecu_c.a55L : ecu.o55L (.text)
+                   00014b7a  [ 0000a5bd ] 00000d4c          *   sdk_c.a55L : sgn.o55L (.text)
+                   000158c6  [ 0000ac63 ] 00000b35          *   ecu_c.a55L : ecusrch.o55L (.text)
+                   000163fb  [ 0000b1fd+] 00000b24          *              : ecubg.o55L (.text)
+                   00016f1f  [ 0000b78f+] 00000ac1          *   sdk_c.a55L : hyb.o55L (.text)
+                   000179e0  [ 0000bcf0 ] 00000934          *   ecusim.obj (.text)
+                   00018314  [ 0000c18a ] 00000605          *   piutxrx.obj (.text)
+                   00018919  [ 0000c48c+] 000005e3          *   ecu_c.a55L : ecuinit.o55L (.text)
+                   00018efc  [ 0000c77e ] 00000587          *   piu.obj (.text)
+                   00019483  [ 0000ca41+] 00000543          *   rts55x.lib : lowlev.obj (.text)
+                   000199c6  [ 0000cce3 ] 00000528          *              : trgdrv.obj (.text)
+                   00019eee  [ 0000cf77 ] 000004b5          *              : memory.obj (.text)
+                   0001a3a3  [ 0000d1d1+] 000003cc          *              : divd.obj (.text)
+                   0001a76f  [ 0000d3b7+] 00000381          *   util_c.a55L : pkt.o55L (.text)
+                   0001aaf0  [ 0000d578 ] 0000037e          *   ecufio.obj (.text)
+                   0001ae6e  [ 0000d737 ] 000002e4          *   ecu_a.a55L : eculms.o55L (.text)
+                   0001b152  [ 0000d8a9 ] 00000299          *   siu.obj (.text)
+                   0001b3eb  [ 0000d9f5+] 0000028c          *   siumgr.obj (.text)
+                   0001b677  [ 0000db3b+] 0000027f          *   rts55x.lib : fopen.obj (.text)
+                   0001b8f6  [ 0000dc7b ] 0000025e          *              : llmpy.obj (.text)
+                   0001bb54  [ 0000ddaa ] 0000025a          *              : addd.obj (.text)
+                   0001bdae  [ 0000ded7 ] 000001ee          *              : fwrite.obj (.text)
+                   0001bf9c  [ 0000dfce ] 000001ea          *              : cmpd.obj (.text)
+                   0001c186  [ 0000e0c3 ] 000001da          *   ecuprof.obj (.text)
+                   0001c360  [ 0000e1b0 ] 000001be          *   piuinit.obj (.text)
+                   0001c51e  [ 0000e28f ] 000001be          *   piuisr.obj (.text)
+                   0001c6dc  [ 0000e36e ] 000001a5          *   piufutil.obj (.text)
+                   0001c881  [ 0000e440+] 0000018e          *   ecu_c.a55L : ecudline.o55L (.text)
+                   0001ca0f  [ 0000e507+] 00000165          *   ecu_a.a55L : ecunum.o55L (.text)
+                   0001cb74  [ 0000e5ba ] 00000163          *   rts55x.lib : fputs.obj (.text)
+                   0001ccd7  [ 0000e66b+] 0000014c          *              : mpyd.obj (.text)
+                   0001ce23  [ 0000e711+] 0000011c          *   sdk_c.a55L : hybnum.o55L (.text)
+                   0001cf3f  [ 0000e79f+] 0000010f          *   rts55x.lib : fread.obj (.text)
+                   0001d04e  [ 0000e827 ] 000000f9          *   siutx.obj (.text)
+                   0001d147  [ 0000e8a3+] 000000e6          *   rts55x.lib : setvbuf.obj (.text)
+                   0001d22d  [ 0000e916+] 000000dd          *              : _io_perm.obj (.text)
+                   0001d30a  [ 0000e985 ] 000000d8          *   ecu_a.a55L : ecudlnum.o55L (.text)
+                   0001d3e2  [ 0000e9f1 ] 000000cb          *   sdk_c.a55L : sgnum.o55L (.text)
+                   0001d4ad  [ 0000ea56+] 000000c7          *   util_a.a55L : muacomp.o55L (.text)
+                   0001d574  [ 0000eaba ] 000000c2          *   mhm_c.a55L : mhm.o55L (.text)
+                   0001d636  [ 0000eb1b ] 000000c2          *   rts55x.lib : fflush.obj (.text)
+                   0001d6f8  [ 0000eb7c ] 000000ba          *              : trgmsg.obj (.text:CIO_breakpoint)
+                   0001d7b2  [ 0000ebd9 ] 000000ae          *              : _bufread.obj (.text)
+                   0001d860  [ 0000ec30 ] 000000ab          *   ecu_a.a55L : ecuerm.o55L (.text)
+                   0001d90b  [ 0000ec85+] 000000a6          *   rts55x.lib : fputc.obj (.text)
+                   0001d9b1  [ 0000ecd8+] 000000a1          *              : divul.obj (.text)
+                   0001da52  [ 0000ed29 ] 00000096          *   util_a.a55L : utilnum.o55L (.text)
+                   0001dae8  [ 0000ed74 ] 0000007d          *   rts55x.lib : ltoa.obj (.text)
+                   0001db65  [ 0000edb2+] 0000007b          *              : fclose.obj (.text)
+                   0001dbe0  [ 0000edf0 ] 00000076          *              : frcmpyd.obj (.text)
+                   0001dc56  [ 0000ee2b ] 00000073          *              : frcmpyd_div.obj (.text)
+                   0001dcc9  [ 0000ee64+] 00000072          *              : remul.obj (.text)
+                   0001dd3b  [ 0000ee9d+] 0000006f          *              : fixdli.obj (.text)
+                   0001ddaa  [ 0000eed5 ] 0000006d          *   piuexpan.obj (.text)
+                   0001de17  [ 0000ef0b+] 0000006d          *   rts55x.lib : trgmsg.obj (.text)
+                   0001de84  [ 0000ef42 ] 0000006b          *              : fseek.obj (.text)
+                   0001deef  [ 0000ef77+] 0000006a          *   util_c.a55L : wng.o55L (.text)
+                   0001df59  [ 0000efac+] 00000067          *   rts55x.lib : fltlid.obj (.text)
+                   0001dfc0  [ 0000efe0 ] 0000005d          *   ecu_a.a55L : ecusnum.o55L (.text)
+                   0001e01d  [ 0000f00e+] 0000005c          *   rts55x.lib : atoi.obj (.text)
+                   0001e079  [ 0000f03c+] 00000055          *   ecu_a.a55L : ecupnk.o55L (.text)
+                   0001e0ce  [ 0000f067 ] 00000055          *   util_a.a55L : utillin2db.o55L (.text)
+                   0001e123  [ 0000f091+] 00000050          *   rts55x.lib : printf.obj (.text)
+                   0001e173  [ 0000f0b9+] 0000004f          *   util_c.a55L : util.o55L (.text)
+                   0001e1c2  [ 0000f0e1 ] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   0001e20f  [ 0000f107+] 0000004b          *              : args_main.obj (.text)
+                   0001e25a  [ 0000f12d ] 0000004b          *              : remli.obj (.text)
+                   0001e2a5  [ 0000f152+] 0000004a          *              : fprintf.obj (.text)
+                   0001e2ef  [ 0000f177+] 00000048          *              : divli.obj (.text)
+                   0001e337  [ 0000f19b+] 00000048          *   util_a.a55L : wngnum.o55L (.text)
+                   0001e37f  [ 0000f1bf+] 00000041          *               : utildb2lin.o55L (.text)
+                   0001e3c0  [ 0000f1e0 ] 0000003f          *   rts55x.lib : memcpy.obj (.text)
+                   0001e3ff  [ 0000f1ff+] 0000003e          *              : exit.obj (.text)
+                   0001e43d  [ 0000f21e+] 0000003c          *              : idiv.obj (.text)
+                   0001e479  [ 0000f23c+] 00000034          *              : boot.obj (.text)
+                   0001e4ad  [ 0000f256+] 0000002a          *              : fixdi.obj (.text)
+                   0001e4d7  [ 0000f26b+] 0000002a          *              : udiv.obj (.text)
+                   0001e501  [ 0000f280+] 00000029          *              : strcat.obj (.text)
+                   0001e52a  [ 0000f295 ] 00000023          *              : memccpy.obj (.text)
+                   0001e54d  [ 0000f2a6+] 0000001a          *              : isinf.obj (.text)
+                   0001e567  [ 0000f2b3+] 00000014          *              : strcpy.obj (.text)
+                   0001e57b  [ 0000f2bd+] 00000014          *              : subd.obj (.text)
+                   0001e58f  [ 0000f2c7+] 00000013          *              : lmpy.obj (.text)
+                   0001e5a2  [ 0000f2d1 ] 00000012          *              : _lock.obj (.text)
+                   0001e5b4  [ 0000f2da ] 00000011          *              : memset.obj (.text)
+                   0001e5c5  [ 0000f2e2+] 00000010          *              : negd.obj (.text)
+                   0001e5d5  [ 0000f2ea+] 0000000a          *              : remove.obj (.text)
+                   0001e5df  [ 0000f2ef+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   0001e5e6  [ 0000f2f3 ] 00000002          *              : vectors.obj (.text)
+                   0001e5e8  [ 0000f2f4 ] 00000001          *   --HOLE-- [fill = 20]
+
+.sysmem      0   [ 00040000 ]  00020000          *   00002000   UNINITIALIZED
+                 [ 00040000 ]  00020000          *   00002000   --HOLE--
+
+.stack       0   [ 00044000 ]  00022000          *   00001000   UNINITIALIZED
+                 [ 00044000 ]  00022000          *   00001000   --HOLE--
+
+.sysstack 
+*            0   [ 00046000 ]  00023000          *   00000800   UNINITIALIZED
+                 [ 00046000 ]  00023000          *   00000800   --HOLE--
+
+.cinit       0   [ 00047000 ]  00023800          *   0000017b   
+                 [ 00047000 ]  00023800          *   00000069   ecu_c.a55L : ecuinit.o55L (.cinit)
+                 [ 000470d2 ]  00023869          *   0000002d   rts55x.lib : lowlev.obj (.cinit)
+                 [ 0004712c ]  00023896          *   0000002a              : defs.obj (.cinit)
+                 [ 00047180 ]  000238c0          *   00000027   ecusimfunc.obj (.cinit)
+                 [ 000471ce ]  000238e7          *   00000021   sdk_c.a55L : hyb.o55L (.cinit)
+                 [ 00047210 ]  00023908          *   0000001d   ecmemdef.obj (.cinit)
+                 [ 0004724a ]  00023925          *   0000001b   piuinit.obj (.cinit)
+                 [ 00047280 ]  00023940          *   00000011   ecuiram.obj (.cinit)
+                 [ 000472a2 ]  00023951          *   0000000d   ecuprof.obj (.cinit)
+                 [ 000472bc ]  0002395e          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 000472d0 ]  00023968          *   0000000a              : exit.obj (.cinit)
+                 [ 000472e4 ]  00023972          *   00000004              : fopen.obj (.cinit)
+                 [ 000472ec ]  00023976          *   00000004              : memory.obj (.cinit)
+                 [ 000472f4 ]  0002397a          *   00000001   --HOLE-- [fill = 0]
+
+.cio         0   [ 000472f8 ]  0002397c          *   00000120   UNINITIALIZED
+                 [ 000472f8 ]  0002397c          *   00000120   rts55x.lib : trgmsg.obj (.cio)
+
+.switch      0   [ 00047538 ]  00023a9c          *   0000004c   
+                 [ 00047538 ]  00023a9c          *   00000016   piu.obj (.switch:_piuControl)
+                 [ 00047564 ]  00023ab2          *   00000014   sdk_c.a55L : sgn.o55L (.switch:_sgnControl)
+                 [ 0004758c ]  00023ac6          *   00000012              : hyb.o55L (.switch:_hyb_add_segment)
+                 [ 000475b0 ]  00023ad8          *   00000010   ecu_c.a55L : ecu.o55L (.switch:_ecuControl)
+
+.const       0   [ 00048000 ]  00024000          *   00003abe   
+                 [ 00048000 ]  00024000          *   00000c80   sdk_c.a55L : sgntab.o55L (.const:_sgn_css_n_samples_16k)
+                 [ 00049900 ]  00024c80          *   00000c80              : sgntab.o55L (.const:_sgn_dtk_n_samples_16k)
+                 [ 0004b200 ]  00025900          *   000005d1              : sgntab.o55L (.const:_sgn_css_n_samples)
+                 [ 0004bda2 ]  00025ed1          *   000005d1              : sgntab.o55L (.const:_sgn_dtk_n_samples)
+                 [ 0004c944 ]  000264a2          *   0000048b              : sgntab.o55L (.const:_sgn_dtk_v_samples_16k)
+                 [ 0004d25a ]  0002692d          *   0000030a              : sgntab.o55L (.const:_sgn_css_v_samples_16k)
+                 [ 0004d86e ]  00026c37          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004d870 ]  00026c38          *   0000026f   ecusim.obj (.const:.string)
+                 [ 0004dd4e ]  00026ea7          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004dd50 ]  00026ea8          *   000001f7   ecusimfunc.obj (.const:.string)
+                 [ 0004e13e ]  0002709f          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004e140 ]  000270a0          *   00000138   siumgr.obj (.const:.string)
+                 [ 0004e3b0 ]  000271d8          *   00000101   rts55x.lib : ctype.obj (.const:__ctypes_)
+                 [ 0004e5b2 ]  000272d9          *   00000100   util_c.a55L : muatbl.o55L (.const:_muaTblAlaw)
+                 [ 0004e7b2 ]  000273d9          *   00000100               : muatbl.o55L (.const:_muaTblUlaw)
+                 [ 0004e9b2 ]  000274d9          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004e9b4 ]  000274da          *   000000aa   ecufio.obj (.const:.string)
+                 [ 0004eb08 ]  00027584          *   00000080   sdk_c.a55L : hybmodels.o55L (.const:_hybG168m4)
+                 [ 0004ec08 ]  00027604          *   00000078              : hybmodels.o55L (.const:_hybG168m6)
+                 [ 0004ecf8 ]  0002767c          *   00000073   ecuprof.obj (.const:.string)
+                 [ 0004edde ]  000276ef          *   00000063   sdk_c.a55L : hybmodels.o55L (.const:_hybG168m8)
+                 [ 0004eea4 ]  00027752          *   00000060              : hybmodels.o55L (.const:_hybG168m2)
+                 [ 0004ef64 ]  000277b2          *   00000060              : hybmodels.o55L (.const:_hybG168m3)
+                 [ 0004f024 ]  00027812          *   00000060              : hybmodels.o55L (.const:_hybG168m5)
+                 [ 0004f0e4 ]  00027872          *   00000060              : hybmodels.o55L (.const:_hybG168m7)
+                 [ 0004f1a4 ]  000278d2          *   00000053              : sgntab.o55L (.const:_sgn_dtk_v_samples)
+                 [ 0004f24a ]  00027925          *   0000004a              : sgnum.o55L (.const:_sgnHNGainTable)
+                 [ 0004f2de ]  0002796f          *   00000049              : sgntab.o55L (.const:_sgn_css_v_samples)
+                 [ 0004f370 ]  000279b8          *   00000040              : hybmodels.o55L (.const:_hybG168m1)
+                 [ 0004f3f0 ]  000279f8          *   0000002f              : sgn.o55L (.const:.string)
+                 [ 0004f44e ]  00027a27          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004f450 ]  00027a28          *   00000024   rts55x.lib : _printfi.obj (.const:.string)
+                 [ 0004f498 ]  00027a4c          *   00000022   ecu_c.a55L : ecufg.o55L (.const:_ecuPNGainTable)
+                 [ 0004f4dc ]  00027a6e          *   0000000d   siu.obj (.const:.string)
+                 [ 0004f4f6 ]  00027a7b          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004f4f8 ]  00027a7c          *   0000000c   rts55x.lib : _printfi.obj (.const)
+                 [ 0004f510 ]  00027a88          *   00000008              : divd.obj (.const:_initial_approx$1)
+                 [ 0004f520 ]  00027a90          *   00000008   util_a.a55L : utilnum.o55L (.const)
+                 [ 0004f530 ]  00027a98          *   00000007   ecu_c.a55L : ecufg.o55L (.const:_ecuNlpMixENTable)
+                 [ 0004f53e ]  00027a9f          *   00000007              : ecufg.o55L (.const:_ecuNlpMixWPTable)
+                 [ 0004f54c ]  00027aa6          *   00000006   util_c.a55L : wng.o55L (.const:_wngNoiseTable)
+                 [ 0004f558 ]  00027aac          *   00000005   sdk_c.a55L : hybmodels.o55L (.const:_hybDb2LinTable)
+                 [ 0004f562 ]  00027ab1          *   00000004   util_a.a55L : utildb2lin.o55L (.const)
+                 [ 0004f56a ]  00027ab5          *   00000004               : utillin2db.o55L (.const)
+                 [ 0004f572 ]  00027ab9          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004f574 ]  00027aba          *   00000002   rts55x.lib : fputs.obj (.const:.string)
+                 [ 0004f578 ]  00027abc          *   00000002              : fltlid.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00001000    .bss
+            00001000    .data
+00010000                .text
+0001e5e0                C$$EXIT
+0001d7ad                C$$IO$$
+0001e43d                I$$DIV
+0001e58f                I$$LMPY
+0001e45c                I$$MOD
+0001e4d7                I$$UDIV
+0001e4ec                I$$UMOD
+00019e90                _HOSTclock
+00019e25                _HOSTclose
+00019d70                _HOSTlseek
+00019cd1                _HOSTopen
+00019c44                _HOSTread
+00019b96                _HOSTrename
+00019b38                _HOSTtime
+00019ace                _HOSTunlink
+00019a41                _HOSTwrite
+00008510                _Reset
+0001ddaa                _UAExpand
+0000b505                _WNG_COEF
+            0002397c    __CIOBUF_
+            00023000    __STACK_END
+00002000                __STACK_SIZE
+00004000                __SYSMEM_SIZE
+00001000                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00001000    ___bss__
+ffffffff                ___c_args__
+            00023800    ___cinit__
+            00001000    ___data__
+            00001000    ___edata__
+            00004288    ___end__
+0001e5e9                ___etext__
+0001e54d                ___isinf
+ffffffff                ___pinit__
+00010000                ___text__
+0001bb54                __addd
+0001e20f                __args_main
+0001d7b2                __buff_read
+0001b798                __cleanup
+            00004284    __cleanup_ptr
+0001c12e                __cmpd
+            000271d8    __ctypes_
+0001a3a3                __divd
+0001e43d                __divi
+0001e2ef                __divli
+0001bb1f                __divlli
+0001e4d7                __divu
+0001d9b1                __divul
+0001ba2b                __divull
+0001d636                __doflush
+            00004286    __dtors_ptr
+0001c0fa                __eqld
+0001e4ad                __fixdi
+0001dd3b                __fixdli
+0001df59                __fltlid
+0001dbe0                __frcmpyd
+0001dc56                __frcmpyd_div
+            00004020    __ft_end
+            00003f08    __ftable
+0001c0b0                __geqd
+0001c065                __gtrd
+0001c018                __leqd
+            00004280    __lock
+0001bfd0                __lssd
+0001ccd7                __mpyd
+0001e58f                __mpyli
+0001b973                __mpylli
+0001e5c5                __negd
+0001bf9c                __neqd
+0001e5b2                __nop
+00012b5f                __printfi
+0001d2ad                __rd_ok
+0001e5aa                __register_lock
+0001e5a2                __register_unlock
+0001e45c                __remi
+0001e25a                __remli
+0001b944                __remlli
+0001e4ec                __remu
+0001dcc9                __remul
+0001b8f6                __remull
+            00022000    __stack
+0001e57b                __subd
+            00020000    __sys_memory
+            00023000    __sysstack
+            00003f80    __tmpnams
+            00004282    __unlock
+0001d22d                __wrt_ok
+0001e5df                _abort
+000198d6                _add_device
+0001e01d                _atoi
+0001e1c2                _auto_init
+0001e479                _c_int00
+0001a37d                _calloc
+0001a375                _chkheap
+00019863                _close
+00012f51                _convert_tx_tone_frame
+00018997                _ecoAssignBufs
+000189d0                _ecoGetBufs
+            00004164    _ecuBufs
+0001408d                _ecuCalcReceiveInLength
+00014b61                _ecuClose
+            00004232    _ecuContext
+000148d8                _ecuControl
+000148a5                _ecuDelete
+0001473a                _ecuGetFilter
+000146bd                _ecuGetPerformance
+00018d7e                _ecuGetSizes
+0001cac8                _ecuLintoCirc
+00018a72                _ecuNew
+            00027a98    _ecuNlpMixENTable
+            00027a9f    _ecuNlpMixWPTable
+00014115                _ecuOpen
+            00027a4c    _ecuPNGainTable
+            00004270    _ecuProfile
+000117fb                _ecuReceiveIn
+000189f0                _ecuRelocate
+00011641                _ecuSendIn
+            00003498    _ecuSim
+00016c78                _ecu_adaptive_filter
+0001895e                _ecu_assign_derived_bufs
+            00001f04    _ecu_bg_e
+            00001f2c    _ecu_bg_filter
+            00001b04    _ecu_bg_work
+0001ca0f                _ecu_calc_p20
+00013e1f                _ecu_change_state
+00016c2a                _ecu_check_xtone
+000168be                _ecu_cnvg_fsm
+0001cb40                _ecu_count_zerox
+0001c95d                _ecu_dline_expand
+0001d33b                _ecu_dline_expand_seg
+0001c91b                _ecu_dline_find_seg
+00010476                _ecu_doubletalk_update
+            0000202c    _ecu_fg_filter
+0001ae6e                _ecu_filter_update
+0001ca30                _ecu_find_px_max
+00018919                _ecu_get_buf_offsets
+0001ca55                _ecu_get_power
+0001ca80                _ecu_get_x_stats
+000179f2                _ecu_halt
+00010b43                _ecu_loss_est
+00010a6e                _ecu_loss_fsm
+00010db1                _ecu_nlp
+0001cb1b                _ecu_nlp_get_mixgain
+00010c45                _ecu_nlp_mixdBmin_adjust
+0001caf3                _ecu_nlp_mixing
+00010951                _ecu_opnlp_fsm
+0001d30a                _ecu_pack_to_dline
+            00001000    _ecu_pcm_expand
+00010d62                _ecu_png_genframe
+0001020e                _ecu_png_getgain
+0001e079                _ecu_pnk_filter
+0001103f                _ecu_post_update_request
+000115dc                _ecu_process_frame
+00011074                _ecu_process_segment
+0001d860                _ecu_remove_echo
+00013e0f                _ecu_report_mag_event
+00013e48                _ecu_reset_filter
+00015d46                _ecu_search_calc_sumsqu
+00015cb3                _ecu_search_conv_fsm
+0001dffb                _ecu_search_demean
+000161cc                _ecu_search_edge_detect
+0001622c                _ecu_search_edge_place
+000162a6                _ecu_search_edplace_fsm
+00015dd2                _ecu_search_find_segs
+00015eff                _ecu_search_fsm
+00015c06                _ecu_search_init
+00015ada                _ecu_search_smooth_segs
+000158c6                _ecu_search_update_segs
+000130b6                _ecu_send_out
+0001aba1                _ecu_sim_fileio_end
+0001aaf0                _ecu_sim_fileio_init
+0001abf1                _ecu_sim_fread
+0001ad5a                _ecu_sim_fwrite
+0001ac91                _ecu_sim_get_linear
+0001ac4c                _ecu_sim_get_xlaw
+00013945                _ecu_sim_init
+0001ad0f                _ecu_sim_input
+0001adcc                _ecu_sim_output
+0001acd0                _ecu_sim_put_linear
+            00001704    _ecu_srch_filter
+0001dfc0                _ecu_sum_of_squares
+000163fb                _ecu_swap_bg_fg_filters
+0001651e                _ecu_track_fsm
+0001c881                _ecu_update_dline_bitfield
+00010000                _ecu_update_noise
+00010238                _ecu_update_power
+0001c2e1                _ecusim_profile_close
+0001c260                _ecusim_profile_init
+0001c321                _ecusim_profile_print
+0001c205                _ecusim_profile_start
+0001c226                _ecusim_profile_stop
+0001e3ff                _exit
+0001db65                _fclose
+0001d69f                _fflush
+0001985a                _find_registered_device
+0001b8bb                _fopen
+0001e2a5                _fprintf
+0001d90b                _fputc
+0001cb74                _fputs
+0001cf3f                _fread
+00019eee                _free
+0001a31f                _free_memory
+0001b7f2                _freopen
+0001de84                _fseek
+0001bdae                _fwrite
+            00003021    _gelFlag
+00013000                _generate_rx_tone_frame
+00012f39                _generate_tx_tone_frame
+000199c6                _getenv
+000178c2                _hybAddEcho
+            00004214    _hybBufs
+0001783a                _hybControl
+            00027aac    _hybDb2LinTable
+000177f9                _hybDelete
+            000279b8    _hybG168m1
+            00027752    _hybG168m2
+            000277b2    _hybG168m3
+            00027584    _hybG168m4
+            00027812    _hybG168m5
+            00027604    _hybG168m6
+            00027872    _hybG168m7
+            000276ef    _hybG168m8
+000177bd                _hybGetSizes
+000176e5                _hybNew
+00017636                _hybOpen
+            00002f1e    _hybTxInst
+            00002f20    _hybUserFilter
+0001ce23                _hyb_add_echo
+00017448                _hyb_add_segment
+00017427                _hyb_calc_receive_in_length
+0001740c                _hyb_clear_filter
+00016ff6                _hyb_db2lin
+00017013                _hyb_process_addseg
+00016f86                _hyb_seg_norm
+00016f1f                _hyb_seg_scale
+            0000212c    _iramSeg
+000197f4                _lseek
+0001dae8                _ltoa
+00017a0a                _main
+0001a01f                _malloc
+0001a2c5                _max_free
+0001e52a                _memccpy
+0001e3c0                _memcpy
+0001e5b4                _memset
+0001d5ea                _mhmAlloc
+0001d576                _mhmCreate
+0001d574                _mhmFree
+00019fba                _minit
+            000272d9    _muaTblAlaw
+0001d523                _muaTblAlawCmpr
+            000273d9    _muaTblUlaw
+0001d4ad                _muaTblUlawCmpr
+00019735                _open
+00019164                _piuBidSilenceDetect
+00019152                _piuClose
+            00004264    _piuContext
+00019367                _piuControl
+0001932e                _piuDcOffsetRemoval
+00018f1d                _piuDelete
+0001c360                _piuGetSizes
+0001c3c5                _piuNew
+00018ff5                _piuOpen
+0001921f                _piuPatternDetect
+00019277                _piuPatternGeneration
+000186fb                _piuReceiveIn
+0001c537                _piuReceiveOut
+0001c652                _piuSendIn
+00018fac                _piuSetCompanding
+000187a3                _piuTxRxProc
+000184e4                _piu_bid_silence_detect
+            000014a0    _piu_ecu_receive
+00018efc                _piu_exception
+0001c7cd                _piu_frame_DClevel
+0001c74b                _piu_frame_energy
+0001844d                _piu_get_stats
+000192b9                _piu_loopback_config
+000183a4                _piu_pcm_companding
+0001834d                _piu_pcm_compressing
+00018592                _piu_pcm_pattern_detect
+0001867a                _piu_pcm_pattern_generate
+0001c821                _piu_remove_dc_component
+00018f47                _piu_reset_receive_in_buf
+            000041ca    _piu_segment_in
+            000041cc    _piu_segment_out
+000183f1                _piu_update_buf_ptr
+0001aa48                _pktAND16bits
+0001a9a0                _pktOR16bits
+0001a951                _pktPackBytesIntoWords
+0001a942                _pktPackWordToTuint
+0001a901                _pktRead16bits
+0001a920                _pktRead32bits
+0001a8ed                _pktRead8bits
+0001a8c3                _pktReadnbits
+0001a828                _pktRepackWordsIntoWords
+0001a7df                _pktUnpackWordsIntoBytes
+0001a79b                _pktWrite16bits
+0001a7b8                _pktWrite32bits
+0001a76f                _pktWrite8bits
+0001e123                _printf
+0001d90b                _putc
+0001d9a2                _putchar
+0001cca9                _puts
+00019687                _read
+0001de17                _readmsg
+0001a114                _realloc
+0001e5d5                _remove
+00019651                _remove_device
+000195f8                _rename
+            0000349a    _rinBuffer
+            0000353a    _routBuffer
+            000041d2    _rx_frame_in
+            000041d0    _rx_segment_out
+            000041ce    _segment_in
+0001d147                _setvbuf
+000156dd                _sgnControl
+00015033                _sgnGenerateFrame
+00015024                _sgnGetSizes
+            00027925    _sgnHNGainTable
+00014cda                _sgnInit
+            00002f1c    _sgnRxInst
+            00002f1a    _sgnTxInst
+00014b7a                _sgn_css_gen_samples
+            00025900    _sgn_css_n_samples
+            00024000    _sgn_css_n_samples_16k
+            0002796f    _sgn_css_v_samples
+            0002692d    _sgn_css_v_samples_16k
+            00025ed1    _sgn_dtk_n_samples
+            00024c80    _sgn_dtk_n_samples_16k
+            000278d2    _sgn_dtk_v_samples
+            000264a2    _sgn_dtk_v_samples_16k
+0001d3e2                _sgn_hoth_gen_samples
+            000034ea    _sinBuffer
+            00003ddc    _siuContext
+0001b1fa                _siuDebug
+0001b21a                _siuDebugInfo
+00013d7b                _siuDebugInfoNew
+0001b20b                _siuException
+            00002dda    _siuInACmpStream
+            00002d3a    _siuInStream
+            00002d8a    _siuInUCmpStream
+0001b273                _siuInit
+            00003dea    _siuInst
+            00002eca    _siuOutErrStream
+            00002e7a    _siuOutStream
+00013dda                _siuPcmSampleTrace
+00013dc8                _siuPiuReport
+            00002e2a    _siuRxInStream
+            0000302a    _siuSetup
+0001d0aa                _siuTxMain
+0001d0c3                _siuTxOpen
+00013de9                _siuTxRxSendIn
+0001d114                _siuTxSendIn
+00013d6c                _siuUpdateECUPowers
+            0000213a    _siu_core_heap
+            00003e06    _siu_dbg_id
+            00003e07    _siu_dbg_message
+            000041d4    _siu_getflt
+00013102                _siu_new_ecu
+0001b3fd                _siu_new_piu
+000133c9                _siu_open_ecu
+0001b596                _siu_open_piu
+000135e0                _siu_open_rxsgn
+0001b631                _siu_open_tx
+00013479                _siu_open_txhyb
+0001370b                _siu_open_txsgn
+            000035da    _siu_piu_report_code
+00012f2a                _siu_rx_file
+00013836                _siu_set_sgn
+00012f1b                _siu_tx_file
+            000035db    _siu_voice_heap
+            0000358a    _soutBuffer
+0001e501                _strcat
+0001e567                _strcpy
+000195c5                _unlink
+0001e1b4                _utlFractMemSet
+0001e1a5                _utlLFractMemSet
+0001da97                _utlLFractVecMax
+0001da78                _utlLVecSum
+0001e0ce                _utlLin2dBPower
+0001e197                _utlLsMemSet
+0001dab1                _utlLsVecMax
+0001e185                _utlScaleDown6dB
+0001e173                _utlScaleUp6dB
+0001da52                _utlSin
+0001dac9                _utlVecSum
+            00027a90    _utl_SinCTable
+0001e37f                _utldB2LinPower
+            00003020    _v21_flags
+0001e337                _wngGenNoiseFrame
+0001e369                _wngGenNoiseSample
+0001deef                _wngInit
+            00027aa6    _wngNoiseTable
+00019483                _write
+0001d6f8                _writemsg
+ffffffff                binit
+            00023800    cinit
+            00001000    edata
+            00004288    end
+0001e5e9                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00001000                __SYSSTACK_SIZE
+            00001000    .bss
+            00001000    .data
+00002000                __STACK_SIZE
+            00001000    ___bss__
+            00001000    ___data__
+            00001000    ___edata__
+            00001000    _ecu_pcm_expand
+            00001000    edata
+            000014a0    _piu_ecu_receive
+            00001704    _ecu_srch_filter
+            00001b04    _ecu_bg_work
+            00001f04    _ecu_bg_e
+            00001f2c    _ecu_bg_filter
+00004000                __SYSMEM_SIZE
+            0000202c    _ecu_fg_filter
+            0000212c    _iramSeg
+            0000213a    _siu_core_heap
+            00002d3a    _siuInStream
+            00002d8a    _siuInUCmpStream
+            00002dda    _siuInACmpStream
+            00002e2a    _siuRxInStream
+            00002e7a    _siuOutStream
+            00002eca    _siuOutErrStream
+            00002f1a    _sgnTxInst
+            00002f1c    _sgnRxInst
+            00002f1e    _hybTxInst
+            00002f20    _hybUserFilter
+            00003020    _v21_flags
+            00003021    _gelFlag
+            0000302a    _siuSetup
+            00003498    _ecuSim
+            0000349a    _rinBuffer
+            000034ea    _sinBuffer
+            0000353a    _routBuffer
+            0000358a    _soutBuffer
+            000035da    _siu_piu_report_code
+            000035db    _siu_voice_heap
+            00003ddc    _siuContext
+            00003dea    _siuInst
+            00003e06    _siu_dbg_id
+            00003e07    _siu_dbg_message
+            00003f08    __ftable
+            00003f80    __tmpnams
+            00004020    __ft_end
+            00004164    _ecuBufs
+            000041ca    _piu_segment_in
+            000041cc    _piu_segment_out
+            000041ce    _segment_in
+            000041d0    _rx_segment_out
+            000041d2    _rx_frame_in
+            000041d4    _siu_getflt
+            00004214    _hybBufs
+            00004232    _ecuContext
+            00004264    _piuContext
+            00004270    _ecuProfile
+            00004280    __lock
+            00004282    __unlock
+            00004284    __cleanup_ptr
+            00004286    __dtors_ptr
+00008510                _Reset
+            00004288    ___end__
+            00004288    end
+0000b505                _WNG_COEF
+00010000                .text
+00010000                ___text__
+00010000                _ecu_update_noise
+0001020e                _ecu_png_getgain
+00010238                _ecu_update_power
+00010476                _ecu_doubletalk_update
+00010951                _ecu_opnlp_fsm
+00010a6e                _ecu_loss_fsm
+00010b43                _ecu_loss_est
+00010c45                _ecu_nlp_mixdBmin_adjust
+00010d62                _ecu_png_genframe
+00010db1                _ecu_nlp
+0001103f                _ecu_post_update_request
+00011074                _ecu_process_segment
+000115dc                _ecu_process_frame
+00011641                _ecuSendIn
+000117fb                _ecuReceiveIn
+00012b5f                __printfi
+00012f1b                _siu_tx_file
+00012f2a                _siu_rx_file
+00012f39                _generate_tx_tone_frame
+00012f51                _convert_tx_tone_frame
+00013000                _generate_rx_tone_frame
+000130b6                _ecu_send_out
+00013102                _siu_new_ecu
+000133c9                _siu_open_ecu
+00013479                _siu_open_txhyb
+000135e0                _siu_open_rxsgn
+0001370b                _siu_open_txsgn
+00013836                _siu_set_sgn
+00013945                _ecu_sim_init
+00013d6c                _siuUpdateECUPowers
+00013d7b                _siuDebugInfoNew
+00013dc8                _siuPiuReport
+00013dda                _siuPcmSampleTrace
+00013de9                _siuTxRxSendIn
+00013e0f                _ecu_report_mag_event
+00013e1f                _ecu_change_state
+00013e48                _ecu_reset_filter
+0001408d                _ecuCalcReceiveInLength
+00014115                _ecuOpen
+000146bd                _ecuGetPerformance
+0001473a                _ecuGetFilter
+000148a5                _ecuDelete
+000148d8                _ecuControl
+00014b61                _ecuClose
+00014b7a                _sgn_css_gen_samples
+00014cda                _sgnInit
+00015024                _sgnGetSizes
+00015033                _sgnGenerateFrame
+000156dd                _sgnControl
+000158c6                _ecu_search_update_segs
+00015ada                _ecu_search_smooth_segs
+00015c06                _ecu_search_init
+00015cb3                _ecu_search_conv_fsm
+00015d46                _ecu_search_calc_sumsqu
+00015dd2                _ecu_search_find_segs
+00015eff                _ecu_search_fsm
+000161cc                _ecu_search_edge_detect
+0001622c                _ecu_search_edge_place
+000162a6                _ecu_search_edplace_fsm
+000163fb                _ecu_swap_bg_fg_filters
+0001651e                _ecu_track_fsm
+000168be                _ecu_cnvg_fsm
+00016c2a                _ecu_check_xtone
+00016c78                _ecu_adaptive_filter
+00016f1f                _hyb_seg_scale
+00016f86                _hyb_seg_norm
+00016ff6                _hyb_db2lin
+00017013                _hyb_process_addseg
+0001740c                _hyb_clear_filter
+00017427                _hyb_calc_receive_in_length
+00017448                _hyb_add_segment
+00017636                _hybOpen
+000176e5                _hybNew
+000177bd                _hybGetSizes
+000177f9                _hybDelete
+0001783a                _hybControl
+000178c2                _hybAddEcho
+000179f2                _ecu_halt
+00017a0a                _main
+0001834d                _piu_pcm_compressing
+000183a4                _piu_pcm_companding
+000183f1                _piu_update_buf_ptr
+0001844d                _piu_get_stats
+000184e4                _piu_bid_silence_detect
+00018592                _piu_pcm_pattern_detect
+0001867a                _piu_pcm_pattern_generate
+000186fb                _piuReceiveIn
+000187a3                _piuTxRxProc
+00018919                _ecu_get_buf_offsets
+0001895e                _ecu_assign_derived_bufs
+00018997                _ecoAssignBufs
+000189d0                _ecoGetBufs
+000189f0                _ecuRelocate
+00018a72                _ecuNew
+00018d7e                _ecuGetSizes
+00018efc                _piu_exception
+00018f1d                _piuDelete
+00018f47                _piu_reset_receive_in_buf
+00018fac                _piuSetCompanding
+00018ff5                _piuOpen
+00019152                _piuClose
+00019164                _piuBidSilenceDetect
+0001921f                _piuPatternDetect
+00019277                _piuPatternGeneration
+000192b9                _piu_loopback_config
+0001932e                _piuDcOffsetRemoval
+00019367                _piuControl
+00019483                _write
+000195c5                _unlink
+000195f8                _rename
+00019651                _remove_device
+00019687                _read
+00019735                _open
+000197f4                _lseek
+0001985a                _find_registered_device
+00019863                _close
+000198d6                _add_device
+000199c6                _getenv
+00019a41                _HOSTwrite
+00019ace                _HOSTunlink
+00019b38                _HOSTtime
+00019b96                _HOSTrename
+00019c44                _HOSTread
+00019cd1                _HOSTopen
+00019d70                _HOSTlseek
+00019e25                _HOSTclose
+00019e90                _HOSTclock
+00019eee                _free
+00019fba                _minit
+0001a01f                _malloc
+0001a114                _realloc
+0001a2c5                _max_free
+0001a31f                _free_memory
+0001a375                _chkheap
+0001a37d                _calloc
+0001a3a3                __divd
+0001a76f                _pktWrite8bits
+0001a79b                _pktWrite16bits
+0001a7b8                _pktWrite32bits
+0001a7df                _pktUnpackWordsIntoBytes
+0001a828                _pktRepackWordsIntoWords
+0001a8c3                _pktReadnbits
+0001a8ed                _pktRead8bits
+0001a901                _pktRead16bits
+0001a920                _pktRead32bits
+0001a942                _pktPackWordToTuint
+0001a951                _pktPackBytesIntoWords
+0001a9a0                _pktOR16bits
+0001aa48                _pktAND16bits
+0001aaf0                _ecu_sim_fileio_init
+0001aba1                _ecu_sim_fileio_end
+0001abf1                _ecu_sim_fread
+0001ac4c                _ecu_sim_get_xlaw
+0001ac91                _ecu_sim_get_linear
+0001acd0                _ecu_sim_put_linear
+0001ad0f                _ecu_sim_input
+0001ad5a                _ecu_sim_fwrite
+0001adcc                _ecu_sim_output
+0001ae6e                _ecu_filter_update
+0001b1fa                _siuDebug
+0001b20b                _siuException
+0001b21a                _siuDebugInfo
+0001b273                _siuInit
+0001b3fd                _siu_new_piu
+0001b596                _siu_open_piu
+0001b631                _siu_open_tx
+0001b798                __cleanup
+0001b7f2                _freopen
+0001b8bb                _fopen
+0001b8f6                __remull
+0001b944                __remlli
+0001b973                __mpylli
+0001ba2b                __divull
+0001bb1f                __divlli
+0001bb54                __addd
+0001bdae                _fwrite
+0001bf9c                __neqd
+0001bfd0                __lssd
+0001c018                __leqd
+0001c065                __gtrd
+0001c0b0                __geqd
+0001c0fa                __eqld
+0001c12e                __cmpd
+0001c205                _ecusim_profile_start
+0001c226                _ecusim_profile_stop
+0001c260                _ecusim_profile_init
+0001c2e1                _ecusim_profile_close
+0001c321                _ecusim_profile_print
+0001c360                _piuGetSizes
+0001c3c5                _piuNew
+0001c537                _piuReceiveOut
+0001c652                _piuSendIn
+0001c74b                _piu_frame_energy
+0001c7cd                _piu_frame_DClevel
+0001c821                _piu_remove_dc_component
+0001c881                _ecu_update_dline_bitfield
+0001c91b                _ecu_dline_find_seg
+0001c95d                _ecu_dline_expand
+0001ca0f                _ecu_calc_p20
+0001ca30                _ecu_find_px_max
+0001ca55                _ecu_get_power
+0001ca80                _ecu_get_x_stats
+0001cac8                _ecuLintoCirc
+0001caf3                _ecu_nlp_mixing
+0001cb1b                _ecu_nlp_get_mixgain
+0001cb40                _ecu_count_zerox
+0001cb74                _fputs
+0001cca9                _puts
+0001ccd7                __mpyd
+0001ce23                _hyb_add_echo
+0001cf3f                _fread
+0001d0aa                _siuTxMain
+0001d0c3                _siuTxOpen
+0001d114                _siuTxSendIn
+0001d147                _setvbuf
+0001d22d                __wrt_ok
+0001d2ad                __rd_ok
+0001d30a                _ecu_pack_to_dline
+0001d33b                _ecu_dline_expand_seg
+0001d3e2                _sgn_hoth_gen_samples
+0001d4ad                _muaTblUlawCmpr
+0001d523                _muaTblAlawCmpr
+0001d574                _mhmFree
+0001d576                _mhmCreate
+0001d5ea                _mhmAlloc
+0001d636                __doflush
+0001d69f                _fflush
+0001d6f8                _writemsg
+0001d7ad                C$$IO$$
+0001d7b2                __buff_read
+0001d860                _ecu_remove_echo
+0001d90b                _fputc
+0001d90b                _putc
+0001d9a2                _putchar
+0001d9b1                __divul
+0001da52                _utlSin
+0001da78                _utlLVecSum
+0001da97                _utlLFractVecMax
+0001dab1                _utlLsVecMax
+0001dac9                _utlVecSum
+0001dae8                _ltoa
+0001db65                _fclose
+0001dbe0                __frcmpyd
+0001dc56                __frcmpyd_div
+0001dcc9                __remul
+0001dd3b                __fixdli
+0001ddaa                _UAExpand
+0001de17                _readmsg
+0001de84                _fseek
+0001deef                _wngInit
+0001df59                __fltlid
+0001dfc0                _ecu_sum_of_squares
+0001dffb                _ecu_search_demean
+0001e01d                _atoi
+0001e079                _ecu_pnk_filter
+0001e0ce                _utlLin2dBPower
+0001e123                _printf
+0001e173                _utlScaleUp6dB
+0001e185                _utlScaleDown6dB
+0001e197                _utlLsMemSet
+0001e1a5                _utlLFractMemSet
+0001e1b4                _utlFractMemSet
+0001e1c2                _auto_init
+0001e20f                __args_main
+0001e25a                __remli
+0001e2a5                _fprintf
+0001e2ef                __divli
+0001e337                _wngGenNoiseFrame
+0001e369                _wngGenNoiseSample
+0001e37f                _utldB2LinPower
+0001e3c0                _memcpy
+0001e3ff                _exit
+0001e43d                I$$DIV
+0001e43d                __divi
+0001e45c                I$$MOD
+0001e45c                __remi
+0001e479                _c_int00
+0001e4ad                __fixdi
+0001e4d7                I$$UDIV
+0001e4d7                __divu
+0001e4ec                I$$UMOD
+0001e4ec                __remu
+0001e501                _strcat
+0001e52a                _memccpy
+0001e54d                ___isinf
+0001e567                _strcpy
+0001e57b                __subd
+0001e58f                I$$LMPY
+0001e58f                __mpyli
+0001e5a2                __register_unlock
+0001e5aa                __register_lock
+0001e5b2                __nop
+0001e5b4                _memset
+0001e5c5                __negd
+0001e5d5                _remove
+0001e5df                _abort
+0001e5e0                C$$EXIT
+0001e5e9                ___etext__
+0001e5e9                etext
+            00020000    __sys_memory
+            00022000    __stack
+            00023000    __STACK_END
+            00023000    __sysstack
+            00023800    ___cinit__
+            00023800    cinit
+            0002397c    __CIOBUF_
+            00024000    _sgn_css_n_samples_16k
+            00024c80    _sgn_dtk_n_samples_16k
+            00025900    _sgn_css_n_samples
+            00025ed1    _sgn_dtk_n_samples
+            000264a2    _sgn_dtk_v_samples_16k
+            0002692d    _sgn_css_v_samples_16k
+            000271d8    __ctypes_
+            000272d9    _muaTblAlaw
+            000273d9    _muaTblUlaw
+            00027584    _hybG168m4
+            00027604    _hybG168m6
+            000276ef    _hybG168m8
+            00027752    _hybG168m2
+            000277b2    _hybG168m3
+            00027812    _hybG168m5
+            00027872    _hybG168m7
+            000278d2    _sgn_dtk_v_samples
+            00027925    _sgnHNGainTable
+            0002796f    _sgn_css_v_samples
+            000279b8    _hybG168m1
+            00027a4c    _ecuPNGainTable
+            00027a90    _utl_SinCTable
+            00027a98    _ecuNlpMixENTable
+            00027a9f    _ecuNlpMixWPTable
+            00027aa6    _wngNoiseTable
+            00027aac    _hybDb2LinTable
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[407 symbols]

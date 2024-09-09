@@ -1,0 +1,77 @@
+%/******************************************************************************
+% * FILE PURPOSE: Generates MakeDocs.mk
+% ******************************************************************************
+% * FILE NAME: MakeDocs.mk.xdt
+% *
+% *
+% * TABS: NONE
+% *
+% * Copyright (C) 2006, Texas Instruments, Inc.
+% *****************************************************************************/
+%%{
+  /* Generate release rule based on OBJ/SRC specification */
+  var release_rule = "release : cleanmanifest $(ECU_MANIFEST) $(ECUAPI_DOC)";
+  if (this.delivery_type == "src") {
+    release_rule += " $(ECU_DOC)";
+  }
+
+  /* Generate manifest based on OBJ/SRC and TARGET specification */
+  var manifest_xml = "./docs/manifest/manifest_slas.xml";
+  if (this.delivery_type != "src") {
+    if (this.targs == "ti.targets.C64_big_endian" ||
+        this.targs == "ti.targets.C64") {
+      manifest_xml = "./docs/manifest/manifest_slao.xml";
+    }
+    else {
+      manifest_xml = "./docs/manifest/manifest_tspa.xml";
+    }
+  }
+%%}
+
+# ==============================================================================
+# File            : Makedocs.mk
+# Description     : 
+#
+#   GNU makefile to generate ECU documentation from sources using Doxygen
+#
+# ==============================================================================
+
+# The target for generating documents using doxygen is gendocs
+RELEASE_DOC=./docs/doxygen/release.chm
+
+releasenotes : $(RELEASE_DOC)
+
+$(RELEASE_DOC): ./docs/doxygen/release.h
+	-@echo generating Release Notes ...
+	if test ! -d ./docs/doxygen/html; then mkdir ./docs/doxygen/html; fi
+	cp $(TI_DOXYGEN_TEMPLATES)/*.* ./docs/doxygen/html
+	doxygen ../swtools/docs/doxygen/releaseDoxyfile
+	@xs -f ../swtools/release.js
+
+# The target for generating documents using doxygen is gendocs
+ECUAPI_DOC=./docs/doxygen/ECUAPI.chm
+ECU_DOC=./docs/doxygen/ECU.chm
+ECU_MANIFEST=./docs/manifest/Software_Manifest.html
+
+`release_rule`
+
+gendocs $(ECU_DOC): ecu.h ./docs/doxygen/doxygen.h
+	-@echo generating ECU documentation ...
+	if test ! -d ./docs/doxygen/html; then mkdir ./docs/doxygen/html; fi
+	cp $(TI_DOXYGEN_TEMPLATES)/*.* ./docs/doxygen/html
+	doxygen ./docs/doxygen/Doxyfile
+
+genapidocs $(ECUAPI_DOC): ecu.h ./docs/doxygen/doxygen.h
+	-@echo generating ECU documentation ...
+	if test ! -d ./docs/doxygen/html; then mkdir ./docs/doxygen/html; fi
+	cp $(TI_DOXYGEN_TEMPLATES)/*.* ./docs/doxygen/html
+	doxygen ./docs/doxygen/APIDoxyfile
+
+cleanmanifest: 
+	rm -f $(ECU_MANIFEST)
+
+genmanifest $(ECU_MANIFEST): `manifest_xml`
+	-@echo generating ECU Software Manifest ...
+	@php ../swtools/mangen.php $(ECU_MANIFEST) $?
+
+# End of Makedocs.mk

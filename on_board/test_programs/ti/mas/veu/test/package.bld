@@ -1,0 +1,188 @@
+/******************************************************************************
+ * FILE PURPOSE: Build description for package ti.mas.veu.test
+ ******************************************************************************
+ * FILE NAME: package.bld  
+ *
+ * DESCRIPTION: This file contains attributes to build and create releases for 
+ *              package ti.mas.veu.test
+ *
+ * TABS: NONE
+ *
+ * Copyright (C) 2009, Texas Instruments, Inc.
+ ******************************************************************************/
+/**********************************************************************************************
+  The main package.bld routine starts here 
+***********************************************************************************************/
+
+  var Package = xdc.loadCapsule('ti/mas/swtools/CommonBld.xs');
+  Package.name = "veu_test";
+
+  var wideband = false;
+
+  Package.files["commontestsrc"] = {
+    base_directory: "src",
+ 
+    files: ["veusim.c",
+            ],
+            
+    compiler_flags: "default-size",        
+  }
+
+  Package.exeTarget["c55l"] = {
+    target: "c55l",  
+    base_directory: "lnkr/c55l",
+    name: "test_rel_c55l", 
+  };   
+
+  Package.exeTarget["c64le"] = {
+    target: "c64le", 
+    base_directory: "lnkr/c64le",
+    name: "test_rel_c64le", 
+  };
+
+  Package.exeTarget["c64be"] = {
+    target: "c64be",
+    base_directory: "lnkr/c64be",
+    name: "test_rel_c64be",
+  };
+
+  Package.exeTarget["c64Ple"] = {
+    target: "c64Ple",   
+    base_directory: "lnkr/c64Ple",
+    name: "test_rel_c64Ple", 
+  };
+
+  Package.exeTarget["c64Pbe"] = {
+    target: "c64Pbe",   
+    base_directory: "lnkr/c64Pbe",
+    name: "test_rel_c64Pbe",  
+  };
+
+  Package.exeTarget["ce64Ple"] = {
+    target: "ce64Ple",   
+    base_directory: "lnkr/ce64Ple",
+    name: "test_rel_ce64Ple", 
+  };
+
+  Package.exeTarget["ce64Pbe"] = {
+    target: "ce64Pbe",   
+    base_directory: "lnkr/ce64Pbe",
+    name: "test_rel_ce64Pbe",  
+  };
+
+  Package.exeTarget["c674le"] = {
+    target: "c674le",   
+    base_directory: "lnkr/c674le",
+    name: "test_rel_c674le", 
+  };
+
+  Package.exeTarget["ce674le"] = {
+    target: "ce674le",   
+    base_directory: "lnkr/ce674le",
+    name: "test_rel_ce674le", 
+  };
+
+  Package.exeTarget["c66le"] = {
+    target: "c66le",
+    base_directory: "lnkr/c66le",
+    name:   "test_rel_c66le"
+  }
+
+  Package.exeTarget["c66be"] = {
+    target: "c66be",
+    base_directory: "lnkr/c66be",
+    name:   "test_rel_c66be"
+  }
+
+  Package.exeTarget["ce66le"] = {
+    target: "ce66le",
+    base_directory: "lnkr/ce66le",
+    name:   "test_rel_ce66le"
+  }
+
+  Package.exeTarget["ce66be"] = {
+    target: "ce66be",
+    base_directory: "lnkr/ce66be",
+    name:   "test_rel_ce66be"
+  }
+    
+  Package.archiveFiles["common"] = {
+    files:["vectors/inp",
+           "vectors/refout",
+           "vectors/out",
+           "inp_list_file_8k.txt",
+           "inp_list_file_16k.txt"
+          ] 
+  }
+
+  Package.files["commontestsrc"].def_flags = "";
+        
+  Package.args["cycleprof"] = {
+    value: "cycleprof",
+
+    action: function() {
+      Package.files["commontestsrc"].def_flags += " -dUSE_CACHE -dPROFILE_CYCLES ";
+    },
+
+    usageComment: "Profile cycles for VEU"
+  }  
+
+  Package.args["wideband"] = {
+    value: "wideband",
+
+    action: function() {
+      Package.exeTarget["c64le" ].name = "test_rel16_c64le";
+      Package.exeTarget["c64be" ].name = "test_rel16_c64be";
+      Package.exeTarget["c64Ple"].name = "test_rel16_c64Ple";
+      Package.exeTarget["c64Pbe"].name = "test_rel16_c64Pbe";
+      Package.files["commontestsrc"].def_flags += " -dveu_WB_COMPILER ";
+    },
+
+    usageComment: "Making wideband build VEU."
+  }
+
+
+/**********************************************************************************************
+  The main package.bld routine starts here 
+***********************************************************************************************/
+
+
+  /* Set up the target architecture */
+  Package.targets = [C55_large, 
+                     C64, 
+                     C64_big_endian, 
+                     C64P, 
+                     C64P_big_endian, 
+                     C64P_elf,
+                     C64P_big_endian_elf,
+                     C674,
+                     C674_elf,
+                     C66, 
+                     C66_big_endian, 
+                     C66_elf,
+                     C66_big_endian_elf
+                    ];
+  
+  /* Include custom makefile to generate doxygen documents */
+  Package.includeMake("Makedocs.mk");  
+
+  /* Parse XDC Arguments */
+  Package.parseArgs(arguments);
+
+  /* Generate Users Manual Doxyfile */
+  var tplt = xdc.loadTemplate("./docs/doxygen/doxyfile.xdt");
+  tplt.genFile("./docs/doxygen/Doxyfile",Package);      
+
+  /* Create Executable */ 
+  Package.createExe();
+
+  /* Create Archive */ 
+  Package.createArchive();
+  
+  /* Clean Package */
+  Package.packageClean();
+
+/* nothing past this point */
+
+
+

@@ -1,0 +1,1122 @@
+DSLOG: Time taken for debug_server_setup = 6.710662733006757
+DSLOG: Time taken for set_intial_breakpoints = 0.02628825302235782
+DSLOG: Time taken for refresh_global_pool = 2.575997496023774e-05
+DSLOG: Time taken for refresh_local_pool = 0.026361799042206258
+Time of start = 05/08/2024 16:16:34
+DSLOG: Time taken for refresh_global_pool = 2.158200368285179e-05
+Found coverage-increasing input:
+Current time = 05/08/2024 16:16:34
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.029503345489501953
+{0: 24516, 35: 24551, 63: 24579, 91: 24607, 119: 24635, 146: 24662, 173: 24689, 196: 24712, 223: 24739, 251: 24767, 257: 24773}
+[0, 257]
+DSLOG: Time taken for refresh_global_pool = 3.6150042433291674e-05
+DSLOG: Time taken for refresh_global_pool = 0.000124913000036031
+DSLOG: Time taken for current_seed_to_global_pool = 2.86929045204306
+Found coverage-increasing input:
+Current time = 05/08/2024 16:19:04
+DSLOG: Total number of iterations: 4844
+DSLOG: Average throughput time: 0.031011556122147475
+{35: 24551, 63: 24579, 91: 24607, 119: 24635, 146: 24662, 173: 24689, 196: 24712, 223: 24739, 251: 24767}
+[35]
+DSLOG: Time taken for refresh_global_pool = 3.145699156448245e-05
+DSLOG: Time taken for refresh_global_pool = 0.00012276298366487026
+DSLOG: Time taken for current_seed_to_global_pool = 2.748808581964113
+Current time = 05/08/2024 16:29:08
+DSLOG: Total number of iterations: 24561
+DSLOG: Average throughput time: 0.030698709255718777
+DSLOG: Time taken for refresh_global_pool = 6.671901792287827e-05
+DSLOG: Time taken for refresh_local_pool = 0.14911140699405223
+DSLOG: Time taken for refresh_global_pool = 4.8092042561620474e-05
+DSLOG: Time taken for refresh_interrupt = 1.197537772997748
+Current time = 05/08/2024 16:39:09
+DSLOG: Total number of iterations: 44279
+DSLOG: Average throughput time: 0.030605433268766635
+DSLOG: Time taken for refresh_global_pool = 6.235303590074182e-05
+DSLOG: Time taken for refresh_local_pool = 0.08025250397622585
+DSLOG: Time taken for refresh_global_pool = 3.608298720791936e-05
+DSLOG: Time taken for refresh_interrupt = 1.118273469968699
+Current time = 05/08/2024 16:49:10
+DSLOG: Total number of iterations: 63962
+DSLOG: Average throughput time: 0.03058520483070823
+DSLOG: Time taken for refresh_global_pool = 5.887000588700175e-05
+DSLOG: Time taken for refresh_local_pool = 0.08231102803256363
+DSLOG: Time taken for refresh_global_pool = 4.1510036680847406e-05
+DSLOG: Time taken for refresh_interrupt = 1.1019628969952464
+Current time = 05/08/2024 16:59:11
+DSLOG: Total number of iterations: 83656
+DSLOG: Average throughput time: 0.030570453922938032
+DSLOG: Time taken for refresh_global_pool = 4.434597212821245e-05
+DSLOG: Time taken for refresh_local_pool = 0.0832870650338009
+DSLOG: Time taken for refresh_global_pool = 3.8699014112353325e-05
+DSLOG: Time taken for refresh_interrupt = 1.1241094489814714
+Found coverage-increasing input:
+Current time = 05/08/2024 17:03:16
+DSLOG: Total number of iterations: 91725
+DSLOG: Average throughput time: 0.030554987095655815
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.38110257871449e-05
+DSLOG: Time taken for current_seed_to_global_pool = 51.86120765196392
+Current time = 05/08/2024 17:14:09
+DSLOG: Total number of iterations: 113212
+DSLOG: Average throughput time: 0.030522747330078787
+DSLOG: Time taken for refresh_global_pool = 4.530599107965827e-05
+DSLOG: Time taken for refresh_local_pool = 0.09304237202741206
+DSLOG: Time taken for refresh_global_pool = 4.55520348623395e-05
+DSLOG: Time taken for refresh_interrupt = 1.1460761020425707
+Current time = 05/08/2024 17:24:10
+DSLOG: Total number of iterations: 132916
+DSLOG: Average throughput time: 0.03052064156050844
+DSLOG: Time taken for refresh_global_pool = 9.038200369104743e-05
+DSLOG: Time taken for refresh_local_pool = 0.09927473397692665
+DSLOG: Time taken for refresh_global_pool = 6.212800508365035e-05
+DSLOG: Time taken for refresh_interrupt = 1.1337239720160142
+Current time = 05/08/2024 17:34:11
+DSLOG: Total number of iterations: 152619
+DSLOG: Average throughput time: 0.030519253224108474
+DSLOG: Time taken for refresh_global_pool = 5.95920137129724e-05
+DSLOG: Time taken for refresh_local_pool = 0.15344045701203868
+DSLOG: Time taken for refresh_global_pool = 6.861501606181264e-05
+DSLOG: Time taken for refresh_interrupt = 1.1992708929465152
+Current time = 05/08/2024 17:44:13
+DSLOG: Total number of iterations: 172308
+DSLOG: Average throughput time: 0.030520992560547938
+DSLOG: Time taken for refresh_global_pool = 4.122400423511863e-05
+DSLOG: Time taken for refresh_local_pool = 0.08108354598516598
+DSLOG: Time taken for refresh_global_pool = 4.510401049628854e-05
+DSLOG: Time taken for refresh_interrupt = 1.122172701987438
+Current time = 05/08/2024 17:54:14
+DSLOG: Total number of iterations: 192074
+DSLOG: Average throughput time: 0.030509720769715948
+DSLOG: Time taken for refresh_global_pool = 4.5289983972907066e-05
+DSLOG: Time taken for refresh_local_pool = 0.07865681900875643
+DSLOG: Time taken for refresh_global_pool = 3.036903217434883e-05
+DSLOG: Time taken for refresh_interrupt = 1.0877137850038707
+Current time = 05/08/2024 18:04:15
+DSLOG: Total number of iterations: 211764
+DSLOG: Average throughput time: 0.030511397038558836
+DSLOG: Time taken for refresh_global_pool = 6.234401371330023e-05
+DSLOG: Time taken for refresh_local_pool = 0.13531812198925763
+DSLOG: Time taken for refresh_global_pool = 5.642505129799247e-05
+DSLOG: Time taken for refresh_interrupt = 1.1682648819987662
+Current time = 05/08/2024 18:14:16
+DSLOG: Total number of iterations: 231455
+DSLOG: Average throughput time: 0.03051304893014044
+DSLOG: Time taken for refresh_global_pool = 4.2853993363678455e-05
+DSLOG: Time taken for refresh_local_pool = 0.08249201998114586
+DSLOG: Time taken for refresh_global_pool = 3.529194509610534e-05
+DSLOG: Time taken for refresh_interrupt = 1.1217014400172047
+Current time = 05/08/2024 18:24:17
+DSLOG: Total number of iterations: 251160
+DSLOG: Average throughput time: 0.03051242911620094
+DSLOG: Time taken for refresh_global_pool = 3.358605317771435e-05
+DSLOG: Time taken for refresh_local_pool = 0.0844014179892838
+DSLOG: Time taken for refresh_global_pool = 4.520796937867999e-05
+DSLOG: Time taken for refresh_interrupt = 1.1166982290451415
+Current time = 05/08/2024 18:34:18
+DSLOG: Total number of iterations: 270819
+DSLOG: Average throughput time: 0.030517183113907373
+DSLOG: Time taken for refresh_global_pool = 9.66679654084146e-05
+DSLOG: Time taken for refresh_local_pool = 0.09200854098889977
+DSLOG: Time taken for refresh_global_pool = 4.845898365601897e-05
+DSLOG: Time taken for refresh_interrupt = 1.1363254450261593
+Current time = 05/08/2024 18:44:19
+DSLOG: Total number of iterations: 290491
+DSLOG: Average throughput time: 0.030519941886590813
+DSLOG: Time taken for refresh_global_pool = 4.13570087403059e-05
+DSLOG: Time taken for refresh_local_pool = 0.09833498497027904
+DSLOG: Time taken for refresh_global_pool = 8.659000741317868e-05
+DSLOG: Time taken for refresh_interrupt = 1.1414578270050697
+Current time = 05/08/2024 18:54:21
+DSLOG: Total number of iterations: 310159
+DSLOG: Average throughput time: 0.030522737699254215
+DSLOG: Time taken for refresh_global_pool = 4.5062974095344543e-05
+DSLOG: Time taken for refresh_local_pool = 0.07911357999546453
+DSLOG: Time taken for refresh_global_pool = 2.406496787443757e-05
+DSLOG: Time taken for refresh_interrupt = 1.1003125009592623
+Current time = 05/08/2024 19:04:22
+DSLOG: Total number of iterations: 329919
+DSLOG: Average throughput time: 0.030516604404875483
+DSLOG: Time taken for refresh_global_pool = 5.00919995829463e-05
+DSLOG: Time taken for refresh_local_pool = 0.07906393194571137
+DSLOG: Time taken for refresh_global_pool = 7.288699271157384e-05
+DSLOG: Time taken for refresh_interrupt = 1.119080021046102
+Current time = 05/08/2024 19:14:23
+DSLOG: Total number of iterations: 349577
+DSLOG: Average throughput time: 0.03052011688316949
+DSLOG: Time taken for refresh_global_pool = 4.6192959416657686e-05
+DSLOG: Time taken for refresh_local_pool = 0.0808922530268319
+DSLOG: Time taken for refresh_global_pool = 3.199302591383457e-05
+DSLOG: Time taken for refresh_interrupt = 1.1218471160391346
+Current time = 05/08/2024 19:24:24
+DSLOG: Total number of iterations: 369262
+DSLOG: Average throughput time: 0.030520989657121144
+DSLOG: Time taken for refresh_global_pool = 4.796695429831743e-05
+DSLOG: Time taken for refresh_local_pool = 0.08531719300663099
+DSLOG: Time taken for refresh_global_pool = 3.9507984183728695e-05
+DSLOG: Time taken for refresh_interrupt = 1.1145395489875227
+Found coverage-increasing input:
+Current time = 05/08/2024 19:25:23
+DSLOG: Total number of iterations: 371193
+DSLOG: Average throughput time: 0.030520991597722827
+{63: 24579, 91: 24607, 119: 24635, 146: 24662, 173: 24689, 196: 24712, 223: 24739, 251: 24767}
+[63]
+DSLOG: Time taken for refresh_global_pool = 3.49970068782568e-05
+DSLOG: Time taken for refresh_global_pool = 0.00015251297736540437
+DSLOG: Time taken for current_seed_to_global_pool = 2.8075735599850304
+Current time = 05/08/2024 19:35:27
+DSLOG: Total number of iterations: 390950
+DSLOG: Average throughput time: 0.030523092062184537
+DSLOG: Time taken for refresh_global_pool = 4.3270993046462536e-05
+DSLOG: Time taken for refresh_local_pool = 0.1683940629591234
+DSLOG: Time taken for refresh_global_pool = 3.719097003340721e-05
+DSLOG: Time taken for refresh_interrupt = 1.2160380599671043
+Current time = 05/08/2024 19:45:28
+DSLOG: Total number of iterations: 410645
+DSLOG: Average throughput time: 0.0305232439042415
+DSLOG: Time taken for refresh_global_pool = 6.1208033002913e-05
+DSLOG: Time taken for refresh_local_pool = 0.13972297898726538
+DSLOG: Time taken for refresh_global_pool = 3.7539051845669746e-05
+DSLOG: Time taken for refresh_interrupt = 1.1884582949569449
+Current time = 05/08/2024 19:55:29
+DSLOG: Total number of iterations: 430334
+DSLOG: Average throughput time: 0.030523717669069955
+DSLOG: Time taken for refresh_global_pool = 4.647101741284132e-05
+DSLOG: Time taken for refresh_local_pool = 0.2472325999988243
+DSLOG: Time taken for refresh_global_pool = 5.043600685894489e-05
+DSLOG: Time taken for refresh_interrupt = 1.274427539028693
+Current time = 05/08/2024 20:05:30
+DSLOG: Total number of iterations: 450101
+DSLOG: Average throughput time: 0.03051910595987712
+DSLOG: Time taken for refresh_global_pool = 3.486999776214361e-05
+DSLOG: Time taken for refresh_local_pool = 0.12715579697396606
+DSLOG: Time taken for refresh_global_pool = 4.2024010326713324e-05
+DSLOG: Time taken for refresh_interrupt = 1.1637905950192362
+Current time = 05/08/2024 20:15:31
+DSLOG: Total number of iterations: 469837
+DSLOG: Average throughput time: 0.03051663458749601
+DSLOG: Time taken for refresh_global_pool = 5.8254983741790056e-05
+DSLOG: Time taken for refresh_local_pool = 0.11405129102058709
+DSLOG: Time taken for refresh_global_pool = 3.691395977512002e-05
+DSLOG: Time taken for refresh_interrupt = 1.153607154963538
+Current time = 05/08/2024 20:25:33
+DSLOG: Total number of iterations: 489522
+DSLOG: Average throughput time: 0.030517538489388183
+DSLOG: Time taken for refresh_global_pool = 5.802302621304989e-05
+DSLOG: Time taken for refresh_local_pool = 0.11088695202488452
+DSLOG: Time taken for refresh_global_pool = 4.925701068714261e-05
+DSLOG: Time taken for refresh_interrupt = 1.1504325629794039
+Current time = 05/08/2024 20:35:34
+DSLOG: Total number of iterations: 509223
+DSLOG: Average throughput time: 0.03051739068552072
+DSLOG: Time taken for refresh_global_pool = 3.963802009820938e-05
+DSLOG: Time taken for refresh_local_pool = 0.1653795670135878
+DSLOG: Time taken for refresh_global_pool = 3.846798790618777e-05
+DSLOG: Time taken for refresh_interrupt = 1.2087586569832638
+Current time = 05/08/2024 20:45:35
+DSLOG: Total number of iterations: 528942
+DSLOG: Average throughput time: 0.030516296599106738
+DSLOG: Time taken for refresh_global_pool = 3.92019865103066e-05
+DSLOG: Time taken for refresh_local_pool = 0.17864972801180556
+DSLOG: Time taken for refresh_global_pool = 3.947498043999076e-05
+DSLOG: Time taken for refresh_interrupt = 1.2186937400256284
+Current time = 05/08/2024 20:55:36
+DSLOG: Total number of iterations: 548671
+DSLOG: Average throughput time: 0.03051478373806888
+DSLOG: Time taken for refresh_global_pool = 4.340300802141428e-05
+DSLOG: Time taken for refresh_local_pool = 0.11843796103494242
+DSLOG: Time taken for refresh_global_pool = 3.4719996619969606e-05
+DSLOG: Time taken for refresh_interrupt = 1.1504051070078276
+Current time = 05/08/2024 21:05:37
+DSLOG: Total number of iterations: 568345
+DSLOG: Average throughput time: 0.030516189587478162
+DSLOG: Time taken for refresh_global_pool = 3.153103170916438e-05
+DSLOG: Time taken for refresh_local_pool = 0.1299902549944818
+DSLOG: Time taken for refresh_global_pool = 4.302698653191328e-05
+DSLOG: Time taken for refresh_interrupt = 1.1584190140129067
+Current time = 05/08/2024 21:15:39
+DSLOG: Total number of iterations: 588037
+DSLOG: Average throughput time: 0.030516611064403804
+DSLOG: Time taken for refresh_global_pool = 4.725100006908178e-05
+DSLOG: Time taken for refresh_local_pool = 0.18408670095959678
+DSLOG: Time taken for refresh_global_pool = 5.948200123384595e-05
+DSLOG: Time taken for refresh_interrupt = 1.2342420250060968
+Current time = 05/08/2024 21:25:40
+DSLOG: Total number of iterations: 607744
+DSLOG: Average throughput time: 0.030516339953998207
+DSLOG: Time taken for refresh_global_pool = 4.268903285264969e-05
+DSLOG: Time taken for refresh_local_pool = 0.17266603303141892
+DSLOG: Time taken for refresh_global_pool = 5.9811980463564396e-05
+DSLOG: Time taken for refresh_interrupt = 1.2205823640106246
+Current time = 05/08/2024 21:35:41
+DSLOG: Total number of iterations: 627516
+DSLOG: Average throughput time: 0.03051291171038114
+DSLOG: Time taken for refresh_global_pool = 5.1172974053770304e-05
+DSLOG: Time taken for refresh_local_pool = 0.14648254599887878
+DSLOG: Time taken for refresh_global_pool = 4.779704613611102e-05
+DSLOG: Time taken for refresh_interrupt = 1.1843331760028377
+Current time = 05/08/2024 21:45:42
+DSLOG: Total number of iterations: 647288
+DSLOG: Average throughput time: 0.030509640307316895
+DSLOG: Time taken for refresh_global_pool = 4.848500248044729e-05
+DSLOG: Time taken for refresh_local_pool = 0.12991540000075474
+DSLOG: Time taken for refresh_global_pool = 4.1785999201238155e-05
+DSLOG: Time taken for refresh_interrupt = 1.168167304014787
+Current time = 05/08/2024 21:55:43
+DSLOG: Total number of iterations: 667023
+DSLOG: Average throughput time: 0.0305082396155807
+DSLOG: Time taken for refresh_global_pool = 3.84750310331583e-05
+DSLOG: Time taken for refresh_local_pool = 0.12870743800885975
+DSLOG: Time taken for refresh_global_pool = 4.666403401643038e-05
+DSLOG: Time taken for refresh_interrupt = 1.1686741639859974
+Found coverage-increasing input:
+Current time = 05/08/2024 21:57:16
+DSLOG: Total number of iterations: 670048
+DSLOG: Average throughput time: 0.030508481262136004
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.416300751268864e-05
+DSLOG: Time taken for current_seed_to_global_pool = 53.947000965010375
+Current time = 05/08/2024 22:08:11
+DSLOG: Total number of iterations: 691587
+DSLOG: Average throughput time: 0.030505365039541755
+DSLOG: Time taken for refresh_global_pool = 6.894499529153109e-05
+DSLOG: Time taken for refresh_local_pool = 0.11511932197026908
+DSLOG: Time taken for refresh_global_pool = 4.5456981752067804e-05
+DSLOG: Time taken for refresh_interrupt = 1.1524555509677157
+Found coverage-increasing input:
+Current time = 05/08/2024 22:13:17
+DSLOG: Total number of iterations: 701611
+DSLOG: Average throughput time: 0.03050544588627989
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.921898314729333e-05
+DSLOG: Time taken for current_seed_to_global_pool = 50.851665551017504
+Current time = 05/08/2024 22:24:08
+DSLOG: Total number of iterations: 723025
+DSLOG: Average throughput time: 0.030503528560742496
+DSLOG: Time taken for refresh_global_pool = 4.5775959733873606e-05
+DSLOG: Time taken for refresh_local_pool = 0.10859009396517649
+DSLOG: Time taken for refresh_global_pool = 4.05249884352088e-05
+DSLOG: Time taken for refresh_interrupt = 1.1293866579653695
+Current time = 05/08/2024 22:34:10
+DSLOG: Total number of iterations: 742786
+DSLOG: Average throughput time: 0.03050132414044197
+DSLOG: Time taken for refresh_global_pool = 3.779499093070626e-05
+DSLOG: Time taken for refresh_local_pool = 0.13071689900243655
+DSLOG: Time taken for refresh_global_pool = 4.8995018005371094e-05
+DSLOG: Time taken for refresh_interrupt = 1.1653430130099878
+Current time = 05/08/2024 22:44:11
+DSLOG: Total number of iterations: 762473
+DSLOG: Average throughput time: 0.030502231544450212
+DSLOG: Time taken for refresh_global_pool = 3.84620507247746e-05
+DSLOG: Time taken for refresh_local_pool = 0.16097166104009375
+DSLOG: Time taken for refresh_global_pool = 3.789999755099416e-05
+DSLOG: Time taken for refresh_interrupt = 1.2140075690113008
+Current time = 05/08/2024 22:54:12
+DSLOG: Total number of iterations: 782172
+DSLOG: Average throughput time: 0.03050265612719064
+DSLOG: Time taken for refresh_global_pool = 4.627997986972332e-05
+DSLOG: Time taken for refresh_local_pool = 0.13339142099721357
+DSLOG: Time taken for refresh_global_pool = 6.15270109847188e-05
+DSLOG: Time taken for refresh_interrupt = 1.1652435830328614
+Current time = 05/08/2024 23:04:13
+DSLOG: Total number of iterations: 801908
+DSLOG: Average throughput time: 0.03050162857026237
+DSLOG: Time taken for refresh_global_pool = 4.893902223557234e-05
+DSLOG: Time taken for refresh_local_pool = 0.11887402896536514
+DSLOG: Time taken for refresh_global_pool = 4.6056986320763826e-05
+DSLOG: Time taken for refresh_interrupt = 1.1613871610024944
+Current time = 05/08/2024 23:14:14
+DSLOG: Total number of iterations: 821633
+DSLOG: Average throughput time: 0.030501052180478022
+DSLOG: Time taken for refresh_global_pool = 4.627305315807462e-05
+DSLOG: Time taken for refresh_local_pool = 0.13479313597781584
+DSLOG: Time taken for refresh_global_pool = 5.8947945944964886e-05
+DSLOG: Time taken for refresh_interrupt = 1.1880150539800525
+Current time = 05/08/2024 23:24:15
+DSLOG: Total number of iterations: 841311
+DSLOG: Average throughput time: 0.030502207984326207
+DSLOG: Time taken for refresh_global_pool = 5.757500184699893e-05
+DSLOG: Time taken for refresh_local_pool = 0.13735639600781724
+DSLOG: Time taken for refresh_global_pool = 4.1737977880984545e-05
+DSLOG: Time taken for refresh_interrupt = 1.1638358579948545
+Current time = 05/08/2024 23:34:17
+DSLOG: Total number of iterations: 861015
+DSLOG: Average throughput time: 0.030502391445640417
+DSLOG: Time taken for refresh_global_pool = 3.401597496122122e-05
+DSLOG: Time taken for refresh_local_pool = 0.1346352139953524
+DSLOG: Time taken for refresh_global_pool = 2.6780995540320873e-05
+DSLOG: Time taken for refresh_interrupt = 1.1787514770403504
+Current time = 05/08/2024 23:44:18
+DSLOG: Total number of iterations: 880838
+DSLOG: Average throughput time: 0.030498440736425284
+DSLOG: Time taken for refresh_global_pool = 5.245598731562495e-05
+DSLOG: Time taken for refresh_local_pool = 0.16105808597058058
+DSLOG: Time taken for refresh_global_pool = 3.1939009204506874e-05
+DSLOG: Time taken for refresh_interrupt = 1.2003836660296656
+Current time = 05/08/2024 23:54:19
+DSLOG: Total number of iterations: 900535
+DSLOG: Average throughput time: 0.030498959518875112
+DSLOG: Time taken for refresh_global_pool = 5.011900793761015e-05
+DSLOG: Time taken for refresh_local_pool = 0.11538105795625597
+DSLOG: Time taken for refresh_global_pool = 4.409399116411805e-05
+DSLOG: Time taken for refresh_interrupt = 1.1444510750006884
+Current time = 06/08/2024 00:04:20
+DSLOG: Total number of iterations: 920280
+DSLOG: Average throughput time: 0.030497832668906898
+DSLOG: Time taken for refresh_global_pool = 4.3741019908338785e-05
+DSLOG: Time taken for refresh_local_pool = 0.11334683501627296
+DSLOG: Time taken for refresh_global_pool = 4.504999378696084e-05
+DSLOG: Time taken for refresh_interrupt = 1.1618425120250322
+Found coverage-increasing input:
+Current time = 06/08/2024 00:10:10
+DSLOG: Total number of iterations: 931754
+DSLOG: Average throughput time: 0.03049815547638563
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.2472016755491495e-05
+DSLOG: Time taken for current_seed_to_global_pool = 55.75184125598753
+Current time = 06/08/2024 00:21:07
+DSLOG: Total number of iterations: 953284
+DSLOG: Average throughput time: 0.03049830128069225
+DSLOG: Time taken for refresh_global_pool = 3.564398502930999e-05
+DSLOG: Time taken for refresh_local_pool = 0.15414268500171602
+DSLOG: Time taken for refresh_global_pool = 2.9888004064559937e-05
+DSLOG: Time taken for refresh_interrupt = 1.1831999879796058
+Found coverage-increasing input:
+Current time = 06/08/2024 00:29:47
+DSLOG: Total number of iterations: 970296
+DSLOG: Average throughput time: 0.030498799468061406
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.2019004467874765e-05
+DSLOG: Time taken for current_seed_to_global_pool = 55.72877671197057
+Current time = 06/08/2024 00:40:43
+DSLOG: Total number of iterations: 991850
+DSLOG: Average throughput time: 0.03049816445428866
+DSLOG: Time taken for refresh_global_pool = 5.021400284022093e-05
+DSLOG: Time taken for refresh_local_pool = 0.13846211903728545
+DSLOG: Time taken for refresh_global_pool = 4.097900819033384e-05
+DSLOG: Time taken for refresh_interrupt = 1.1680883539956994
+Current time = 06/08/2024 00:50:44
+DSLOG: Total number of iterations: 1011596
+DSLOG: Average throughput time: 0.030497133260942274
+DSLOG: Time taken for refresh_global_pool = 2.6752997655421495e-05
+DSLOG: Time taken for refresh_local_pool = 0.11745040398091078
+DSLOG: Time taken for refresh_global_pool = 4.194502253085375e-05
+DSLOG: Time taken for refresh_interrupt = 1.1627681570244022
+Current time = 06/08/2024 01:00:46
+DSLOG: Total number of iterations: 1031246
+DSLOG: Average throughput time: 0.030498964039590425
+DSLOG: Time taken for refresh_global_pool = 3.215402830392122e-05
+DSLOG: Time taken for refresh_local_pool = 0.15881656302371994
+DSLOG: Time taken for refresh_global_pool = 5.738897016271949e-05
+DSLOG: Time taken for refresh_interrupt = 1.1869653249741532
+Current time = 06/08/2024 01:10:47
+DSLOG: Total number of iterations: 1050919
+DSLOG: Average throughput time: 0.03050008253254321
+DSLOG: Time taken for refresh_global_pool = 3.6954006645828485e-05
+DSLOG: Time taken for refresh_local_pool = 0.1117109180195257
+DSLOG: Time taken for refresh_global_pool = 8.748704567551613e-05
+DSLOG: Time taken for refresh_interrupt = 1.1347435369971208
+Current time = 06/08/2024 01:20:48
+DSLOG: Total number of iterations: 1070606
+DSLOG: Average throughput time: 0.030500725884560605
+DSLOG: Time taken for refresh_global_pool = 7.080601062625647e-05
+DSLOG: Time taken for refresh_local_pool = 0.1086647660122253
+DSLOG: Time taken for refresh_global_pool = 4.674599040299654e-05
+DSLOG: Time taken for refresh_interrupt = 1.1479376929928549
+Current time = 06/08/2024 01:30:49
+DSLOG: Total number of iterations: 1090408
+DSLOG: Average throughput time: 0.030498135497526814
+DSLOG: Time taken for refresh_global_pool = 8.203997276723385e-05
+DSLOG: Time taken for refresh_local_pool = 0.1546704419888556
+DSLOG: Time taken for refresh_global_pool = 4.021299537271261e-05
+DSLOG: Time taken for refresh_interrupt = 1.1894391759997234
+Current time = 06/08/2024 01:40:50
+DSLOG: Total number of iterations: 1110111
+DSLOG: Average throughput time: 0.03049839061210544
+DSLOG: Time taken for refresh_global_pool = 3.805395681411028e-05
+DSLOG: Time taken for refresh_local_pool = 0.20950239099329337
+DSLOG: Time taken for refresh_global_pool = 5.1119946874678135e-05
+DSLOG: Time taken for refresh_interrupt = 1.252321919950191
+Current time = 06/08/2024 01:50:52
+DSLOG: Total number of iterations: 1129858
+DSLOG: Average throughput time: 0.030497516482585925
+DSLOG: Time taken for refresh_global_pool = 0.00014225702034309506
+DSLOG: Time taken for refresh_local_pool = 0.13892178901005536
+DSLOG: Time taken for refresh_global_pool = 3.563700011000037e-05
+DSLOG: Time taken for refresh_interrupt = 1.1836759200086817
+Found coverage-increasing input:
+Current time = 06/08/2024 01:59:10
+DSLOG: Total number of iterations: 1146218
+DSLOG: Average throughput time: 0.03049714199367945
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.507298581302166e-05
+DSLOG: Time taken for current_seed_to_global_pool = 57.41641691100085
+Found coverage-increasing input:
+Current time = 06/08/2024 02:01:03
+DSLOG: Total number of iterations: 1149909
+DSLOG: Average throughput time: 0.030497100867023903
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 2.9795977752655745e-05
+DSLOG: Time taken for current_seed_to_global_pool = 55.8926967959851
+Current time = 06/08/2024 02:11:59
+DSLOG: Total number of iterations: 1171423
+DSLOG: Average throughput time: 0.030497770373934377
+DSLOG: Time taken for refresh_global_pool = 4.415703006088734e-05
+DSLOG: Time taken for refresh_local_pool = 0.1146453539840877
+DSLOG: Time taken for refresh_global_pool = 4.1440012864768505e-05
+DSLOG: Time taken for refresh_interrupt = 1.1387338319909759
+Found coverage-increasing input:
+Current time = 06/08/2024 02:12:45
+DSLOG: Total number of iterations: 1172937
+DSLOG: Average throughput time: 0.030497627923623944
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.466896643862128e-05
+DSLOG: Time taken for current_seed_to_global_pool = 52.17263287300011
+Found coverage-increasing input:
+Current time = 06/08/2024 02:14:49
+DSLOG: Total number of iterations: 1177045
+DSLOG: Average throughput time: 0.030495936786442947
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 5.7882978580892086e-05
+DSLOG: Time taken for current_seed_to_global_pool = 51.065442343999166
+Current time = 06/08/2024 02:25:41
+DSLOG: Total number of iterations: 1198451
+DSLOG: Average throughput time: 0.03049533020850033
+DSLOG: Time taken for refresh_global_pool = 4.841998452320695e-05
+DSLOG: Time taken for refresh_local_pool = 0.188580924004782
+DSLOG: Time taken for refresh_global_pool = 3.687699791043997e-05
+DSLOG: Time taken for refresh_interrupt = 1.2099523179931566
+Current time = 06/08/2024 02:35:42
+DSLOG: Total number of iterations: 1218118
+DSLOG: Average throughput time: 0.030496527729251228
+DSLOG: Time taken for refresh_global_pool = 5.377101479098201e-05
+DSLOG: Time taken for refresh_local_pool = 0.1303588930168189
+DSLOG: Time taken for refresh_global_pool = 4.230695776641369e-05
+DSLOG: Time taken for refresh_interrupt = 1.1601828699931502
+Current time = 06/08/2024 02:45:43
+DSLOG: Total number of iterations: 1237806
+DSLOG: Average throughput time: 0.03049712871685154
+DSLOG: Time taken for refresh_global_pool = 8.745602099224925e-05
+DSLOG: Time taken for refresh_local_pool = 0.11480959202162921
+DSLOG: Time taken for refresh_global_pool = 4.4186017476022243e-05
+DSLOG: Time taken for refresh_interrupt = 1.142871900985483
+Current time = 06/08/2024 02:55:44
+DSLOG: Total number of iterations: 1257507
+DSLOG: Average throughput time: 0.030497389752202803
+DSLOG: Time taken for refresh_global_pool = 4.647299647331238e-05
+DSLOG: Time taken for refresh_local_pool = 0.11896136699942872
+DSLOG: Time taken for refresh_global_pool = 5.908595630899072e-05
+DSLOG: Time taken for refresh_interrupt = 1.1457689270027913
+Found coverage-increasing input:
+Current time = 06/08/2024 02:57:26
+DSLOG: Total number of iterations: 1260866
+DSLOG: Average throughput time: 0.03049715221067836
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.822101280093193e-05
+DSLOG: Time taken for current_seed_to_global_pool = 50.574383525992744
+Current time = 06/08/2024 03:08:18
+DSLOG: Total number of iterations: 1282268
+DSLOG: Average throughput time: 0.030496279037824262
+DSLOG: Time taken for refresh_global_pool = 5.328201223164797e-05
+DSLOG: Time taken for refresh_local_pool = 0.1163328259717673
+DSLOG: Time taken for refresh_global_pool = 5.1565992180258036e-05
+DSLOG: Time taken for refresh_interrupt = 1.1374742310144939
+Current time = 06/08/2024 03:18:19
+DSLOG: Total number of iterations: 1301922
+DSLOG: Average throughput time: 0.030497636311417126
+DSLOG: Time taken for refresh_global_pool = 3.6613026168197393e-05
+DSLOG: Time taken for refresh_local_pool = 0.1159173280466348
+DSLOG: Time taken for refresh_global_pool = 3.919302253052592e-05
+DSLOG: Time taken for refresh_interrupt = 1.140342982020229
+Current time = 06/08/2024 03:28:20
+DSLOG: Total number of iterations: 1321638
+DSLOG: Average throughput time: 0.030497527285720114
+DSLOG: Time taken for refresh_global_pool = 4.1414983570575714e-05
+DSLOG: Time taken for refresh_local_pool = 0.13462119497125968
+DSLOG: Time taken for refresh_global_pool = 4.019698826596141e-05
+DSLOG: Time taken for refresh_interrupt = 1.1728092260309495
+Current time = 06/08/2024 03:38:21
+DSLOG: Total number of iterations: 1341381
+DSLOG: Average throughput time: 0.030496820910957855
+DSLOG: Time taken for refresh_global_pool = 5.9694983065128326e-05
+DSLOG: Time taken for refresh_local_pool = 0.1501840979908593
+DSLOG: Time taken for refresh_global_pool = 3.541004844009876e-05
+DSLOG: Time taken for refresh_interrupt = 1.1732933479943313
+Current time = 06/08/2024 03:48:23
+DSLOG: Total number of iterations: 1361122
+DSLOG: Average throughput time: 0.030496181083194157
+DSLOG: Time taken for refresh_global_pool = 5.753996083512902e-05
+DSLOG: Time taken for refresh_local_pool = 0.15824629401322454
+DSLOG: Time taken for refresh_global_pool = 5.1785027608275414e-05
+DSLOG: Time taken for refresh_interrupt = 1.17381543997908
+Current time = 06/08/2024 03:58:24
+DSLOG: Total number of iterations: 1380819
+DSLOG: Average throughput time: 0.030496539525265244
+DSLOG: Time taken for refresh_global_pool = 3.963295603170991e-05
+DSLOG: Time taken for refresh_local_pool = 0.12335771101061255
+DSLOG: Time taken for refresh_global_pool = 4.3504987843334675e-05
+DSLOG: Time taken for refresh_interrupt = 1.1478348289965652
+Current time = 06/08/2024 04:08:25
+DSLOG: Total number of iterations: 1400502
+DSLOG: Average throughput time: 0.030497184470324526
+DSLOG: Time taken for refresh_global_pool = 4.295498365536332e-05
+DSLOG: Time taken for refresh_local_pool = 0.18248449999373406
+DSLOG: Time taken for refresh_global_pool = 4.72610117867589e-05
+DSLOG: Time taken for refresh_interrupt = 1.232461043051444
+Current time = 06/08/2024 04:18:26
+DSLOG: Total number of iterations: 1420227
+DSLOG: Average throughput time: 0.030496948542153398
+DSLOG: Time taken for refresh_global_pool = 2.785900142043829e-05
+DSLOG: Time taken for refresh_local_pool = 0.21992601896636188
+DSLOG: Time taken for refresh_global_pool = 4.8757006879895926e-05
+DSLOG: Time taken for refresh_interrupt = 1.258799111994449
+Current time = 06/08/2024 04:28:28
+DSLOG: Total number of iterations: 1439879
+DSLOG: Average throughput time: 0.030498298985863558
+DSLOG: Time taken for refresh_global_pool = 2.9601971618831158e-05
+DSLOG: Time taken for refresh_local_pool = 0.11549899203237146
+DSLOG: Time taken for refresh_global_pool = 3.8892962038517e-05
+DSLOG: Time taken for refresh_interrupt = 1.1692958190105855
+Current time = 06/08/2024 04:38:29
+DSLOG: Total number of iterations: 1459566
+DSLOG: Average throughput time: 0.030498797583131756
+DSLOG: Time taken for refresh_global_pool = 0.00013071397552266717
+DSLOG: Time taken for refresh_local_pool = 0.2086606309749186
+DSLOG: Time taken for refresh_global_pool = 4.844903014600277e-05
+DSLOG: Time taken for refresh_interrupt = 1.237541563983541
+Current time = 06/08/2024 04:48:30
+DSLOG: Total number of iterations: 1479263
+DSLOG: Average throughput time: 0.030499148191528047
+DSLOG: Time taken for refresh_global_pool = 5.881796823814511e-05
+DSLOG: Time taken for refresh_local_pool = 0.13841339200735092
+DSLOG: Time taken for refresh_global_pool = 3.771402407437563e-05
+DSLOG: Time taken for refresh_interrupt = 1.1738513190066442
+Found coverage-increasing input:
+Current time = 06/08/2024 04:50:10
+DSLOG: Total number of iterations: 1482543
+DSLOG: Average throughput time: 0.030499308061213544
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.1648960430175066e-05
+DSLOG: Time taken for current_seed_to_global_pool = 56.44291002798127
+Current time = 06/08/2024 05:01:08
+DSLOG: Total number of iterations: 1504105
+DSLOG: Average throughput time: 0.03049919840463047
+DSLOG: Time taken for refresh_global_pool = 5.233404226601124e-05
+DSLOG: Time taken for refresh_local_pool = 0.2290973900235258
+DSLOG: Time taken for refresh_global_pool = 4.417099989950657e-05
+DSLOG: Time taken for refresh_interrupt = 1.2618168930057436
+Found coverage-increasing input:
+Current time = 06/08/2024 05:03:16
+DSLOG: Total number of iterations: 1508308
+DSLOG: Average throughput time: 0.03049928065881517
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.8972025979310274e-05
+DSLOG: Time taken for current_seed_to_global_pool = 57.17840111500118
+Current time = 06/08/2024 05:14:14
+DSLOG: Total number of iterations: 1529860
+DSLOG: Average throughput time: 0.03049984713602968
+DSLOG: Time taken for refresh_global_pool = 5.1619019359350204e-05
+DSLOG: Time taken for refresh_local_pool = 0.10987397999269888
+DSLOG: Time taken for refresh_global_pool = 4.4651038479059935e-05
+DSLOG: Time taken for refresh_interrupt = 1.1337409520056099
+Current time = 06/08/2024 05:24:15
+DSLOG: Total number of iterations: 1549567
+DSLOG: Average throughput time: 0.030499897125296715
+DSLOG: Time taken for refresh_global_pool = 2.3946980945765972e-05
+DSLOG: Time taken for refresh_local_pool = 0.16731047199573368
+DSLOG: Time taken for refresh_global_pool = 3.715296043083072e-05
+DSLOG: Time taken for refresh_interrupt = 1.2083082939498127
+Current time = 06/08/2024 05:34:16
+DSLOG: Total number of iterations: 1569330
+DSLOG: Average throughput time: 0.030498896862932407
+DSLOG: Time taken for refresh_global_pool = 8.001201786100864e-05
+DSLOG: Time taken for refresh_local_pool = 0.17374991602264345
+DSLOG: Time taken for refresh_global_pool = 4.750798689201474e-05
+DSLOG: Time taken for refresh_interrupt = 1.201264020986855
+Current time = 06/08/2024 05:44:18
+DSLOG: Total number of iterations: 1589016
+DSLOG: Average throughput time: 0.030499411482289237
+DSLOG: Time taken for refresh_global_pool = 4.4383981730788946e-05
+DSLOG: Time taken for refresh_local_pool = 0.11369415395893157
+DSLOG: Time taken for refresh_global_pool = 4.451803397387266e-05
+DSLOG: Time taken for refresh_interrupt = 1.1612162789679132
+Current time = 06/08/2024 05:54:19
+DSLOG: Total number of iterations: 1608670
+DSLOG: Average throughput time: 0.030500478360113253
+DSLOG: Time taken for refresh_global_pool = 5.469098687171936e-05
+DSLOG: Time taken for refresh_local_pool = 0.1091637890203856
+DSLOG: Time taken for refresh_global_pool = 4.647398600354791e-05
+DSLOG: Time taken for refresh_interrupt = 1.1363436480169185
+Current time = 06/08/2024 06:04:20
+DSLOG: Total number of iterations: 1628400
+DSLOG: Average throughput time: 0.03050008962661562
+DSLOG: Time taken for refresh_global_pool = 5.831901216879487e-05
+DSLOG: Time taken for refresh_local_pool = 0.15757846500491723
+DSLOG: Time taken for refresh_global_pool = 6.645498797297478e-05
+DSLOG: Time taken for refresh_interrupt = 1.204225926019717
+Current time = 06/08/2024 06:14:21
+DSLOG: Total number of iterations: 1648061
+DSLOG: Average throughput time: 0.030501023479825674
+DSLOG: Time taken for refresh_global_pool = 0.00013946299441158772
+DSLOG: Time taken for refresh_local_pool = 0.11345324304420501
+DSLOG: Time taken for refresh_global_pool = 3.8353027775883675e-05
+DSLOG: Time taken for refresh_interrupt = 1.1536001340136863
+Current time = 06/08/2024 06:24:22
+DSLOG: Total number of iterations: 1667718
+DSLOG: Average throughput time: 0.030501975650337222
+DSLOG: Time taken for refresh_global_pool = 2.3427011910825968e-05
+DSLOG: Time taken for refresh_local_pool = 0.1680301249725744
+DSLOG: Time taken for refresh_global_pool = 3.2972951885312796e-05
+DSLOG: Time taken for refresh_interrupt = 1.2012669600080699
+Current time = 06/08/2024 06:34:24
+DSLOG: Total number of iterations: 1687484
+DSLOG: Average throughput time: 0.030500972073673215
+DSLOG: Time taken for refresh_global_pool = 4.8968009650707245e-05
+DSLOG: Time taken for refresh_local_pool = 0.15204624499892816
+DSLOG: Time taken for refresh_global_pool = 4.1669001802802086e-05
+DSLOG: Time taken for refresh_interrupt = 1.1895887440186925
+Current time = 06/08/2024 06:44:25
+DSLOG: Total number of iterations: 1707204
+DSLOG: Average throughput time: 0.03050080585619279
+DSLOG: Time taken for refresh_global_pool = 5.753600271418691e-05
+DSLOG: Time taken for refresh_local_pool = 0.11779644701164216
+DSLOG: Time taken for refresh_global_pool = 4.277698462828994e-05
+DSLOG: Time taken for refresh_interrupt = 1.1630719769746065
+Current time = 06/08/2024 06:54:26
+DSLOG: Total number of iterations: 1726882
+DSLOG: Average throughput time: 0.03050136091087188
+DSLOG: Time taken for refresh_global_pool = 4.519702633842826e-05
+DSLOG: Time taken for refresh_local_pool = 0.11464705201797187
+DSLOG: Time taken for refresh_global_pool = 4.581100074574351e-05
+DSLOG: Time taken for refresh_interrupt = 1.1484012349974364
+Current time = 06/08/2024 07:04:27
+DSLOG: Total number of iterations: 1746604
+DSLOG: Average throughput time: 0.030501135250917574
+DSLOG: Time taken for refresh_global_pool = 5.27219963259995e-05
+DSLOG: Time taken for refresh_local_pool = 0.10832266299985349
+DSLOG: Time taken for refresh_global_pool = 4.865502705797553e-05
+DSLOG: Time taken for refresh_interrupt = 1.1455332760233432
+Current time = 06/08/2024 07:14:28
+DSLOG: Total number of iterations: 1766266
+DSLOG: Average throughput time: 0.030501944196661253
+DSLOG: Time taken for refresh_global_pool = 6.071501411497593e-05
+DSLOG: Time taken for refresh_local_pool = 0.12535710399970412
+DSLOG: Time taken for refresh_global_pool = 4.049600102007389e-05
+DSLOG: Time taken for refresh_interrupt = 1.163864939007908
+Current time = 06/08/2024 07:24:29
+DSLOG: Total number of iterations: 1785967
+DSLOG: Average throughput time: 0.030502080039625408
+DSLOG: Time taken for refresh_global_pool = 3.647297853603959e-05
+DSLOG: Time taken for refresh_local_pool = 0.11830254801316187
+DSLOG: Time taken for refresh_global_pool = 3.251002635806799e-05
+DSLOG: Time taken for refresh_interrupt = 1.150440928991884
+Current time = 06/08/2024 07:34:31
+DSLOG: Total number of iterations: 1805650
+DSLOG: Average throughput time: 0.03050251484247337
+DSLOG: Time taken for refresh_global_pool = 5.972996586933732e-05
+DSLOG: Time taken for refresh_local_pool = 0.11492796102538705
+DSLOG: Time taken for refresh_global_pool = 3.231095615774393e-05
+DSLOG: Time taken for refresh_interrupt = 1.1553437710390426
+Current time = 06/08/2024 07:44:32
+DSLOG: Total number of iterations: 1825388
+DSLOG: Average throughput time: 0.030502022383997747
+DSLOG: Time taken for refresh_global_pool = 3.829901106655598e-05
+DSLOG: Time taken for refresh_local_pool = 0.12506117299199104
+DSLOG: Time taken for refresh_global_pool = 3.547698725014925e-05
+DSLOG: Time taken for refresh_interrupt = 1.1487834010040388
+Current time = 06/08/2024 07:54:33
+DSLOG: Total number of iterations: 1845089
+DSLOG: Average throughput time: 0.030502143043917185
+DSLOG: Time taken for refresh_global_pool = 3.626500256359577e-05
+DSLOG: Time taken for refresh_local_pool = 0.12223453196929768
+DSLOG: Time taken for refresh_global_pool = 4.920095670968294e-05
+DSLOG: Time taken for refresh_interrupt = 1.1613673079991713
+Current time = 06/08/2024 08:04:34
+DSLOG: Total number of iterations: 1864809
+DSLOG: Average throughput time: 0.030501957368981602
+DSLOG: Time taken for refresh_global_pool = 5.0076982006430626e-05
+DSLOG: Time taken for refresh_local_pool = 0.11710432299878448
+DSLOG: Time taken for refresh_global_pool = 7.627299055457115e-05
+DSLOG: Time taken for refresh_interrupt = 1.1484079799847677
+Current time = 06/08/2024 08:14:35
+DSLOG: Total number of iterations: 1884636
+DSLOG: Average throughput time: 0.030500046234560332
+DSLOG: Time taken for refresh_global_pool = 6.512599065899849e-05
+DSLOG: Time taken for refresh_local_pool = 0.12488808704074472
+DSLOG: Time taken for refresh_global_pool = 2.9565009754151106e-05
+DSLOG: Time taken for refresh_interrupt = 1.1494983090087771
+Current time = 06/08/2024 08:24:36
+DSLOG: Total number of iterations: 1904307
+DSLOG: Average throughput time: 0.030500659942466698
+DSLOG: Time taken for refresh_global_pool = 5.501700798049569e-05
+DSLOG: Time taken for refresh_local_pool = 0.13248456100700423
+DSLOG: Time taken for refresh_global_pool = 3.651698352769017e-05
+DSLOG: Time taken for refresh_interrupt = 1.1520318640396
+Current time = 06/08/2024 08:34:37
+DSLOG: Total number of iterations: 1923981
+DSLOG: Average throughput time: 0.030501231080563178
+DSLOG: Time taken for refresh_global_pool = 5.132600199431181e-05
+DSLOG: Time taken for refresh_local_pool = 0.12359548802487552
+DSLOG: Time taken for refresh_global_pool = 4.733499372377992e-05
+DSLOG: Time taken for refresh_interrupt = 1.1705113559728488
+Current time = 06/08/2024 08:44:39
+DSLOG: Total number of iterations: 1943641
+DSLOG: Average throughput time: 0.030502006916177167
+DSLOG: Time taken for refresh_global_pool = 4.478305345401168e-05
+DSLOG: Time taken for refresh_local_pool = 0.11515068198787048
+DSLOG: Time taken for refresh_global_pool = 4.2666972149163485e-05
+DSLOG: Time taken for refresh_interrupt = 1.1505351379746571
+Current time = 06/08/2024 08:54:40
+DSLOG: Total number of iterations: 1963318
+DSLOG: Average throughput time: 0.03050249594039438
+DSLOG: Time taken for refresh_global_pool = 5.2477000281214714e-05
+DSLOG: Time taken for refresh_local_pool = 0.13944019097834826
+DSLOG: Time taken for refresh_global_pool = 4.355498822405934e-05
+DSLOG: Time taken for refresh_interrupt = 1.1820180070353672
+Current time = 06/08/2024 09:04:41
+DSLOG: Total number of iterations: 1983039
+DSLOG: Average throughput time: 0.030502313913854988
+DSLOG: Time taken for refresh_global_pool = 6.653100717812777e-05
+DSLOG: Time taken for refresh_local_pool = 0.11724639299791306
+DSLOG: Time taken for refresh_global_pool = 4.46150079369545e-05
+DSLOG: Time taken for refresh_interrupt = 1.139412805030588
+Current time = 06/08/2024 09:14:42
+DSLOG: Total number of iterations: 2002689
+DSLOG: Average throughput time: 0.030503195703852053
+DSLOG: Time taken for refresh_global_pool = 4.441104829311371e-05
+DSLOG: Time taken for refresh_local_pool = 0.11061081994557753
+DSLOG: Time taken for refresh_global_pool = 6.271799793466926e-05
+DSLOG: Time taken for refresh_interrupt = 1.126415528007783
+Current time = 06/08/2024 09:24:43
+DSLOG: Total number of iterations: 2022377
+DSLOG: Average throughput time: 0.030503491474371522
+DSLOG: Time taken for refresh_global_pool = 4.577601794153452e-05
+DSLOG: Time taken for refresh_local_pool = 0.1781304869800806
+DSLOG: Time taken for refresh_global_pool = 2.9184040613472462e-05
+DSLOG: Time taken for refresh_interrupt = 1.2239609999815002
+Found coverage-increasing input:
+Current time = 06/08/2024 09:24:50
+DSLOG: Total number of iterations: 2022606
+DSLOG: Average throughput time: 0.030503528684600545
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.26730078086257e-05
+DSLOG: Time taken for current_seed_to_global_pool = 51.67610497097485
+Current time = 06/08/2024 09:35:43
+DSLOG: Total number of iterations: 2043991
+DSLOG: Average throughput time: 0.030503708006050317
+DSLOG: Time taken for refresh_global_pool = 0.00010055198799818754
+DSLOG: Time taken for refresh_local_pool = 0.12494292797055095
+DSLOG: Time taken for refresh_global_pool = 5.053298082202673e-05
+DSLOG: Time taken for refresh_interrupt = 1.1575312109780498
+Found coverage-increasing input:
+Current time = 06/08/2024 09:35:46
+DSLOG: Total number of iterations: 2044095
+DSLOG: Average throughput time: 0.030503772419726762
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.454799298197031e-05
+DSLOG: Time taken for current_seed_to_global_pool = 55.324454318964854
+Current time = 06/08/2024 09:46:43
+DSLOG: Total number of iterations: 2065722
+DSLOG: Average throughput time: 0.03050213866362303
+DSLOG: Time taken for refresh_global_pool = 7.689697667956352e-05
+DSLOG: Time taken for refresh_local_pool = 0.11561645998153836
+DSLOG: Time taken for refresh_global_pool = 4.931201692670584e-05
+DSLOG: Time taken for refresh_interrupt = 1.1404192260233685
+Current time = 06/08/2024 09:56:44
+DSLOG: Total number of iterations: 2085389
+DSLOG: Average throughput time: 0.03050273923289607
+DSLOG: Time taken for refresh_global_pool = 4.199403338134289e-05
+DSLOG: Time taken for refresh_local_pool = 0.11726123001426458
+DSLOG: Time taken for refresh_global_pool = 4.57690330222249e-05
+DSLOG: Time taken for refresh_interrupt = 1.1364626520080492
+Current time = 06/08/2024 10:06:45
+DSLOG: Total number of iterations: 2105081
+DSLOG: Average throughput time: 0.03050296879022595
+DSLOG: Time taken for refresh_global_pool = 5.09529490955174e-05
+DSLOG: Time taken for refresh_local_pool = 0.10692849499173462
+DSLOG: Time taken for refresh_global_pool = 2.311397111043334e-05
+DSLOG: Time taken for refresh_interrupt = 1.1209169090143405
+Current time = 06/08/2024 10:16:46
+DSLOG: Total number of iterations: 2124801
+DSLOG: Average throughput time: 0.030502783278323585
+DSLOG: Time taken for refresh_global_pool = 4.723703023046255e-05
+DSLOG: Time taken for refresh_local_pool = 0.1210796590312384
+DSLOG: Time taken for refresh_global_pool = 4.4899992644786835e-05
+DSLOG: Time taken for refresh_interrupt = 1.151424871000927
+Current time = 06/08/2024 10:26:47
+DSLOG: Total number of iterations: 2144530
+DSLOG: Average throughput time: 0.030502483235661442
+DSLOG: Time taken for refresh_global_pool = 4.67670033685863e-05
+DSLOG: Time taken for refresh_local_pool = 0.11296616698382422
+DSLOG: Time taken for refresh_global_pool = 3.824703162536025e-05
+DSLOG: Time taken for refresh_interrupt = 1.135696162993554
+Found coverage-increasing input:
+Current time = 06/08/2024 10:32:13
+DSLOG: Total number of iterations: 2155213
+DSLOG: Average throughput time: 0.03050230786100635
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.908196231350303e-05
+DSLOG: Time taken for current_seed_to_global_pool = 51.911234125029296
+Found coverage-increasing input:
+Current time = 06/08/2024 10:35:46
+DSLOG: Total number of iterations: 2162283
+DSLOG: Average throughput time: 0.03050144673207315
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.294600173830986e-05
+DSLOG: Time taken for current_seed_to_global_pool = 54.07697316398844
+Current time = 06/08/2024 10:46:41
+DSLOG: Total number of iterations: 2183792
+DSLOG: Average throughput time: 0.030501005612110405
+DSLOG: Time taken for refresh_global_pool = 0.3662817989825271
+DSLOG: Time taken for refresh_local_pool = 0.5556970190373249
+DSLOG: Time taken for refresh_global_pool = 6.334896897897124e-05
+DSLOG: Time taken for refresh_interrupt = 1.5876127610099502
+Current time = 06/08/2024 10:56:43
+DSLOG: Total number of iterations: 2203507
+DSLOG: Average throughput time: 0.030501123873814606
+DSLOG: Time taken for refresh_global_pool = 3.8654019590467215e-05
+DSLOG: Time taken for refresh_local_pool = 0.11875093000708148
+DSLOG: Time taken for refresh_global_pool = 3.091798862442374e-05
+DSLOG: Time taken for refresh_interrupt = 1.1611089570214972
+Current time = 06/08/2024 11:06:44
+DSLOG: Total number of iterations: 2223258
+DSLOG: Average throughput time: 0.030500548594626774
+DSLOG: Time taken for refresh_global_pool = 4.807102959603071e-05
+DSLOG: Time taken for refresh_local_pool = 0.10869093402288854
+DSLOG: Time taken for refresh_global_pool = 3.215699689462781e-05
+DSLOG: Time taken for refresh_interrupt = 1.1274738379870541
+Current time = 06/08/2024 11:16:45
+DSLOG: Total number of iterations: 2242993
+DSLOG: Average throughput time: 0.030500200954315236
+DSLOG: Time taken for refresh_global_pool = 0.0001530559966340661
+DSLOG: Time taken for refresh_local_pool = 0.11926316499011591
+DSLOG: Time taken for refresh_global_pool = 3.2935990020632744e-05
+DSLOG: Time taken for refresh_interrupt = 1.1686861510388553
+Found coverage-increasing input:
+Current time = 06/08/2024 11:19:45
+DSLOG: Total number of iterations: 2248876
+DSLOG: Average throughput time: 0.030500099467771172
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.205101868137717e-05
+DSLOG: Time taken for current_seed_to_global_pool = 56.89647973701358
+
+Current time = 06/08/2024 11:30:42
+DSLOG: Total number of iterations: 2270532
+DSLOG: Average throughput time: 0.030498953086200556
+DSLOG: Time taken for refresh_global_pool = 5.717499880120158e-05
+DSLOG: Time taken for refresh_local_pool = 0.13081883295672014
+DSLOG: Time taken for refresh_global_pool = 5.2758026868104935e-05
+DSLOG: Time taken for refresh_interrupt = 1.1479746120166965
+Found coverage-increasing input:
+Current time = 06/08/2024 11:30:58
+DSLOG: Total number of iterations: 2271037
+DSLOG: Average throughput time: 0.03049900355748206
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.490796709433198e-05
+DSLOG: Time taken for current_seed_to_global_pool = 53.150258629990276
+Current time = 06/08/2024 11:41:52
+DSLOG: Total number of iterations: 2292512
+DSLOG: Average throughput time: 0.030498650288937442
+DSLOG: Time taken for refresh_global_pool = 4.9179012421518564e-05
+DSLOG: Time taken for refresh_local_pool = 0.22811522101983428
+DSLOG: Time taken for refresh_global_pool = 4.260899731889367e-05
+DSLOG: Time taken for refresh_interrupt = 1.2582427050219849
+Current time = 06/08/2024 11:51:53
+DSLOG: Total number of iterations: 2312243
+DSLOG: Average throughput time: 0.03049843370164762
+DSLOG: Time taken for refresh_global_pool = 4.528299905359745e-05
+DSLOG: Time taken for refresh_local_pool = 0.11642051098169759
+DSLOG: Time taken for refresh_global_pool = 3.3769989386200905e-05
+DSLOG: Time taken for refresh_interrupt = 1.148565390962176
+Current time = 06/08/2024 12:01:55
+DSLOG: Total number of iterations: 2331988
+DSLOG: Average throughput time: 0.03049798460152154
+DSLOG: Time taken for refresh_global_pool = 3.0896044336259365e-05
+DSLOG: Time taken for refresh_local_pool = 0.11455657501937822
+DSLOG: Time taken for refresh_global_pool = 4.786101635545492e-05
+DSLOG: Time taken for refresh_interrupt = 1.153694299980998
+Current time = 06/08/2024 12:11:56
+DSLOG: Total number of iterations: 2351720
+DSLOG: Average throughput time: 0.030497716818616107
+DSLOG: Time taken for refresh_global_pool = 4.852598067373037e-05
+DSLOG: Time taken for refresh_local_pool = 0.12331493099918589
+DSLOG: Time taken for refresh_global_pool = 3.8444006349891424e-05
+DSLOG: Time taken for refresh_interrupt = 1.151686392026022
+Current time = 06/08/2024 12:21:57
+DSLOG: Total number of iterations: 2371423
+DSLOG: Average throughput time: 0.030497825254961208
+DSLOG: Time taken for refresh_global_pool = 5.460000829771161e-05
+DSLOG: Time taken for refresh_local_pool = 0.20713041798444465
+DSLOG: Time taken for refresh_global_pool = 4.167697625234723e-05
+DSLOG: Time taken for refresh_interrupt = 1.2481968310312368
+Current time = 06/08/2024 12:31:58
+DSLOG: Total number of iterations: 2391111
+DSLOG: Average throughput time: 0.030498161326670735
+DSLOG: Time taken for refresh_global_pool = 6.0125021263957024e-05
+DSLOG: Time taken for refresh_local_pool = 0.1481248940108344
+DSLOG: Time taken for refresh_global_pool = 2.996798139065504e-05
+DSLOG: Time taken for refresh_interrupt = 1.1772397920140065
+Current time = 06/08/2024 12:41:59
+DSLOG: Total number of iterations: 2410790
+DSLOG: Average throughput time: 0.030498580194671637
+DSLOG: Time taken for refresh_global_pool = 4.3105974327772856e-05
+DSLOG: Time taken for refresh_local_pool = 0.1090623060008511
+DSLOG: Time taken for refresh_global_pool = 3.605999518185854e-05
+DSLOG: Time taken for refresh_interrupt = 1.1530841609928757
+Current time = 06/08/2024 12:52:00
+DSLOG: Total number of iterations: 2430613
+DSLOG: Average throughput time: 0.030497171916645027
+DSLOG: Time taken for refresh_global_pool = 2.9748014640063047e-05
+DSLOG: Time taken for refresh_local_pool = 0.11646171798929572
+DSLOG: Time taken for refresh_global_pool = 4.060700302943587e-05
+DSLOG: Time taken for refresh_interrupt = 1.155562260944862
+Current time = 06/08/2024 13:02:02
+DSLOG: Total number of iterations: 2450294
+DSLOG: Average throughput time: 0.030497560886535324
+DSLOG: Time taken for refresh_global_pool = 7.345498306676745e-05
+DSLOG: Time taken for refresh_local_pool = 0.1295442869886756
+DSLOG: Time taken for refresh_global_pool = 6.077898433431983e-05
+DSLOG: Time taken for refresh_interrupt = 1.1824973070179112
+Current time = 06/08/2024 13:12:03
+DSLOG: Total number of iterations: 2470008
+DSLOG: Average throughput time: 0.0304975360433583
+DSLOG: Time taken for refresh_global_pool = 4.926201654598117e-05
+DSLOG: Time taken for refresh_local_pool = 0.10677404003217816
+DSLOG: Time taken for refresh_global_pool = 6.00829953327775e-05
+DSLOG: Time taken for refresh_interrupt = 1.1418097369605675
+Current time = 06/08/2024 13:22:04
+DSLOG: Total number of iterations: 2489740
+DSLOG: Average throughput time: 0.030497277902237437
+DSLOG: Time taken for refresh_global_pool = 4.302500747144222e-05
+DSLOG: Time taken for refresh_local_pool = 0.14200675999745727
+DSLOG: Time taken for refresh_global_pool = 4.2409985326230526e-05
+DSLOG: Time taken for refresh_interrupt = 1.172223280009348
+Found coverage-increasing input:
+Current time = 06/08/2024 13:28:54
+DSLOG: Total number of iterations: 2503195
+DSLOG: Average throughput time: 0.030497095079252783
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 3.566598752513528e-05
+DSLOG: Time taken for current_seed_to_global_pool = 56.43017783202231
+
+
+Current time = 06/08/2024 13:39:51
+DSLOG: Total number of iterations: 2524760
+DSLOG: Average throughput time: 0.030497003142153308
+DSLOG: Time taken for refresh_global_pool = 0.00011942599667236209
+DSLOG: Time taken for refresh_local_pool = 0.13855783798499033
+DSLOG: Time taken for refresh_global_pool = 4.9053982365876436e-05
+DSLOG: Time taken for refresh_interrupt = 1.1719714799546637
+Current time = 06/08/2024 13:49:52
+DSLOG: Total number of iterations: 2544491
+DSLOG: Average throughput time: 0.030496785687389415
+DSLOG: Time taken for refresh_global_pool = 6.3780986238271e-05
+DSLOG: Time taken for refresh_local_pool = 0.15903193701524287
+DSLOG: Time taken for refresh_global_pool = 9.015802061185241e-05
+DSLOG: Time taken for refresh_interrupt = 1.1949931079871021
+Current time = 06/08/2024 13:59:54
+DSLOG: Total number of iterations: 2564209
+DSLOG: Average throughput time: 0.030496731029077837
+DSLOG: Time taken for refresh_global_pool = 4.467699909582734e-05
+DSLOG: Time taken for refresh_local_pool = 0.10750290798023343
+DSLOG: Time taken for refresh_global_pool = 3.58260003849864e-05
+DSLOG: Time taken for refresh_interrupt = 1.1396226239739917
+Current time = 06/08/2024 14:09:55
+DSLOG: Total number of iterations: 2583933
+DSLOG: Average throughput time: 0.030496584214323212
+DSLOG: Time taken for refresh_global_pool = 2.7951959054917097e-05
+DSLOG: Time taken for refresh_local_pool = 0.14515625196509063
+DSLOG: Time taken for refresh_global_pool = 4.357000580057502e-05
+DSLOG: Time taken for refresh_interrupt = 1.1782078529940918
+Current time = 06/08/2024 14:19:56
+DSLOG: Total number of iterations: 2603582
+DSLOG: Average throughput time: 0.030497327790165712
+DSLOG: Time taken for refresh_global_pool = 4.574802005663514e-05
+DSLOG: Time taken for refresh_local_pool = 0.13444855401758105
+DSLOG: Time taken for refresh_global_pool = 7.379299495369196e-05
+DSLOG: Time taken for refresh_interrupt = 1.1525747099658474
+Current time = 06/08/2024 14:29:57
+DSLOG: Total number of iterations: 2623199
+DSLOG: Average throughput time: 0.03049843606758281
+DSLOG: Time taken for refresh_global_pool = 5.7496014051139355e-05
+DSLOG: Time taken for refresh_local_pool = 0.11547526001231745
+DSLOG: Time taken for refresh_global_pool = 6.540399044752121e-05
+DSLOG: Time taken for refresh_interrupt = 1.1659672409878112
+Current time = 06/08/2024 14:39:58
+DSLOG: Total number of iterations: 2642828
+DSLOG: Average throughput time: 0.030499380671521355
+DSLOG: Time taken for refresh_global_pool = 3.4675991628319025e-05
+DSLOG: Time taken for refresh_local_pool = 0.18118358601350337
+DSLOG: Time taken for refresh_global_pool = 7.595098577439785e-05
+DSLOG: Time taken for refresh_interrupt = 1.2123230880242772
+Current time = 06/08/2024 14:49:59
+DSLOG: Total number of iterations: 2662444
+DSLOG: Average throughput time: 0.03050048177176382
+DSLOG: Time taken for refresh_global_pool = 6.0649996157735586e-05
+DSLOG: Time taken for refresh_local_pool = 0.14049918804084882
+DSLOG: Time taken for refresh_global_pool = 6.270600715652108e-05
+DSLOG: Time taken for refresh_interrupt = 1.15946489199996
+Current time = 06/08/2024 15:00:01
+DSLOG: Total number of iterations: 2682264
+DSLOG: Average throughput time: 0.030499233098049618
+DSLOG: Time taken for refresh_global_pool = 5.411700112745166e-05
+DSLOG: Time taken for refresh_local_pool = 0.15189441194524989
+DSLOG: Time taken for refresh_global_pool = 6.36500190012157e-05
+DSLOG: Time taken for refresh_interrupt = 1.179847338993568
+Found coverage-increasing input:
+Current time = 06/08/2024 15:00:23
+DSLOG: Total number of iterations: 2683005
+DSLOG: Average throughput time: 0.030499293558326104
+DSERROR:Coverage map returned empty from the device.
+DSLOG: Time taken for refresh_global_pool = 4.94639971293509e-05
+DSLOG: Time taken for current_seed_to_global_pool = 54.97878949798178
+Current time = 06/08/2024 15:11:19
+DSLOG: Total number of iterations: 2704481
+DSLOG: Average throughput time: 0.030499656551429315
+DSLOG: Time taken for refresh_global_pool = 5.445699207484722e-05
+DSLOG: Time taken for refresh_local_pool = 0.13569617504253983
+DSLOG: Time taken for refresh_global_pool = 4.386698128655553e-05
+DSLOG: Time taken for refresh_interrupt = 1.1577083059819415
+Current time = 06/08/2024 15:21:21
+DSLOG: Total number of iterations: 2724144
+DSLOG: Average throughput time: 0.03050018732091701
+DSLOG: Time taken for refresh_global_pool = 3.460602601990104e-05
+DSLOG: Time taken for refresh_local_pool = 0.13935660501010716
+DSLOG: Time taken for refresh_global_pool = 3.378302790224552e-05
+DSLOG: Time taken for refresh_interrupt = 1.1625638690311462
+Current time = 06/08/2024 15:31:22
+DSLOG: Total number of iterations: 2743829
+DSLOG: Average throughput time: 0.030500471340373512
+DSLOG: Time taken for refresh_global_pool = 2.8209993615746498e-05
+DSLOG: Time taken for refresh_local_pool = 0.13442826399113983
+DSLOG: Time taken for refresh_global_pool = 4.6366010792553425e-05
+DSLOG: Time taken for refresh_interrupt = 1.179640056041535
+Current time = 06/08/2024 15:41:23
+DSLOG: Total number of iterations: 2763501
+DSLOG: Average throughput time: 0.030500890506894238
+DSLOG: Time taken for refresh_global_pool = 5.159102147445083e-05
+DSLOG: Time taken for refresh_local_pool = 0.12259928701678291
+DSLOG: Time taken for refresh_global_pool = 4.837801679968834e-05
+DSLOG: Time taken for refresh_interrupt = 1.1423971619806252
+Current time = 06/08/2024 15:51:24
+DSLOG: Total number of iterations: 2783195
+DSLOG: Average throughput time: 0.030501056265415653
+DSLOG: Time taken for refresh_global_pool = 5.488400347530842e-05
+DSLOG: Time taken for refresh_local_pool = 0.14043474703794345
+DSLOG: Time taken for refresh_global_pool = 3.8255995605140924e-05
+DSLOG: Time taken for refresh_interrupt = 1.1737938409787603
+Current time = 06/08/2024 16:01:25
+DSLOG: Total number of iterations: 2802891
+DSLOG: Average throughput time: 0.030501237355794412
+DSLOG: Time taken for refresh_global_pool = 4.024500958621502e-05
+DSLOG: Time taken for refresh_local_pool = 0.21780419698916376
+DSLOG: Time taken for refresh_global_pool = 3.1385046895593405e-05
+DSLOG: Time taken for refresh_interrupt = 1.2540236879722215
+Current time = 06/08/2024 16:11:27
+DSLOG: Total number of iterations: 2822633
+DSLOG: Average throughput time: 0.030500916791481612
+DSLOG: Time taken for refresh_global_pool = 3.150699194520712e-05
+DSLOG: Time taken for refresh_local_pool = 0.11695822596084327
+DSLOG: Time taken for refresh_global_pool = 3.7461984902620316e-05
+DSLOG: Time taken for refresh_interrupt = 1.1334576630033553
+

@@ -1,0 +1,635 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Fri Jul 05 14:17:26 2013
+
+OUTPUT FILE NAME:   <test_rel_c55l_C55L_COFF.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0001871b
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  DARAM                 00002000   0000e000  00001c1a  0000c3e6  RWIX
+  SARAM_P1              00010000   00030000  00008884  0002777c  RWIX
+  SARAM_P2              00040000   00008000  00006376  00001c8a  RWIX
+  SARAM_P3              00048000   00008000  00000a4c  000075b4  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.bss         0   [ 00002000 ]  00001000          *   00000d8d   UNINITIALIZED
+                 [ 00002000 ]  00001000          *   00000b16   veusim.obj (.bss)
+                 [ 0000362c ]  00001b16          *   00000119   rts55x.lib : defs.obj (.bss)
+                 [ 0000385e ]  00001c2f          *   000000d0              : trgdrv.obj (.bss)
+                 [ 000039fe ]  00001cff          *   00000001              : errno.obj (.bss)
+                 [ 00003a00 ]  00001d00          *   00000071              : lowlev.obj (.bss)
+                 [ 00003ae2 ]  00001d71          *   00000001              : fopen.obj (.bss)
+                 [ 00003ae4 ]  00001d72          *   0000000c   veu_c.a55L : veuinit.o55L (.bss)
+                 [ 00003afc ]  00001d7e          *   00000006   rts55x.lib : memory.obj (.bss)
+                 [ 00003b08 ]  00001d84          *   00000004              : _lock.obj (.bss)
+                 [ 00003b10 ]  00001d88          *   00000004              : exit.obj (.bss)
+                 [ 00003b18 ]  00001d8c          *   00000001   veu_c.a55L : veusm.o55L (.bss)
+
+.data        0   [ 00002000 ]  00001000          *   00000000   UNINITIALIZED
+
+vectors      0     00003b20  [ 00001d90 ] 00000100          *   
+                   00003b20  [ 00001d90 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.text        0     00010000  [ 00008000 ] 00008884          *   
+                   00010000  [ 00008000 ] 000015a4          *   rts55x.lib : _printfi.obj (.text)
+                   000115a4  [ 00008ad2 ] 00000edb          *              : _scanfi.obj (.text)
+                   0001247f  [ 0000923f+] 00000d4a          *   veu_c.a55L : veusm.o55L (.text)
+                   000131c9  [ 000098e4+] 00000a02          *   veusim.obj (.text)
+                   00013bcb  [ 00009de5+] 00000844          *   veu_c.a55L : veu.o55L (.text)
+                   0001440f  [ 0000a207+] 00000543          *   rts55x.lib : lowlev.obj (.text)
+                   00014952  [ 0000a4a9 ] 00000528          *              : trgdrv.obj (.text)
+                   00014e7a  [ 0000a73d ] 000004b5          *              : memory.obj (.text)
+                   0001532f  [ 0000a997+] 000003cc          *              : divd.obj (.text)
+                   000156fb  [ 0000ab7d+] 00000301          *              : strtoll.obj (.text)
+                   000159fc  [ 0000acfe ] 000002bd          *              : strtod.obj (.text)
+                   00015cb9  [ 0000ae5c+] 0000029f          *              : strtold.obj (.text)
+                   00015f58  [ 0000afac ] 0000027f          *              : fopen.obj (.text)
+                   000161d7  [ 0000b0eb+] 0000027e          *   veu_c.a55L : veubg.o55L (.text)
+                   00016455  [ 0000b22a+] 0000025e          *   rts55x.lib : llmpy.obj (.text)
+                   000166b3  [ 0000b359+] 0000025a          *              : addd.obj (.text)
+                   0001690d  [ 0000b486+] 0000024b          *              : strtoull.obj (.text)
+                   00016b58  [ 0000b5ac ] 0000023d          *   veu_c.a55L : veunum.o55L (.text)
+                   00016d95  [ 0000b6ca+] 00000208          *   rts55x.lib : strtol.obj (.text)
+                   00016f9d  [ 0000b7ce+] 000001ee          *              : fwrite.obj (.text)
+                   0001718b  [ 0000b8c5+] 000001ea          *              : cmpd.obj (.text)
+                   00017375  [ 0000b9ba+] 000001d1          *              : strtoul.obj (.text)
+                   00017546  [ 0000baa3 ] 00000163          *              : fputs.obj (.text)
+                   000176a9  [ 0000bb54+] 00000161          *              : fscanf.obj (.text)
+                   0001780a  [ 0000bc05 ] 0000014c          *              : mpyd.obj (.text)
+                   00017956  [ 0000bcab ] 000000e6          *              : setvbuf.obj (.text)
+                   00017a3c  [ 0000bd1e ] 000000dd          *              : _io_perm.obj (.text)
+                   00017b19  [ 0000bd8c+] 000000c2          *              : fflush.obj (.text)
+                   00017bdb  [ 0000bded+] 000000ba          *              : trgmsg.obj (.text:CIO_breakpoint)
+                   00017c95  [ 0000be4a+] 000000ae          *              : _bufread.obj (.text)
+                   00017d43  [ 0000bea1+] 000000a6          *              : fputc.obj (.text)
+                   00017de9  [ 0000bef4+] 000000a1          *              : divul.obj (.text)
+                   00017e8a  [ 0000bf45 ] 0000009b          *              : fgetc.obj (.text)
+                   00017f25  [ 0000bf92+] 0000009a          *              : ungetc.obj (.text)
+                   00017fbf  [ 0000bfdf+] 00000081          *   veu_c.a55L : veuinit.o55L (.text)
+                   00018040  [ 0000c020 ] 0000007d          *   rts55x.lib : ltoa.obj (.text)
+                   000180bd  [ 0000c05e+] 0000007b          *              : fclose.obj (.text)
+                   00018138  [ 0000c09c ] 00000076          *              : frcmpyd.obj (.text)
+                   000181ae  [ 0000c0d7 ] 00000073          *              : frcmpyd_div.obj (.text)
+                   00018221  [ 0000c110+] 00000072          *              : remul.obj (.text)
+                   00018293  [ 0000c149+] 0000006f          *              : fixdli.obj (.text)
+                   00018302  [ 0000c181 ] 0000006d          *              : trgmsg.obj (.text)
+                   0001836f  [ 0000c1b7+] 0000006b          *              : fseek.obj (.text)
+                   000183da  [ 0000c1ed ] 00000067          *              : fltlid.obj (.text)
+                   00018441  [ 0000c220+] 0000005c          *              : atoi.obj (.text)
+                   0001849d  [ 0000c24e+] 00000050          *              : printf.obj (.text)
+                   000184ed  [ 0000c276+] 0000004d          *              : autoinit.obj (.text)
+                   0001853a  [ 0000c29d ] 0000004b          *              : args_main.obj (.text)
+                   00018585  [ 0000c2c2+] 0000004b          *              : remli.obj (.text)
+                   000185d0  [ 0000c2e8 ] 0000004a          *              : fprintf.obj (.text)
+                   0001861a  [ 0000c30d ] 00000048          *              : divli.obj (.text)
+                   00018662  [ 0000c331 ] 0000003f          *              : memcpy.obj (.text)
+                   000186a1  [ 0000c350+] 0000003e          *              : exit.obj (.text)
+                   000186df  [ 0000c36f+] 0000003c          *              : idiv.obj (.text)
+                   0001871b  [ 0000c38d+] 00000034          *              : boot.obj (.text)
+                   0001874f  [ 0000c3a7+] 0000002a          *              : fixdi.obj (.text)
+                   00018779  [ 0000c3bc+] 0000002a          *              : udiv.obj (.text)
+                   000187a3  [ 0000c3d1+] 00000029          *              : strcat.obj (.text)
+                   000187cc  [ 0000c3e6 ] 00000023          *              : memccpy.obj (.text)
+                   000187ef  [ 0000c3f7+] 0000001a          *              : isinf.obj (.text)
+                   00018809  [ 0000c404+] 00000014          *              : strcpy.obj (.text)
+                   0001881d  [ 0000c40e+] 00000014          *              : subd.obj (.text)
+                   00018831  [ 0000c418+] 00000013          *              : lmpy.obj (.text)
+                   00018844  [ 0000c422 ] 00000012          *              : _lock.obj (.text)
+                   00018856  [ 0000c42b ] 00000010          *              : negd.obj (.text)
+                   00018866  [ 0000c433 ] 0000000a          *              : feof.obj (.text)
+                   00018870  [ 0000c438 ] 0000000a          *              : remove.obj (.text)
+                   0001887a  [ 0000c43d ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00018881  [ 0000c440+] 00000002          *              : vectors.obj (.text)
+                   00018883  [ 0000c441 ] 00000001          *   --HOLE-- [fill = 20]
+
+.sysmem      0   [ 00040000 ]  00020000          *   00002000   UNINITIALIZED
+                 [ 00040000 ]  00020000          *   00002000   --HOLE--
+
+.stack       0   [ 00044000 ]  00022000          *   00000800   UNINITIALIZED
+                 [ 00044000 ]  00022000          *   00000800   --HOLE--
+
+.sysstack 
+*            0   [ 00045000 ]  00022800          *   00000800   UNINITIALIZED
+                 [ 00045000 ]  00022800          *   00000800   --HOLE--
+
+.cio         0   [ 00046000 ]  00023000          *   00000120   UNINITIALIZED
+                 [ 00046000 ]  00023000          *   00000120   rts55x.lib : trgmsg.obj (.cio)
+
+.cinit       0   [ 00046240 ]  00023120          *   0000008b   
+                 [ 00046240 ]  00023120          *   0000002d   rts55x.lib : lowlev.obj (.cinit)
+                 [ 0004629a ]  0002314d          *   0000002a              : defs.obj (.cinit)
+                 [ 000462ee ]  00023177          *   0000000f   veu_c.a55L : veuinit.o55L (.cinit)
+                 [ 0004630c ]  00023186          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 00046320 ]  00023190          *   0000000a              : exit.obj (.cinit)
+                 [ 00046334 ]  0002319a          *   00000004              : errno.obj (.cinit)
+                 [ 0004633c ]  0002319e          *   00000004              : fopen.obj (.cinit)
+                 [ 00046344 ]  000231a2          *   00000004              : memory.obj (.cinit)
+                 [ 0004634c ]  000231a6          *   00000004   veu_c.a55L : veusm.o55L (.cinit)
+                 [ 00046354 ]  000231aa          *   00000001   --HOLE-- [fill = 0]
+
+.switch      0   [ 00046358 ]  000231ac          *   00000010   
+                 [ 00046358 ]  000231ac          *   00000010   veu_c.a55L : veu.o55L (.switch:_veuControl)
+
+.const       0   [ 00048000 ]  00024000          *   00000526   
+                 [ 00048000 ]  00024000          *   0000032e   veusim.obj (.const:.string)
+                 [ 0004865c ]  0002432e          *   00000101   rts55x.lib : ctype.obj (.const:__ctypes_)
+                 [ 0004885e ]  0002442f          *   00000001   --HOLE-- [fill = 0]
+                 [ 00048860 ]  00024430          *   00000024              : _printfi.obj (.const:.string)
+                 [ 000488a8 ]  00024454          *   00000020   veu_c.a55L : veusm.o55L (.const:_veuSNRGainTable)
+                 [ 000488e8 ]  00024474          *   00000019              : veu.o55L (.const:_veuGainTable)
+                 [ 0004891a ]  0002448d          *   00000001   --HOLE-- [fill = 0]
+                 [ 0004891c ]  0002448e          *   00000014   rts55x.lib : strtod.obj (.const:_digits)
+                 [ 00048944 ]  000244a2          *   00000014              : strtold.obj (.const:_digits)
+                 [ 0004896c ]  000244b6          *   00000010   veu_c.a55L : veusm.o55L (.const:_veuLin2dBTable)
+                 [ 0004898c ]  000244c6          *   0000000c   rts55x.lib : strtod.obj (.const:_powerof10)
+                 [ 000489a4 ]  000244d2          *   0000000c              : strtold.obj (.const:_powerof10)
+                 [ 000489bc ]  000244de          *   0000000c              : _printfi.obj (.const)
+                 [ 000489d4 ]  000244ea          *   00000008              : divd.obj (.const:_initial_approx$1)
+                 [ 000489e4 ]  000244f2          *   00000008   veu_c.a55L : veusm.o55L (.const:_targs)
+                 [ 000489f4 ]  000244fa          *   00000008   rts55x.lib : strtod.obj (.const)
+                 [ 00048a04 ]  00024502          *   00000008              : strtold.obj (.const)
+                 [ 00048a14 ]  0002450a          *   00000007              : _scanfi.obj (.const:_flit$1)
+                 [ 00048a22 ]  00024511          *   00000006              : _scanfi.obj (.const:_barr$2)
+                 [ 00048a2e ]  00024517          *   00000005   veu_c.a55L : veusm.o55L (.const:_adjusts)
+                 [ 00048a38 ]  0002451c          *   00000005              : veusm.o55L (.const:_veuTargetGain)
+                 [ 00048a42 ]  00024521          *   00000001   --HOLE-- [fill = 0]
+                 [ 00048a44 ]  00024522          *   00000002   rts55x.lib : fputs.obj (.const:.string)
+                 [ 00048a48 ]  00024524          *   00000002              : fltlid.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00001000    .bss
+            00001000    .data
+00010000                .text
+0001887b                C$$EXIT
+00017c90                C$$IO$$
+000186df                I$$DIV
+00018831                I$$LMPY
+000186fe                I$$MOD
+00018779                I$$UDIV
+0001878e                I$$UMOD
+00014e1c                _HOSTclock
+00014db1                _HOSTclose
+00014cfc                _HOSTlseek
+00014c5d                _HOSTopen
+00014bd0                _HOSTread
+00014b22                _HOSTrename
+00014ac4                _HOSTtime
+00014a5a                _HOSTunlink
+000149cd                _HOSTwrite
+00003b20                _Reset
+            00023000    __CIOBUF_
+            00022800    __STACK_END
+00001000                __STACK_SIZE
+00004000                __SYSMEM_SIZE
+00001000                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00001000    ___bss__
+ffffffff                ___c_args__
+            00023120    ___cinit__
+            00001000    ___data__
+            00001000    ___edata__
+            00001d8d    ___end__
+00018884                ___etext__
+000187ef                ___isinf
+ffffffff                ___pinit__
+00010000                ___text__
+000166b3                __addd
+0001853a                __args_main
+00017c95                __buff_read
+00016079                __cleanup
+            00001d88    __cleanup_ptr
+0001731d                __cmpd
+            0002432e    __ctypes_
+0001532f                __divd
+000186df                __divi
+0001861a                __divli
+0001667e                __divlli
+00018779                __divu
+00017de9                __divul
+0001658a                __divull
+00017b19                __doflush
+            00001d8a    __dtors_ptr
+000172e9                __eqld
+0001874f                __fixdi
+00018293                __fixdli
+000183da                __fltlid
+00018138                __frcmpyd
+000181ae                __frcmpyd_div
+            00001c2e    __ft_end
+            00001b16    __ftable
+0001729f                __geqd
+00017254                __gtrd
+00017207                __leqd
+            00001d84    __lock
+000171bf                __lssd
+0001780a                __mpyd
+00018831                __mpyli
+000164d2                __mpylli
+00018856                __negd
+0001718b                __neqd
+00018854                __nop
+00011362                __printfi
+00017abc                __rd_ok
+0001884c                __register_lock
+00018844                __register_unlock
+000186fe                __remi
+00018585                __remli
+000164a3                __remlli
+0001878e                __remu
+00018221                __remul
+00016455                __remull
+00011f77                __scanfi
+            00022000    __stack
+0001881d                __subd
+            00020000    __sys_memory
+            00022800    __sysstack
+            00001b8e    __tmpnams
+            00001d86    __unlock
+00017a3c                __wrt_ok
+0001887a                _abort
+00014862                _add_device
+000124aa                _alcMns
+000124b5                _alcRra
+00018441                _atoi
+000184ed                _auto_init
+0001871b                _c_int00
+00015309                _calloc
+00015301                _chkheap
+000147ef                _close
+00016c54                _cng_process
+            00001cff    _errno
+000186a1                _exit
+000180bd                _fclose
+00018866                _feof
+00017b82                _fflush
+00017e8a                _fgetc
+            00001d8c    _file_read
+000147e6                _find_registered_device
+0001619c                _fopen
+000185d0                _fprintf
+00017d43                _fputc
+00017546                _fputs
+00014e7a                _free
+000152ab                _free_memory
+000160d3                _freopen
+000176e5                _fscanf
+0001836f                _fseek
+00016f9d                _fwrite
+00017e8a                _getc
+00017f16                _getchar
+00014952                _getenv
+            00001000    _heapBuf
+000139e5                _hw_init
+            00001800    _inputFile
+            00001878    _inputFileName_Rx
+            00001814    _inputFileName_Tx
+            00001802    _inputFile_Rx
+            0000180c    _inputRxlistFile
+            0000180a    _inputTxlistFile
+            00001808    _inputVEUFile
+            00001812    _inputVEUlistFile
+            000019a4    _inputVEUsetting
+            00001a08    _iofile_path
+00014780                _lseek
+00018040                _ltoa
+00013a3b                _main
+00014fab                _malloc
+00015251                _max_free
+000187cc                _memccpy
+00018662                _memcpy
+00014f46                _minit
+000146c1                _open
+            00001804    _outputFile
+            00001940    _outputFileName_Rx
+            000018dc    _outputFileName_Tx
+            00001806    _outputFile_Rx
+            00001810    _outputRxlistFile
+            0000180e    _outputTxlistFile
+00016bdc                _output_process
+0001849d                _printf
+00017d43                _putc
+00017dda                _putchar
+0001767b                _puts
+00014613                _read
+00018302                _readmsg
+000150a0                _realloc
+00018870                _remove
+000145dd                _remove_device
+00014584                _rename
+            00001b08    _sample_cnt
+000176a9                _scanf
+            00001b0a    _second_cnt
+00013c9b                _set_alc_level
+00013d27                _set_anr_level
+00013daf                _set_bulk_delay
+00013dee                _set_fgc_gain
+00013d6f                _set_waepl
+00017956                _setvbuf
+000187a3                _strcat
+00018809                _strcpy
+000159fc                _strtod
+00016d95                _strtol
+00015cb9                _strtold
+000156fb                _strtoll
+00017375                _strtoul
+0001690d                _strtoull
+00017f25                _ungetc
+00014551                _unlink
+            00001d72    _veuBufs
+00014404                _veuClose
+            00001b12    _veuContext
+00014141                _veuControl
+            00001b0e    _veuCtrl
+0001412d                _veuDelete
+            00024474    _veuGainTable
+00018027                _veuGetSizes
+000140bd                _veuGetStats
+            00001b0c    _veuInst
+00017fbf                _veuNew
+00013e99                _veuOpen
+00013169                _veuReceiveIn
+00013c5e                _veuRelocate
+00012f84                _veuSendIn
+00013bcb                _veu_find_gain
+00012ee5                _veu_process_sgment
+00016316                _veu_rx_bg_enr_calc
+000161d7                _veu_send_bg_enr_calc
+000139e7                _veu_sim_progress
+000124d6                _veu_snr_calc
+00012609                _veu_txrx_fsm
+0001247f                _veu_unpack_samp
+00016b58                _veu_y_enr_calc
+000131ed                _veusim_concat_filepath
+000137fa                _veusim_control_veu
+00013241                _veusim_get_file
+000135cd                _veusim_get_frame_size
+000132d3                _veusim_init_testvector
+00013615                _veusim_new_veu
+00013219                _veusim_open_filelist
+000137ac                _veusim_open_veu
+000134f6                _veusim_read_frame
+000134be                _veusim_release_testvector
+00013556                _veusim_write_frame
+0001440f                _write
+00017bdb                _writemsg
+ffffffff                binit
+            00023120    cinit
+            00001000    edata
+            00001d8d    end
+00018884                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00001000                __STACK_SIZE
+00001000                __SYSSTACK_SIZE
+            00001000    .bss
+            00001000    .data
+            00001000    ___bss__
+            00001000    ___data__
+            00001000    ___edata__
+            00001000    _heapBuf
+            00001000    edata
+            00001800    _inputFile
+            00001802    _inputFile_Rx
+            00001804    _outputFile
+            00001806    _outputFile_Rx
+            00001808    _inputVEUFile
+            0000180a    _inputTxlistFile
+            0000180c    _inputRxlistFile
+            0000180e    _outputTxlistFile
+            00001810    _outputRxlistFile
+            00001812    _inputVEUlistFile
+            00001814    _inputFileName_Tx
+            00001878    _inputFileName_Rx
+            000018dc    _outputFileName_Tx
+            00001940    _outputFileName_Rx
+            000019a4    _inputVEUsetting
+            00001a08    _iofile_path
+            00001b08    _sample_cnt
+            00001b0a    _second_cnt
+            00001b0c    _veuInst
+            00001b0e    _veuCtrl
+            00001b12    _veuContext
+            00001b16    __ftable
+            00001b8e    __tmpnams
+            00001c2e    __ft_end
+            00001cff    _errno
+            00001d72    _veuBufs
+            00001d84    __lock
+            00001d86    __unlock
+            00001d88    __cleanup_ptr
+            00001d8a    __dtors_ptr
+            00001d8c    _file_read
+            00001d8d    ___end__
+            00001d8d    end
+00003b20                _Reset
+00004000                __SYSMEM_SIZE
+00010000                .text
+00010000                ___text__
+00011362                __printfi
+00011f77                __scanfi
+0001247f                _veu_unpack_samp
+000124aa                _alcMns
+000124b5                _alcRra
+000124d6                _veu_snr_calc
+00012609                _veu_txrx_fsm
+00012ee5                _veu_process_sgment
+00012f84                _veuSendIn
+00013169                _veuReceiveIn
+000131ed                _veusim_concat_filepath
+00013219                _veusim_open_filelist
+00013241                _veusim_get_file
+000132d3                _veusim_init_testvector
+000134be                _veusim_release_testvector
+000134f6                _veusim_read_frame
+00013556                _veusim_write_frame
+000135cd                _veusim_get_frame_size
+00013615                _veusim_new_veu
+000137ac                _veusim_open_veu
+000137fa                _veusim_control_veu
+000139e5                _hw_init
+000139e7                _veu_sim_progress
+00013a3b                _main
+00013bcb                _veu_find_gain
+00013c5e                _veuRelocate
+00013c9b                _set_alc_level
+00013d27                _set_anr_level
+00013d6f                _set_waepl
+00013daf                _set_bulk_delay
+00013dee                _set_fgc_gain
+00013e99                _veuOpen
+000140bd                _veuGetStats
+0001412d                _veuDelete
+00014141                _veuControl
+00014404                _veuClose
+0001440f                _write
+00014551                _unlink
+00014584                _rename
+000145dd                _remove_device
+00014613                _read
+000146c1                _open
+00014780                _lseek
+000147e6                _find_registered_device
+000147ef                _close
+00014862                _add_device
+00014952                _getenv
+000149cd                _HOSTwrite
+00014a5a                _HOSTunlink
+00014ac4                _HOSTtime
+00014b22                _HOSTrename
+00014bd0                _HOSTread
+00014c5d                _HOSTopen
+00014cfc                _HOSTlseek
+00014db1                _HOSTclose
+00014e1c                _HOSTclock
+00014e7a                _free
+00014f46                _minit
+00014fab                _malloc
+000150a0                _realloc
+00015251                _max_free
+000152ab                _free_memory
+00015301                _chkheap
+00015309                _calloc
+0001532f                __divd
+000156fb                _strtoll
+000159fc                _strtod
+00015cb9                _strtold
+00016079                __cleanup
+000160d3                _freopen
+0001619c                _fopen
+000161d7                _veu_send_bg_enr_calc
+00016316                _veu_rx_bg_enr_calc
+00016455                __remull
+000164a3                __remlli
+000164d2                __mpylli
+0001658a                __divull
+0001667e                __divlli
+000166b3                __addd
+0001690d                _strtoull
+00016b58                _veu_y_enr_calc
+00016bdc                _output_process
+00016c54                _cng_process
+00016d95                _strtol
+00016f9d                _fwrite
+0001718b                __neqd
+000171bf                __lssd
+00017207                __leqd
+00017254                __gtrd
+0001729f                __geqd
+000172e9                __eqld
+0001731d                __cmpd
+00017375                _strtoul
+00017546                _fputs
+0001767b                _puts
+000176a9                _scanf
+000176e5                _fscanf
+0001780a                __mpyd
+00017956                _setvbuf
+00017a3c                __wrt_ok
+00017abc                __rd_ok
+00017b19                __doflush
+00017b82                _fflush
+00017bdb                _writemsg
+00017c90                C$$IO$$
+00017c95                __buff_read
+00017d43                _fputc
+00017d43                _putc
+00017dda                _putchar
+00017de9                __divul
+00017e8a                _fgetc
+00017e8a                _getc
+00017f16                _getchar
+00017f25                _ungetc
+00017fbf                _veuNew
+00018027                _veuGetSizes
+00018040                _ltoa
+000180bd                _fclose
+00018138                __frcmpyd
+000181ae                __frcmpyd_div
+00018221                __remul
+00018293                __fixdli
+00018302                _readmsg
+0001836f                _fseek
+000183da                __fltlid
+00018441                _atoi
+0001849d                _printf
+000184ed                _auto_init
+0001853a                __args_main
+00018585                __remli
+000185d0                _fprintf
+0001861a                __divli
+00018662                _memcpy
+000186a1                _exit
+000186df                I$$DIV
+000186df                __divi
+000186fe                I$$MOD
+000186fe                __remi
+0001871b                _c_int00
+0001874f                __fixdi
+00018779                I$$UDIV
+00018779                __divu
+0001878e                I$$UMOD
+0001878e                __remu
+000187a3                _strcat
+000187cc                _memccpy
+000187ef                ___isinf
+00018809                _strcpy
+0001881d                __subd
+00018831                I$$LMPY
+00018831                __mpyli
+00018844                __register_unlock
+0001884c                __register_lock
+00018854                __nop
+00018856                __negd
+00018866                _feof
+00018870                _remove
+0001887a                _abort
+0001887b                C$$EXIT
+00018884                ___etext__
+00018884                etext
+            00020000    __sys_memory
+            00022000    __stack
+            00022800    __STACK_END
+            00022800    __sysstack
+            00023000    __CIOBUF_
+            00023120    ___cinit__
+            00023120    cinit
+            0002432e    __ctypes_
+            00024474    _veuGainTable
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[225 symbols]

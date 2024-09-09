@@ -1,0 +1,5 @@
+ALC_male_sin_8k.pcm
+ALC_rin_8k.pcm
+ALC_male_sout_nb2nb_8k.pcm
+ALC_male_rout_nb2nb_8k.pcm
+veu_nb_nb.set

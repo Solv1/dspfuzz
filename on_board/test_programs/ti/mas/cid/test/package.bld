@@ -1,0 +1,144 @@
+/******************************************************************************
+ * FILE PURPOSE: Build description for package ti.mas.cid.test
+ ******************************************************************************
+ * FILE NAME: package.bld  
+ *
+ * DESCRIPTION: This file contains build attributes for package ti.mas.cid.test
+ *
+ * TABS: NONE
+ *
+ * Copyright (C) 2006, Texas Instruments, Inc.
+ *****************************************************************************/
+ 
+  var Package = xdc.loadCapsule ('ti/mas/swtools/CommonBld.xs');
+  Package.name = "cid_test";
+ 
+  Package.files["commontestsrc"] = {
+    base_directory: "src",
+ 
+    files: ["cidsim.c",
+           ],
+  }
+  
+  Package.exeTarget["c55l"] = {
+    target: "c55l",
+   
+    name: "test_rel_c5510"
+  };   
+
+  Package.exeTarget["c55s"] = {
+    target: "c55s",
+   
+     name: "test_rel_c5510"
+  };   
+
+  Package.exeTarget["c64le"] = {
+    target: "c64le",
+   
+    name: "test_rel_c6416"
+  };   
+
+  Package.exeTarget["c64be"] = {
+    target: "c64be",
+   
+    name: "test_rel_c6416"
+  };   
+
+  Package.exeTarget["c64Pbe"] = {
+    target: "c64Pbe",
+   
+    name: "test_rel_c6482"
+  };   
+
+  Package.exeTarget["c64Ple"] = {
+    target: "c64Ple",
+   
+    name: "test_rel_c6482"
+  };   
+
+  Package.exeTarget["ce64Pbe"] = {
+    target: "ce64Pbe",
+   
+    name: "test_rel_c6482"
+  };   
+
+  Package.exeTarget["ce64Ple"] = {
+    target: "ce64Ple",
+   
+    name: "test_rel_c6482"
+  };   
+
+  Package.exeTarget["c66be"] = {
+    target: "c66be",
+   
+    name: "test_rel_c6678"
+  };   
+
+  Package.exeTarget["c66le"] = {
+    target: "c66le",
+   
+    name: "test_rel_c6678"
+  };   
+
+  Package.exeTarget["ce66be"] = {
+    target: "ce66be",
+   
+    name: "test_rel_c6678"
+  };   
+
+  Package.exeTarget["ce66le"] = {
+    target: "ce66le",
+   
+    name: "test_rel_c6678"
+  };   
+
+  Package.args["cycleprof"] = {
+    value: "cycleprof",
+
+    action: function() {
+      Package.files["commontestsrc"].def_flags = " -dUSE_CACHE -dPROFILE_CYCLES ";
+    },
+
+    usageComment: "Profile cycles for CID"
+  }
+
+  
+  /**********************************************************************************************
+    The main package.bld routine starts here 
+  ***********************************************************************************************/
+
+  /* Set up the target architecture */
+  Package.targets = [C55,
+                     C55_large, 
+                     C64, 
+                     C64_big_endian, 
+                     C64P, 
+                     C64P_big_endian, 
+                     C64P_elf,
+                     C64P_big_endian_elf,
+                     C66, 
+                     C66_big_endian, 
+                     C66_elf,
+                     C66_big_endian_elf
+                    ];
+
+  /* Include custom makefile to generate doxygen documents */
+  Package.includeMake("Makedocs.mk");
+
+  /* Parse XDC Arguments */
+  Package.parseArgs(arguments);
+
+  /* Generate Users Manual Doxyfile */
+  var tplt = xdc.loadTemplate("./docs/doxygen/doxyfile.xdt");
+  tplt.genFile("./docs/doxygen/Doxyfile",Package);      
+
+  /* Create Executable */ 
+  Package.createExe();
+
+  /* Create Archive */ 
+  Package.createArchive();
+  
+  /* Clean Package */
+  Package.packageClean();
+
+/* nothing past this point */

@@ -1,0 +1,25 @@
+16000
+5
+10
+32
+9
+9
+9
+31129
+29818
+-75
+150
+
+################ parameters  ###################
+1. Sampling frequency
+2. ASNR Signal delay
+3. ASNR Frequency bands boundary bin 1
+4. ASNR Frequency bands boundary bin 2
+5. ASNR Maximum attenuation in band 1
+6. ASNR Maximum attenuation in band 2
+7. ASNR Maximum attenuation in band 3
+8. ASNR Maximum signal update rate
+9. ASNR Minimum signal update rate
+10. ASNR Noise threshold
+11. ASNR Noise hangover
+

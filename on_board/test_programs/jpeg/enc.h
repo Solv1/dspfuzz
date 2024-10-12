@@ -69,4 +69,6 @@ struct jpec_enc_t_
     jpec_huff_skel_t *hskel;
 };
 
+int32_t jpeg_test(uint16_t * input, uint16_t w, uint16_t h);
+
 #endif

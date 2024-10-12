@@ -1,0 +1,907 @@
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 6.928281882981537
+DSLOG: Time taken for set_intial_breakpoints = 0.030094547022599727
+DSLOG: Time taken for refresh_global_pool = 3.971601836383343e-05
+DSLOG: We have 1 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.009397897985763848
+Time of start = 27/09/2024 15:20:02
+------Finding Coverage Calls in Binary------
+0x6c01472a
+0x6c01472a
+DSLOG: Time taken for find_coverage_call = 0.005058695998741314
+DSLOG: Time taken for refresh_global_pool = 1.7349986592307687e-05
+------Starting the Device Listener------
+Found coverage-increasing input:
+Current time = 27/09/2024 15:20:02
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.0825951099395752
+DSLOG: Found the end of the coverage map.
+[0, 48, 379]
+{0: 23776, 48: 23824, 89: 23865, 130: 23906, 171: 23947, 212: 23988, 252: 24028, 292: 24068, 332: 24108, 373: 24149, 379: 24155}
+[0, 48, 379]
+DSLOG: Time taken for refresh_global_pool = 2.803499228321016e-05
+DSLOG: Time taken for refresh_global_pool = 3.01100080832839e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.03611205398919992
+DSLOG: Time taken for refresh_global_pool = 4.17889968957752e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.36595604300964624
+11
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009284529980504885
+Current time = 27/09/2024 15:40:02
+DSLOG: Total number of iterations: 43036
+DSLOG: Average throughput time: 0.027894735502503112
+DSLOG: Time taken for refresh_global_pool = 5.716297891922295e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.034154699998907745
+DSLOG: Time taken for refresh_global_pool = 2.639699960127473e-05
+DSLOG: Time taken for refresh_local_pool = 0.04419333901023492
+12
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006350333977025002
+Current time = 27/09/2024 16:00:02
+DSLOG: Total number of iterations: 86212
+DSLOG: Average throughput time: 0.02784489851642174
+DSLOG: Time taken for refresh_global_pool = 4.4611981138587e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.035490084992488846
+DSLOG: Time taken for refresh_global_pool = 3.7568010156974196e-05
+DSLOG: Time taken for refresh_local_pool = 0.0432585829985328
+13
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009634827001718804
+Current time = 27/09/2024 16:20:02
+DSLOG: Total number of iterations: 129374
+DSLOG: Average throughput time: 0.02783123080422717
+DSLOG: Time taken for refresh_global_pool = 8.695898577570915e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.038268839998636395
+DSLOG: Time taken for refresh_global_pool = 3.529799869284034e-05
+DSLOG: Time taken for refresh_local_pool = 0.0469276059884578
+14
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0010780320153571665
+Current time = 27/09/2024 16:40:02
+DSLOG: Total number of iterations: 172516
+DSLOG: Average throughput time: 0.0278278038145126
+DSLOG: Time taken for refresh_global_pool = 4.48240025434643e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.03630324098048732
+DSLOG: Time taken for refresh_global_pool = 4.972500028088689e-05
+DSLOG: Time taken for refresh_local_pool = 0.04317337099928409
+Found coverage-increasing input:
+Current time = 27/09/2024 16:55:14
+DSLOG: Total number of iterations: 205280
+DSLOG: Average throughput time: 0.02782552086182711
+DSLOG: Found the end of the coverage map.
+[89]
+{89: 23865, 130: 23906, 171: 23947, 212: 23988, 252: 24028, 292: 24068, 332: 24108, 373: 24149}
+[89]
+DSLOG: Time taken for refresh_global_pool = 3.1679985113441944e-05
+DSLOG: Time taken for refresh_global_pool = 3.905300400219858e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06114918299135752
+DSLOG: Time taken for refresh_global_pool = 2.7228990802541375e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.38250577900907956
+15
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.007941130024846643
+Current time = 27/09/2024 17:15:14
+DSLOG: Total number of iterations: 248442
+DSLOG: Average throughput time: 0.027823188061897312
+DSLOG: Time taken for refresh_global_pool = 3.580001066438854e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06095713301328942
+DSLOG: Time taken for refresh_global_pool = 2.964801387861371e-05
+DSLOG: Time taken for refresh_local_pool = 0.06873152099433355
+16
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.005352595006115735
+Current time = 27/09/2024 17:35:14
+DSLOG: Total number of iterations: 291592
+DSLOG: Average throughput time: 0.027821606562956493
+DSLOG: Time taken for refresh_global_pool = 3.943699994124472e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06016325100790709
+DSLOG: Time taken for refresh_global_pool = 3.641299554146826e-05
+DSLOG: Time taken for refresh_local_pool = 0.06766380899352953
+17
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00823738900362514
+Current time = 27/09/2024 17:55:14
+DSLOG: Total number of iterations: 334751
+DSLOG: Average throughput time: 0.027819689995509263
+DSLOG: Time taken for refresh_global_pool = 7.701601134613156e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06304909201571718
+DSLOG: Time taken for refresh_global_pool = 6.467499770224094e-05
+DSLOG: Time taken for refresh_local_pool = 0.0695580090105068
+18
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009738655004184693
+Current time = 27/09/2024 18:15:14
+DSLOG: Total number of iterations: 377907
+DSLOG: Average throughput time: 0.027818440373992982
+DSLOG: Time taken for refresh_global_pool = 2.9062997782602906e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06000378599856049
+DSLOG: Time taken for refresh_global_pool = 2.603200846351683e-05
+DSLOG: Time taken for refresh_local_pool = 0.06713919300818816
+19
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013291030190885067
+Current time = 27/09/2024 18:35:14
+DSLOG: Total number of iterations: 421077
+DSLOG: Average throughput time: 0.027816541574668067
+DSLOG: Time taken for refresh_global_pool = 7.942900992929935e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06137198201031424
+DSLOG: Time taken for refresh_global_pool = 4.114100011065602e-05
+DSLOG: Time taken for refresh_local_pool = 0.06864207601756789
+20
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.005575352988671511
+Current time = 27/09/2024 18:55:15
+DSLOG: Total number of iterations: 464225
+DSLOG: Average throughput time: 0.027816251927530435
+DSLOG: Time taken for refresh_global_pool = 2.8977985493838787e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06076491900603287
+DSLOG: Time taken for refresh_global_pool = 4.352300311438739e-05
+DSLOG: Time taken for refresh_local_pool = 0.06687754398444667
+21
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0008970730123110116
+Current time = 27/09/2024 19:15:15
+DSLOG: Total number of iterations: 507417
+DSLOG: Average throughput time: 0.02781362446192841
+DSLOG: Time taken for refresh_global_pool = 3.4362979931756854e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06101990700699389
+DSLOG: Time taken for refresh_global_pool = 3.194401506334543e-05
+DSLOG: Time taken for refresh_local_pool = 0.06849464299739338
+22
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00727863097563386
+Current time = 27/09/2024 19:35:15
+DSLOG: Total number of iterations: 550599
+DSLOG: Average throughput time: 0.027811893354419852
+DSLOG: Time taken for refresh_global_pool = 3.294198540970683e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.060330798994982615
+DSLOG: Time taken for refresh_global_pool = 2.606800990179181e-05
+DSLOG: Time taken for refresh_local_pool = 0.06846338300965726
+23
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006155398004921153
+Current time = 27/09/2024 19:55:15
+DSLOG: Total number of iterations: 593786
+DSLOG: Average throughput time: 0.02781020601834734
+DSLOG: Time taken for refresh_global_pool = 2.638300065882504e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.060283354978309944
+DSLOG: Time taken for refresh_global_pool = 2.0391016732901335e-05
+DSLOG: Time taken for refresh_local_pool = 0.06717740598833188
+24
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.007879276992753148
+Current time = 27/09/2024 20:15:15
+DSLOG: Total number of iterations: 636930
+DSLOG: Average throughput time: 0.027810600975822643
+DSLOG: Time taken for refresh_global_pool = 3.215100150555372e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06228098101564683
+DSLOG: Time taken for refresh_global_pool = 2.5976012693718076e-05
+DSLOG: Time taken for refresh_local_pool = 0.06849697500001639
+25
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00947704300051555
+Current time = 27/09/2024 20:35:15
+DSLOG: Total number of iterations: 680125
+DSLOG: Average throughput time: 0.027808888323713237
+DSLOG: Time taken for refresh_global_pool = 4.8017973313108087e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06091051999828778
+DSLOG: Time taken for refresh_global_pool = 2.457198570482433e-05
+DSLOG: Time taken for refresh_local_pool = 0.06801818299572915
+26
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002982455975143239
+Current time = 27/09/2024 20:55:15
+DSLOG: Total number of iterations: 723296
+DSLOG: Average throughput time: 0.027808314318116964
+DSLOG: Time taken for refresh_global_pool = 7.288699271157384e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06449796000379138
+DSLOG: Time taken for refresh_global_pool = 4.0844985051080585e-05
+DSLOG: Time taken for refresh_local_pool = 0.07118996800272726
+27
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009950695995939896
+Current time = 27/09/2024 21:15:15
+DSLOG: Total number of iterations: 766476
+DSLOG: Average throughput time: 0.027807472430198783
+DSLOG: Time taken for refresh_global_pool = 4.9812981160357594e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06279381399508566
+DSLOG: Time taken for refresh_global_pool = 3.924401244148612e-05
+DSLOG: Time taken for refresh_local_pool = 0.07055418199161068
+28
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.005071126011898741
+Current time = 27/09/2024 21:35:15
+DSLOG: Total number of iterations: 809610
+DSLOG: Average throughput time: 0.02780827329106983
+DSLOG: Time taken for refresh_global_pool = 5.8596982853487134e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.062299704994075
+DSLOG: Time taken for refresh_global_pool = 3.7187011912465096e-05
+DSLOG: Time taken for refresh_local_pool = 0.06888550298754126
+29
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.004756418988108635
+Current time = 27/09/2024 21:55:16
+DSLOG: Total number of iterations: 852773
+DSLOG: Average throughput time: 0.027808063292961784
+DSLOG: Time taken for refresh_global_pool = 3.95319948438555e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06197059599799104
+DSLOG: Time taken for refresh_global_pool = 2.927298191934824e-05
+DSLOG: Time taken for refresh_local_pool = 0.06935577400145121
+30
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013689849874936044
+Current time = 27/09/2024 22:15:16
+DSLOG: Total number of iterations: 895946
+DSLOG: Average throughput time: 0.02780754105963814
+DSLOG: Time taken for refresh_global_pool = 5.5393000366166234e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06251899499329738
+DSLOG: Time taken for refresh_global_pool = 3.043899778276682e-05
+DSLOG: Time taken for refresh_local_pool = 0.06894691698835231
+31
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.001939373993081972
+Current time = 27/09/2024 22:35:16
+DSLOG: Total number of iterations: 939126
+DSLOG: Average throughput time: 0.027806878363071955
+DSLOG: Time taken for refresh_global_pool = 3.3231975976377726e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06036676198709756
+DSLOG: Time taken for refresh_global_pool = 2.1709012798964977e-05
+DSLOG: Time taken for refresh_local_pool = 0.06779400300001726
+32
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0011808910057879984
+Current time = 27/09/2024 22:55:16
+DSLOG: Total number of iterations: 982322
+DSLOG: Average throughput time: 0.027805835467038204
+DSLOG: Time taken for refresh_global_pool = 8.462899131700397e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.061147338012233377
+DSLOG: Time taken for refresh_global_pool = 2.4868000764399767e-05
+DSLOG: Time taken for refresh_local_pool = 0.06814283301355317
+33
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008305522991577163
+Current time = 27/09/2024 23:15:16
+DSLOG: Total number of iterations: 1025495
+DSLOG: Average throughput time: 0.02780547861844861
+DSLOG: Time taken for refresh_global_pool = 4.953600000590086e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.060949678998440504
+DSLOG: Time taken for refresh_global_pool = 3.735200152732432e-05
+DSLOG: Time taken for refresh_local_pool = 0.06822019099490717
+34
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002582515007816255
+Current time = 27/09/2024 23:35:16
+DSLOG: Total number of iterations: 1068682
+DSLOG: Average throughput time: 0.0278047808485065
+DSLOG: Time taken for refresh_global_pool = 4.5213993871584535e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06203004700364545
+DSLOG: Time taken for refresh_global_pool = 3.2153999200090766e-05
+DSLOG: Time taken for refresh_local_pool = 0.06849578602123074
+35
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013350530061870813
+Current time = 27/09/2024 23:55:16
+DSLOG: Total number of iterations: 1111855
+DSLOG: Average throughput time: 0.02780450085035428
+DSLOG: Time taken for refresh_global_pool = 3.408500924706459e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.05986630599363707
+DSLOG: Time taken for refresh_global_pool = 2.744200173765421e-05
+DSLOG: Time taken for refresh_local_pool = 0.06693350701243617
+36
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.004342272994108498
+Current time = 28/09/2024 00:15:16
+DSLOG: Total number of iterations: 1155012
+DSLOG: Average throughput time: 0.027804614638027848
+DSLOG: Time taken for refresh_global_pool = 3.6299985367804766e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06096706900279969
+DSLOG: Time taken for refresh_global_pool = 2.7270987629890442e-05
+DSLOG: Time taken for refresh_local_pool = 0.06731218501226977
+37
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0042299100023228675
+Current time = 28/09/2024 00:35:16
+DSLOG: Total number of iterations: 1198190
+DSLOG: Average throughput time: 0.0278042468775612
+DSLOG: Time taken for refresh_global_pool = 4.256799002178013e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06254778199945576
+DSLOG: Time taken for refresh_global_pool = 3.969899262301624e-05
+DSLOG: Time taken for refresh_local_pool = 0.06911906701861881
+38
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008233342989115044
+Current time = 28/09/2024 00:55:16
+DSLOG: Total number of iterations: 1241364
+DSLOG: Average throughput time: 0.027803999204633868
+DSLOG: Time taken for refresh_global_pool = 3.845899482257664e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.05921395300538279
+DSLOG: Time taken for refresh_global_pool = 2.9632006771862507e-05
+DSLOG: Time taken for refresh_local_pool = 0.06696813300368376
+39
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009291516005760059
+Current time = 28/09/2024 01:15:17
+DSLOG: Total number of iterations: 1284535
+DSLOG: Average throughput time: 0.027803833282050428
+DSLOG: Time taken for refresh_global_pool = 4.062199150212109e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06053853398771025
+DSLOG: Time taken for refresh_global_pool = 2.875298378057778e-05
+DSLOG: Time taken for refresh_local_pool = 0.06837836300837807
+Found coverage-increasing input:
+Current time = 28/09/2024 01:23:29
+DSLOG: Total number of iterations: 1302226
+DSLOG: Average throughput time: 0.027803943419019164
+DSLOG: Found the end of the coverage map.
+[130]
+{130: 23906, 171: 23947, 212: 23988, 252: 24028, 292: 24068, 332: 24108, 373: 24149}
+[130]
+DSLOG: Time taken for refresh_global_pool = 3.366899909451604e-05
+DSLOG: Time taken for refresh_global_pool = 3.052700776606798e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08756694599287584
+DSLOG: Time taken for refresh_global_pool = 3.650400321930647e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.4031530639913399
+40
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.011098994000349194
+Current time = 28/09/2024 01:43:29
+DSLOG: Total number of iterations: 1345420
+DSLOG: Average throughput time: 0.02780354979120782
+DSLOG: Time taken for refresh_global_pool = 3.385101445019245e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08658493400434963
+DSLOG: Time taken for refresh_global_pool = 5.5598997278138995e-05
+DSLOG: Time taken for refresh_local_pool = 0.09411284502130002
+41
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0014642630121670663
+Current time = 28/09/2024 02:03:29
+DSLOG: Total number of iterations: 1388600
+DSLOG: Average throughput time: 0.02780325582730363
+DSLOG: Time taken for refresh_global_pool = 2.9368005925789475e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08661865998874418
+DSLOG: Time taken for refresh_global_pool = 3.537701559253037e-05
+DSLOG: Time taken for refresh_local_pool = 0.09420663100900128
+42
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008871223020832986
+Current time = 28/09/2024 02:23:29
+DSLOG: Total number of iterations: 1431753
+DSLOG: Average throughput time: 0.027803496223073654
+DSLOG: Time taken for refresh_global_pool = 3.570099943317473e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08587151000392623
+DSLOG: Time taken for refresh_global_pool = 3.392098005861044e-05
+DSLOG: Time taken for refresh_local_pool = 0.09219672798644751
+43
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009427265002159402
+Current time = 28/09/2024 02:43:29
+DSLOG: Total number of iterations: 1474923
+DSLOG: Average throughput time: 0.02780340198110338
+DSLOG: Time taken for refresh_global_pool = 3.820701385848224e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08860025700414553
+DSLOG: Time taken for refresh_global_pool = 2.8692011255770922e-05
+DSLOG: Time taken for refresh_local_pool = 0.09586830702028237
+44
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.01065343598020263
+Current time = 28/09/2024 03:03:30
+DSLOG: Total number of iterations: 1518127
+DSLOG: Average throughput time: 0.027802682872847918
+DSLOG: Time taken for refresh_global_pool = 3.848297637887299e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08676887399633415
+DSLOG: Time taken for refresh_global_pool = 3.217399353161454e-05
+DSLOG: Time taken for refresh_local_pool = 0.09155688699684106
+45
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008129104011459276
+Current time = 28/09/2024 03:23:30
+DSLOG: Total number of iterations: 1561292
+DSLOG: Average throughput time: 0.02780270365177827
+DSLOG: Time taken for refresh_global_pool = 3.848099731840193e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08623471000464633
+DSLOG: Time taken for refresh_global_pool = 2.3720000172033906e-05
+DSLOG: Time taken for refresh_local_pool = 0.09365908900508657
+46
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0012209609849378467
+Current time = 28/09/2024 03:43:30
+DSLOG: Total number of iterations: 1604455
+DSLOG: Average throughput time: 0.027802767086352105
+DSLOG: Time taken for refresh_global_pool = 3.820800338871777e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.08778135597822256
+DSLOG: Time taken for refresh_global_pool = 2.0997977117076516e-05
+DSLOG: Time taken for refresh_local_pool = 0.09551799701876007
+47
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.004567639989545569
+Current time = 28/09/2024 04:03:30
+DSLOG: Total number of iterations: 1647612
+DSLOG: Average throughput time: 0.02780291938342528
+DSLOG: Time taken for refresh_global_pool = 3.87110048905015e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0856356309959665
+DSLOG: Time taken for refresh_global_pool = 3.055698471143842e-05
+DSLOG: Time taken for refresh_local_pool = 0.09293892901041545
+48
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.007160684996051714
+Current time = 28/09/2024 04:23:30
+DSLOG: Total number of iterations: 1690775
+DSLOG: Average throughput time: 0.027802956034654176
+DSLOG: Time taken for refresh_global_pool = 5.460900138132274e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09003548198961653
+DSLOG: Time taken for refresh_global_pool = 3.7534977309405804e-05
+DSLOG: Time taken for refresh_local_pool = 0.0942073930054903
+Found coverage-increasing input:
+Current time = 28/09/2024 04:41:06
+DSLOG: Total number of iterations: 1728755
+DSLOG: Average throughput time: 0.027802675159843516
+DSLOG: Found the end of the coverage map.
+[171]
+{171: 23947, 212: 23988, 252: 24028, 292: 24068, 332: 24108, 373: 24149}
+[171]
+DSLOG: Time taken for refresh_global_pool = 2.2999010980129242e-05
+DSLOG: Time taken for refresh_global_pool = 2.157498965971172e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11373413898400031
+DSLOG: Time taken for refresh_global_pool = 3.1692004995420575e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.44584552000742406
+49
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0041369439859408885
+Current time = 28/09/2024 05:01:06
+DSLOG: Total number of iterations: 1771903
+DSLOG: Average throughput time: 0.027803148885785414
+DSLOG: Time taken for refresh_global_pool = 7.488499977625906e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11345760300173424
+DSLOG: Time taken for refresh_global_pool = 2.5630986783653498e-05
+DSLOG: Time taken for refresh_local_pool = 0.12040515200351365
+50
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.007818425016012043
+Current time = 28/09/2024 05:21:06
+DSLOG: Total number of iterations: 1815086
+DSLOG: Average throughput time: 0.027802896356747046
+DSLOG: Time taken for refresh_global_pool = 3.26859881170094e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11300404599751346
+DSLOG: Time taken for refresh_global_pool = 2.9718998121097684e-05
+DSLOG: Time taken for refresh_local_pool = 0.12028537900187075
+51
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.004562382004223764
+Current time = 28/09/2024 05:41:06
+DSLOG: Total number of iterations: 1858263
+DSLOG: Average throughput time: 0.02780273378037738
+DSLOG: Time taken for refresh_global_pool = 3.7081976188346744e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11356872899341397
+DSLOG: Time taken for refresh_global_pool = 2.1832005586475134e-05
+DSLOG: Time taken for refresh_local_pool = 0.12075339100556448
+52
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0055128449748735875
+Current time = 28/09/2024 06:01:06
+DSLOG: Total number of iterations: 1901410
+DSLOG: Average throughput time: 0.02780302640811084
+DSLOG: Time taken for refresh_global_pool = 4.113899194635451e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11189050998655148
+DSLOG: Time taken for refresh_global_pool = 2.224798663519323e-05
+DSLOG: Time taken for refresh_local_pool = 0.11904977200902067
+53
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0019366689957678318
+Current time = 28/09/2024 06:21:07
+DSLOG: Total number of iterations: 1944562
+DSLOG: Average throughput time: 0.027803242291111602
+DSLOG: Time taken for refresh_global_pool = 2.99809908028692e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11233230400830507
+DSLOG: Time taken for refresh_global_pool = 2.5529006961733103e-05
+DSLOG: Time taken for refresh_local_pool = 0.11829420697176829
+54
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006833782012108713
+Current time = 28/09/2024 06:41:07
+DSLOG: Total number of iterations: 1987727
+DSLOG: Average throughput time: 0.02780325933227833
+DSLOG: Time taken for refresh_global_pool = 4.005298251286149e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1118114790006075
+DSLOG: Time taken for refresh_global_pool = 2.6110006729140878e-05
+DSLOG: Time taken for refresh_local_pool = 0.11944396898616105
+55
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00208874000236392
+Current time = 28/09/2024 07:01:07
+DSLOG: Total number of iterations: 2030902
+DSLOG: Average throughput time: 0.02780314432221941
+DSLOG: Time taken for refresh_global_pool = 3.6451994674280286e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11316697899019346
+DSLOG: Time taken for refresh_global_pool = 2.7909001801162958e-05
+DSLOG: Time taken for refresh_local_pool = 0.11779100800049491
+56
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.004972388996975496
+Current time = 28/09/2024 07:21:07
+DSLOG: Total number of iterations: 2074057
+DSLOG: Average throughput time: 0.027803287514255967
+DSLOG: Time taken for refresh_global_pool = 4.124600673094392e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11364974902244285
+DSLOG: Time taken for refresh_global_pool = 7.127001299522817e-05
+DSLOG: Time taken for refresh_local_pool = 0.1178414839960169
+57
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0018071800004690886
+Current time = 28/09/2024 07:41:07
+DSLOG: Total number of iterations: 2117213
+DSLOG: Average throughput time: 0.027803419549938615
+DSLOG: Time taken for refresh_global_pool = 4.913102020509541e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11216130200773478
+DSLOG: Time taken for refresh_global_pool = 3.576200106181204e-05
+DSLOG: Time taken for refresh_local_pool = 0.12017794497660361
+58
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0017621029983274639
+Current time = 28/09/2024 08:01:07
+DSLOG: Total number of iterations: 2160388
+DSLOG: Average throughput time: 0.027803309117656015
+DSLOG: Time taken for refresh_global_pool = 7.627700688317418e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11436899399268441
+DSLOG: Time taken for refresh_global_pool = 2.893697819672525e-05
+DSLOG: Time taken for refresh_local_pool = 0.12168593500973657
+59
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0022443330090027303
+Current time = 28/09/2024 08:21:08
+DSLOG: Total number of iterations: 2203537
+DSLOG: Average throughput time: 0.02780353123555745
+DSLOG: Time taken for refresh_global_pool = 3.464598557911813e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1116640520049259
+DSLOG: Time taken for refresh_global_pool = 2.7864996809512377e-05
+DSLOG: Time taken for refresh_local_pool = 0.11913917900528759
+60
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00817153201205656
+Current time = 28/09/2024 08:41:08
+DSLOG: Total number of iterations: 2246698
+DSLOG: Average throughput time: 0.02780358420372231
+DSLOG: Time taken for refresh_global_pool = 3.177599865011871e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11180129100102931
+DSLOG: Time taken for refresh_global_pool = 1.8820021068677306e-05
+DSLOG: Time taken for refresh_local_pool = 0.11919142401893623
+Found coverage-increasing input:
+Current time = 28/09/2024 08:51:28
+DSLOG: Total number of iterations: 2269001
+DSLOG: Average throughput time: 0.027803636830101546
+DSLOG: Found the end of the coverage map.
+[212]
+{212: 23988, 252: 24028, 292: 24068, 332: 24108, 373: 24149}
+[212]
+DSLOG: Time taken for refresh_global_pool = 2.9274990083649755e-05
+DSLOG: Time taken for refresh_global_pool = 3.931601531803608e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14214808901306242
+DSLOG: Time taken for refresh_global_pool = 3.731899778358638e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.4327166859875433
+61
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006850377016235143
+Current time = 28/09/2024 09:11:28
+DSLOG: Total number of iterations: 2312209
+DSLOG: Average throughput time: 0.027803255822297025
+DSLOG: Time taken for refresh_global_pool = 4.4446991523727775e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14229194400832057
+DSLOG: Time taken for refresh_global_pool = 2.6296998839825392e-05
+DSLOG: Time taken for refresh_local_pool = 0.14980129501782358
+62
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006055125006241724
+Current time = 28/09/2024 09:31:29
+DSLOG: Total number of iterations: 2355386
+DSLOG: Average throughput time: 0.027803134457163644
+DSLOG: Time taken for refresh_global_pool = 4.438299220055342e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14069077000021935
+DSLOG: Time taken for refresh_global_pool = 3.215699689462781e-05
+DSLOG: Time taken for refresh_local_pool = 0.14769784300005995
+63
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0020893609907943755
+Current time = 28/09/2024 09:51:29
+DSLOG: Total number of iterations: 2398535
+DSLOG: Average throughput time: 0.027803339429761268
+DSLOG: Time taken for refresh_global_pool = 5.426001735031605e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14471833300194703
+DSLOG: Time taken for refresh_global_pool = 3.1648000003769994e-05
+DSLOG: Time taken for refresh_local_pool = 0.1510961889871396
+64
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009859608020633459
+Current time = 28/09/2024 10:11:29
+DSLOG: Total number of iterations: 2441713
+DSLOG: Average throughput time: 0.027803218006562335
+DSLOG: Time taken for refresh_global_pool = 8.516598609276116e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.13937249101581983
+DSLOG: Time taken for refresh_global_pool = 2.2697990061715245e-05
+DSLOG: Time taken for refresh_local_pool = 0.14709031500387937
+65
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002639697981067002
+Current time = 28/09/2024 10:31:29
+DSLOG: Total number of iterations: 2484879
+DSLOG: Average throughput time: 0.027803225966287367
+DSLOG: Time taken for refresh_global_pool = 7.582898251712322e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14520698302658275
+DSLOG: Time taken for refresh_global_pool = 4.497400368563831e-05
+DSLOG: Time taken for refresh_local_pool = 0.15302188601344824
+66
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008474243019009009
+Current time = 28/09/2024 10:51:29
+DSLOG: Total number of iterations: 2528052
+DSLOG: Average throughput time: 0.027803166035856357
+DSLOG: Time taken for refresh_global_pool = 6.0839985962957144e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14522936899447814
+DSLOG: Time taken for refresh_global_pool = 4.517199704423547e-05
+DSLOG: Time taken for refresh_local_pool = 0.15222713598632254
+67
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0012118770100641996
+Current time = 28/09/2024 11:11:30
+DSLOG: Total number of iterations: 2571230
+DSLOG: Average throughput time: 0.0278030514678621
+DSLOG: Time taken for refresh_global_pool = 3.903202014043927e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14305907301604748
+DSLOG: Time taken for refresh_global_pool = 3.1436997232958674e-05
+DSLOG: Time taken for refresh_local_pool = 0.14983586300513707
+68
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.010400372033473104
+Current time = 28/09/2024 11:31:30
+DSLOG: Total number of iterations: 2614409
+DSLOG: Average throughput time: 0.027802932016511305
+DSLOG: Time taken for refresh_global_pool = 3.89020424336195e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14002429199172184
+DSLOG: Time taken for refresh_global_pool = 2.3681961465626955e-05
+DSLOG: Time taken for refresh_local_pool = 0.14713898999616504
+69
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0017841689987108111
+Current time = 28/09/2024 11:51:30
+DSLOG: Total number of iterations: 2657580
+DSLOG: Average throughput time: 0.02780290172261532
+DSLOG: Time taken for refresh_global_pool = 7.013900903984904e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14291301398770884
+DSLOG: Time taken for refresh_global_pool = 3.531499532982707e-05
+DSLOG: Time taken for refresh_local_pool = 0.2232991480268538
+70
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006465692014899105
+Current time = 28/09/2024 12:11:30
+DSLOG: Total number of iterations: 2700740
+DSLOG: Average throughput time: 0.027803010022520964
+DSLOG: Time taken for refresh_global_pool = 3.822398139163852e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.14376816601725295
+DSLOG: Time taken for refresh_global_pool = 5.136796971783042e-05
+DSLOG: Time taken for refresh_local_pool = 0.14860369596863165
+71
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0017081479891203344
+Current time = 28/09/2024 12:31:30
+DSLOG: Total number of iterations: 2743911
+DSLOG: Average throughput time: 0.027802981163409672
+DSLOG: Time taken for refresh_global_pool = 6.415101233869791e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.13916832400718704
+DSLOG: Time taken for refresh_global_pool = 2.2931955754756927e-05
+DSLOG: Time taken for refresh_local_pool = 0.14710870699491352
+Found coverage-increasing input:
+Current time = 28/09/2024 12:48:07
+DSLOG: Total number of iterations: 2779751
+DSLOG: Average throughput time: 0.027803038315919692
+DSLOG: Found the end of the coverage map.
+[252]
+{252: 24028, 292: 24068, 332: 24108, 373: 24149}
+[252]
+DSLOG: Time taken for refresh_global_pool = 2.904399298131466e-05
+DSLOG: Time taken for refresh_global_pool = 2.3689994122833014e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.164903998025693
+DSLOG: Time taken for refresh_global_pool = 3.847799962386489e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.43535581696778536
+72
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.011807523027528077
+Current time = 28/09/2024 13:08:08
+DSLOG: Total number of iterations: 2822925
+DSLOG: Average throughput time: 0.027803073454837728
+DSLOG: Time taken for refresh_global_pool = 6.659398786723614e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1754627829650417
+DSLOG: Time taken for refresh_global_pool = 3.98589763790369e-05
+DSLOG: Time taken for refresh_local_pool = 0.18197005800902843
+73
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025592779857106507
+Current time = 28/09/2024 13:28:08
+DSLOG: Total number of iterations: 2866092
+DSLOG: Average throughput time: 0.027803089111488155
+DSLOG: Time taken for refresh_global_pool = 3.581203054636717e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16557692596688867
+DSLOG: Time taken for refresh_global_pool = 2.5318993721157312e-05
+DSLOG: Time taken for refresh_local_pool = 0.1730522100115195
+74
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.011280665989033878
+Current time = 28/09/2024 13:48:08
+DSLOG: Total number of iterations: 2909273
+DSLOG: Average throughput time: 0.0278029704974065
+DSLOG: Time taken for refresh_global_pool = 4.168000305071473e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16587792796781287
+DSLOG: Time taken for refresh_global_pool = 3.4163997042924166e-05
+DSLOG: Time taken for refresh_local_pool = 0.17350777704268694
+75
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0057371549773961306
+Current time = 28/09/2024 14:08:08
+DSLOG: Total number of iterations: 2952435
+DSLOG: Average throughput time: 0.027803026856054926
+DSLOG: Time taken for refresh_global_pool = 3.788899630308151e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16434461204335093
+DSLOG: Time taken for refresh_global_pool = 4.9268011935055256e-05
+DSLOG: Time taken for refresh_local_pool = 0.17165713396389037
+76
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00990363396704197
+Current time = 28/09/2024 14:28:08
+DSLOG: Total number of iterations: 2995604
+DSLOG: Average throughput time: 0.027803022697341726
+DSLOG: Time taken for refresh_global_pool = 4.34420071542263e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1651931750238873
+DSLOG: Time taken for refresh_global_pool = 3.339099930599332e-05
+DSLOG: Time taken for refresh_local_pool = 0.17249276203801855
+77
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.005866233026608825
+Current time = 28/09/2024 14:48:09
+DSLOG: Total number of iterations: 3038770
+DSLOG: Average throughput time: 0.027803039851592708
+DSLOG: Time taken for refresh_global_pool = 4.164100391790271e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16552769404370338
+DSLOG: Time taken for refresh_global_pool = 2.9432005248963833e-05
+DSLOG: Time taken for refresh_local_pool = 0.17262376297730953
+78
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0038623580476269126
+Current time = 28/09/2024 15:08:09
+DSLOG: Total number of iterations: 3081897
+DSLOG: Average throughput time: 0.027803407661503955
+DSLOG: Time taken for refresh_global_pool = 3.14170029014349e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16612928797258064
+DSLOG: Time taken for refresh_global_pool = 3.509997623041272e-05
+DSLOG: Time taken for refresh_local_pool = 0.17300215997966006
+79
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006963983993045986
+Current time = 28/09/2024 15:28:09
+DSLOG: Total number of iterations: 3125040
+DSLOG: Average throughput time: 0.027803624545887307
+DSLOG: Time taken for refresh_global_pool = 7.170898607000709e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1776026950101368
+DSLOG: Time taken for refresh_global_pool = 4.6989996917545795e-05
+DSLOG: Time taken for refresh_local_pool = 0.18471086001954973
+80
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.006932716001756489
+Current time = 28/09/2024 15:48:09
+DSLOG: Total number of iterations: 3168303
+DSLOG: Average throughput time: 0.027802790821193444
+DSLOG: Time taken for refresh_global_pool = 8.26949835754931e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16672681795898825
+DSLOG: Time taken for refresh_global_pool = 3.821996506303549e-05
+DSLOG: Time taken for refresh_local_pool = 0.1745011680177413
+81
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.004184007993899286
+Current time = 28/09/2024 16:08:09
+DSLOG: Total number of iterations: 3211528
+DSLOG: Average throughput time: 0.02780230535147772
+DSLOG: Time taken for refresh_global_pool = 4.00849967263639e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1668270470108837
+DSLOG: Time taken for refresh_global_pool = 2.9067974537611008e-05
+DSLOG: Time taken for refresh_local_pool = 0.1742003450053744
+82
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.012016619963105768
+Current time = 28/09/2024 16:28:10
+DSLOG: Total number of iterations: 3254439
+DSLOG: Average throughput time: 0.02780451190093304
+DSLOG: Time taken for refresh_global_pool = 3.615295281633735e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16315614100312814
+DSLOG: Time taken for refresh_global_pool = 3.125303192064166e-05
+DSLOG: Time taken for refresh_local_pool = 0.17037747002905235
+83
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.010556859953794628
+Current time = 28/09/2024 16:48:10
+DSLOG: Total number of iterations: 3297482
+DSLOG: Average throughput time: 0.027805551337677648
+DSLOG: Time taken for refresh_global_pool = 6.885500624775887e-05
+DSLOG: We have 7 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.16868922603316605
+DSLOG: Time taken for refresh_global_pool = 5.2596034947782755e-05
+DSLOG: Time taken for refresh_local_pool = 0.1761364940321073
+

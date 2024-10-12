@@ -1,0 +1,46 @@
+urrent time = 12/09/2024 21:08:35
+DSLOG: Total number of iterations: 300000
+DSLOG: Average throughput time: 0.03509505313793818
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022561816000234103
+Current time = 12/09/2024 21:08:43
+DSLOG: Total number of iterations: 300001
+DSLOG: Average throughput time: 0.03512054692248468
+DSLOG: Time taken for refresh_global_pool = 3.425599788897671e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.13050780900084646
+DSLOG: Time taken for refresh_global_pool = 3.77710020984523e-05
+DSLOG: Time taken for refresh_local_pool = 0.13677263499994297
+DSLOG: Time taken for refresh_global_pool = 2.5572000595275313e-05
+DSLOG: Time taken for crash_reload = 7.820419801999378
+50
+-----Starting Sanity Check-----
+Exception in thread Thread-16:
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 1378, in run
+    self.function(*self.args, **self.kwargs)
+  File "/home/santiago/Research/DSPFuzz/dspfuzz.py", line 60, in wrapper
+    ret_value = func(*args,**kwargs)        
+  File "/home/santiago/Research/DSPFuzz/dspfuzz.py", line 716, in set_refresh_breakpoint
+    sanity_check = threading,Timer(1, crash_reload)
+NameError: name 'Timer' is not defined. Did you mean: 'time'?
+Current time = 12/09/2024 21:28:43
+DSLOG: Total number of iterations: 341561
+DSLOG: Average throughput time: 0.034360941503408966
+DSLOG: Time taken for refresh_global_pool = 3.6994999391026795e-05
+DSLOG: We have 6 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1404237889983051
+DSLOG: Time taken for refresh_global_pool = 2.313199729542248e-05
+DSLOG: Time taken for refresh_local_pool = 0.14767490600206656
+
+

@@ -47,8 +47,10 @@ asm:
 
 coms:
 	$(TOOLS_DIR)cl55 -v5515 --memory_model=large -g --include_path=./ --include_path=$(TEST_DIR) --include_path=$(LIB_DIR) --include_path=$(INCLUDE_DIR) --include_path=$(CSL_INCLUDE_DIR) --include_path=$(IMG_LIB_INCLUDE_DIR) --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 $(TEST_DIR)coms.asm $(C_SOURCES)
+
 vision:
-	$(TOOLS_DIR)cl55 -v5515 --memory_model=large -g --include_path=./ --include_path=$(TEST_DIR) --include_path=$(LIB_DIR) --include_path=$(INCLUDE_DIR) --include_path=$(CSL_INCLUDE_DIR) --include_path=$(IMG_LIB_INCLUDE_DIR) --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 $(TEST_DIR)vision.asm $(C_SOURCES)
+	$(TOOLS_DIR)cl55 -v5515 --memory_model=large -g --include_path=./vision/ --include_path=./ --include_path=$(TEST_DIR) --include_path=$(LIB_DIR) --include_path=$(INCLUDE_DIR) --include_path=$(CSL_INCLUDE_DIR) --include_path=$(IMG_LIB_INCLUDE_DIR) --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 ./vision/vision.c 
+
 #filter:
 #	$(TOOLS_DIR)cl55 -v5515 --memory_model=large -g --include_path=./ --include_path=$(LIB_DIR) --include_path=$(INCLUDE_DIR) --include_path=$(CSL_INCLUDE_DIR) --include_path=$(IMG_LIB_INCLUDE_DIR) --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 $(TEST_DIR)coms.asm $(C_SOURCES)
 sonar:

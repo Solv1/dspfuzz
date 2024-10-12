@@ -1,0 +1,3234 @@
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 7.129251364007359
+DSLOG: Time taken for set_intial_breakpoints = 0.02885242500633467
+DSLOG: Time taken for refresh_global_pool = 3.329198807477951e-05
+DSLOG: We have 1 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.014750503993127495
+Time of start = 04/10/2024 11:03:28
+------Finding Coverage Calls in Binary------
+0x6c016af5
+0x6c016af5
+DSLOG: Time taken for find_coverage_call = 0.0042375279881525785
+DSLOG: Time taken for refresh_global_pool = 1.6438993043266237e-05
+------Starting the Device Listener------
+-------Found coverage-increasing input-------
+Current time = 04/10/2024 11:03:28
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.10246491432189941
+Effective Mutaton: bitflip 1/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.002427639003144577
+DSLOG: Found the end of the coverage map.
+[0, 112, 136, 145, 156, 164, 192, 380, 400, 429, 830, 847, 563, 581, 615, 664, 690, 694, 749, 765, 772, 818, 822, 978, 995, 1014, 1022, 1040, 1215, 1223, 1241, 1304, 1308, 1368, 1372, 1380, 1397, 1516, 1524, 1542, 1611, 1615, 1666, 1670, 1694, 1698, 1746, 1750, 1824, 1828, 1879, 1883, 1907, 1911, 1959, 1963, 1971, 1988, 2093, 902, 2101, 2126, 2163, 2169, 2184, 2241, 2248, 445, 449, 2256, 2282, 2295, 2329, 2333, 2359, 2387, 2412, 2430, 2464, 2492, 2519, 2545, 2605, 2633, 2660, 2710, 2761, 2843, 2894, 2944, 2972, 2999, 3025, 3085, 3113, 3140, 3160, 3194, 3222, 3249, 3275, 3335, 3363, 3390, 3410, 3449, 3477, 3502, 3526, 3575, 3603, 3630, 3650, 3689, 3717, 3744, 3764, 3813, 3841, 3868, 3888, 3927, 3955, 3982, 4002, 4051, 4079, 4106, 4126, 4165, 4193, 4220, 4240, 5147, 5151, 5176, 5180, 6447, 6451, 6464, 6481, 6493, 6515, 6519, 6604, 6608, 6616, 6634, 6646, 6673, 6677, 6724, 6741, 6766, 6770, 2155, 517, 521, 910, 927, 970, 555, 56, 60, 98, 102]
+{0: 1568, 56: 1624, 60: 1628, 98: 1666, 102: 1670, 112: 1680, 136: 1704, 145: 1713, 156: 1724, 164: 1732, 175: 1743, 179: 1747, 192: 1760, 380: 1948, 400: 1968, 412: 1980, 416: 1984, 429: 1997, 445: 2013, 449: 2017, 517: 2085, 521: 2089, 555: 2123, 563: 2131, 581: 2149, 615: 2183, 634: 2202, 664: 2232, 690: 2258, 694: 2262, 741: 2309, 749: 2317, 765: 2333, 772: 2340, 818: 2386, 822: 2390, 830: 2398, 847: 2415, 902: 2470, 910: 2478, 927: 2495, 970: 2538, 978: 2546, 995: 2563, 1014: 2582, 1022: 2590, 1040: 2608, 1215: 2783, 1223: 2791, 1241: 2809, 1304: 2872, 1308: 2876, 1368: 2936, 1372: 2940, 1380: 2948, 1397: 2965, 1516: 3084, 1524: 3092, 1542: 3110, 1611: 3179, 1615: 3183, 1666: 3234, 1670: 3238, 1694: 3262, 1698: 3266, 1746: 3314, 1750: 3318, 1824: 3392, 1828: 3396, 1879: 3447, 1883: 3451, 1907: 3475, 1911: 3479, 1959: 3527, 1963: 3531, 1971: 3539, 1988: 3556, 2093: 3661, 2101: 3669, 2117: 3685, 2126: 3694, 2155: 3723, 2163: 3731, 2169: 3737, 2184: 3752, 2241: 3809, 2248: 3816, 2256: 3824, 2282: 3850, 2295: 3863, 2329: 3897, 2333: 3901, 2359: 3927, 2375: 3943, 2387: 3955, 2412: 3980, 2422: 3990, 2430: 3998, 2464: 4032, 2480: 4048, 2492: 4060, 2519: 4087, 2534: 4102, 2545: 4113, 2605: 4173, 2621: 4189, 2633: 4201, 2660: 4228, 2672: 4240, 2710: 4278, 2726: 4294, 2761: 4329, 2776: 4344, 2843: 4411, 2859: 4427, 2894: 4462, 2906: 4474, 2944: 4512, 2960: 4528, 2972: 4540, 2999: 4567, 3014: 4582, 3025: 4593, 3085: 4653, 3101: 4669, 3113: 4681, 3140: 4708, 3152: 4720, 3160: 4728, 3194: 4762, 3210: 4778, 3222: 4790, 3249: 4817, 3264: 4832, 3275: 4843, 3335: 4903, 3351: 4919, 3363: 4931, 3390: 4958, 3402: 4970, 3410: 4978, 3449: 5017, 3465: 5033, 3477: 5045, 3502: 5070, 3515: 5083, 3526: 5094, 3575: 5143, 3591: 5159, 3603: 5171, 3630: 5198, 3642: 5210, 3650: 5218, 3689: 5257, 3705: 5273, 3717: 5285, 3744: 5312, 3756: 5324, 3764: 5332, 3813: 5381, 3829: 5397, 3841: 5409, 3868: 5436, 3880: 5448, 3888: 5456, 3927: 5495, 3943: 5511, 3955: 5523, 3982: 5550, 3994: 5562, 4002: 5570, 4051: 5619, 4067: 5635, 4079: 5647, 4106: 5674, 4118: 5686, 4126: 5694, 4165: 5733, 4181: 5749, 4193: 5761, 4220: 5788, 4232: 5800, 4240: 5808, 5147: 6715, 5151: 6719, 5176: 6744, 5180: 6748, 6447: 8015, 6451: 8019, 6464: 8032, 6481: 8049, 6493: 8061, 6515: 8083, 6519: 8087, 6604: 8172, 6608: 8176, 6616: 8184, 6634: 8202, 6646: 8214, 6673: 8241, 6677: 8245, 6724: 8292, 6741: 8309, 6766: 8334, 6770: 8338}
+[0, 112, 136, 145, 156, 164, 192, 380, 400, 429, 830, 847, 563, 581, 615, 664, 690, 694, 749, 765, 772, 818, 822, 978, 995, 1014, 1022, 1040, 1215, 1223, 1241, 1304, 1308, 1368, 1372, 1380, 1397, 1516, 1524, 1542, 1611, 1615, 1666, 1670, 1694, 1698, 1746, 1750, 1824, 1828, 1879, 1883, 1907, 1911, 1959, 1963, 1971, 1988, 2093, 902, 2101, 2126, 2163, 2169, 2184, 2241, 2248, 445, 449, 2256, 2282, 2295, 2329, 2333, 2359, 2387, 2412, 2430, 2464, 2492, 2519, 2545, 2605, 2633, 2660, 2710, 2761, 2843, 2894, 2944, 2972, 2999, 3025, 3085, 3113, 3140, 3160, 3194, 3222, 3249, 3275, 3335, 3363, 3390, 3410, 3449, 3477, 3502, 3526, 3575, 3603, 3630, 3650, 3689, 3717, 3744, 3764, 3813, 3841, 3868, 3888, 3927, 3955, 3982, 4002, 4051, 4079, 4106, 4126, 4165, 4193, 4220, 4240, 5147, 5151, 5176, 5180, 6447, 6451, 6464, 6481, 6493, 6515, 6519, 6604, 6608, 6616, 6634, 6646, 6673, 6677, 6724, 6741, 6766, 6770, 2155, 517, 521, 910, 927, 970, 555, 56, 60, 98, 102]
+DSLOG: Time taken for refresh_global_pool = 5.385500844568014e-05
+DSLOG: Time taken for refresh_global_pool = 3.903800097759813e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0987595619953936
+DSLOG: Time taken for refresh_global_pool = 3.026801277883351e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.4515739670023322
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 11:21:51
+DSLOG: Total number of iterations: 35749
+DSLOG: Average throughput time: 0.03087685281518303
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021777035988634452
+Current time = 04/10/2024 11:22:00
+DSLOG: Total number of iterations: 35750
+DSLOG: Average throughput time: 0.03112064730370795
+DSLOG: Time taken for refresh_global_pool = 2.5076005840674043e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09489774800022133
+DSLOG: Time taken for refresh_global_pool = 3.4356009564362466e-05
+DSLOG: Time taken for refresh_local_pool = 0.10059357499994803
+22
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004611350013874471
+DSLOG: Time taken for crash_reload = 8.847699459991418
+Current time = 04/10/2024 11:22:00
+DSLOG: Total number of iterations: 35751
+DSLOG: Average throughput time: 0.03112438249173209
+DSLOG: Time taken for refresh_global_pool = 2.8735987143591046e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.099207909006509
+DSLOG: Time taken for refresh_global_pool = 3.080199530813843e-05
+DSLOG: Time taken for refresh_local_pool = 0.10574876700411551
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 11:40:23
+DSLOG: Total number of iterations: 71563
+DSLOG: Average throughput time: 0.03095173014850605
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022202601001481526
+Current time = 04/10/2024 11:40:33
+DSLOG: Total number of iterations: 71564
+DSLOG: Average throughput time: 0.03109042518635019
+DSLOG: Time taken for refresh_global_pool = 4.0274011553265154e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0946461159910541
+DSLOG: Time taken for refresh_global_pool = 2.7972986572422087e-05
+DSLOG: Time taken for refresh_local_pool = 0.10060649800288957
+34
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00044446499668993056
+DSLOG: Time taken for crash_reload = 10.05772254600015
+Current time = 04/10/2024 11:40:33
+DSLOG: Total number of iterations: 71565
+DSLOG: Average throughput time: 0.031092293510844787
+DSLOG: Time taken for refresh_global_pool = 2.827600110322237e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.10041123800328933
+DSLOG: Time taken for refresh_global_pool = 3.038998693227768e-05
+DSLOG: Time taken for refresh_local_pool = 0.10730950799188577
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 11:58:57
+DSLOG: Total number of iterations: 107362
+DSLOG: Average throughput time: 0.031009484138186043
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023919269995531067
+Current time = 04/10/2024 11:59:06
+DSLOG: Total number of iterations: 107363
+DSLOG: Average throughput time: 0.031090221682791616
+DSLOG: Time taken for refresh_global_pool = 3.949299571104348e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09617690400045831
+DSLOG: Time taken for refresh_global_pool = 3.490700328256935e-05
+DSLOG: Time taken for refresh_local_pool = 0.10261337099655066
+46
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00028273998759686947
+DSLOG: Time taken for crash_reload = 8.802152978998492
+Current time = 04/10/2024 11:59:06
+DSLOG: Total number of iterations: 107364
+DSLOG: Average throughput time: 0.031091476400777644
+DSLOG: Time taken for refresh_global_pool = 2.7579997549764812e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09775414101022761
+DSLOG: Time taken for refresh_global_pool = 3.0112001695670187e-05
+DSLOG: Time taken for refresh_local_pool = 0.10457260500697885
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 12:17:24
+DSLOG: Total number of iterations: 142816
+DSLOG: Average throughput time: 0.03106107303186994
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.024279449993628077
+Current time = 04/10/2024 12:17:32
+DSLOG: Total number of iterations: 142817
+DSLOG: Average throughput time: 0.031121987895252008
+DSLOG: Time taken for refresh_global_pool = 3.873399691656232e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09448684999370016
+DSLOG: Time taken for refresh_global_pool = 2.556100662332028e-05
+DSLOG: Time taken for refresh_local_pool = 0.10075090000464115
+58
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0032245569891529158
+DSLOG: Time taken for crash_reload = 8.834846404002747
+Current time = 04/10/2024 12:17:33
+DSLOG: Total number of iterations: 142818
+DSLOG: Average throughput time: 0.031122932285973976
+DSLOG: Time taken for refresh_global_pool = 5.511200288310647e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09828094999829773
+DSLOG: Time taken for refresh_global_pool = 4.0664002881385386e-05
+DSLOG: Time taken for refresh_local_pool = 0.10712480598886032
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 12:35:51
+DSLOG: Total number of iterations: 178556
+DSLOG: Average throughput time: 0.031044340677918728
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02273228799458593
+Current time = 04/10/2024 12:35:59
+DSLOG: Total number of iterations: 178557
+DSLOG: Average throughput time: 0.031092918029250457
+DSLOG: Time taken for refresh_global_pool = 6.07699912507087e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09570395899936557
+DSLOG: Time taken for refresh_global_pool = 6.360100815072656e-05
+DSLOG: Time taken for refresh_local_pool = 0.10350337999989279
+70
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0006172279972815886
+DSLOG: Time taken for crash_reload = 8.809194888992351
+Current time = 04/10/2024 12:36:00
+DSLOG: Total number of iterations: 178558
+DSLOG: Average throughput time: 0.03109368996190817
+DSLOG: Time taken for refresh_global_pool = 2.577398845460266e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09960413799853995
+DSLOG: Time taken for refresh_global_pool = 3.449800715316087e-05
+DSLOG: Time taken for refresh_local_pool = 0.10653169800934847
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 12:54:21
+DSLOG: Total number of iterations: 214482
+DSLOG: Average throughput time: 0.031022552175971205
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022309056992526166
+Current time = 04/10/2024 12:54:30
+DSLOG: Total number of iterations: 214483
+DSLOG: Average throughput time: 0.03106301936646272
+DSLOG: Time taken for refresh_global_pool = 4.083399835508317e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09462514899496455
+DSLOG: Time taken for refresh_global_pool = 2.2275999072007835e-05
+DSLOG: Time taken for refresh_local_pool = 0.10048873399500735
+82
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00033763299870770425
+DSLOG: Time taken for crash_reload = 8.811454592010705
+Current time = 04/10/2024 12:54:30
+DSLOG: Total number of iterations: 214484
+DSLOG: Average throughput time: 0.031063642034695867
+DSLOG: Time taken for refresh_global_pool = 2.857600338757038e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09735025400004815
+DSLOG: Time taken for refresh_global_pool = 1.8360005924478173e-05
+DSLOG: Time taken for refresh_local_pool = 0.10425927700998727
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 13:12:46
+DSLOG: Total number of iterations: 250238
+DSLOG: Average throughput time: 0.03100378711950049
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022324767007376067
+Current time = 04/10/2024 13:12:55
+DSLOG: Total number of iterations: 250239
+DSLOG: Average throughput time: 0.031038351019020118
+DSLOG: Time taken for refresh_global_pool = 3.063499752897769e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09463312900334131
+DSLOG: Time taken for refresh_global_pool = 2.8196998755447567e-05
+DSLOG: Time taken for refresh_local_pool = 0.0984080969938077
+94
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0026308160013286397
+DSLOG: Time taken for crash_reload = 8.781494201990427
+Current time = 04/10/2024 13:12:55
+DSLOG: Total number of iterations: 250240
+DSLOG: Average throughput time: 0.03103888102180665
+DSLOG: Time taken for refresh_global_pool = 2.2302003344520926e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09886661201016977
+DSLOG: Time taken for refresh_global_pool = 2.4549008230678737e-05
+DSLOG: Time taken for refresh_local_pool = 0.10590588100603782
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 13:31:04
+DSLOG: Total number of iterations: 285803
+DSLOG: Average throughput time: 0.030989201657502272
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02134042399120517
+Current time = 04/10/2024 13:31:13
+DSLOG: Total number of iterations: 285804
+DSLOG: Average throughput time: 0.031019485361676084
+DSLOG: Time taken for refresh_global_pool = 2.273698919452727e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09346395099419169
+DSLOG: Time taken for refresh_global_pool = 2.9292001272551715e-05
+DSLOG: Time taken for refresh_local_pool = 0.09937544900458306
+106
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0003675839980132878
+DSLOG: Time taken for crash_reload = 8.786114039990935
+Current time = 04/10/2024 13:31:13
+DSLOG: Total number of iterations: 285805
+DSLOG: Average throughput time: 0.03101994564150294
+DSLOG: Time taken for refresh_global_pool = 2.3815999156795442e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09803246099909302
+DSLOG: Time taken for refresh_global_pool = 2.3524000425823033e-05
+D 6770: 8338}SLOG: Time taken for refresh_local_pool = 0.10489179499563761
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 13:49:35
+DSLOG: Total number of iterations: 321791
+DSLOG: Average throughput time: 0.030975042808799418
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02120915599516593
+Current time = 04/10/2024 13:49:44
+DSLOG: Total number of iterations: 321792
+DSLOG: Average throughput time: 0.031001968216669635
+DSLOG: Time taken for refresh_global_pool = 2.7485992177389562e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09516738899401389
+DSLOG: Time taken for refresh_global_pool = 3.888198989443481e-05
+DSLOG: Time taken for refresh_local_pool = 0.10088367499702144
+118
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00038173999928403646
+DSLOG: Time taken for crash_reload = 8.79678563500056
+Current time = 04/10/2024 13:49:44
+DSLOG: Total number of iterations: 321793
+DSLOG: Average throughput time: 0.03100238153243235
+DSLOG: Time taken for refresh_global_pool = 2.6685011107474566e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09793164698930923
+DSLOG: Time taken for refresh_global_pool = 3.162700159009546e-05
+DSLOG: Time taken for refresh_local_pool = 0.10469753399956971
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 14:08:02
+DSLOG: Total number of iterations: 357663
+DSLOG: Average throughput time: 0.030963065438835275
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022338512004353106
+Current time = 04/10/2024 14:08:11
+DSLOG: Total number of iterations: 357664
+DSLOG: Average throughput time: 0.030987443722210576
+DSLOG: Time taken for refresh_global_pool = 3.6411991459317505e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09444152499781922
+DSLOG: Time taken for refresh_global_pool = 2.2760999854654074e-05
+DSLOG: Time taken for refresh_local_pool = 0.09793003600498196
+130
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025868390075629577
+DSLOG: Time taken for crash_reload = 8.850877460994525
+Current time = 04/10/2024 14:08:11
+DSLOG: Total number of iterations: 357665
+DSLOG: Average throughput time: 0.030987817570222374
+DSLOG: Time taken for refresh_global_pool = 4.1418010368943214e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09976344399910886
+DSLOG: Time taken for refresh_global_pool = 2.6141991838812828e-05
+DSLOG: Time taken for refresh_local_pool = 0.10712943600083236
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 14:26:28
+DSLOG: Total number of iterations: 393477
+DSLOG: Average throughput time: 0.030955635820885844
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021959652003715746
+Current time = 04/10/2024 14:26:37
+DSLOG: Total number of iterations: 393478
+DSLOG: Average throughput time: 0.030978022551970283
+DSLOG: Time taken for refresh_global_pool = 2.549499913584441e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09519333500065841
+DSLOG: Time taken for refresh_global_pool = 2.240799949504435e-05
+DSLOG: Time taken for refresh_local_pool = 0.10075157199753448
+142
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00022598799841944128
+DSLOG: Time taken for crash_reload = 8.940730047004763
+Current time = 04/10/2024 14:26:37
+DSLOG: Total number of iterations: 393479
+DSLOG: Average throughput time: 0.030978360694672996
+DSLOG: Time taken for refresh_global_pool = 2.4352993932552636e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09796633599034976
+DSLOG: Time taken for refresh_global_pool = 3.0606999644078314e-05
+DSLOG: Time taken for refresh_local_pool = 0.10479306500928942
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 14:44:52
+DSLOG: Total number of iterations: 429231
+DSLOG: Average throughput time: 0.03095039666224049
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023053926008287817
+Current time = 04/10/2024 14:45:01
+DSLOG: Total number of iterations: 429232
+DSLOG: Average throughput time: 0.030970302113290646
+DSLOG: Time taken for refresh_global_pool = 3.574098809622228e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09665091300848871
+DSLOG: Time taken for refresh_global_pool = 3.641299554146826e-05
+DSLOG: Time taken for refresh_local_pool = 0.10308114800136536
+154
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.000619522004853934
+DSLOG: Time taken for crash_reload = 8.678987670005881
+Current time = 04/10/2024 14:45:01
+DSLOG: Total number of iterations: 429233
+DSLOG: Average throughput time: 0.03097061903517102
+DSLOG: Time taken for refresh_global_pool = 2.2375999833457172e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0981646290019853
+DSLOG: Time taken for refresh_global_pool = 4.402799822855741e-05
+DSLOG: Time taken for refresh_local_pool = 0.10599713400006294
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 15:03:12
+DSLOG: Total number of iterations: 464828
+DSLOG: Average throughput time: 0.03094610542958346
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022180943997227587
+Current time = 04/10/2024 15:03:21
+DSLOG: Total number of iterations: 464829
+DSLOG: Average throughput time: 0.030964572691721537
+DSLOG: Time taken for refresh_global_pool = 3.793000360019505e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09502325300127268
+DSLOG: Time taken for refresh_global_pool = 2.4829001631587744e-05
+DSLOG: Time taken for refresh_local_pool = 0.09842657600529492
+166
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0026119929971173406
+DSLOG: Time taken for crash_reload = 8.716261206005584
+Current time = 04/10/2024 15:03:21
+DSLOG: Total number of iterations: 464830
+DSLOG: Average throughput time: 0.03096485871767866
+DSLOG: Time taken for refresh_global_pool = 2.5689005269668996e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09844756600796245
+DSLOG: Time taken for refresh_global_pool = 2.519000554457307e-05
+DSLOG: Time taken for refresh_local_pool = 0.10550611800863408
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 15:21:31
+DSLOG: Total number of iterations: 500423
+DSLOG: Average throughput time: 0.030941049037404644
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023332622993621044
+Current time = 04/10/2024 15:21:40
+DSLOG: Total number of iterations: 500424
+DSLOG: Average throughput time: 0.03095840378489717
+DSLOG: Time taken for refresh_global_pool = 4.292800440452993e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09656753099989146
+DSLOG: Time taken for refresh_global_pool = 5.5374999647028744e-05
+DSLOG: Time taken for refresh_local_pool = 0.10300657899642829
+178
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005229459929978475
+DSLOG: Time taken for crash_reload = 8.819420815998456
+Current time = 04/10/2024 15:21:40
+DSLOG: Total number of iterations: 500425
+DSLOG: Average throughput time: 0.030958682214748658
+DSLOG: Time taken for refresh_global_pool = 4.7524008550681174e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09921545899123885
+DSLOG: Time taken for refresh_global_pool = 2.2748004994355142e-05
+DSLOG: Time taken for refresh_local_pool = 0.10680326199508272
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 15:39:55
+DSLOG: Total number of iterations: 536182
+DSLOG: Average throughput time: 0.030935752667548725
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02203563899092842
+Current time = 04/10/2024 15:40:03
+DSLOG: Total number of iterations: 536183
+DSLOG: Average throughput time: 0.030951721490739995
+DSLOG: Time taken for refresh_global_pool = 3.674199979286641e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09328800400544424
+DSLOG: Time taken for refresh_global_pool = 3.632900188677013e-05
+DSLOG: Time taken for refresh_local_pool = 0.10000808100448921
+190
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005321560020092875
+DSLOG: Time taken for crash_reload = 8.693853005010169
+Current time = 04/10/2024 15:40:04
+DSLOG: Total number of iterations: 536184
+DSLOG: Average throughput time: 0.030951971055151444
+DSLOG: Time taken for refresh_global_pool = 2.7413989300839603e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09839103800186422
+DSLOG: Time taken for refresh_global_pool = 3.383100556675345e-05
+DSLOG: Time taken for refresh_local_pool = 0.10550758900353685
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 15:58:20
+DSLOG: Total number of iterations: 571919
+DSLOG: Average throughput time: 0.030934828333926304
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02165258998866193
+Current time = 04/10/2024 15:58:29
+DSLOG: Total number of iterations: 571920
+DSLOG: Average throughput time: 0.030950184645211216
+DSLOG: Time taken for refresh_global_pool = 2.7461006538942456e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09384668999700807
+DSLOG: Time taken for refresh_global_pool = 2.6223002350889146e-05
+DSLOG: Time taken for refresh_local_pool = 0.09704014500312041
+202
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002585231006378308
+DSLOG: Time taken for crash_reload = 8.913292270008242
+Current time = 04/10/2024 15:58:29
+DSLOG: Total number of iterations: 571921
+DSLOG: Average throughput time: 0.030950415437309208
+DSLOG: Time taken for refresh_global_pool = 2.233599661849439e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09758645400870591
+DSLOG: Time taken for refresh_global_pool = 2.5626999558880925e-05
+DSLOG: Time taken for refresh_local_pool = 0.10473027499392629
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 16:16:51
+DSLOG: Total number of iterations: 607938
+DSLOG: Average throughput time: 0.030930334860199367
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02305010201234836
+Current time = 04/10/2024 16:17:00
+DSLOG: Total number of iterations: 607939
+DSLOG: Average throughput time: 0.030944713224157594
+DSLOG: Time taken for refresh_global_pool = 4.5469001634046435e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09858199500013143
+DSLOG: Time taken for refresh_global_pool = 2.7058005798608065e-05
+DSLOG: Time taken for refresh_local_pool = 0.10502341200481169
+214
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0003576419985620305
+DSLOG: Time taken for crash_reload = 8.87763748600264
+Current time = 04/10/2024 16:17:00
+DSLOG: Total number of iterations: 607940
+DSLOG: Average throughput time: 0.03094493902431184
+DSLOG: Time taken for refresh_global_pool = 2.5928005925379694e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0993466689978959
+DSLOG: Time taken for refresh_global_pool = 2.453000342939049e-05
+DSLOG: Time taken for refresh_local_pool = 0.10631473899411503
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 16:35:15
+DSLOG: Total number of iterations: 643679
+DSLOG: Average throughput time: 0.03092783200117413
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022629643994150683
+Current time = 04/10/2024 16:35:24
+DSLOG: Total number of iterations: 643680
+DSLOG: Average throughput time: 0.0309411708251653
+DSLOG: Time taken for refresh_global_pool = 3.221799852326512e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09600561900879256
+DSLOG: Time taken for refresh_global_pool = 2.8761991416104138e-05
+DSLOG: Time taken for refresh_local_pool = 0.1017362319980748
+226
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00041911599691957235
+DSLOG: Time taken for crash_reload = 8.71916343200428
+Current time = 04/10/2024 16:35:24
+DSLOG: Total number of iterations: 643681
+DSLOG: Average throughput time: 0.030941379733091863
+DSLOG: Time taken for refresh_global_pool = 2.536499232519418e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09904887899756432
+DSLOG: Time taken for refresh_global_pool = 2.762100484687835e-05
+DSLOG: Time taken for refresh_local_pool = 0.10585913799877744
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 16:53:40
+DSLOG: Total number of iterations: 679461
+DSLOG: Average throughput time: 0.030924604933282092
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022380832000635564
+Current time = 04/10/2024 16:53:48
+DSLOG: Total number of iterations: 679462
+DSLOG: Average throughput time: 0.03093733608082833
+DSLOG: Time taken for refresh_global_pool = 3.4773998777382076e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.095038070998271
+DSLOG: Time taken for refresh_global_pool = 3.8914993638172746e-05
+DSLOG: Time taken for refresh_local_pool = 0.10095143399666995
+238
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0032091040047816932
+DSLOG: Time taken for crash_reload = 8.785584822995588
+Current time = 04/10/2024 16:53:49
+DSLOG: Total number of iterations: 679463
+DSLOG: Average throughput time: 0.03093753416303565
+DSLOG: Time taken for refresh_global_pool = 2.6434994651935995e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09672866800974589
+DSLOG: Time taken for refresh_global_pool = 2.858600055333227e-05
+DSLOG: Time taken for refresh_local_pool = 0.10456972700194456
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 17:11:59
+DSLOG: Total number of iterations: 715055
+DSLOG: Average throughput time: 0.03092281060593883
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021572384997853078
+Current time = 04/10/2024 17:12:08
+DSLOG: Total number of iterations: 715056
+DSLOG: Average throughput time: 0.030934882579184073
+DSLOG: Time taken for refresh_global_pool = 3.142899367958307e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09463960699213203
+DSLOG: Time taken for refresh_global_pool = 2.6049005100503564e-05
+DSLOG: Time taken for refresh_local_pool = 0.10064291600428987
+250
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00039033699431456625
+DSLOG: Time taken for crash_reload = 8.764274067012593
+Current time = 04/10/2024 17:12:08
+DSLOG: Total number of iterations: 715057
+DSLOG: Average throughput time: 0.03093506911124567
+DSLOG: Time taken for refresh_global_pool = 2.8768990887328982e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09834020800190046
+DSLOG: Time taken for refresh_global_pool = 3.104099596384913e-05
+DSLOG: Time taken for refresh_local_pool = 0.10558536100143101
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 17:30:21
+DSLOG: Total number of iterations: 750712
+DSLOG: Average throughput time: 0.03092170586534066
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02229677001014352
+Current time = 04/10/2024 17:30:30
+DSLOG: Total number of iterations: 750713
+DSLOG: Average throughput time: 0.030933402511615055
+DSLOG: Time taken for refresh_global_pool = 3.1648000003769994e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0949579750013072
+DSLOG: Time taken for refresh_global_pool = 2.2986001567915082e-05
+DSLOG: Time taken for refresh_local_pool = 0.10097761600627564
+262
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003156043996568769
+DSLOG: Time taken for crash_reload = 8.916029924002942
+Current time = 04/10/2024 17:30:30
+DSLOG: Total number of iterations: 750714
+DSLOG: Average throughput time: 0.03093358143683454
+DSLOG: Time taken for refresh_global_pool = 3.244499384891242e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09919421799713746
+DSLOG: Time taken for refresh_global_pool = 3.793000360019505e-05
+DSLOG: Time taken for refresh_local_pool = 0.10737057900405489
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 17:48:50
+DSLOG: Total number of iterations: 786643
+DSLOG: Average throughput time: 0.03091915392971658
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022371832994394936
+Current time = 04/10/2024 17:48:59
+DSLOG: Total number of iterations: 786644
+DSLOG: Average throughput time: 0.0309301364975335
+DSLOG: Time taken for refresh_global_pool = 2.9336995794437826e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09382878500036895
+DSLOG: Time taken for refresh_global_pool = 2.3822998628020287e-05
+DSLOG: Time taken for refresh_local_pool = 0.09942917400621809
+274
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00029163800354581326
+DSLOG: Time taken for crash_reload = 8.770077912995475
+Current time = 04/10/2024 17:48:59
+DSLOG: Total number of iterations: 786645
+DSLOG: Average throughput time: 0.03093030374093436
+DSLOG: Time taken for refresh_global_pool = 2.240498724859208e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09746871600509621
+DSLOG: Time taken for refresh_global_pool = 2.2665000869892538e-05
+DSLOG: Time taken for refresh_local_pool = 0.10413036399404518
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 18:07:15
+DSLOG: Total number of iterations: 822406
+DSLOG: Average throughput time: 0.030917909487830113
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023833886996726505
+Current time = 04/10/2024 18:07:23
+DSLOG: Total number of iterations: 822407
+DSLOG: Average throughput time: 0.030928383181331384
+DSLOG: Time taken for refresh_global_pool = 3.891800588462502e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09443559400097001
+DSLOG: Time taken for refresh_global_pool = 2.5084009394049644e-05
+DSLOG: Time taken for refresh_local_pool = 0.10053102100209799
+286
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0002981529978569597
+DSLOG: Time taken for crash_reload = 8.74548885699187
+Current time = 04/10/2024 18:07:23
+DSLOG: Total number of iterations: 822408
+DSLOG: Average throughput time: 0.030928545408451323
+DSLOG: Time taken for refresh_global_pool = 2.136200782842934e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09793922500102781
+DSLOG: Time taken for refresh_global_pool = 2.422901161480695e-05
+DSLOG: Time taken for refresh_local_pool = 0.10502073899260722
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 18:25:39
+DSLOG: Total number of iterations: 858189
+DSLOG: Average throughput time: 0.03091592724431907
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02275385201210156
+Current time = 04/10/2024 18:25:48
+DSLOG: Total number of iterations: 858190
+DSLOG: Average throughput time: 0.03092600129543259
+DSLOG: Time taken for refresh_global_pool = 3.639599890448153e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09386973199434578
+DSLOG: Time taken for refresh_global_pool = 2.7201007469557226e-05
+DSLOG: Time taken for refresh_local_pool = 0.0996792119985912
+298
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00042510499770287424
+DSLOG: Time taken for crash_reload = 8.776594878989272
+Current time = 04/10/2024 18:25:48
+DSLOG: Total number of iterations: 858191
+DSLOG: Average throughput time: 0.03092615566931687
+DSLOG: Time taken for refresh_global_pool = 2.4380002287216485e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09801534299913328
+DSLOG: Time taken for refresh_global_pool = 2.1496001863852143e-05
+DSLOG: Time taken for refresh_local_pool = 0.10475508600939065
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 18:43:58
+DSLOG: Total number of iterations: 893746
+DSLOG: Average throughput time: 0.030914950102104637
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02164852300484199
+Current time = 04/10/2024 18:44:07
+DSLOG: Total number of iterations: 893747
+DSLOG: Average throughput time: 0.030925012713269206
+DSLOG: Time taken for refresh_global_pool = 2.663899795152247e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09341555899300147
+DSLOG: Time taken for refresh_global_pool = 2.521699934732169e-05
+DSLOG: Time taken for refresh_local_pool = 0.09646876899932977
+310
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0026867119886446744
+DSLOG: Time taken for crash_reload = 9.123651618996519
+Current time = 04/10/2024 18:44:07
+DSLOG: Total number of iterations: 893748
+DSLOG: Average throughput time: 0.030925159833959614
+DSLOG: Time taken for refresh_global_pool = 3.169599222019315e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09764631000871304
+DSLOG: Time taken for refresh_global_pool = 2.8416005079634488e-05
+DSLOG: Time taken for refresh_local_pool = 0.10469160400680266
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 19:02:15
+DSLOG: Total number of iterations: 929310
+DSLOG: Average throughput time: 0.030912944819541332
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023348493996309116
+Current time = 04/10/2024 19:02:24
+DSLOG: Total number of iterations: 929311
+DSLOG: Average throughput time: 0.030922356016583087
+DSLOG: Time taken for refresh_global_pool = 5.614000838249922e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09607605400378816
+DSLOG: Time taken for refresh_global_pool = 2.6146997697651386e-05
+DSLOG: Time taken for refresh_local_pool = 0.09960380999837071
+322
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.005267745989840478
+DSLOG: Time taken for crash_reload = 8.881911160991876
+Current time = 04/10/2024 19:02:24
+DSLOG: Total number of iterations: 929312
+DSLOG: Average throughput time: 0.030922500645290094
+DSLOG: Time taken for refresh_global_pool = 3.341800766065717e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.097435656003654
+DSLOG: Time taken for refresh_global_pool = 2.1875996026210487e-05
+DSLOG: Time taken for refresh_local_pool = 0.10441779300163034
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 19:20:37
+DSLOG: Total number of iterations: 964998
+DSLOG: Average throughput time: 0.03091185836037511
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022157075989525765
+Current time = 04/10/2024 19:20:46
+DSLOG: Total number of iterations: 964999
+DSLOG: Average throughput time: 0.030920732207607306
+DSLOG: Time taken for refresh_global_pool = 2.737899194471538e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09441984599106945
+DSLOG: Time taken for refresh_global_pool = 3.423799353186041e-05
+DSLOG: Time taken for refresh_local_pool = 0.10042794900073204
+334
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004183990095043555
+DSLOG: Time taken for crash_reload = 8.695201208000071
+Current time = 04/10/2024 19:20:46
+DSLOG: Total number of iterations: 965000
+DSLOG: Average throughput time: 0.030920871259511443
+DSLOG: Time taken for refresh_global_pool = 3.686800482682884e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09942068500095047
+DSLOG: Time taken for refresh_global_pool = 3.160499909427017e-05
+DSLOG: Time taken for refresh_local_pool = 0.10646145000646356
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 19:39:02
+DSLOG: Total number of iterations: 1000763
+DSLOG: Average throughput time: 0.030910804842387115
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022770953000872396
+Current time = 04/10/2024 19:39:11
+DSLOG: Total number of iterations: 1000764
+DSLOG: Average throughput time: 0.030919400693028606
+DSLOG: Time taken for refresh_global_pool = 3.986500087194145e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09557924399268813
+DSLOG: Time taken for refresh_global_pool = 3.897400165442377e-05
+DSLOG: Time taken for refresh_local_pool = 0.1019912499905331
+346
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005667030054610223
+DSLOG: Time taken for crash_reload = 8.736209608003264
+Current time = 04/10/2024 19:39:11
+DSLOG: Total number of iterations: 1000765
+DSLOG: Average throughput time: 0.03091953531624052
+DSLOG: Time taken for refresh_global_pool = 2.35030020121485e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09944284900848288
+DSLOG: Time taken for refresh_global_pool = 2.515400410629809e-05
+DSLOG: Time taken for refresh_local_pool = 0.10551226099778432
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 19:57:25
+DSLOG: Total number of iterations: 1036460
+DSLOG: Average throughput time: 0.030910589271350566
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022734541998943314
+Current time = 04/10/2024 19:57:34
+DSLOG: Total number of iterations: 1036461
+DSLOG: Average throughput time: 0.0309190586650253
+DSLOG: Time taken for refresh_global_pool = 3.987700620200485e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09515353699680418
+DSLOG: Time taken for refresh_global_pool = 4.415800503920764e-05
+DSLOG: Time taken for refresh_local_pool = 0.10114293999504298
+358
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0032286700006807223
+DSLOG: Time taken for crash_reload = 8.913751073996536
+Current time = 04/10/2024 19:57:34
+DSLOG: Total number of iterations: 1036462
+DSLOG: Average throughput time: 0.03091918893584008
+DSLOG: Time taken for refresh_global_pool = 3.225999535061419e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.10018594899156597
+DSLOG: Time taken for refresh_global_pool = 3.052000829484314e-05
+DSLOG: Time taken for refresh_local_pool = 0.10758320400782395
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 20:15:48
+DSLOG: Total number of iterations: 1072162
+DSLOG: Average throughput time: 0.030909571938577497
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022053782988223247
+Current time = 04/10/2024 20:15:56
+DSLOG: Total number of iterations: 1072163
+DSLOG: Average throughput time: 0.030917571823029306
+DSLOG: Time taken for refresh_global_pool = 2.543200389482081e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09342796599958092
+DSLOG: Time taken for refresh_global_pool = 3.444499452598393e-05
+DSLOG: Time taken for refresh_local_pool = 0.09918273199582472
+370
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003373655999894254
+DSLOG: Time taken for crash_reload = 8.710952453999198
+Current time = 04/10/2024 20:15:56
+DSLOG: Total number of iterations: 1072164
+DSLOG: Average throughput time: 0.03091769547670087
+DSLOG: Time taken for refresh_global_pool = 2.545499592088163e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09824623899476137
+DSLOG: Time taken for refresh_global_pool = 2.420700911898166e-05
+DSLOG: Time taken for refresh_local_pool = 0.10532229399541393
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 20:34:20
+DSLOG: Total number of iterations: 1108230
+DSLOG: Average throughput time: 0.030907623248711564
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021753724009613506
+Current time = 04/10/2024 20:34:29
+DSLOG: Total number of iterations: 1108231
+DSLOG: Average throughput time: 0.0309155876401658
+DSLOG: Time taken for refresh_global_pool = 3.261100209783763e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09332962198823225
+DSLOG: Time taken for refresh_global_pool = 3.008400381077081e-05
+DSLOG: Time taken for refresh_local_pool = 0.09913566800241824
+382
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0031804989994270727
+DSLOG: Time taken for crash_reload = 8.959739998012083
+Current time = 04/10/2024 20:34:29
+DSLOG: Total number of iterations: 1108232
+DSLOG: Average throughput time: 0.030915707659140167
+DSLOG: Time taken for refresh_global_pool = 2.7608999516814947e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0976465889980318
+DSLOG: Time taken for refresh_global_pool = 2.9965987778268754e-05
+DSLOG: Time taken for refresh_local_pool = 0.10454962699441239
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 20:52:47
+DSLOG: Total number of iterations: 1144062
+DSLOG: Average throughput time: 0.030906665613189672
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021740750002209097
+Current time = 04/10/2024 20:52:55
+DSLOG: Total number of iterations: 1144063
+DSLOG: Average throughput time: 0.03091422393102231
+DSLOG: Time taken for refresh_global_pool = 2.851300814654678e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09461229899898171
+DSLOG: Time taken for refresh_global_pool = 2.694300201255828e-05
+DSLOG: Time taken for refresh_local_pool = 0.1003707860072609
+394
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0003689599980134517
+DSLOG: Time taken for crash_reload = 8.779010557002039
+Current time = 04/10/2024 20:52:56
+DSLOG: Total number of iterations: 1144064
+DSLOG: Average throughput time: 0.030914339826051143
+DSLOG: Time taken for refresh_global_pool = 2.4658991605974734e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09765977499773726
+DSLOG: Time taken for refresh_global_pool = 2.4043998564593494e-05
+DSLOG: Time taken for refresh_local_pool = 0.10474299700581469
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 21:11:08
+DSLOG: Total number of iterations: 1179735
+DSLOG: Average throughput time: 0.030905471255527284
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023331530988798477
+Current time = 04/10/2024 21:11:17
+DSLOG: Total number of iterations: 1179736
+DSLOG: Average throughput time: 0.030912768871750727
+DSLOG: Time taken for refresh_global_pool = 5.6365999625995755e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09997274800844025
+DSLOG: Time taken for refresh_global_pool = 4.263500159140676e-05
+DSLOG: Time taken for refresh_local_pool = 0.10356434399727732
+406
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003197274010744877
+DSLOG: Time taken for crash_reload = 8.74727908600471
+Current time = 04/10/2024 21:11:17
+DSLOG: Total number of iterations: 1179737
+DSLOG: Average throughput time: 0.030912886776913135
+DSLOG: Time taken for refresh_global_pool = 2.8726994059979916e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09757334800087847
+DSLOG: Time taken for refresh_global_pool = 2.1375002688728273e-05
+DSLOG: Time taken for refresh_local_pool = 0.1041748920106329
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 21:29:34
+DSLOG: Total number of iterations: 1215573
+DSLOG: Average throughput time: 0.030904284278866635
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02349245100049302
+Current time = 04/10/2024 21:29:43
+DSLOG: Total number of iterations: 1215574
+DSLOG: Average throughput time: 0.030911506073847704
+DSLOG: Time taken for refresh_global_pool = 3.7542005884461105e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0949310829892056
+DSLOG: Time taken for refresh_global_pool = 2.707800013013184e-05
+DSLOG: Time taken for refresh_local_pool = 0.09849337600462604
+418
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025286060117650777
+DSLOG: Time taken for crash_reload = 8.910781857994152
+Current time = 04/10/2024 21:29:43
+DSLOG: Total number of iterations: 1215575
+DSLOG: Average throughput time: 0.03091161518863033
+DSLOG: Time taken for refresh_global_pool = 2.3784989025443792e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09837635599251371
+DSLOG: Time taken for refresh_global_pool = 2.9650997021235526e-05
+DSLOG: Time taken for refresh_local_pool = 0.10532749899721239
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 21:48:06
+DSLOG: Total number of iterations: 1251586
+DSLOG: Average throughput time: 0.030903320197228776
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022458087012637407
+Current time = 04/10/2024 21:48:14
+DSLOG: Total number of iterations: 1251587
+DSLOG: Average throughput time: 0.030910215980702763
+DSLOG: Time taken for refresh_global_pool = 3.4958997275680304e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09449011700053234
+DSLOG: Time taken for refresh_global_pool = 2.199099981226027e-05
+DSLOG: Time taken for refresh_local_pool = 0.10018886499165092
+430
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0003140410117339343
+DSLOG: Time taken for crash_reload = 8.762204754995764
+Current time = 04/10/2024 21:48:15
+DSLOG: Total number of iterations: 1251588
+DSLOG: Average throughput time: 0.030910322423571744
+DSLOG: Time taken for refresh_global_pool = 2.6162000722251832e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09744574000069406
+DSLOG: Time taken for refresh_global_pool = 2.730700362008065e-05
+DSLOG: Time taken for refresh_local_pool = 0.10432461700111162
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 22:06:38
+DSLOG: Total number of iterations: 1287614
+DSLOG: Average throughput time: 0.03090242503919796
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023332361015491188
+Current time = 04/10/2024 22:06:47
+DSLOG: Total number of iterations: 1287615
+DSLOG: Average throughput time: 0.03090917837616865
+DSLOG: Time taken for refresh_global_pool = 3.9174017729237676e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0954727969947271
+DSLOG: Time taken for refresh_global_pool = 2.6923982659354806e-05
+DSLOG: Time taken for refresh_local_pool = 0.09906206399318762
+442
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0024597759766038507
+DSLOG: Time taken for crash_reload = 8.828296846011654
+Current time = 04/10/2024 22:06:47
+DSLOG: Total number of iterations: 1287616
+DSLOG: Average throughput time: 0.030909281872267325
+DSLOG: Time taken for refresh_global_pool = 2.424299600534141e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09821652399841696
+DSLOG: Time taken for refresh_global_pool = 3.112902049906552e-05
+DSLOG: Time taken for refresh_local_pool = 0.10454553298768587
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 22:25:08
+DSLOG: Total number of iterations: 1323529
+DSLOG: Average throughput time: 0.030902352579869452
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02276330898166634
+Current time = 04/10/2024 22:25:16
+DSLOG: Total number of iterations: 1323530
+DSLOG: Average throughput time: 0.030908836431635084
+DSLOG: Time taken for refresh_global_pool = 3.28150053974241e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09350667198305018
+DSLOG: Time taken for refresh_global_pool = 2.4344975827261806e-05
+DSLOG: Time taken for refresh_local_pool = 0.09947318298509344
+454
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003043542994419113
+DSLOG: Time taken for crash_reload = 8.715106211981038
+Current time = 04/10/2024 22:25:17
+DSLOG: Total number of iterations: 1323531
+DSLOG: Average throughput time: 0.030908936638399043
+DSLOG: Time taken for refresh_global_pool = 2.641000901348889e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09739067900227383
+DSLOG: Time taken for refresh_global_pool = 2.474902430549264e-05
+DSLOG: Time taken for refresh_local_pool = 0.10421458698692732
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 22:43:30
+DSLOG: Total number of iterations: 1359221
+DSLOG: Average throughput time: 0.03090210141944783
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023344674991676584
+Current time = 04/10/2024 22:43:39
+DSLOG: Total number of iterations: 1359222
+DSLOG: Average throughput time: 0.030908563151083587
+DSLOG: Time taken for refresh_global_pool = 3.69050248991698e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09509657201124355
+DSLOG: Time taken for refresh_global_pool = 3.31750197801739e-05
+DSLOG: Time taken for refresh_local_pool = 0.10138188800192438
+466
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004518429923336953
+DSLOG: Time taken for crash_reload = 8.915874536003685
+Current time = 04/10/2024 22:43:39
+DSLOG: Total number of iterations: 1359223
+DSLOG: Average throughput time: 0.03090866225644026
+DSLOG: Time taken for refresh_global_pool = 4.236798849888146e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09918405400821939
+DSLOG: Time taken for refresh_global_pool = 2.800600486807525e-05
+DSLOG: Time taken for refresh_local_pool = 0.1063984050124418
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 23:01:53
+DSLOG: Total number of iterations: 1394917
+DSLOG: Average throughput time: 0.03090170331709528
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023138254997320473
+Current time = 04/10/2024 23:02:02
+DSLOG: Total number of iterations: 1394918
+DSLOG: Average throughput time: 0.030907860314956504
+DSLOG: Time taken for refresh_global_pool = 3.9417995139956474e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09575777099234983
+DSLOG: Time taken for refresh_global_pool = 5.194899858906865e-05
+DSLOG: Time taken for refresh_local_pool = 0.10239646898116916
+478
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0007372029940597713
+DSLOG: Time taken for crash_reload = 8.722888169984799
+Current time = 04/10/2024 23:02:02
+DSLOG: Total number of iterations: 1394919
+DSLOG: Average throughput time: 0.03090795830009206
+DSLOG: Time taken for refresh_global_pool = 4.9870985094457865e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09866571397287771
+DSLOG: Time taken for refresh_global_pool = 1.9511993741616607e-05
+DSLOG: Time taken for refresh_local_pool = 0.10618157099816017
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 23:20:19
+DSLOG: Total number of iterations: 1430759
+DSLOG: Average throughput time: 0.03090040615053224
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021752537024440244
+Current time = 04/10/2024 23:20:27
+DSLOG: Total number of iterations: 1430760
+DSLOG: Average throughput time: 0.030906414191128107
+DSLOG: Time taken for refresh_global_pool = 3.177599865011871e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09463858298840933
+DSLOG: Time taken for refresh_global_pool = 2.4990993551909924e-05
+DSLOG: Time taken for refresh_local_pool = 0.09781343600479886
+490
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025964099913835526
+DSLOG: Time taken for crash_reload = 8.7275467569998
+Current time = 04/10/2024 23:20:27
+DSLOG: Total number of iterations: 1430761
+DSLOG: Average throughput time: 0.030906506857981367
+DSLOG: Time taken for refresh_global_pool = 2.6181020075455308e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09959088600589894
+DSLOG: Time taken for refresh_global_pool = 3.0118011636659503e-05
+DSLOG: Time taken for refresh_local_pool = 0.10596144999726675
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 23:38:44
+DSLOG: Total number of iterations: 1466577
+DSLOG: Average throughput time: 0.03089968716167932
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022080616996390745
+Current time = 04/10/2024 23:38:53
+DSLOG: Total number of iterations: 1466578
+DSLOG: Average throughput time: 0.03090566471372588
+DSLOG: Time taken for refresh_global_pool = 4.966900451108813e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09490801198990084
+DSLOG: Time taken for refresh_global_pool = 3.093600389547646e-05
+DSLOG: Time taken for refresh_local_pool = 0.10076496200053953
+502
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003216307988623157
+DSLOG: Time taken for crash_reload = 8.901549363014055
+Current time = 04/10/2024 23:38:53
+DSLOG: Total number of iterations: 1466579
+DSLOG: Average throughput time: 0.03090575582718746
+DSLOG: Time taken for refresh_global_pool = 3.248799475841224e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09874385898001492
+DSLOG: Time taken for refresh_global_pool = 4.002000787295401e-05
+DSLOG: Time taken for refresh_local_pool = 0.10523099100100808
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 04/10/2024 23:57:11
+DSLOG: Total number of iterations: 1502404
+DSLOG: Average throughput time: 0.03089947898433085
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022467858012532815
+Current time = 04/10/2024 23:57:20
+DSLOG: Total number of iterations: 1502405
+DSLOG: Average throughput time: 0.030905244922840747
+DSLOG: Time taken for refresh_global_pool = 4.4181011617183685e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09613501699641347
+DSLOG: Time taken for refresh_global_pool = 3.422799636609852e-05
+DSLOG: Time taken for refresh_local_pool = 0.10250648800865747
+514
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004579029919113964
+DSLOG: Time taken for crash_reload = 8.796892101992853
+Current time = 04/10/2024 23:57:20
+DSLOG: Total number of iterations: 1502406
+DSLOG: Average throughput time: 0.030905334959773424
+DSLOG: Time taken for refresh_global_pool = 2.1556974388659e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09934977101511322
+DSLOG: Time taken for refresh_global_pool = 4.25460166297853e-05
+DSLOG: Time taken for refresh_local_pool = 0.10550041397800669
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 00:15:33
+DSLOG: Total number of iterations: 1538108
+DSLOG: Average throughput time: 0.030898910866610268
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021606722002616152
+Current time = 05/10/2024 00:15:42
+DSLOG: Total number of iterations: 1538109
+DSLOG: Average throughput time: 0.03090447884140225
+DSLOG: Time taken for refresh_global_pool = 3.0293012969195843e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0946615980064962
+DSLOG: Time taken for refresh_global_pool = 4.549798904918134e-05
+DSLOG: Time taken for refresh_local_pool = 0.10088600899325684
+526
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005112310172989964
+DSLOG: Time taken for crash_reload = 8.696722285996657
+Current time = 05/10/2024 00:15:42
+DSLOG: Total number of iterations: 1538110
+DSLOG: Average throughput time: 0.03090456522494368
+DSLOG: Time taken for refresh_global_pool = 2.579099964350462e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09918381500756368
+DSLOG: Time taken for refresh_global_pool = 3.103597555309534e-05
+DSLOG: Time taken for refresh_local_pool = 0.10621131400694139
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 00:33:59
+DSLOG: Total number of iterations: 1573902
+DSLOG: Average throughput time: 0.030898330792274782
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02329415499116294
+Current time = 05/10/2024 00:34:07
+DSLOG: Total number of iterations: 1573903
+DSLOG: Average throughput time: 0.030903829660692397
+DSLOG: Time taken for refresh_global_pool = 3.962998744100332e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09556031000101939
+DSLOG: Time taken for refresh_global_pool = 2.7219997718930244e-05
+DSLOG: Time taken for refresh_local_pool = 0.10168138801236637
+538
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003108153003267944
+DSLOG: Time taken for crash_reload = 8.790594910999062
+Current time = 05/10/2024 00:34:07
+DSLOG: Total number of iterations: 1573904
+DSLOG: Average throughput time: 0.03090391547524856
+DSLOG: Time taken for refresh_global_pool = 2.2877007722854614e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09836762599297799
+DSLOG: Time taken for refresh_global_pool = 2.5333021767437458e-05
+DSLOG: Time taken for refresh_local_pool = 0.1052137259976007
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 00:52:23
+DSLOG: Total number of iterations: 1609668
+DSLOG: Average throughput time: 0.030897992363364542
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022357640991685912
+Current time = 05/10/2024 00:52:32
+DSLOG: Total number of iterations: 1609669
+DSLOG: Average throughput time: 0.030903370606876222
+DSLOG: Time taken for refresh_global_pool = 2.915499499067664e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09469050500774756
+DSLOG: Time taken for refresh_global_pool = 3.1225994462147355e-05
+DSLOG: Time taken for refresh_local_pool = 0.10088292000000365
+550
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0032696989946998656
+DSLOG: Time taken for crash_reload = 8.792441418016097
+Current time = 05/10/2024 00:52:32
+DSLOG: Total number of iterations: 1609670
+DSLOG: Average throughput time: 0.030903454173555996
+DSLOG: Time taken for refresh_global_pool = 2.8915004804730415e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09756866801762953
+DSLOG: Time taken for refresh_global_pool = 2.2463005734607577e-05
+DSLOG: Time taken for refresh_local_pool = 0.10437181699671783
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 01:10:48
+DSLOG: Total number of iterations: 1645442
+DSLOG: Average throughput time: 0.030897857205022597
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021766324993222952
+Current time = 05/10/2024 01:10:57
+DSLOG: Total number of iterations: 1645443
+DSLOG: Average throughput time: 0.0309031561960755
+DSLOG: Time taken for refresh_global_pool = 3.2783980714157224e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09464391399524175
+DSLOG: Time taken for refresh_global_pool = 3.19909886457026e-05
+DSLOG: Time taken for refresh_local_pool = 0.10074812700622715
+562
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0033137509890366346
+DSLOG: Time taken for crash_reload = 8.854321209975751
+Current time = 05/10/2024 01:10:57
+DSLOG: Total number of iterations: 1645444
+DSLOG: Average throughput time: 0.030903238179035068
+DSLOG: Time taken for refresh_global_pool = 3.810500493273139e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.10042282700305805
+DSLOG: Time taken for refresh_global_pool = 3.786702291108668e-05
+DSLOG: Time taken for refresh_local_pool = 0.10785892797866836
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 01:29:20
+DSLOG: Total number of iterations: 1681445
+DSLOG: Average throughput time: 0.03089733709118536
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023268416000064462
+Current time = 05/10/2024 01:29:28
+DSLOG: Total number of iterations: 1681446
+DSLOG: Average throughput time: 0.030902430576780684
+DSLOG: Time taken for refresh_global_pool = 4.0224986150860786e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09699855101644062
+DSLOG: Time taken for refresh_global_pool = 3.73960065189749e-05
+DSLOG: Time taken for refresh_local_pool = 0.10054426101851277
+574
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0026435280160512775
+DSLOG: Time taken for crash_reload = 8.698706564988242
+Current time = 05/10/2024 01:29:29
+DSLOG: Total number of iterations: 1681447
+DSLOG: Average throughput time: 0.030902511081115552
+DSLOG: Time taken for refresh_global_pool = 4.3589010601863265e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09968804198433645
+DSLOG: Time taken for refresh_global_pool = 2.919501275755465e-05
+DSLOG: Time taken for refresh_local_pool = 0.10701145697385073
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 01:47:53
+DSLOG: Total number of iterations: 1717509
+DSLOG: Average throughput time: 0.030896495450997097
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023444788996130228
+Current time = 05/10/2024 01:48:01
+DSLOG: Total number of iterations: 1717510
+DSLOG: Average throughput time: 0.030901592111974265
+DSLOG: Time taken for refresh_global_pool = 5.067401798442006e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09534865600289777
+DSLOG: Time taken for refresh_global_pool = 3.551002009771764e-05
+DSLOG: Time taken for refresh_local_pool = 0.09869592700852081
+586
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00258987900451757
+DSLOG: Time taken for crash_reload = 8.885918952000793
+Current time = 05/10/2024 01:48:02
+DSLOG: Total number of iterations: 1717511
+DSLOG: Average throughput time: 0.03090166959166213
+DSLOG: Time taken for refresh_global_pool = 2.8793001547455788e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09728140101651661
+DSLOG: Time taken for refresh_global_pool = 2.9091985197737813e-05
+DSLOG: Time taken for refresh_local_pool = 0.10418347199447453
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 02:06:24
+DSLOG: Total number of iterations: 1753542
+DSLOG: Average throughput time: 0.03089561208378089
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02352947398321703
+Current time = 05/10/2024 02:06:33
+DSLOG: Total number of iterations: 1753543
+DSLOG: Average throughput time: 0.03090061174391396
+DSLOG: Time taken for refresh_global_pool = 0.026240653998684138
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.18243259299197234
+DSLOG: Time taken for refresh_global_pool = 4.2997009586542845e-05
+DSLOG: Time taken for refresh_local_pool = 0.1890467070043087
+598
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005184320034459233
+DSLOG: Time taken for crash_reload = 8.987816303997533
+Current time = 05/10/2024 02:06:33
+DSLOG: Total number of iterations: 1753544
+DSLOG: Average throughput time: 0.030900738272332983
+DSLOG: Time taken for refresh_global_pool = 2.5688990717753768e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09901728000841103
+DSLOG: Time taken for refresh_global_pool = 2.7645000955089927e-05
+DSLOG: Time taken for refresh_local_pool = 0.10511557798599824
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 02:24:44
+DSLOG: Total number of iterations: 1789150
+DSLOG: Average throughput time: 0.03089555305295675
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02098587798536755
+Current time = 05/10/2024 02:24:53
+DSLOG: Total number of iterations: 1789151
+DSLOG: Average throughput time: 0.030900421329171226
+DSLOG: Time taken for refresh_global_pool = 2.7103989850729704e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09340122301364318
+DSLOG: Time taken for refresh_global_pool = 2.9632996302098036e-05
+DSLOG: Time taken for refresh_local_pool = 0.09902611799770966
+610
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004065099928993732
+DSLOG: Time taken for crash_reload = 8.8405193950166
+Current time = 05/10/2024 02:24:53
+DSLOG: Total number of iterations: 1789152
+DSLOG: Average throughput time: 0.030900494849700404
+DSLOG: Time taken for refresh_global_pool = 2.5695015210658312e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09804899597656913
+DSLOG: Time taken for refresh_global_pool = 2.7191999834030867e-05
+DSLOG: Time taken for refresh_local_pool = 0.10467043099924922
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 02:43:10
+DSLOG: Total number of iterations: 1824945
+DSLOG: Average throughput time: 0.030895400182323084
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02353058199514635
+Current time = 05/10/2024 02:43:19
+DSLOG: Total number of iterations: 1824946
+DSLOG: Average throughput time: 0.030900207394851758
+DSLOG: Time taken for refresh_global_pool = 4.871599958278239e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09578788600629196
+DSLOG: Time taken for refresh_global_pool = 4.5724998926743865e-05
+DSLOG: Time taken for refresh_local_pool = 0.10238433501217514
+622
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005273860006127506
+DSLOG: Time taken for crash_reload = 8.906950485979905
+Current time = 05/10/2024 02:43:19
+DSLOG: Total number of iterations: 1824947
+DSLOG: Average throughput time: 0.030900281577992773
+DSLOG: Time taken for refresh_global_pool = 2.9443996027112007e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09881019298336469
+DSLOG: Time taken for refresh_global_pool = 3.157102037221193e-05
+DSLOG: Time taken for refresh_local_pool = 0.10572402202524245
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 03:01:37
+DSLOG: Total number of iterations: 1860814
+DSLOG: Average throughput time: 0.030894772448196967
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022911523992661387
+Current time = 05/10/2024 03:01:46
+DSLOG: Total number of iterations: 1860815
+DSLOG: Average throughput time: 0.030899389171247484
+DSLOG: Time taken for refresh_global_pool = 4.7935027396306396e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09671801899094135
+DSLOG: Time taken for refresh_global_pool = 3.509898670017719e-05
+DSLOG: Time taken for refresh_local_pool = 0.10323371598497033
+634
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00046200401266105473
+DSLOG: Time taken for crash_reload = 8.725656062015332
+Current time = 05/10/2024 03:01:46
+DSLOG: Total number of iterations: 1860816
+DSLOG: Average throughput time: 0.030899462053259615
+DSLOG: Time taken for refresh_global_pool = 3.0467985197901726e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09863915201276541
+DSLOG: Time taken for refresh_global_pool = 2.2070016711950302e-05
+DSLOG: Time taken for refresh_local_pool = 0.10554764900007285
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 03:20:07
+DSLOG: Total number of iterations: 1896785
+DSLOG: Average throughput time: 0.030894287254916063
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022531666996655986
+Current time = 05/10/2024 03:20:16
+DSLOG: Total number of iterations: 1896786
+DSLOG: Average throughput time: 0.030898904944915262
+DSLOG: Time taken for refresh_global_pool = 4.068101407028735e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09520467201946303
+DSLOG: Time taken for refresh_global_pool = 3.465102054178715e-05
+DSLOG: Time taken for refresh_local_pool = 0.10100530399358831
+646
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004233419895172119
+DSLOG: Time taken for crash_reload = 8.891252383007668
+Current time = 05/10/2024 03:20:16
+DSLOG: Total number of iterations: 1896787
+DSLOG: Average throughput time: 0.03089897547227396
+DSLOG: Time taken for refresh_global_pool = 3.176697646267712e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09782198400353082
+DSLOG: Time taken for refresh_global_pool = 2.9417977202683687e-05
+DSLOG: Time taken for refresh_local_pool = 0.10458956501679495
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 03:38:30
+DSLOG: Total number of iterations: 1932586
+DSLOG: Average throughput time: 0.03089267169401466
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021376283024437726
+Current time = 05/10/2024 03:38:39
+DSLOG: Total number of iterations: 1932587
+DSLOG: Average throughput time: 0.030897196752624
+DSLOG: Time taken for refresh_global_pool = 2.5151995941996574e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09318240100401454
+DSLOG: Time taken for refresh_global_pool = 2.2380991140380502e-05
+DSLOG: Time taken for refresh_local_pool = 0.09862348498427309
+658
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0002692620037123561
+DSLOG: Time taken for crash_reload = 8.874915057996986
+Current time = 05/10/2024 03:38:39
+DSLOG: Total number of iterations: 1932588
+DSLOG: Average throughput time: 0.03089726462644083
+DSLOG: Time taken for refresh_global_pool = 2.413999754935503e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0976356650062371
+DSLOG: Time taken for refresh_global_pool = 3.859598655253649e-05
+DSLOG: Time taken for refresh_local_pool = 0.10438895600964315
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 03:57:00
+DSLOG: Total number of iterations: 1968526
+DSLOG: Average throughput time: 0.030892305429165757
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021781251998618245
+Current time = 05/10/2024 03:57:09
+DSLOG: Total number of iterations: 1968527
+DSLOG: Average throughput time: 0.030896669501344974
+DSLOG: Time taken for refresh_global_pool = 3.760101390071213e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09425965300761163
+DSLOG: Time taken for refresh_global_pool = 3.3279997296631336e-05
+DSLOG: Time taken for refresh_local_pool = 0.10018431098433211
+670
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003314481000415981
+DSLOG: Time taken for crash_reload = 8.725391162006417
+Current time = 05/10/2024 03:57:09
+DSLOG: Total number of iterations: 1968528
+DSLOG: Average throughput time: 0.030896737406735233
+DSLOG: Time taken for refresh_global_pool = 4.204397555440664e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09886249800911173
+DSLOG: Time taken for refresh_global_pool = 4.44430042989552e-05
+DSLOG: Time taken for refresh_local_pool = 0.10713806399144232
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 04:15:25
+DSLOG: Total number of iterations: 2004308
+DSLOG: Average throughput time: 0.030892396611650455
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022452137985965237
+Current time = 05/10/2024 04:15:34
+DSLOG: Total number of iterations: 2004309
+DSLOG: Average throughput time: 0.03089679257169369
+DSLOG: Time taken for refresh_global_pool = 4.2844010749831796e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09514495299663395
+DSLOG: Time taken for refresh_global_pool = 3.201200161129236e-05
+DSLOG: Time taken for refresh_local_pool = 0.09858955998788588
+682
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025602740061003715
+DSLOG: Time taken for crash_reload = 8.943086101993686
+Current time = 05/10/2024 04:15:34
+DSLOG: Total number of iterations: 2004310
+DSLOG: Average throughput time: 0.03089685926307434
+DSLOG: Time taken for refresh_global_pool = 4.336200072430074e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09909199000685476
+DSLOG: Time taken for refresh_global_pool = 4.891300341114402e-05
+DSLOG: Time taken for refresh_local_pool = 0.10625668001011945
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 04:33:50
+DSLOG: Total number of iterations: 2040084
+DSLOG: Average throughput time: 0.030892177317614306
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02183713502017781
+Current time = 05/10/2024 04:33:59
+DSLOG: Total number of iterations: 2040085
+DSLOG: Average throughput time: 0.03089642977987832
+DSLOG: Time taken for refresh_global_pool = 3.110399120487273e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09501838599680923
+DSLOG: Time taken for refresh_global_pool = 3.232699236832559e-05
+DSLOG: Time taken for refresh_local_pool = 0.09827793599106371
+694
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.005311740998877212
+DSLOG: Time taken for crash_reload = 8.810028396983398
+Current time = 05/10/2024 04:33:59
+DSLOG: Total number of iterations: 2040086
+DSLOG: Average throughput time: 0.030896495602250357
+DSLOG: Time taken for refresh_global_pool = 4.510799772106111e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09949547800351866
+DSLOG: Time taken for refresh_global_pool = 2.7592992410063744e-05
+DSLOG: Time taken for refresh_local_pool = 0.10673574000247754
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 04:52:14
+DSLOG: Total number of iterations: 2075849
+DSLOG: Average throughput time: 0.03089186160431924
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021517437999136746
+Current time = 05/10/2024 04:52:23
+DSLOG: Total number of iterations: 2075850
+DSLOG: Average throughput time: 0.030896064136162495
+DSLOG: Time taken for refresh_global_pool = 2.8728973120450974e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09497501299483702
+DSLOG: Time taken for refresh_global_pool = 2.7770001906901598e-05
+DSLOG: Time taken for refresh_local_pool = 0.1007813299947884
+706
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00036254498991183937
+DSLOG: Time taken for crash_reload = 8.856052481976803
+Current time = 05/10/2024 04:52:23
+DSLOG: Total number of iterations: 2075851
+DSLOG: Average throughput time: 0.030896128069260936
+DSLOG: Time taken for refresh_global_pool = 2.4147011572495103e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09867278300225735
+DSLOG: Time taken for refresh_global_pool = 2.6734982384368777e-05
+DSLOG: Time taken for refresh_local_pool = 0.10570570101845078
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 05:10:41
+DSLOG: Total number of iterations: 2111671
+DSLOG: Average throughput time: 0.03089163987965598
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02099898998858407
+Current time = 05/10/2024 05:10:49
+DSLOG: Total number of iterations: 2111672
+DSLOG: Average throughput time: 0.030895796496534865
+DSLOG: Time taken for refresh_global_pool = 2.7103000320494175e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09243301299284212
+DSLOG: Time taken for refresh_global_pool = 2.446601865813136e-05
+DSLOG: Time taken for refresh_local_pool = 0.09782113597611897
+718
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0002764440141618252
+DSLOG: Time taken for crash_reload = 8.90649282099912
+Current time = 05/10/2024 05:10:50
+DSLOG: Total number of iterations: 2111673
+DSLOG: Average throughput time: 0.030895857948011515
+DSLOG: Time taken for refresh_global_pool = 2.4698994820937514e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09688585900585167
+DSLOG: Time taken for refresh_global_pool = 2.1947023924440145e-05
+DSLOG: Time taken for refresh_local_pool = 0.10351195599650964
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 05:29:07
+DSLOG: Total number of iterations: 2147467
+DSLOG: Average throughput time: 0.030891705505199114
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023062394000589848
+Current time = 05/10/2024 05:29:15
+DSLOG: Total number of iterations: 2147468
+DSLOG: Average throughput time: 0.030895784416352955
+DSLOG: Time taken for refresh_global_pool = 4.003598587587476e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09516017397982068
+DSLOG: Time taken for refresh_global_pool = 2.633497933857143e-05
+DSLOG: Time taken for refresh_local_pool = 0.09864879300585017
+730
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002661751990672201
+DSLOG: Time taken for crash_reload = 8.891681613982655
+Current time = 05/10/2024 05:29:15
+DSLOG: Total number of iterations: 2147469
+DSLOG: Average throughput time: 0.03089584714046125
+DSLOG: Time taken for refresh_global_pool = 3.0907016480341554e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09942276799120009
+DSLOG: Time taken for refresh_global_pool = 3.363398718647659e-05
+DSLOG: Time taken for refresh_local_pool = 0.10651701301685534
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 05:47:24
+DSLOG: Total number of iterations: 2182985
+DSLOG: Average throughput time: 0.030891833056355563
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.0219887160055805
+Current time = 05/10/2024 05:47:33
+DSLOG: Total number of iterations: 2182986
+DSLOG: Average throughput time: 0.030895757664773465
+DSLOG: Time taken for refresh_global_pool = 3.005200414918363e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09387030001380481
+DSLOG: Time taken for refresh_global_pool = 2.5449000531807542e-05
+DSLOG: Time taken for refresh_local_pool = 0.09720418299548328
+742
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0024949120124801993
+DSLOG: Time taken for crash_reload = 8.698134962993208
+Current time = 05/10/2024 05:47:33
+DSLOG: Total number of iterations: 2182987
+DSLOG: Average throughput time: 0.030895818056548275
+DSLOG: Time taken for refresh_global_pool = 3.1562987715005875e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09833546698791906
+DSLOG: Time taken for refresh_global_pool = 3.0443014111369848e-05
+DSLOG: Time taken for refresh_local_pool = 0.10522792700794525
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 06:05:50
+DSLOG: Total number of iterations: 2218786
+DSLOG: Average throughput time: 0.030891877952964508
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02322705602273345
+Current time = 05/10/2024 06:05:59
+DSLOG: Total number of iterations: 2218787
+DSLOG: Average throughput time: 0.030895813520827316
+DSLOG: Time taken for refresh_global_pool = 5.001600948162377e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09665068198228255
+DSLOG: Time taken for refresh_global_pool = 3.284399281255901e-05
+DSLOG: Time taken for refresh_local_pool = 0.10309111801325344
+754
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0003235660260543227
+DSLOG: Time taken for crash_reload = 8.866583094000816
+Current time = 05/10/2024 06:05:59
+DSLOG: Total number of iterations: 2218788
+DSLOG: Average throughput time: 0.030895874697268698
+DSLOG: Time taken for refresh_global_pool = 3.444499452598393e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09948854800313711
+DSLOG: Time taken for refresh_global_pool = 2.912399941124022e-05
+DSLOG: Time taken for refresh_local_pool = 0.10628219900536351
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 06:24:07
+DSLOG: Total number of iterations: 2254285
+DSLOG: Average throughput time: 0.030892059003799637
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.0233126699749846
+Current time = 05/10/2024 06:24:16
+DSLOG: Total number of iterations: 2254286
+DSLOG: Average throughput time: 0.03089587282369397
+DSLOG: Time taken for refresh_global_pool = 4.193201311863959e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09513219399377704
+DSLOG: Time taken for refresh_global_pool = 2.9674003599211574e-05
+DSLOG: Time taken for refresh_local_pool = 0.10143968000193126
+766
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003345705015817657
+DSLOG: Time taken for crash_reload = 8.733352636016207
+Current time = 05/10/2024 06:24:16
+DSLOG: Total number of iterations: 2254287
+DSLOG: Average throughput time: 0.030895932397939172
+DSLOG: Time taken for refresh_global_pool = 2.5945017114281654e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09755964498617686
+DSLOG: Time taken for refresh_global_pool = 2.5204994017258286e-05
+DSLOG: Time taken for refresh_local_pool = 0.1044590910023544
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 06:42:32
+DSLOG: Total number of iterations: 2290055
+DSLOG: Average throughput time: 0.030892152312719065
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023597474995767698
+Current time = 05/10/2024 06:42:41
+DSLOG: Total number of iterations: 2290056
+DSLOG: Average throughput time: 0.030896012124852282
+DSLOG: Time taken for refresh_global_pool = 3.5276985727250576e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09437068598344922
+DSLOG: Time taken for refresh_global_pool = 2.9655988328158855e-05
+DSLOG: Time taken for refresh_local_pool = 0.09996242000488564
+778
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0003861919976770878
+DSLOG: Time taken for crash_reload = 8.970527251018211
+Current time = 05/10/2024 06:42:41
+DSLOG: Total number of iterations: 2290057
+DSLOG: Average throughput time: 0.030896070436184746
+DSLOG: Time taken for refresh_global_pool = 2.8595997719094157e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09767086201463826
+DSLOG: Time taken for refresh_global_pool = 2.227799268439412e-05
+DSLOG: Time taken for refresh_local_pool = 0.10448084300151095
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 07:00:57
+DSLOG: Total number of iterations: 2325749
+DSLOG: Average throughput time: 0.03089306217790373
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023392656003125012
+Current time = 05/10/2024 07:01:06
+DSLOG: Total number of iterations: 2325750
+DSLOG: Average throughput time: 0.030896728630336552
+DSLOG: Time taken for refresh_global_pool = 3.7007994251325727e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09225786500610411
+DSLOG: Time taken for refresh_global_pool = 3.857299452647567e-05
+DSLOG: Time taken for refresh_local_pool = 0.09859030699590221
+790
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00317943500704132
+DSLOG: Time taken for crash_reload = 8.660193087998778
+Current time = 05/10/2024 07:01:06
+DSLOG: Total number of iterations: 2325751
+DSLOG: Average throughput time: 0.030896785012600694
+DSLOG: Time taken for refresh_global_pool = 2.4186010705307126e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09905218100175261
+DSLOG: Time taken for refresh_global_pool = 3.745799767784774e-05
+DSLOG: Time taken for refresh_local_pool = 0.10596800499479286
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 07:19:23
+DSLOG: Total number of iterations: 2361561
+DSLOG: Average throughput time: 0.030892675503101544
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021694035996915773
+Current time = 05/10/2024 07:19:31
+DSLOG: Total number of iterations: 2361562
+DSLOG: Average throughput time: 0.030896438782126806
+DSLOG: Time taken for refresh_global_pool = 2.8718000976368785e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09335350300534628
+DSLOG: Time taken for refresh_global_pool = 2.359700738452375e-05
+DSLOG: Time taken for refresh_local_pool = 0.09876875998452306
+802
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0002779869828373194
+DSLOG: Time taken for crash_reload = 9.017306647001533
+Current time = 05/10/2024 07:19:32
+DSLOG: Total number of iterations: 2361563
+DSLOG: Average throughput time: 0.03089649438825019
+DSLOG: Time taken for refresh_global_pool = 4.222200368531048e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0990513099823147
+DSLOG: Time taken for refresh_global_pool = 3.462197491899133e-05
+DSLOG: Time taken for refresh_local_pool = 0.10587158499401994
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 07:37:47
+DSLOG: Total number of iterations: 2397325
+DSLOG: Average throughput time: 0.030892415017005497
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021859571017557755
+Current time = 05/10/2024 07:37:55
+DSLOG: Total number of iterations: 2397326
+DSLOG: Average throughput time: 0.03089599998269645
+DSLOG: Time taken for refresh_global_pool = 3.891100641340017e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09566908000851981
+DSLOG: Time taken for refresh_global_pool = 2.95409990940243e-05
+DSLOG: Time taken for refresh_local_pool = 0.10164883302059025
+814
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0032309019879903644
+DSLOG: Time taken for crash_reload = 8.7302327590005
+Current time = 05/10/2024 07:37:56
+DSLOG: Total number of iterations: 2397327
+DSLOG: Average throughput time: 0.030896055941440154
+DSLOG: Time taken for refresh_global_pool = 2.3770000552758574e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09793380298651755
+DSLOG: Time taken for refresh_global_pool = 2.9685994377359748e-05
+DSLOG: Time taken for refresh_local_pool = 0.10537373699480668
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 07:56:11
+DSLOG: Total number of iterations: 2433050
+DSLOG: Average throughput time: 0.03089286221550679
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021709465014282614
+Current time = 05/10/2024 07:56:20
+DSLOG: Total number of iterations: 2433051
+DSLOG: Average throughput time: 0.030896474715707747
+DSLOG: Time taken for refresh_global_pool = 2.9215996619313955e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09448591398540884
+DSLOG: Time taken for refresh_global_pool = 3.5389006370678544e-05
+DSLOG: Time taken for refresh_local_pool = 0.10039816398057155
+826
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00045530800707638264
+DSLOG: Time taken for crash_reload = 8.921376901998883
+Current time = 05/10/2024 07:56:20
+DSLOG: Total number of iterations: 2433052
+DSLOG: Average throughput time: 0.03089652954206738
+DSLOG: Time taken for refresh_global_pool = 3.178301267325878e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09770473800017498
+DSLOG: Time taken for refresh_global_pool = 2.4587003281340003e-05
+DSLOG: Time taken for refresh_local_pool = 0.10439542101812549
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 08:14:37
+DSLOG: Total number of iterations: 2468831
+DSLOG: Average throughput time: 0.030892837916193603
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023269772995263338
+Current time = 05/10/2024 08:14:46
+DSLOG: Total number of iterations: 2468832
+DSLOG: Average throughput time: 0.030896360722717293
+DSLOG: Time taken for refresh_global_pool = 4.07290062867105e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09667772299144417
+DSLOG: Time taken for refresh_global_pool = 3.3011980121955276e-05
+DSLOG: Time taken for refresh_local_pool = 0.10291853698436171
+838
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00046633699093945324
+DSLOG: Time taken for crash_reload = 8.831730297999457
+Current time = 05/10/2024 08:14:46
+DSLOG: Total number of iterations: 2468833
+DSLOG: Average throughput time: 0.03089641592525484
+DSLOG: Time taken for refresh_global_pool = 3.581101191230118e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09994740600814112
+DSLOG: Time taken for refresh_global_pool = 3.09739843942225e-05
+DSLOG: Time taken for refresh_local_pool = 0.1073642119881697
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 08:33:04
+DSLOG: Total number of iterations: 2504679
+DSLOG: Average throughput time: 0.03089262775205666
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022437752020778134
+Current time = 05/10/2024 08:33:12
+DSLOG: Total number of iterations: 2504680
+DSLOG: Average throughput time: 0.030896039326797835
+DSLOG: Time taken for refresh_global_pool = 3.77739779651165e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09460108701023273
+DSLOG: Time taken for refresh_global_pool = 3.156400634907186e-05
+DSLOG: Time taken for refresh_local_pool = 0.10072982299607247
+850
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0004290819924790412
+DSLOG: Time taken for crash_reload = 8.677198681019945
+Current time = 05/10/2024 08:33:12
+DSLOG: Total number of iterations: 2504681
+DSLOG: Average throughput time: 0.030896092694110228
+DSLOG: Time taken for refresh_global_pool = 2.0832987502217293e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09811962500680238
+DSLOG: Time taken for refresh_global_pool = 2.7147005312144756e-05
+DSLOG: Time taken for refresh_local_pool = 0.10503797497949563
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 08:51:29
+DSLOG: Total number of iterations: 2540500
+DSLOG: Average throughput time: 0.030892229908213234
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02360209697508253
+Current time = 05/10/2024 08:51:38
+DSLOG: Total number of iterations: 2540501
+DSLOG: Average throughput time: 0.030895677486677226
+DSLOG: Time taken for refresh_global_pool = 3.9651000406593084e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09659230400575325
+DSLOG: Time taken for refresh_global_pool = 4.338298458606005e-05
+DSLOG: Time taken for refresh_local_pool = 0.10351819600327872
+862
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0005334909947123379
+DSLOG: Time taken for crash_reload = 8.89367779501481
+Current time = 05/10/2024 08:51:38
+DSLOG: Total number of iterations: 2540502
+DSLOG: Average throughput time: 0.030895731049978867
+DSLOG: Time taken for refresh_global_pool = 3.1958974432200193e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09712305897846818
+DSLOG: Time taken for refresh_global_pool = 2.405099803581834e-05
+DSLOG: Time taken for refresh_local_pool = 0.10403374000452459
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 09:09:52
+DSLOG: Total number of iterations: 2576225
+DSLOG: Average throughput time: 0.03089187521685978
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.021594726014882326
+Current time = 05/10/2024 09:10:01
+DSLOG: Total number of iterations: 2576226
+DSLOG: Average throughput time: 0.030895280820040324
+DSLOG: Time taken for refresh_global_pool = 3.230400034226477e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09983047199784778
+DSLOG: Time taken for refresh_global_pool = 3.231200389564037e-05
+DSLOG: Time taken for refresh_local_pool = 0.10583384201163426
+874
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00041934900218620896
+DSLOG: Time taken for crash_reload = 8.91089674300747
+Current time = 05/10/2024 09:10:01
+DSLOG: Total number of iterations: 2576227
+DSLOG: Average throughput time: 0.030895335387152858
+DSLOG: Time taken for refresh_global_pool = 5.310800042934716e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09888026301632635
+DSLOG: Time taken for refresh_global_pool = 2.764799864962697e-05
+DSLOG: Time taken for refresh_local_pool = 0.1068721889751032
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 09:28:19
+DSLOG: Total number of iterations: 2612032
+DSLOG: Average throughput time: 0.030892063041237684
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02224401300190948
+Current time = 05/10/2024 09:28:27
+DSLOG: Total number of iterations: 2612033
+DSLOG: Average throughput time: 0.03089541879394931
+DSLOG: Time taken for refresh_global_pool = 3.8341007893905044e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09513225199771114
+DSLOG: Time taken for refresh_global_pool = 3.2616022508591413e-05
+DSLOG: Time taken for refresh_local_pool = 0.10148533500614576
+886
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.00047004400403238833
+DSLOG: Time taken for crash_reload = 8.898387659020955
+Current time = 05/10/2024 09:28:28
+DSLOG: Total number of iterations: 2612034
+DSLOG: Average throughput time: 0.03089547028888268
+DSLOG: Time taken for refresh_global_pool = 3.504499909467995e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.10018494099495001
+DSLOG: Time taken for refresh_global_pool = 3.0378985684365034e-05
+DSLOG: Time taken for refresh_local_pool = 0.10662603602395393
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 09:46:41
+DSLOG: Total number of iterations: 2647708
+DSLOG: Average throughput time: 0.03089207970761622
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02388867997797206
+Current time = 05/10/2024 09:46:50
+DSLOG: Total number of iterations: 2647709
+DSLOG: Average throughput time: 0.030895410141647813
+DSLOG: Time taken for refresh_global_pool = 7.263399311341345e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.0960853979922831
+DSLOG: Time taken for refresh_global_pool = 2.355201286263764e-05
+DSLOG: Time taken for refresh_local_pool = 0.10272944901953451
+898
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0002642250037752092
+DSLOG: Time taken for crash_reload = 8.951993923983537
+Current time = 05/10/2024 09:46:50
+DSLOG: Total number of iterations: 2647710
+DSLOG: Average throughput time: 0.03089546176485695
+DSLOG: Time taken for refresh_global_pool = 2.5450019165873528e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.099138887017034
+DSLOG: Time taken for refresh_global_pool = 7.765900227241218e-05
+DSLOG: Time taken for refresh_local_pool = 0.10724781500175595
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 10:05:09
+DSLOG: Total number of iterations: 2683602
+DSLOG: Average throughput time: 0.030891954973773086
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.023224233009386808
+Current time = 05/10/2024 10:05:18
+DSLOG: Total number of iterations: 2683603
+DSLOG: Average throughput time: 0.030895164101118203
+DSLOG: Time taken for refresh_global_pool = 4.112400347366929e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09482272699824534
+DSLOG: Time taken for refresh_global_pool = 2.4033011868596077e-05
+DSLOG: Time taken for refresh_local_pool = 0.10145878899493255
+910
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0030649400141555816
+DSLOG: Time taken for crash_reload = 8.747561841999413
+Current time = 05/10/2024 10:05:18
+DSLOG: Total number of iterations: 2683604
+DSLOG: Average throughput time: 0.030895214306410547
+DSLOG: Time taken for refresh_global_pool = 2.582502202130854e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09821647600620054
+DSLOG: Time taken for refresh_global_pool = 2.5011016987264156e-05
+DSLOG: Time taken for refresh_local_pool = 0.10535691300174221
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 10:23:41
+DSLOG: Total number of iterations: 2719422
+DSLOG: Average throughput time: 0.030894009664118583
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.02228887699311599
+Current time = 05/10/2024 10:23:50
+DSLOG: Total number of iterations: 2719423
+DSLOG: Average throughput time: 0.030897209385449702
+DSLOG: Time taken for refresh_global_pool = 3.185999230481684e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09447031302261166
+DSLOG: Time taken for refresh_global_pool = 3.445299807935953e-05
+DSLOG: Time taken for refresh_local_pool = 0.10106426899437793
+922
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0031085390073712915
+DSLOG: Time taken for crash_reload = 8.83654543699231
+Current time = 05/10/2024 10:23:50
+DSLOG: Total number of iterations: 2719424
+DSLOG: Average throughput time: 0.03089725900882313
+DSLOG: Time taken for refresh_global_pool = 2.8117996407672763e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09734666100121103
+DSLOG: Time taken for refresh_global_pool = 2.718198811635375e-05
+DSLOG: Time taken for refresh_local_pool = 0.10411300999112427
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 10:42:17
+DSLOG: Total number of iterations: 2755174
+DSLOG: Average throughput time: 0.030897837104348572
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.024425151001196355
+Current time = 05/10/2024 10:42:25
+DSLOG: Total number of iterations: 2755175
+DSLOG: Average throughput time: 0.03090097768834573
+DSLOG: Time taken for refresh_global_pool = 4.157997318543494e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09553359801066108
+DSLOG: Time taken for refresh_global_pool = 3.192201256752014e-05
+DSLOG: Time taken for refresh_local_pool = 0.1013699019968044
+934
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003419966989895329
+DSLOG: Time taken for crash_reload = 8.788697073003277
+Current time = 05/10/2024 10:42:25
+DSLOG: Total number of iterations: 2755176
+DSLOG: Average throughput time: 0.030901026198097196
+DSLOG: Time taken for refresh_global_pool = 2.8048991225659847e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09801079297903925
+DSLOG: Time taken for refresh_global_pool = 2.7339992811903358e-05
+DSLOG: Time taken for refresh_local_pool = 0.10463496699230745
+
+LOG: Hit a software hang
+-----Found crash-----
+Current time = 05/10/2024 11:00:53
+DSLOG: Total number of iterations: 2790991
+DSLOG: Average throughput time: 0.030901306908968362
+DSLOG: Found the end of the coverage map.
+[65535]
+{175: 1743, 179: 1747, 412: 1980, 416: 1984, 634: 2202, 741: 2309, 2117: 3685, 2375: 3943, 2422: 3990, 2480: 4048, 2534: 4102, 2621: 4189, 2672: 4240, 2726: 4294, 2776: 4344, 2859: 4427, 2906: 4474, 2960: 4528, 3014: 4582, 3101: 4669, 3152: 4720, 3210: 4778, 3264: 4832, 3351: 4919, 3402: 4970, 3465: 5033, 3515: 5083, 3591: 5159, 3642: 5210, 3705: 5273, 3756: 5324, 3829: 5397, 3880: 5448, 3943: 5511, 3994: 5562, 4067: 5635, 4118: 5686, 4181: 5749, 4232: 5800}
+[65535]
+DSLOG: Coverage not found:  65535
+DSLOG: Resetting Texas Instruments Inc.XDS100 Ver 2.0 ... ok
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for set_intial_breakpoints = 0.022899044008227065
+Current time = 05/10/2024 11:01:02
+DSLOG: Total number of iterations: 2790992
+DSLOG: Average throughput time: 0.030904460159488233
+DSLOG: Time taken for refresh_global_pool = 3.8964994018897414e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09423957698163576
+DSLOG: Time taken for refresh_global_pool = 2.8422015020623803e-05
+DSLOG: Time taken for refresh_local_pool = 0.09772227998473682
+946
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025147279957309365
+DSLOG: Time taken for crash_reload = 8.93195476999972
+Current time = 05/10/2024 11:01:02
+DSLOG: Total number of iterations: 2790993
+DSLOG: Average throughput time: 0.03090450730782436
+DSLOG: Time taken for refresh_global_pool = 3.0691997380927205e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09707642198191024
+DSLOG: Time taken for refresh_global_pool = 3.472101525403559e-05
+DSLOG: Time taken for refresh_local_pool = 0.10352852501091547
+

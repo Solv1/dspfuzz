@@ -16,16 +16,15 @@ int16_t test(uint16_t argc, int16_t args[]) {
     //     while(1);
     // }
 
-    if ((args[0] % 127) == 'D'){
-	    while(1);
-        if ((args[1] % 127) == 'E'){
-            if ((args[2] % 127) == 'A'){
-                if ((args[3] % 127) == 'D'){
-                    if (args[4] % 127 == 'B'){
-                        if (args[5] % 127 == 'E'){
-                            if (args[6] % 127 == 'E'){
-                                if (args[7] % 127 == 'F'){
-                                    if (args[8] % 127 == '!'){
+    if ((args[0] % 256) == 'D'){
+        if ((args[1] % 256) == 'E'){
+            if ((args[2] % 256) == 'A'){
+                if ((args[3] % 256) == 'D'){
+                    if (args[4] % 256 == 'B'){
+                        if (args[5] % 256 == 'E'){
+                            if (args[6] % 256 == 'E'){
+                                if (args[7] % 256 == 'F'){
+                                    if (args[8] % 256 == '!'){
                                         while(1); //stall condition
                 //                        if (args[9] == 'I'){
                 //                             if (args[10] == 'L'){

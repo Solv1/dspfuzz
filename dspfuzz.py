@@ -19,8 +19,8 @@ from com.ti.debug.engine.scripting import *
 from com.ti.ccstudio.scripting.environment import *
 
 
-COVERAGE_SIZE = 20 #This is equal to the max number of blocks we can support tracing at once.
-SEED_SIZE = 256
+COVERAGE_SIZE = 200 #This is equal to the max number of blocks we can support tracing at once.
+# SEED_SIZE = 256
 SENQUENCIAL = 1
 RANDOM = 2
 
@@ -36,10 +36,11 @@ global_pool = [] #List of all seeds in the SEED_DIR of the users choosing.
 local_pool = [] #What is currently loaded into the device ID only 
 crash_void_address = 0 #Holds the address of where errors go when there is a crash condition(hang, bus error, data log error)
 program_to_load = 'DSPFuzz.out'
-seed_size = 256 #Size of current seed
+seed_size = 128 #Size of current seed
 amount_of_crashes = 0
 start_time = 0
 end_time = 0
+sanity_check = None
 
 asm_in_mem = 0  #The asm signature of coverage function call
 
@@ -90,9 +91,9 @@ def coverage_setup(bin_path):
     global coverage_dict, asm_in_mem
     shutil.copyfile(bin_path, './DSPFuzz.out')
 
-    coverage_dict = binary_tools.find_calls(bin_path, asm_in_mem)
+    coverage_dict = binary_tools.find_calls('./DSPFuzz.out', asm_in_mem)
     
-    shutil.copyfile(bin_path, './DSPFuzz.out')
+    # shutil.copyfile(bin_path, './DSPFuzz.out')
 
 @log
 def find_coverage_call():
@@ -104,9 +105,99 @@ def find_coverage_call():
     
     sut_address_var = debugSession.symbol.getAddress('sut_start_address')
     sut_address = debugSession.memory.readData(1, sut_address_var, 32)
-    asm_in_mem = debugSession.memory.readData(1, sut_address//2, 32)
-    print(hex(sut_address))
+    if (sut_address % 2):
+        first_part = debugSession.memory.readData(1, (sut_address//2), 32)
+        second_part = debugSession.memory.readData(1, (sut_address//2)+1, 32)
+
+        fp_hex = hex(first_part) 
+        sp_hex = hex(second_part)
+        print(fp_hex)
+        print(sp_hex)
+
+        result1 = fp_hex[7:]
+        result2 = sp_hex[2:6]
+        asm_in_mem = "0x"+result1+result2
+
+        print(asm_in_mem)
+    else:
+        asm_in_mem = debugSession.memory.readData(1, (sut_address//2), 32)
+        print(hex(asm_in_mem))
+
+    asm_in_mem = 1812026085
     print(hex(asm_in_mem))
+
+def reset_and_reload():
+    global debugServer, debugSession, script, timer_thread
+    id_num = ''
+    
+    try:
+        # debugServer.target.restart()
+        debugSession.target.reset()
+    except:
+        print('DSLOG: Failed to reset target using the debug server.')
+    finally:
+        debugSession.terminate()
+        debugServer.stop()
+
+
+
+        #This scrapes the id number for the usbreset command
+        # result = subprocess.getoutput('usbreset')
+        # result_list = result.split()
+        # for count, item in enumerate(result_list,0):
+        #     if 'Texas' in item:
+        #         id_num = result_list[count - 3]
+        
+        # result = subprocess.run(["uhubctl", "-a cycle -d 3 -l 3-2 -p 1"], shell=True) #stdout=subprocess.PIPE).stdout.decode('utf-8')
+        print('-----Resetting the Device-----')
+        os.system('uhubctl -a off  -l 3-2 -p 1')
+    
+        time.sleep(20)
+        # os.system('uhubctl -a on -d 2 -l 3-2 -p 1')
+        os.system('uhubctl -a on  -l 3-2 -p 1')
+        time.sleep(5)
+
+        script = ScriptingEnvironment.instance()
+
+        script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
+
+        # Set our TimeOut
+        script.setScriptTimeout(1500000000)
+
+        # Log everything
+        script.traceSetConsoleLevel(TraceLevel.INFO)
+        script.traceSetFileLevel(TraceLevel.INFO)
+        try:
+            # Get the Debug Server and start a Debug Session
+            debugServer = script.getServer('DebugServer.1')
+            debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
+            #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
+            debugSession = debugServer.openSession('.*')
+            debugSession.target.connect()
+        
+            debugSession.clock.enable()
+        
+            debugSession.memory.loadProgram('DSPFuzz.out')
+        except:
+            #If something happens the board needs to be power cycled twice :(
+            print('-----Power Cycling the board twice :(-----')
+            reset_and_reload()
+            return
+        #debugSession.memory.loadProgram('DSPFuzz.out')
+
+        #Set breakpoints again
+        retVal = set_intial_breakpoints()
+        if(retVal == -1):
+            return
+        
+        refresh_local_pool()
+
+        #start the refresh thread
+        # timeout = calculate_timeout(refresh_global_pool(), 15)
+        # timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+        # timer_thread.start()
+        set_refresh_breakpoint()
+
 
 
 @log
@@ -115,7 +206,7 @@ def debug_server_setup():
     """
 
     global debugServer, debugSession, script
-
+try:
     script = ScriptingEnvironment.instance()
 
     script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
@@ -135,68 +226,14 @@ def debug_server_setup():
     debugSession.target.connect()
     debugSession.clock.enable()
 
-    try:
-        debugSession.memory.loadProgram(program_to_load)
-    except:
-        print("Error: failed to load program please check if current location is valid.")
-        exit(-1)
-
-def reset_and_reload():
-    global debugServer, debugSession, script, timer_thread
-    id_num = ''
     
-
-    debugSession.target.reset()
-    debugSession.terminate()
-    debugServer.stop()
-
-    #This scrapes the id number for the usbreset command
-    result = subprocess.getoutput('usbreset')
-    result_list = result.split()
-    for count, item in enumerate(result_list,0):
-        if 'Texas' in item:
-            id_num = result_list[count - 3]
-    
-    result = subprocess.run(['usbreset',id_num], stdout=subprocess.PIPE).stdout.decode('utf-8')
-    print('DSLOG: '+result)
-
-    script = ScriptingEnvironment.instance()
-
-    script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
-
-    # Set our TimeOut
-    script.setScriptTimeout(1500000000)
-
-    # Log everything
-    script.traceSetConsoleLevel(TraceLevel.INFO)
-    script.traceSetFileLevel(TraceLevel.INFO)
-
-    # Get the Debug Server and start a Debug Session
-    debugServer = script.getServer('DebugServer.1')
-    debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
-    #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
-    debugSession = debugServer.openSession('.*')
-    debugSession.target.connect()
-    debugSession.clock.enable()
-    #Load the Fuzzer back onto the DSP
-    debugSession.memory.loadProgram('DSPFuzz.out')
-    #debugSession.memory.loadProgram('DSPFuzz.out')
-
-    #Set breakpoints again
-    set_intial_breakpoints()
-
-    #Breakpoint is set ready for a seed refresh
-    logging.info('Running target program.')
-    
-    refresh_local_pool()
-
-    #start the refresh thread
-    timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
-    timer_thread.start()
+    debugSession.memory.loadProgram(program_to_load)
+except:
+    reset_and_reload()
 
 
-def _write_coverage(coverage, path) -> None:
+
+def _write_coverage(coverage, path, time) -> None:
     """
         Writes coverage to coverage.map file
         @Arguments: coverage -> list of ints that represent hashed addresses of the SUT 
@@ -204,44 +241,15 @@ def _write_coverage(coverage, path) -> None:
         @Return:    None
     """
 
-    #TODO: Associate the seed input or crash with a specific bitmap.
-    with open(path, 'w') as fp: 
+    with open(path, 'w') as fp:
+        fp.write(time)
+        fp.write(' ') 
         for x in range(0,len(coverage)):
                 #if (x % 4) == 0:
                     #fp.write('\n')
                 # fp.write(("{0:016b}".format(coverage[x])[::-1]))
                 fp.write(str(coverage[x]))
-
-def reset_target():
-    global debugServer, debugSession, script
-
-    debugSession.target.reset()
-    debugSession.terminate()
-    debugServer.stop()
-
-    # Get the Debug Server and start a Debug Session
-    debugServer = script.getServer('DebugServer.1')
-    debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
-    #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
-    debugSession = debugServer.openSession('.*')
-    debugSession.target.connect()
-    debugSession.clock.enable()
-    #Load the Fuzzer back onto the DSP
-    debugSession.memory.loadProgram('DSPFuzz.out')
-    #debugSession.memory.loadProgram('DSPFuzz.out')
-
-    #Set breakpoints again
-    set_intial_breakpoints()
-
-    #Breakpoint is set ready for a seed refresh
-    logging.info('Running target program.')
-    
-    refresh_local_pool()
-
-    #start the refresh thread
-    timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
-    timer_thread.start()
+                fp.write(' ')
 
 
 def _pull_coverage() -> list:
@@ -287,7 +295,7 @@ def _pull_coverage() -> list:
     #         time.sleep(.05)
     #         debugSession.memory.writeData(1, coverage_map_address + x, 0, 16)
     # print('')
-    print(coverage_map)
+    # print(coverage_map)
     return coverage_map
 
 def _update_global_map(coverage_map,seed_id, isCrash) -> None:
@@ -299,10 +307,14 @@ def _update_global_map(coverage_map,seed_id, isCrash) -> None:
 
     global results_dir, global_coverage_map, run_map_path
 
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    
+
     #Assocates bitmap with a coverage increasing input to see coverage areas.
-    run_map_path = results_dir + 'bitmaps/coverage:id:' + str(seed_id) 
+    run_map_path = results_dir + 'bitmaps/coverage:id:' + str(seed_id)
     if isCrash:
-        run_map_path = results_dir + 'bitmaps/crash:id:' + str(seed_id) 
+        run_map_path = results_dir + 'bitmaps/crash:id:' + str(seed_id)
 
     map_path = results_dir + 'global_coverage.map'
     new_coverage = []
@@ -314,7 +326,7 @@ def _update_global_map(coverage_map,seed_id, isCrash) -> None:
     # global_coverage_map = new_coverage
     
     # _write_coverage(new_coverage, map_path)
-    _write_coverage(coverage_map, run_map_path)
+    _write_coverage(coverage_map, run_map_path, dt_string)
 
 def _pull_statistics():
     """Pulls total time and number of iterations performed and adds them to global statistics for the campaign.
@@ -339,7 +351,10 @@ def _pull_statistics():
     #total_testcase_time = float(debugSession.memory.readData(1, time_address ,32)/ 100000000.0) + total_testcase_time
 
     #Need to clear the number of iterations on the device so that we can track them properly...
-    debugSession.memory.writeData(1, it_address, 0, 16)
+    try:
+        debugSession.memory.writeData(1, it_address, 0, 16)
+    except:
+        pass
     #debugSession.memory.writeData(1,time_address, 0, 32)
 
 
@@ -360,26 +375,33 @@ def set_intial_breakpoints():
     
 
     #Adds a breakpoint at the void
-    crash_void_address = debugSession.symbol.getAddress('crash_void')
-    debugSession.breakpoint.add(crash_void_address) 
+    try:
+        crash_void_address = debugSession.symbol.getAddress('crash_void')
+        debugSession.breakpoint.add(crash_void_address) 
 
 
-    #Find the coverage map address
-    coverage_map_address = debugSession.symbol.getAddress('coverage_map')
+        #Find the coverage map address
+        coverage_map_address = debugSession.symbol.getAddress('coverage_map')
 
-    #Adds a breakpoint in the setup to load a intial local pool
-    # setup_pool_id = debugSession.breakpoint.add('setupLocalPool')
-    # setup_pool_address = 258479
-    # setup_pool_id = debugSession.breakpoint.add(setup_pool_address)
-    lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
-    lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
-    # print(lp_refresh_id)
+        #Adds a breakpoint in the setup to load a intial local pool
+        # setup_pool_id = debugSession.breakpoint.add('setupLocalPool')
+        # setup_pool_address = 258479
+        # setup_pool_id = debugSession.breakpoint.add(setup_pool_address)
+        lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
+        lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
+        # print(lp_refresh_id)
 
 
-    #Adds a breakpoint in the results handler if we have a coverage increasing input.
-    coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
-    coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address)
-    debugSession.target.run()
+        #Adds a breakpoint in the results handler if we have a coverage increasing input.
+        coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
+        coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address)
+
+        print('-----Refresh Breakpoints Set------')
+        debugSession.target.run()
+    except:
+        print('------DSP run failure resetting the board...-------')
+        reset_and_reload()
+        return -1
 
 def calculate_timeout(global_pool_size, local_pool_size) -> int:
 
@@ -389,6 +411,7 @@ def calculate_timeout(global_pool_size, local_pool_size) -> int:
         
         # timeout = 3600
         timeout = 1200
+        # timeout = 60
     else:
         timeout = max(90, 1200 - (global_pool_size  * 15))
 
@@ -438,7 +461,7 @@ def select_seed(num) -> list:
         str_seed = fp.read()
 
     seed = [int(ele) for ele in str_seed.split()]
-
+    # print(seed)
     return seed
 
 @log
@@ -484,7 +507,7 @@ def write_local_pool() -> None:
     #Continue fuzzing execution.
     #debugSession.target.runAsynch()
 
-def _pull_seed(seed_address, seed_id, dir) -> None:
+def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
     """Can pull a seed from memory at a specific address on the DSP.
     
         @Arguments: seed_address -> address of where the seed starts.
@@ -494,22 +517,57 @@ def _pull_seed(seed_address, seed_id, dir) -> None:
     """
     global seed_size
 
+    # test_seed = []
     #TODO: Add Check for empty seed spots?
+    # print('-----Obtained Seed------')
     for x in range (0, seed_size):
         try:
+            
             seed = str(debugSession.memory.readData(1, seed_address + x, 16))
+            # test_seed.append(seed)
         except(Exception):
             print('ERROR: Memory read error wait a second and try again.')
             time.sleep(.05)
             seed = str(debugSession.memory.readData(1, seed_address + x, 16))
         if x == 0:
-            with open(dir+str(seed_id), 'w+') as fp:
-                fp.write(seed)
+            if isCrash:
+                with open(dir+str(seed_id), 'a+') as fp:
+                    fp.write(seed)
+            else:
+                with open(dir+str(seed_id), 'w+') as fp:
+                    fp.write(seed)
         else:
             with open(dir+str(seed_id), 'a+') as fp:
                 fp.write('\n'+seed)
+    # print(test_seed)
 
+@log
+def _pull_stage_cycles():
+    stage_cycle_address = debugSession.symbol.getAddress('stage_cycles')
+    stage_cycles = debugSession.memory.readData(1, stage_cycle_address, 16)
 
+    mutation_amount_address = debugSession.symbol.getAddress('mutation_degression')
+    mutation_amount = debugSession.memory.readData(1,mutation_amount_address, 16)
+    mutation_amount = 100 // mutation_amount 
+
+    if(stage_cycles < 2):
+        print("Effective Mutaton: bitflip 1/1 |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 4):
+        print("Effective Mutaton: bitflip 2/1 |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 6):
+        print("Effective Mutaton: bitflip 4/1 |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 8):
+        print("Effective Mutaton: byteflip 1/1 |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 10):
+        print("Effective Mutaton: bitflip 2/1 |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 12):
+        print("Effective Mutaton: bitflip 4/1 |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 48):
+        print("Effective Mutaton: arith-add |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles < 48):
+        print("Effective Mutaton: arith-sub |Mutation Percentage: ",mutation_amount)
+    elif(stage_cycles > 47):
+        print("Effective Mutation: random |Mutation Percentage: ",mutation_amount)
 
 @log
 def current_seed_to_global_pool() -> None:
@@ -522,48 +580,72 @@ def current_seed_to_global_pool() -> None:
 
     #Stop the local pool refresh until so we can interact with the board the board.
     timer_thread.cancel()
-    
 
-    print("Found coverage-increasing input:")
+    print("-------Found coverage-increasing input-------")
+
     #Pull timing statistics here
     _pull_statistics()
 
     #Get the address of the current seed.
-    current_seed_address = debugSession.symbol.getAddress('current_input')
+    current_seed_pointer_address = debugSession.symbol.getAddress('current_input')
+    # print('-----Current Seed Address -->', current_seed_pointer_address)
+    current_seed_pointer = debugSession.memory.readData(1, current_seed_pointer_address , 32)
+    # print('-----Current Seed Pointer -->', current_seed_pointer)
+    current_seed_address = debugSession.memory.readData(1, current_seed_pointer , 16)
+    # print('-----Current Seed Address ---> ',current_seed_address)
+
+    #Pull the stage cycles to determine what mutation pattern is effective
+    _pull_stage_cycles()
+
 
     #Pull coverage map
-    
     cov = _pull_coverage()
-    if(cov[0] == 65535):
-        reset_and_reload()
-        return
+    # if(cov[0] == 65535):
+    #     reset_and_reload()
+    #     return
     _update_global_map(cov, global_pool_size + 1, isCrash=False)
 
     #Lets use that found coverage to UNinsturment our binary.
-    new_coverage_dict = binary_tools.uninsturment(coverage_dict,cov)
+    
+    test_dict = binary_tools.uninsturment(coverage_dict,cov)
 
-    if new_coverage_dict:
+    if test_dict != None:
+        new_coverage_dict = test_dict
         coverage_dict = new_coverage_dict
-
-        
         global_pool_size = refresh_global_pool() + 1
         
 
         #Pull seed from the input buffer and store it in the global seed pool
-        _pull_seed(current_seed_address, global_pool_size, seed_dir)
+        _pull_seed(current_seed_address, global_pool_size, seed_dir, False)
+        write_local_pool()
+        #Recalc the timeout with new global pool
+        timeout = calculate_timeout(refresh_global_pool(), 15)
+        timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+        timer_thread.start()
 
     else:
-        print('DSERROR:Coverage map returned empty from the device.')
+        #Lets move the troubled seed somewhere else.
+        print('-----Found a trouble seed-----')
+        seed_head_address = debugSession.symbol.getAddress('seed_head')
+        trouble_seed = debugSession.memory.readData(1, seed_head_address ,16)
+        print('-----Trouble Seed = ',trouble_seed)
+        files = os.listdir('./seeds/')
+        print(files)
+        files = [int(i) for i in files]
+        print(files)
+        files.sort()
+        print(files)
+        global_pool_size = global_pool_size - 1
+        shutil.move('./seeds/'+str(files[trouble_seed]), './results/trouble_seeds/'+str(trouble_seed+1))
+        # print('DSERROR:Coverage Map is being effected.')
         #pull the input to check it later 
-        _pull_seed(current_seed_address, global_pool_size, "./results/bugs/")
+        _pull_seed(current_seed_address, global_pool_size, "./results/crashes/", True)
+        reset_and_reload()
         # #If the coverage map reutrns empty we can assume the device is stalled and needs to be reset.
         # reload_binary()
-    write_local_pool()
+    
 
-    #Recalc the timeout with new global pool
-    timeout = calculate_timeout(refresh_global_pool(), 15)
-    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
-    timer_thread.start()
+    
 
 
 @log
@@ -573,35 +655,38 @@ def crash_reload() -> None:
         @Arguments: None
         @Return: None
     """
-    global amount_of_crashes, start_time, timer_thread, coverage_dict, run_map_path, timer_thread
+    global amount_of_crashes, start_time, timer_thread, coverage_dict, run_map_path, timer_thread, sanity_check
 
+    if(sanity_check):
+        sanity_check.cancel()
+        sanity_check = None
     #crash_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
     #print('Found Crash in '+ str(crash_time - start_time)+ ' ns')
 
     #Stop the local pool refresh until we can reload the board.
 
-    print("Found crash:")
+    print("-----Found crash-----")
 
     amount_of_crashes+=1
 
     #Pull timing statistics here
     _pull_statistics()
 
-    retValAddress = debugSession.symbol.getAddress('retVal')
-    retVal = debugSession.memory.readData(1, retValAddress ,16)
-
-
-
+  
+    now = datetime.now()
+    dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
     #Put the crashing input in the crashes directory.
-    current_seed_address = debugSession.symbol.getAddress('current_input')
-    _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/R:'+ str(retVal))
+    current_seed_pointer_address = debugSession.symbol.getAddress('current_input')
+    current_seed_pointer = debugSession.memory.readData(1, current_seed_pointer_address , 32)
+    current_seed_address = debugSession.memory.readData(1, current_seed_pointer , 16)
+    _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/' + dt_string, isCrash=True)
 
     # #Pull coverage map before loading
     cov = _pull_coverage()
-    _update_global_map(cov, amount_of_crashes, isCrash=True )
-
+    #_update_global_map(cov, amount_of_crashes, isCrash=True )
+    new_coverage_dict = binary_tools.uninsturment(coverage_dict,cov)
     #uinsturment bin file as coverage is found.
-    new_coverage_dict = binary_tools.uninsturment(coverage_dict, run_map_path)
+    
     coverage_dict = new_coverage_dict
 
     reset_and_reload()
@@ -655,13 +740,19 @@ def device_listener() -> None:
         @Return: None
     """
 
-    global coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession
+    global coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession, sanity_check
     
     
     while(1):    
         #Once the device is halted check to see what breakpoint was hit.
         # debugSession.target.waitForHalt()
+        # try:
         debugSession.target.run()
+        # except:
+        #     reset_and_reload()
+        if (sanity_check):
+            sanity_check.cancel()
+            sanity_check = None
         
         pc = debugSession.expression.evaluate('PC')
         if(pc ==  8388608):
@@ -689,13 +780,19 @@ def set_refresh_breakpoint() -> None:
         @Return: None
     """
 
-    global timer_thread, lp_refresh_address, lp_refresh_id, timer_thread
-    timer_thread.cancel()
+    global timer_thread, lp_refresh_address, lp_refresh_id, timer_thread, sanity_check
+    if(timer_thread):
+        timer_thread.cancel()
 
     #Sets a breakpoint to refresh the pool.
     # lp_refresh_id = debugSession.breakpoint.add('main_harness_loop + 0x15')
     lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
     print(lp_refresh_id)
+
+    #If we set the refresh breakpoint and it is not hit within a second which is a long time -> assume a crash.
+    print("-----Starting Sanity Check-----")
+    sanity_check = threading.Timer(4, crash_reload)
+    sanity_check.start()
 
     #Sleep for a second and wait for the fuzzer to finish its latest run.
     # time.sleep(0.05)

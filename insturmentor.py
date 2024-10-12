@@ -136,6 +136,7 @@ def first_pass(lines):
 
             elif 'RPTB' in line:
                 labels.append(_label_ripper('RPTB', line))
+                
         else:
             continue
 
@@ -143,8 +144,9 @@ def first_pass(lines):
     return labels
 def second_pass(lines,repeat_labels):
     labels_to_insturment = []
+    single_rpt = False
 
-    print("These are the repeat labels: ", repeat_labels)
+    print("------These are the repeat labels: ", repeat_labels)
     inRepeatBlock = False
     for index, pre_line in enumerate(lines, start = 1):
         
@@ -161,21 +163,34 @@ def second_pass(lines,repeat_labels):
                 #print(line)
                 inRepeatBlock = True
                 continue
+        if single_rpt and '$C$L' in line:
+            print(line)
+            inRepeatBlock = False
+            single_rpt = False
+            continue
+
+
         #Condtional Branches, there are special cases which repeat blocks may have a BCC instruction.
         if 'BCC' in line and not inRepeatBlock:
-            print(line)          
+            #print(line)          
             # branch_lines.add(index)
             dummy_label = _branch_helper(line)
             if dummy_label in labels_to_insturment:
                 continue
             labels_to_insturment.append(dummy_label)
             #branc_count+=1
-        # elif 'B' in line and not inRepeatBlock:
+        # elif 'B ' in line and not inRepeatBlock and 'SUB' not in line:
         #     print(line)
         #     dummy_label = _branch_helper(line)
         #     if dummy_label in labels_to_insturment:
         #         continue
-        #     labels_to_insturment.append(dummy_label)
+            labels_to_insturment.append(dummy_label)
+        elif 'RPT ' in line:
+            #Single repeat instruction check for label after this 
+            print(line)
+            single_rpt = True
+            inRepeatBlock = True
+
         
     return labels_to_insturment
 
@@ -196,7 +211,7 @@ def third_pass(lines, insturment_labels):
         #Labels that begin with _ and end with : e.g _foo:
         if re.match("_.*:",line):
             #Not going to be out of a repeat block until we see a new label
-            print(line)
+            #print(line)
             if inRepeatBlock:
                 inRepeatBlock = False
             function_lines.add(index)
@@ -205,8 +220,8 @@ def third_pass(lines, insturment_labels):
 
         #TODO: This may break with a repeat block may have to check logic 
         for label in insturment_labels:   
-            if label in line and ('.dwattr' not in line):
-                print(line)
+            if label in line and ('.dwattr' not in line) and ('B ' not in line):
+                #print(line)
                 branch_lines.add(index)
         
         #global label to add extern reference to coverage logging function

@@ -84,7 +84,7 @@
 #include <ti/mas/vpe/test/src/nrbufst.h>
 
 void *nr_handle = NULL;
-extern void *nrInst_ptr;
+void *nrInst_ptr;
 
 /*-----------------------------------------------------------------
  * Function:  vpe_instantiate_nr

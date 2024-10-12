@@ -49,9 +49,12 @@ static void jpec_huff_write_bits(jpec_huff_state_t *s, uint32_t bits, int32_t n)
 
 jpec_huff_t g_jpeg_huff;
 
-void jpec_huff_skel_init(jpec_huff_skel_t *skel)
+void jpec_huff_skel_init(jpec_huff_skel_t * skel)
 {
-    assert(skel);
+    // assert(skel);
+    if (skel == NULL){
+        return;
+    }
     memset(skel, 0, sizeof(*skel));
     skel->opq = jpec_huff_new();
     skel->del = (void (*)(void *))jpec_huff_del;
@@ -70,14 +73,21 @@ jpec_huff_t *jpec_huff_new(void)
 
 void jpec_huff_del(jpec_huff_t *h)
 {
-    assert(h);
+    // assert(h);
+    if (h == NULL){
+        return;
+    }
     /* Flush any remaining bits and fill in the incomple byte (if any) with 1-s */
     jpec_huff_write_bits(&h->state, 0x7F, 7);
 }
 
 void jpec_huff_encode_block(jpec_huff_t *h, jpec_block_t *block, jpec_buffer_t *buf)
 {
-    assert(h && block && buf);
+    // assert(h && block && buf);
+    if (!(h && block && buf)){
+        return;
+    }
+
     jpec_huff_state_t state;
     state.buffer = h->state.buffer;
     state.nbits = h->state.nbits;
@@ -92,7 +102,11 @@ void jpec_huff_encode_block(jpec_huff_t *h, jpec_block_t *block, jpec_buffer_t *
 
 static void jpec_huff_encode_block_impl(jpec_block_t *block, jpec_huff_state_t *s)
 {
-    assert(block && s);
+    // assert(block && s);
+    if (!(block && s)){
+        return;
+    }
+
     int32_t val, bits, nbits;
     /* DC coefficient encoding */
     if (block->len > 0)
@@ -165,7 +179,10 @@ static void jpec_huff_encode_block_impl(jpec_block_t *block, jpec_huff_state_t *
  */
 static void jpec_huff_write_bits(jpec_huff_state_t *s, uint32_t bits, int32_t n)
 {
-	assert(s);
+	// assert(s);
+    if (!s){
+        return;
+    }
     //assert(n > 0 && n <= 16);
     int32_t mask = (((int32_t)1) << n) - 1;
     int32_t buffer = (int32_t)bits;

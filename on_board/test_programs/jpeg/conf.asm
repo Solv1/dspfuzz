@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                        Unix v4.4.1 *
-;* Date/Time created: Sun Sep  8 16:12:27 2024                                 *
+;* Date/Time created: Fri Oct  4 09:11:40 2024                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -24,10 +24,10 @@
 ;*******************************************************************************
 
 $C$DW$CU	.dwtag  DW_TAG_compile_unit
-	.dwattr $C$DW$CU, DW_AT_name("./conf.c")
+	.dwattr $C$DW$CU, DW_AT_name("./jpeg/conf.c")
 	.dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen Unix v4.4.1 Copyright (c) 1996-2012 Texas Instruments Incorporated")
 	.dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/santiago/Research/DSPFuzz/on_board/test_programs/jpeg")
+	.dwattr $C$DW$CU, DW_AT_comp_dir("/home/santiago/Research/DSPFuzz/on_board/test_programs")
 	.global	_jpec_qzr
 	.sect	".const:_jpec_qzr"
 	.clink
@@ -1050,7 +1050,7 @@ $C$DW$13	.dwtag  DW_TAG_variable, DW_AT_name("jpec_ac_code")
 	.dwattr $C$DW$13, DW_AT_location[DW_OP_addr _jpec_ac_code]
 	.dwattr $C$DW$13, DW_AT_type(*$C$DW$T$32)
 	.dwattr $C$DW$13, DW_AT_external
-;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/15084HYCW8r 
+;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/99620f0gt2y 
 
 ;*******************************************************************************
 ;* TYPE INFORMATION                                                            *

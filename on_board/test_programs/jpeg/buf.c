@@ -46,7 +46,10 @@ jpec_buffer_t *jpec_buffer_new2(int32_t siz)
 
 void jpec_buffer_write_byte(jpec_buffer_t *b, int32_t val)
 {
-    assert(b);
+    // assert(b);
+    if(b == NULL){
+        return;
+    }
 
 #if HOST_TEST
     if (b->siz == b->len)
@@ -69,7 +72,9 @@ void jpec_buffer_write_byte(jpec_buffer_t *b, int32_t val)
 
 void jpec_buffer_write_2bytes(jpec_buffer_t *b, int32_t val)
 {
-    assert(b);
+    if(b == NULL){
+        return;
+    }
     jpec_buffer_write_byte(b, (val >> 8) & 0xFF);
     jpec_buffer_write_byte(b, val & 0xFF);
 }

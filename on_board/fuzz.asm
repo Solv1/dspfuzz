@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                        Unix v4.4.1 *
-;* Date/Time created: Sat Oct 12 13:49:47 2024                                 *
+;* Date/Time created: Thu Oct 17 16:37:12 2024                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_3_3 --symdebug:dwarf 
 	.mmregs
@@ -395,15 +395,15 @@ $C$DW$56	.dwtag  DW_TAG_formal_parameter
 	.dwendtag $C$DW$54
 
 
-$C$DW$57	.dwtag  DW_TAG_subprogram, DW_AT_name("sonar_test")
-	.dwattr $C$DW$57, DW_AT_TI_symbol_name("_sonar_test")
+$C$DW$57	.dwtag  DW_TAG_subprogram, DW_AT_name("test")
+	.dwattr $C$DW$57, DW_AT_TI_symbol_name("_test")
 	.dwattr $C$DW$57, DW_AT_type(*$C$DW$T$81)
 	.dwattr $C$DW$57, DW_AT_declaration
 	.dwattr $C$DW$57, DW_AT_external
 $C$DW$58	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$82)
+	.dwattr $C$DW$58, DW_AT_type(*$C$DW$T$110)
 $C$DW$59	.dwtag  DW_TAG_formal_parameter
-	.dwattr $C$DW$59, DW_AT_type(*$C$DW$T$81)
+	.dwattr $C$DW$59, DW_AT_type(*$C$DW$T$82)
 	.dwendtag $C$DW$57
 
 	.global	_local_pool
@@ -411,14 +411,14 @@ _local_pool:	.usect	".program_sandbox",1920,0,0
 $C$DW$60	.dwtag  DW_TAG_variable, DW_AT_name("local_pool")
 	.dwattr $C$DW$60, DW_AT_TI_symbol_name("_local_pool")
 	.dwattr $C$DW$60, DW_AT_location[DW_OP_addr _local_pool]
-	.dwattr $C$DW$60, DW_AT_type(*$C$DW$T$117)
+	.dwattr $C$DW$60, DW_AT_type(*$C$DW$T$118)
 	.dwattr $C$DW$60, DW_AT_external
 	.global	_current_seed_num
 	.bss	_current_seed_num,1,0,0
 $C$DW$61	.dwtag  DW_TAG_variable, DW_AT_name("current_seed_num")
 	.dwattr $C$DW$61, DW_AT_TI_symbol_name("_current_seed_num")
 	.dwattr $C$DW$61, DW_AT_location[DW_OP_addr _current_seed_num]
-	.dwattr $C$DW$61, DW_AT_type(*$C$DW$T$115)
+	.dwattr $C$DW$61, DW_AT_type(*$C$DW$T$116)
 	.dwattr $C$DW$61, DW_AT_external
 	.global	_current_input
 	.bss	_current_input,2,0,2
@@ -432,7 +432,7 @@ _output_buffer:	.usect	".data_sandbox",128,0,0
 $C$DW$63	.dwtag  DW_TAG_variable, DW_AT_name("output_buffer")
 	.dwattr $C$DW$63, DW_AT_TI_symbol_name("_output_buffer")
 	.dwattr $C$DW$63, DW_AT_location[DW_OP_addr _output_buffer]
-	.dwattr $C$DW$63, DW_AT_type(*$C$DW$T$114)
+	.dwattr $C$DW$63, DW_AT_type(*$C$DW$T$115)
 	.dwattr $C$DW$63, DW_AT_external
 	.global	_coverage_map
 	.bss	_coverage_map,200,0,0
@@ -467,7 +467,7 @@ $C$DW$67	.dwtag  DW_TAG_variable, DW_AT_name("retVal")
 $C$DW$68	.dwtag  DW_TAG_variable, DW_AT_name("seed_number")
 	.dwattr $C$DW$68, DW_AT_TI_symbol_name("_seed_number")
 	.dwattr $C$DW$68, DW_AT_location[DW_OP_addr _seed_number]
-	.dwattr $C$DW$68, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$68, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$68, DW_AT_external
 	.global	_sut_start_address
 	.bss	_sut_start_address,2,0,2
@@ -481,28 +481,28 @@ $C$DW$69	.dwtag  DW_TAG_variable, DW_AT_name("sut_start_address")
 $C$DW$70	.dwtag  DW_TAG_variable, DW_AT_name("seed_head")
 	.dwattr $C$DW$70, DW_AT_TI_symbol_name("_seed_head")
 	.dwattr $C$DW$70, DW_AT_location[DW_OP_addr _seed_head]
-	.dwattr $C$DW$70, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$70, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$70, DW_AT_external
 	.global	_seed_tail
 	.bss	_seed_tail,1,0,0
 $C$DW$71	.dwtag  DW_TAG_variable, DW_AT_name("seed_tail")
 	.dwattr $C$DW$71, DW_AT_TI_symbol_name("_seed_tail")
 	.dwattr $C$DW$71, DW_AT_location[DW_OP_addr _seed_tail]
-	.dwattr $C$DW$71, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$71, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$71, DW_AT_external
 	.global	_cov_function_enter
 	.bss	_cov_function_enter,1,0,0
 $C$DW$72	.dwtag  DW_TAG_variable, DW_AT_name("cov_function_enter")
 	.dwattr $C$DW$72, DW_AT_TI_symbol_name("_cov_function_enter")
 	.dwattr $C$DW$72, DW_AT_location[DW_OP_addr _cov_function_enter]
-	.dwattr $C$DW$72, DW_AT_type(*$C$DW$T$121)
+	.dwattr $C$DW$72, DW_AT_type(*$C$DW$T$122)
 	.dwattr $C$DW$72, DW_AT_external
 	.global	_isIncreasing
 	.bss	_isIncreasing,1,0,0
 $C$DW$73	.dwtag  DW_TAG_variable, DW_AT_name("isIncreasing")
 	.dwattr $C$DW$73, DW_AT_TI_symbol_name("_isIncreasing")
 	.dwattr $C$DW$73, DW_AT_location[DW_OP_addr _isIncreasing]
-	.dwattr $C$DW$73, DW_AT_type(*$C$DW$T$121)
+	.dwattr $C$DW$73, DW_AT_type(*$C$DW$T$122)
 	.dwattr $C$DW$73, DW_AT_external
 	.global	_saved_context
 	.bss	_saved_context,16,0,2
@@ -516,14 +516,14 @@ $C$DW$74	.dwtag  DW_TAG_variable, DW_AT_name("saved_context")
 $C$DW$75	.dwtag  DW_TAG_variable, DW_AT_name("stage_cycles")
 	.dwattr $C$DW$75, DW_AT_TI_symbol_name("_stage_cycles")
 	.dwattr $C$DW$75, DW_AT_location[DW_OP_addr _stage_cycles]
-	.dwattr $C$DW$75, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$75, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$75, DW_AT_external
 	.global	_pool_loops
 	.bss	_pool_loops,1,0,0
 $C$DW$76	.dwtag  DW_TAG_variable, DW_AT_name("pool_loops")
 	.dwattr $C$DW$76, DW_AT_TI_symbol_name("_pool_loops")
 	.dwattr $C$DW$76, DW_AT_location[DW_OP_addr _pool_loops]
-	.dwattr $C$DW$76, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$76, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$76, DW_AT_external
 	.global	_iterations
 	.bss	_iterations,1,0,0
@@ -565,9 +565,9 @@ $C$DW$81	.dwtag  DW_TAG_variable, DW_AT_name("count")
 $C$DW$82	.dwtag  DW_TAG_variable, DW_AT_name("isTest")
 	.dwattr $C$DW$82, DW_AT_TI_symbol_name("_isTest")
 	.dwattr $C$DW$82, DW_AT_location[DW_OP_addr _isTest]
-	.dwattr $C$DW$82, DW_AT_type(*$C$DW$T$121)
+	.dwattr $C$DW$82, DW_AT_type(*$C$DW$T$122)
 	.dwattr $C$DW$82, DW_AT_external
-;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/410425ECKht 
+;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/16600uSBdlb 
 	.sect	".text:retain"
 	.global	_fuzzer_isr
 
@@ -1680,7 +1680,7 @@ $C$DW$L$_crash_void$2$B:
 $C$DW$L$_crash_void$2$E:
 
 $C$DW$105	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$105, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L2:1:1728755387")
+	.dwattr $C$DW$105, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L2:1:1729197432")
 	.dwattr $C$DW$105, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$105, DW_AT_TI_begin_line(0x97)
 	.dwattr $C$DW$105, DW_AT_TI_end_line(0x97)
@@ -1938,7 +1938,7 @@ $C$DW$129	.dwtag  DW_TAG_variable, DW_AT_name("timer_handle")
 	.dwattr $C$DW$129, DW_AT_location[DW_OP_bregx 0x24 0]
 $C$DW$130	.dwtag  DW_TAG_variable, DW_AT_name("status")
 	.dwattr $C$DW$130, DW_AT_TI_symbol_name("_status")
-	.dwattr $C$DW$130, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$130, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$130, DW_AT_location[DW_OP_bregx 0x24 2]
         MOV XAR0, dbl(*SP(#0))
 	.dwpsn	file "./src/fuzz.c",line 235,column 5,is_stmt
@@ -2184,35 +2184,35 @@ $C$DW$150	.dwtag  DW_TAG_variable, DW_AT_name("input_size")
 	.dwattr $C$DW$150, DW_AT_location[DW_OP_bregx 0x24 2]
 $C$DW$151	.dwtag  DW_TAG_variable, DW_AT_name("i")
 	.dwattr $C$DW$151, DW_AT_TI_symbol_name("_i")
-	.dwattr $C$DW$151, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$151, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$151, DW_AT_location[DW_OP_bregx 0x24 3]
 $C$DW$152	.dwtag  DW_TAG_variable, DW_AT_name("j")
 	.dwattr $C$DW$152, DW_AT_TI_symbol_name("_j")
-	.dwattr $C$DW$152, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$152, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$152, DW_AT_location[DW_OP_bregx 0x24 4]
 $C$DW$153	.dwtag  DW_TAG_variable, DW_AT_name("rand_time")
 	.dwattr $C$DW$153, DW_AT_TI_symbol_name("_rand_time")
-	.dwattr $C$DW$153, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$153, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$153, DW_AT_location[DW_OP_bregx 0x24 5]
 $C$DW$154	.dwtag  DW_TAG_variable, DW_AT_name("rnd_int")
 	.dwattr $C$DW$154, DW_AT_TI_symbol_name("_rnd_int")
-	.dwattr $C$DW$154, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$154, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$154, DW_AT_location[DW_OP_bregx 0x24 6]
 $C$DW$155	.dwtag  DW_TAG_variable, DW_AT_name("rnd_bit")
 	.dwattr $C$DW$155, DW_AT_TI_symbol_name("_rnd_bit")
-	.dwattr $C$DW$155, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$155, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$155, DW_AT_location[DW_OP_bregx 0x24 7]
 $C$DW$156	.dwtag  DW_TAG_variable, DW_AT_name("rnd_value")
 	.dwattr $C$DW$156, DW_AT_TI_symbol_name("_rnd_value")
-	.dwattr $C$DW$156, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$156, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$156, DW_AT_location[DW_OP_bregx 0x24 8]
 $C$DW$157	.dwtag  DW_TAG_variable, DW_AT_name("start")
 	.dwattr $C$DW$157, DW_AT_TI_symbol_name("_start")
-	.dwattr $C$DW$157, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$157, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$157, DW_AT_location[DW_OP_bregx 0x24 9]
 $C$DW$158	.dwtag  DW_TAG_variable, DW_AT_name("mutation_amount")
 	.dwattr $C$DW$158, DW_AT_TI_symbol_name("_mutation_amount")
-	.dwattr $C$DW$158, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$158, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$158, DW_AT_location[DW_OP_bregx 0x24 10]
         MOV T0, *SP(#2) ; |294| 
         MOV XAR0, dbl(*SP(#0))
@@ -3412,7 +3412,7 @@ $C$DW$197	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$198	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$198, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L32:1:1728755387")
+	.dwattr $C$DW$198, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L32:1:1729197432")
 	.dwattr $C$DW$198, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$198, DW_AT_TI_begin_line(0x1d1)
 	.dwattr $C$DW$198, DW_AT_TI_end_line(0x211)
@@ -3468,7 +3468,7 @@ $C$DW$214	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$215	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$215, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L30:1:1728755387")
+	.dwattr $C$DW$215, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L30:1:1729197432")
 	.dwattr $C$DW$215, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$215, DW_AT_TI_begin_line(0x1c0)
 	.dwattr $C$DW$215, DW_AT_TI_end_line(0x1c3)
@@ -3479,7 +3479,7 @@ $C$DW$216	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$217	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$217, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L28:1:1728755387")
+	.dwattr $C$DW$217, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L28:1:1729197432")
 	.dwattr $C$DW$217, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$217, DW_AT_TI_begin_line(0x1b9)
 	.dwattr $C$DW$217, DW_AT_TI_end_line(0x1bc)
@@ -3490,7 +3490,7 @@ $C$DW$218	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$219	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$219, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L26:1:1728755387")
+	.dwattr $C$DW$219, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L26:1:1729197432")
 	.dwattr $C$DW$219, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$219, DW_AT_TI_begin_line(0x1ac)
 	.dwattr $C$DW$219, DW_AT_TI_end_line(0x1b4)
@@ -3504,7 +3504,7 @@ $C$DW$221	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$222	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$222, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L24:1:1728755387")
+	.dwattr $C$DW$222, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L24:1:1729197432")
 	.dwattr $C$DW$222, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$222, DW_AT_TI_begin_line(0x1a5)
 	.dwattr $C$DW$222, DW_AT_TI_end_line(0x1a8)
@@ -3515,7 +3515,7 @@ $C$DW$223	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$224	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$224, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L22:1:1728755387")
+	.dwattr $C$DW$224, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L22:1:1729197432")
 	.dwattr $C$DW$224, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$224, DW_AT_TI_begin_line(0x19f)
 	.dwattr $C$DW$224, DW_AT_TI_end_line(0x1a1)
@@ -3526,7 +3526,7 @@ $C$DW$225	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$226	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$226, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L18:1:1728755387")
+	.dwattr $C$DW$226, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L18:1:1729197432")
 	.dwattr $C$DW$226, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$226, DW_AT_TI_begin_line(0x191)
 	.dwattr $C$DW$226, DW_AT_TI_end_line(0x19a)
@@ -3538,7 +3538,7 @@ $C$DW$228	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$228, DW_AT_high_pc($C$DW$L$_mutator$25$E)
 
 $C$DW$229	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$229, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L19:2:1728755387")
+	.dwattr $C$DW$229, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L19:2:1729197432")
 	.dwattr $C$DW$229, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$229, DW_AT_TI_begin_line(0x193)
 	.dwattr $C$DW$229, DW_AT_TI_end_line(0x199)
@@ -3551,7 +3551,7 @@ $C$DW$230	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$231	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$231, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L14:1:1728755387")
+	.dwattr $C$DW$231, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L14:1:1729197432")
 	.dwattr $C$DW$231, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$231, DW_AT_TI_begin_line(0x187)
 	.dwattr $C$DW$231, DW_AT_TI_end_line(0x18e)
@@ -3563,7 +3563,7 @@ $C$DW$233	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$233, DW_AT_high_pc($C$DW$L$_mutator$19$E)
 
 $C$DW$234	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$234, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L15:2:1728755387")
+	.dwattr $C$DW$234, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L15:2:1729197432")
 	.dwattr $C$DW$234, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$234, DW_AT_TI_begin_line(0x189)
 	.dwattr $C$DW$234, DW_AT_TI_end_line(0x18d)
@@ -3576,7 +3576,7 @@ $C$DW$235	.dwtag  DW_TAG_TI_loop_range
 
 
 $C$DW$236	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$236, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L10:1:1728755387")
+	.dwattr $C$DW$236, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L10:1:1729197432")
 	.dwattr $C$DW$236, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$236, DW_AT_TI_begin_line(0x17d)
 	.dwattr $C$DW$236, DW_AT_TI_end_line(0x183)
@@ -3588,7 +3588,7 @@ $C$DW$238	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$238, DW_AT_high_pc($C$DW$L$_mutator$13$E)
 
 $C$DW$239	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$239, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L11:2:1728755387")
+	.dwattr $C$DW$239, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L11:2:1729197432")
 	.dwattr $C$DW$239, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$239, DW_AT_TI_begin_line(0x17f)
 	.dwattr $C$DW$239, DW_AT_TI_end_line(0x182)
@@ -3744,7 +3744,7 @@ $C$DW$246	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$247	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$247, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L54:1:1728755387")
+	.dwattr $C$DW$247, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L54:1:1729197432")
 	.dwattr $C$DW$247, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$247, DW_AT_TI_begin_line(0x23d)
 	.dwattr $C$DW$247, DW_AT_TI_end_line(0x23d)
@@ -3848,7 +3848,7 @@ $C$DW$253	.dwtag  DW_TAG_variable, DW_AT_name("test_case_size")
 	.dwattr $C$DW$253, DW_AT_location[DW_OP_bregx 0x24 2]
 $C$DW$254	.dwtag  DW_TAG_variable, DW_AT_name("i")
 	.dwattr $C$DW$254, DW_AT_TI_symbol_name("_i")
-	.dwattr $C$DW$254, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$254, DW_AT_type(*$C$DW$T$110)
 	.dwattr $C$DW$254, DW_AT_location[DW_OP_bregx 0x24 3]
 $C$DW$255	.dwtag  DW_TAG_variable, DW_AT_name("timer_handle")
 	.dwattr $C$DW$255, DW_AT_TI_symbol_name("_timer_handle")
@@ -3857,10 +3857,10 @@ $C$DW$255	.dwtag  DW_TAG_variable, DW_AT_name("timer_handle")
 	.dwpsn	file "./src/fuzz.c",line 594,column 2,is_stmt
         MOV #0, *(#_retVal) ; |594| 
 	.dwpsn	file "./src/fuzz.c",line 598,column 5,is_stmt
-        MOV #125, *SP(#2) ; |598| 
+        MOV #35, *SP(#2) ; |598| 
 	.dwpsn	file "./src/fuzz.c",line 601,column 5,is_stmt
-        MOV #(_sonar_test >> 16) << #16, AC0 ; |601| 
-        OR #(_sonar_test & 0xffff), AC0, AC0 ; |601| 
+        MOV #(_test >> 16) << #16, AC0 ; |601| 
+        OR #(_test & 0xffff), AC0, AC0 ; |601| 
         MOV AC0, XAR0
 $C$DW$256	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$256, DW_AT_low_pc(0x00)
@@ -3906,112 +3906,112 @@ $C$DW$260	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$260, DW_AT_TI_call
         CALL #_start_timer ; |630| 
                                         ; call occurs [#_start_timer] ; |630| 
-	.dwpsn	file "./src/fuzz.c",line 633,column 5,is_stmt
+	.dwpsn	file "./src/fuzz.c",line 634,column 5,is_stmt
         MOV dbl(*(#_current_input)), XAR0
-        MOV *SP(#2), T0 ; |633| 
+        MOV *SP(#2), T0 ; |634| 
 $C$DW$261	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$261, DW_AT_low_pc(0x00)
-	.dwattr $C$DW$261, DW_AT_name("_sonar_test")
+	.dwattr $C$DW$261, DW_AT_name("_test")
 	.dwattr $C$DW$261, DW_AT_TI_call
-        CALL #_sonar_test ; |633| 
-                                        ; call occurs [#_sonar_test] ; |633| 
-	.dwpsn	file "./src/fuzz.c",line 635,column 5,is_stmt
+        CALL #_test ; |634| 
+                                        ; call occurs [#_test] ; |634| 
+	.dwpsn	file "./src/fuzz.c",line 637,column 5,is_stmt
         AMAR *SP(#4), XAR0
 $C$DW$262	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$262, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$262, DW_AT_name("_stop_timer")
 	.dwattr $C$DW$262, DW_AT_TI_call
-        CALL #_stop_timer ; |635| 
-                                        ; call occurs [#_stop_timer] ; |635| 
-	.dwpsn	file "./src/fuzz.c",line 637,column 5,is_stmt
-        MOV *(#_cov_function_enter), AR1 ; |637| 
-        BCC $C$L60,AR1 == #0 ; |637| 
-                                        ; branchcc occurs ; |637| 
+        CALL #_stop_timer ; |637| 
+                                        ; call occurs [#_stop_timer] ; |637| 
+	.dwpsn	file "./src/fuzz.c",line 639,column 5,is_stmt
+        MOV *(#_cov_function_enter), AR1 ; |639| 
+        BCC $C$L60,AR1 == #0 ; |639| 
+                                        ; branchcc occurs ; |639| 
 $C$DW$L$_main_harness_loop$3$E:
 $C$DW$L$_main_harness_loop$4$B:
-        MOV #65535, AR2 ; |637| 
-        MOV *(#_coverage_map), AR1 ; |637| 
-        CMPU AR1 == AR2, TC1 ; |637| 
-        BCC $C$L60,TC1 ; |637| 
-                                        ; branchcc occurs ; |637| 
+        MOV #65535, AR2 ; |639| 
+        MOV *(#_coverage_map), AR1 ; |639| 
+        CMPU AR1 == AR2, TC1 ; |639| 
+        BCC $C$L60,TC1 ; |639| 
+                                        ; branchcc occurs ; |639| 
 $C$DW$L$_main_harness_loop$4$E:
 $C$DW$L$_main_harness_loop$5$B:
-	.dwpsn	file "./src/fuzz.c",line 639,column 9,is_stmt
+	.dwpsn	file "./src/fuzz.c",line 641,column 9,is_stmt
 $C$DW$263	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$263, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$263, DW_AT_name("_bubble_coverage")
 	.dwattr $C$DW$263, DW_AT_TI_call
-        CALL #_bubble_coverage ; |639| 
-                                        ; call occurs [#_bubble_coverage] ; |639| 
-	.dwpsn	file "./src/fuzz.c",line 642,column 13,is_stmt
-        MOV #0, *SP(#3) ; |642| 
-	.dwpsn	file "./src/fuzz.c",line 642,column 20,is_stmt
-        MOV #200, AR2 ; |642| 
-        MOV *SP(#3), AR1 ; |642| 
-        CMPU AR1 >= AR2, TC1 ; |642| 
-        BCC $C$L59,TC1 ; |642| 
-                                        ; branchcc occurs ; |642| 
+        CALL #_bubble_coverage ; |641| 
+                                        ; call occurs [#_bubble_coverage] ; |641| 
+	.dwpsn	file "./src/fuzz.c",line 644,column 13,is_stmt
+        MOV #0, *SP(#3) ; |644| 
+	.dwpsn	file "./src/fuzz.c",line 644,column 20,is_stmt
+        MOV #200, AR2 ; |644| 
+        MOV *SP(#3), AR1 ; |644| 
+        CMPU AR1 >= AR2, TC1 ; |644| 
+        BCC $C$L59,TC1 ; |644| 
+                                        ; branchcc occurs ; |644| 
 $C$DW$L$_main_harness_loop$5$E:
 $C$L58:    
 $C$DW$L$_main_harness_loop$6$B:
-	.dwpsn	file "./src/fuzz.c",line 643,column 13,is_stmt
-        MOV *SP(#3), T0 ; |643| 
-        AMOV #_coverage_map, XAR3 ; |643| 
-        MOV #0, *AR3(T0) ; |643| 
-	.dwpsn	file "./src/fuzz.c",line 642,column 46,is_stmt
-        ADD #1, *SP(#3) ; |642| 
-	.dwpsn	file "./src/fuzz.c",line 642,column 20,is_stmt
-        MOV *SP(#3), AR1 ; |642| 
-        CMPU AR1 < AR2, TC1 ; |642| 
-        BCC $C$L58,TC1 ; |642| 
-                                        ; branchcc occurs ; |642| 
+	.dwpsn	file "./src/fuzz.c",line 645,column 13,is_stmt
+        MOV *SP(#3), T0 ; |645| 
+        AMOV #_coverage_map, XAR3 ; |645| 
+        MOV #0, *AR3(T0) ; |645| 
+	.dwpsn	file "./src/fuzz.c",line 644,column 46,is_stmt
+        ADD #1, *SP(#3) ; |644| 
+	.dwpsn	file "./src/fuzz.c",line 644,column 20,is_stmt
+        MOV *SP(#3), AR1 ; |644| 
+        CMPU AR1 < AR2, TC1 ; |644| 
+        BCC $C$L58,TC1 ; |644| 
+                                        ; branchcc occurs ; |644| 
 $C$DW$L$_main_harness_loop$6$E:
 $C$L59:    
 $C$DW$L$_main_harness_loop$7$B:
-	.dwpsn	file "./src/fuzz.c",line 645,column 9,is_stmt
-        MOV #65535, *(#_coverage_map) ; |645| 
-	.dwpsn	file "./src/fuzz.c",line 646,column 9,is_stmt
-        AMOV #_coverage_map, XAR3 ; |646| 
-        MOV XAR3, dbl(*(#_coverage_map_head))
 	.dwpsn	file "./src/fuzz.c",line 647,column 9,is_stmt
-        MOV #0, *(#_cov_function_enter) ; |647| 
+        MOV #65535, *(#_coverage_map) ; |647| 
 	.dwpsn	file "./src/fuzz.c",line 648,column 9,is_stmt
-        MOV #1, *(#_mutation_degression) ; |648| 
-	.dwpsn	file "./src/fuzz.c",line 649,column 5,is_stmt
-        B $C$L61  ; |649| 
-                                        ; branch occurs ; |649| 
+        AMOV #_coverage_map, XAR3 ; |648| 
+        MOV XAR3, dbl(*(#_coverage_map_head))
+	.dwpsn	file "./src/fuzz.c",line 649,column 9,is_stmt
+        MOV #0, *(#_cov_function_enter) ; |649| 
+	.dwpsn	file "./src/fuzz.c",line 650,column 9,is_stmt
+        MOV #1, *(#_mutation_degression) ; |650| 
+	.dwpsn	file "./src/fuzz.c",line 651,column 5,is_stmt
+        B $C$L61  ; |651| 
+                                        ; branch occurs ; |651| 
 $C$DW$L$_main_harness_loop$7$E:
 $C$L60:    
 $C$DW$L$_main_harness_loop$8$B:
-	.dwpsn	file "./src/fuzz.c",line 650,column 10,is_stmt
-        MOV *(#_cov_function_enter), AR1 ; |650| 
-        BCC $C$L61,AR1 == #0 ; |650| 
-                                        ; branchcc occurs ; |650| 
+	.dwpsn	file "./src/fuzz.c",line 652,column 10,is_stmt
+        MOV *(#_cov_function_enter), AR1 ; |652| 
+        BCC $C$L61,AR1 == #0 ; |652| 
+                                        ; branchcc occurs ; |652| 
 $C$DW$L$_main_harness_loop$8$E:
 $C$DW$L$_main_harness_loop$9$B:
-	.dwpsn	file "./src/fuzz.c",line 651,column 5,is_stmt
-        AMOV #$C$FSL8, XAR3 ; |651| 
+	.dwpsn	file "./src/fuzz.c",line 653,column 5,is_stmt
+        AMOV #$C$FSL8, XAR3 ; |653| 
         MOV XAR3, dbl(*SP(#0))
 $C$DW$264	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$264, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$264, DW_AT_name("_printf")
 	.dwattr $C$DW$264, DW_AT_TI_call
-        CALL #_printf ; |651| 
-                                        ; call occurs [#_printf] ; |651| 
+        CALL #_printf ; |653| 
+                                        ; call occurs [#_printf] ; |653| 
 $C$DW$L$_main_harness_loop$9$E:
 $C$L61:    
 $C$DW$L$_main_harness_loop$10$B:
-	.dwpsn	file "./src/fuzz.c",line 654,column 5,is_stmt
-        AMOV #_saved_context, XAR0 ; |654| 
+	.dwpsn	file "./src/fuzz.c",line 656,column 5,is_stmt
+        AMOV #_saved_context, XAR0 ; |656| 
 $C$DW$265	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$265, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$265, DW_AT_name("_longjmp")
 	.dwattr $C$DW$265, DW_AT_TI_call
 
-        CALL #_longjmp ; |654| 
+        CALL #_longjmp ; |656| 
 ||      MOV #1, T0
 
-                                        ; call occurs [#_longjmp] ; |654| 
+                                        ; call occurs [#_longjmp] ; |656| 
 	.dwpsn	file "./src/fuzz.c",line 606,column 11,is_stmt
         B $C$L57  ; |606| 
                                         ; branch occurs ; |606| 
@@ -4019,10 +4019,10 @@ $C$DW$L$_main_harness_loop$10$E:
 	.dwcfi	cfa_offset, 1
 
 $C$DW$266	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$266, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L57:1:1728755387")
+	.dwattr $C$DW$266, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L57:1:1729197432")
 	.dwattr $C$DW$266, DW_AT_TI_begin_file("./src/fuzz.c")
 	.dwattr $C$DW$266, DW_AT_TI_begin_line(0x25e)
-	.dwattr $C$DW$266, DW_AT_TI_end_line(0x290)
+	.dwattr $C$DW$266, DW_AT_TI_end_line(0x292)
 $C$DW$267	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$267, DW_AT_low_pc($C$DW$L$_main_harness_loop$3$B)
 	.dwattr $C$DW$267, DW_AT_high_pc($C$DW$L$_main_harness_loop$3$E)
@@ -4046,10 +4046,10 @@ $C$DW$273	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$273, DW_AT_high_pc($C$DW$L$_main_harness_loop$10$E)
 
 $C$DW$274	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$274, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L58:2:1728755387")
+	.dwattr $C$DW$274, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/fuzz.asm:$C$L58:2:1729197432")
 	.dwattr $C$DW$274, DW_AT_TI_begin_file("./src/fuzz.c")
-	.dwattr $C$DW$274, DW_AT_TI_begin_line(0x282)
-	.dwattr $C$DW$274, DW_AT_TI_end_line(0x284)
+	.dwattr $C$DW$274, DW_AT_TI_begin_line(0x284)
+	.dwattr $C$DW$274, DW_AT_TI_end_line(0x286)
 $C$DW$275	.dwtag  DW_TAG_TI_loop_range
 	.dwattr $C$DW$275, DW_AT_low_pc($C$DW$L$_main_harness_loop$6$B)
 	.dwattr $C$DW$275, DW_AT_high_pc($C$DW$L$_main_harness_loop$6$E)
@@ -4058,7 +4058,7 @@ $C$DW$275	.dwtag  DW_TAG_TI_loop_range
 	.dwendtag $C$DW$266
 
 	.dwattr $C$DW$252, DW_AT_TI_end_file("./src/fuzz.c")
-	.dwattr $C$DW$252, DW_AT_TI_end_line(0x291)
+	.dwattr $C$DW$252, DW_AT_TI_end_line(0x293)
 	.dwattr $C$DW$252, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$252
@@ -4073,10 +4073,10 @@ $C$DW$276	.dwtag  DW_TAG_subprogram, DW_AT_name("main")
 	.dwattr $C$DW$276, DW_AT_external
 	.dwattr $C$DW$276, DW_AT_type(*$C$DW$T$10)
 	.dwattr $C$DW$276, DW_AT_TI_begin_file("./src/fuzz.c")
-	.dwattr $C$DW$276, DW_AT_TI_begin_line(0x293)
+	.dwattr $C$DW$276, DW_AT_TI_begin_line(0x295)
 	.dwattr $C$DW$276, DW_AT_TI_begin_column(0x05)
 	.dwattr $C$DW$276, DW_AT_TI_max_frame_size(0x02)
-	.dwpsn	file "./src/fuzz.c",line 659,column 15,is_stmt,address _main
+	.dwpsn	file "./src/fuzz.c",line 661,column 15,is_stmt,address _main
 
 	.dwfde $C$DW$CIE, _main
 ;*******************************************************************************
@@ -4093,14 +4093,14 @@ _main:
 	.dwcfi	save_reg_to_mem, 91, -1
         AADD #-1, SP
 	.dwcfi	cfa_offset, 2
-	.dwpsn	file "./src/fuzz.c",line 661,column 5,is_stmt
+	.dwpsn	file "./src/fuzz.c",line 663,column 5,is_stmt
 $C$DW$277	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$277, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$277, DW_AT_name("_main_harness_loop")
 	.dwattr $C$DW$277, DW_AT_TI_call
-        CALL #_main_harness_loop ; |661| 
-                                        ; call occurs [#_main_harness_loop] ; |661| 
-	.dwpsn	file "./src/fuzz.c",line 662,column 1,is_stmt
+        CALL #_main_harness_loop ; |663| 
+                                        ; call occurs [#_main_harness_loop] ; |663| 
+	.dwpsn	file "./src/fuzz.c",line 664,column 1,is_stmt
         MOV #0, T0
         AADD #1, SP
 	.dwcfi	cfa_offset, 1
@@ -4110,7 +4110,7 @@ $C$DW$278	.dwtag  DW_TAG_TI_branch
         RET
                                         ; return occurs
 	.dwattr $C$DW$276, DW_AT_TI_end_file("./src/fuzz.c")
-	.dwattr $C$DW$276, DW_AT_TI_end_line(0x296)
+	.dwattr $C$DW$276, DW_AT_TI_end_line(0x298)
 	.dwattr $C$DW$276, DW_AT_TI_end_column(0x01)
 	.dwendentry
 	.dwendtag $C$DW$276
@@ -4162,7 +4162,7 @@ $C$FSL8:	.string	"ERROR: Coverage map is zeroed but flag is set. ",10,0
 	.global	_memset
 	.global	__setjmp
 	.global	_longjmp
-	.global	_sonar_test
+	.global	_test
 	.global	__remul
 	.global	__abort_msg
 	.global	__divu
@@ -4794,53 +4794,53 @@ $C$DW$T$82	.dwtag  DW_TAG_pointer_type
 	.dwattr $C$DW$T$82, DW_AT_type(*$C$DW$T$81)
 	.dwattr $C$DW$T$82, DW_AT_address_class(0x17)
 
-$C$DW$T$114	.dwtag  DW_TAG_array_type
-	.dwattr $C$DW$T$114, DW_AT_type(*$C$DW$T$81)
-	.dwattr $C$DW$T$114, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$114, DW_AT_byte_size(0x80)
+$C$DW$T$115	.dwtag  DW_TAG_array_type
+	.dwattr $C$DW$T$115, DW_AT_type(*$C$DW$T$81)
+	.dwattr $C$DW$T$115, DW_AT_language(DW_LANG_C)
+	.dwattr $C$DW$T$115, DW_AT_byte_size(0x80)
 $C$DW$377	.dwtag  DW_TAG_subrange_type
 	.dwattr $C$DW$377, DW_AT_upper_bound(0x7f)
-	.dwendtag $C$DW$T$114
+	.dwendtag $C$DW$T$115
 
 $C$DW$378	.dwtag  DW_TAG_TI_far_type
 	.dwattr $C$DW$378, DW_AT_type(*$C$DW$T$81)
-$C$DW$T$115	.dwtag  DW_TAG_volatile_type
-	.dwattr $C$DW$T$115, DW_AT_type(*$C$DW$378)
-
-$C$DW$T$116	.dwtag  DW_TAG_array_type
-	.dwattr $C$DW$T$116, DW_AT_type(*$C$DW$T$115)
-	.dwattr $C$DW$T$116, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$116, DW_AT_byte_size(0x80)
-$C$DW$379	.dwtag  DW_TAG_subrange_type
-	.dwattr $C$DW$379, DW_AT_upper_bound(0x7f)
-	.dwendtag $C$DW$T$116
-
+$C$DW$T$116	.dwtag  DW_TAG_volatile_type
+	.dwattr $C$DW$T$116, DW_AT_type(*$C$DW$378)
 
 $C$DW$T$117	.dwtag  DW_TAG_array_type
-	.dwattr $C$DW$T$117, DW_AT_type(*$C$DW$T$115)
+	.dwattr $C$DW$T$117, DW_AT_type(*$C$DW$T$116)
 	.dwattr $C$DW$T$117, DW_AT_language(DW_LANG_C)
-	.dwattr $C$DW$T$117, DW_AT_byte_size(0x780)
+	.dwattr $C$DW$T$117, DW_AT_byte_size(0x80)
+$C$DW$379	.dwtag  DW_TAG_subrange_type
+	.dwattr $C$DW$379, DW_AT_upper_bound(0x7f)
+	.dwendtag $C$DW$T$117
+
+
+$C$DW$T$118	.dwtag  DW_TAG_array_type
+	.dwattr $C$DW$T$118, DW_AT_type(*$C$DW$T$116)
+	.dwattr $C$DW$T$118, DW_AT_language(DW_LANG_C)
+	.dwattr $C$DW$T$118, DW_AT_byte_size(0x780)
 $C$DW$380	.dwtag  DW_TAG_subrange_type
 	.dwattr $C$DW$380, DW_AT_upper_bound(0x0e)
 $C$DW$381	.dwtag  DW_TAG_subrange_type
 	.dwattr $C$DW$381, DW_AT_upper_bound(0x7f)
-	.dwendtag $C$DW$T$117
+	.dwendtag $C$DW$T$118
 
 $C$DW$T$11	.dwtag  DW_TAG_base_type
 	.dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
 	.dwattr $C$DW$T$11, DW_AT_name("unsigned int")
 	.dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
-$C$DW$T$121	.dwtag  DW_TAG_typedef, DW_AT_name("_Bool")
-	.dwattr $C$DW$T$121, DW_AT_type(*$C$DW$T$11)
-	.dwattr $C$DW$T$121, DW_AT_language(DW_LANG_C)
+$C$DW$T$122	.dwtag  DW_TAG_typedef, DW_AT_name("_Bool")
+	.dwattr $C$DW$T$122, DW_AT_type(*$C$DW$T$11)
+	.dwattr $C$DW$T$122, DW_AT_language(DW_LANG_C)
 $C$DW$T$57	.dwtag  DW_TAG_typedef, DW_AT_name("size_t")
 	.dwattr $C$DW$T$57, DW_AT_type(*$C$DW$T$11)
 	.dwattr $C$DW$T$57, DW_AT_language(DW_LANG_C)
-$C$DW$T$122	.dwtag  DW_TAG_typedef, DW_AT_name("uint16_t")
-	.dwattr $C$DW$T$122, DW_AT_type(*$C$DW$T$11)
-	.dwattr $C$DW$T$122, DW_AT_language(DW_LANG_C)
+$C$DW$T$110	.dwtag  DW_TAG_typedef, DW_AT_name("uint16_t")
+	.dwattr $C$DW$T$110, DW_AT_type(*$C$DW$T$11)
+	.dwattr $C$DW$T$110, DW_AT_language(DW_LANG_C)
 $C$DW$382	.dwtag  DW_TAG_TI_far_type
-	.dwattr $C$DW$382, DW_AT_type(*$C$DW$T$122)
+	.dwattr $C$DW$382, DW_AT_type(*$C$DW$T$110)
 $C$DW$T$123	.dwtag  DW_TAG_volatile_type
 	.dwattr $C$DW$T$123, DW_AT_type(*$C$DW$382)
 

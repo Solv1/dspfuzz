@@ -60,6 +60,7 @@ int32_t jpeg_test(uint16_t * input, uint16_t w, uint16_t h)
     // uint16_t w = INPUT_IMAGE_WIDTH;
     // uint16_t h = INPUT_IMAGE_HEIGHT;
     // jpec_enc_t *e = jpec_enc_new2(test_data, w, h, OUTPUT_IMAGE_QUALITY);
+    while(w);
     jpec_enc_t *e = jpec_enc_new2(input, w, h, OUTPUT_IMAGE_QUALITY);
 
     // printf("Image width: %u\r\n", w);

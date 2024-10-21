@@ -2,10 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="DefaultStylesheet.xsl"?>
 <log>
 <record>
-  <date>2024-10-12T17:53:24.811954Z</date>
-  <millis>1728755604811</millis>
-  <nanos>954000</nanos>
-  <sequence>2298</sequence>
+  <date>2024-10-17T21:06:03.813477Z</date>
+  <millis>1729199163813</millis>
+  <nanos>477000</nanos>
+  <sequence>42</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -15,10 +15,10 @@
 </message>
 </record>
 <record>
-  <date>2024-10-12T17:53:24.812337Z</date>
-  <millis>1728755604812</millis>
-  <nanos>337000</nanos>
-  <sequence>2299</sequence>
+  <date>2024-10-17T21:06:03.816143Z</date>
+  <millis>1729199163816</millis>
+  <nanos>143000</nanos>
+  <sequence>43</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -28,10 +28,10 @@
 </message>
 </record>
 <record>
-  <date>2024-10-12T17:53:24.877903Z</date>
-  <millis>1728755604877</millis>
-  <nanos>903000</nanos>
-  <sequence>2300</sequence>
+  <date>2024-10-17T21:06:03.882902Z</date>
+  <millis>1729199163882</millis>
+  <nanos>902000</nanos>
+  <sequence>44</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -40,16 +40,926 @@
   <message>C55xx: GEL Output: PLL Init Done.</message>
 </record>
 <record>
-  <date>2024-10-12T17:53:24.878151Z</date>
-  <millis>1728755604878</millis>
-  <nanos>151000</nanos>
-  <sequence>2301</sequence>
+  <date>2024-10-17T21:06:03.883177Z</date>
+  <millis>1729199163883</millis>
+  <nanos>177000</nanos>
+  <sequence>45</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
   <method>onEvent</method>
   <thread>16</thread>
   <message>C55xx: GEL Output: Target Connection Complete.
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:06.928412Z</date>
+  <millis>1729199166928</millis>
+  <nanos>412000</nanos>
+  <sequence>61</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1140 @ 0x0) Lost debug connection to device. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:06.971217Z</date>
+  <millis>1729199166971</millis>
+  <nanos>217000</nanos>
+  <sequence>107</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.185217Z</date>
+  <millis>1729199167185</millis>
+  <nanos>217000</nanos>
+  <sequence>319</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.209539Z</date>
+  <millis>1729199167209</millis>
+  <nanos>539000</nanos>
+  <sequence>340</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.231350Z</date>
+  <millis>1729199167231</millis>
+  <nanos>350000</nanos>
+  <sequence>361</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.253495Z</date>
+  <millis>1729199167253</millis>
+  <nanos>495000</nanos>
+  <sequence>382</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.274621Z</date>
+  <millis>1729199167274</millis>
+  <nanos>621000</nanos>
+  <sequence>403</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.294827Z</date>
+  <millis>1729199167294</millis>
+  <nanos>827000</nanos>
+  <sequence>424</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.315388Z</date>
+  <millis>1729199167315</millis>
+  <nanos>388000</nanos>
+  <sequence>445</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.335908Z</date>
+  <millis>1729199167335</millis>
+  <nanos>908000</nanos>
+  <sequence>466</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.356005Z</date>
+  <millis>1729199167356</millis>
+  <nanos>5000</nanos>
+  <sequence>487</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.374808Z</date>
+  <millis>1729199167374</millis>
+  <nanos>808000</nanos>
+  <sequence>508</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.395176Z</date>
+  <millis>1729199167395</millis>
+  <nanos>176000</nanos>
+  <sequence>529</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.415441Z</date>
+  <millis>1729199167415</millis>
+  <nanos>441000</nanos>
+  <sequence>550</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.434474Z</date>
+  <millis>1729199167434</millis>
+  <nanos>474000</nanos>
+  <sequence>571</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.455610Z</date>
+  <millis>1729199167455</millis>
+  <nanos>610000</nanos>
+  <sequence>592</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.476416Z</date>
+  <millis>1729199167476</millis>
+  <nanos>416000</nanos>
+  <sequence>613</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.496097Z</date>
+  <millis>1729199167496</millis>
+  <nanos>97000</nanos>
+  <sequence>634</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.518214Z</date>
+  <millis>1729199167518</millis>
+  <nanos>214000</nanos>
+  <sequence>655</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.539331Z</date>
+  <millis>1729199167539</millis>
+  <nanos>331000</nanos>
+  <sequence>676</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.560084Z</date>
+  <millis>1729199167560</millis>
+  <nanos>84000</nanos>
+  <sequence>697</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.579673Z</date>
+  <millis>1729199167579</millis>
+  <nanos>673000</nanos>
+  <sequence>718</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.601136Z</date>
+  <millis>1729199167601</millis>
+  <nanos>136000</nanos>
+  <sequence>739</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.620293Z</date>
+  <millis>1729199167620</millis>
+  <nanos>293000</nanos>
+  <sequence>760</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.639197Z</date>
+  <millis>1729199167639</millis>
+  <nanos>197000</nanos>
+  <sequence>781</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.658752Z</date>
+  <millis>1729199167658</millis>
+  <nanos>752000</nanos>
+  <sequence>802</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.678621Z</date>
+  <millis>1729199167678</millis>
+  <nanos>621000</nanos>
+  <sequence>823</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.698281Z</date>
+  <millis>1729199167698</millis>
+  <nanos>281000</nanos>
+  <sequence>844</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.718205Z</date>
+  <millis>1729199167718</millis>
+  <nanos>205000</nanos>
+  <sequence>865</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.739211Z</date>
+  <millis>1729199167739</millis>
+  <nanos>211000</nanos>
+  <sequence>886</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.757898Z</date>
+  <millis>1729199167757</millis>
+  <nanos>898000</nanos>
+  <sequence>907</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.777991Z</date>
+  <millis>1729199167777</millis>
+  <nanos>991000</nanos>
+  <sequence>928</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.799023Z</date>
+  <millis>1729199167799</millis>
+  <nanos>23000</nanos>
+  <sequence>949</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.819457Z</date>
+  <millis>1729199167819</millis>
+  <nanos>457000</nanos>
+  <sequence>970</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.839563Z</date>
+  <millis>1729199167839</millis>
+  <nanos>563000</nanos>
+  <sequence>991</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.859901Z</date>
+  <millis>1729199167859</millis>
+  <nanos>901000</nanos>
+  <sequence>1012</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.878507Z</date>
+  <millis>1729199167878</millis>
+  <nanos>507000</nanos>
+  <sequence>1033</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.898654Z</date>
+  <millis>1729199167898</millis>
+  <nanos>654000</nanos>
+  <sequence>1054</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.916936Z</date>
+  <millis>1729199167916</millis>
+  <nanos>936000</nanos>
+  <sequence>1075</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.935909Z</date>
+  <millis>1729199167935</millis>
+  <nanos>909000</nanos>
+  <sequence>1096</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.954816Z</date>
+  <millis>1729199167954</millis>
+  <nanos>816000</nanos>
+  <sequence>1117</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.973471Z</date>
+  <millis>1729199167973</millis>
+  <nanos>471000</nanos>
+  <sequence>1138</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:07.992573Z</date>
+  <millis>1729199167992</millis>
+  <nanos>573000</nanos>
+  <sequence>1159</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.012735Z</date>
+  <millis>1729199168012</millis>
+  <nanos>735000</nanos>
+  <sequence>1180</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.031351Z</date>
+  <millis>1729199168031</millis>
+  <nanos>351000</nanos>
+  <sequence>1201</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.050282Z</date>
+  <millis>1729199168050</millis>
+  <nanos>282000</nanos>
+  <sequence>1222</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.069283Z</date>
+  <millis>1729199168069</millis>
+  <nanos>283000</nanos>
+  <sequence>1243</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.088401Z</date>
+  <millis>1729199168088</millis>
+  <nanos>401000</nanos>
+  <sequence>1264</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.109198Z</date>
+  <millis>1729199168109</millis>
+  <nanos>198000</nanos>
+  <sequence>1285</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.128453Z</date>
+  <millis>1729199168128</millis>
+  <nanos>453000</nanos>
+  <sequence>1306</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.148166Z</date>
+  <millis>1729199168148</millis>
+  <nanos>166000</nanos>
+  <sequence>1327</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.169169Z</date>
+  <millis>1729199168169</millis>
+  <nanos>169000</nanos>
+  <sequence>1348</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.189908Z</date>
+  <millis>1729199168189</millis>
+  <nanos>908000</nanos>
+  <sequence>1369</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.209843Z</date>
+  <millis>1729199168209</millis>
+  <nanos>843000</nanos>
+  <sequence>1390</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.230622Z</date>
+  <millis>1729199168230</millis>
+  <nanos>622000</nanos>
+  <sequence>1411</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.251277Z</date>
+  <millis>1729199168251</millis>
+  <nanos>277000</nanos>
+  <sequence>1432</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.271750Z</date>
+  <millis>1729199168271</millis>
+  <nanos>750000</nanos>
+  <sequence>1453</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.291514Z</date>
+  <millis>1729199168291</millis>
+  <nanos>514000</nanos>
+  <sequence>1474</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.311176Z</date>
+  <millis>1729199168311</millis>
+  <nanos>176000</nanos>
+  <sequence>1495</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.331918Z</date>
+  <millis>1729199168331</millis>
+  <nanos>918000</nanos>
+  <sequence>1516</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.352570Z</date>
+  <millis>1729199168352</millis>
+  <nanos>570000</nanos>
+  <sequence>1537</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.372949Z</date>
+  <millis>1729199168372</millis>
+  <nanos>949000</nanos>
+  <sequence>1558</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.393863Z</date>
+  <millis>1729199168393</millis>
+  <nanos>863000</nanos>
+  <sequence>1579</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.413886Z</date>
+  <millis>1729199168413</millis>
+  <nanos>886000</nanos>
+  <sequence>1600</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.434545Z</date>
+  <millis>1729199168434</millis>
+  <nanos>545000</nanos>
+  <sequence>1621</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.455493Z</date>
+  <millis>1729199168455</millis>
+  <nanos>493000</nanos>
+  <sequence>1642</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.475405Z</date>
+  <millis>1729199168475</millis>
+  <nanos>405000</nanos>
+  <sequence>1663</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.494222Z</date>
+  <millis>1729199168494</millis>
+  <nanos>222000</nanos>
+  <sequence>1684</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.512821Z</date>
+  <millis>1729199168512</millis>
+  <nanos>821000</nanos>
+  <sequence>1705</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
+</message>
+</record>
+<record>
+  <date>2024-10-17T21:06:08.532980Z</date>
+  <millis>1729199168532</millis>
+  <nanos>980000</nanos>
+  <sequence>1726</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Can't Run Target CPU: (Error -1141 @ 0x0) Device is not responding to the request. Reset the device, and retry the operation. If error persists, confirm configuration, power-cycle the board, and/or try more reliable JTAG settings (e.g. lower TCLK). (Emulation package 12.7.0.00130) 
 </message>
 </record>
 </log>

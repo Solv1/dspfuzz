@@ -61,6 +61,7 @@ def log(func):
         end_time = time.clock_gettime(time.CLOCK_BOOTTIME)
         logging.debug('Exiting ' + func.__name__)
         print('DSLOG: Time taken for ' + func.__name__ + ' = ' + str(end_time-start_time))
+        print('--------------------------------')
         return ret_value
     return wrapper
 
@@ -123,7 +124,7 @@ def find_coverage_call():
         asm_in_mem = debugSession.memory.readData(1, (sut_address//2), 32)
         print(hex(asm_in_mem))
 
-    asm_in_mem = 1812026085
+    asm_in_mem = 1812024591
     print(hex(asm_in_mem))
 
 def reset_and_reload():
@@ -188,15 +189,15 @@ def reset_and_reload():
         #Set breakpoints again
         retVal = set_intial_breakpoints()
         if(retVal == -1):
-            return
-        
+            print('-----Failed to set intial breakpoints-----')
+        # set_refresh_breakpoint()
         refresh_local_pool()
 
         #start the refresh thread
         # timeout = calculate_timeout(refresh_global_pool(), 15)
         # timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
         # timer_thread.start()
-        set_refresh_breakpoint()
+        
 
 
 
@@ -410,8 +411,8 @@ def calculate_timeout(global_pool_size, local_pool_size) -> int:
         
         
         # timeout = 3600
-        timeout = 1200
-        # timeout = 60
+        # timeout = 1200
+        timeout = 60
     else:
         timeout = max(90, 1200 - (global_pool_size  * 15))
 
@@ -503,7 +504,7 @@ def write_local_pool() -> None:
             
             corpus_address = corpus_address + seed_size
 
-
+    print('-----Local Pool Written-----')
     #Continue fuzzing execution.
     #debugSession.target.runAsynch()
 
@@ -517,14 +518,14 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
     """
     global seed_size
 
-    # test_seed = []
+    test_seed = []
     #TODO: Add Check for empty seed spots?
     # print('-----Obtained Seed------')
     for x in range (0, seed_size):
         try:
             
             seed = str(debugSession.memory.readData(1, seed_address + x, 16))
-            # test_seed.append(seed)
+            test_seed.append(seed)
         except(Exception):
             print('ERROR: Memory read error wait a second and try again.')
             time.sleep(.05)
@@ -539,7 +540,7 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
         else:
             with open(dir+str(seed_id), 'a+') as fp:
                 fp.write('\n'+seed)
-    # print(test_seed)
+    print(test_seed)
 
 @log
 def _pull_stage_cycles():
@@ -588,10 +589,10 @@ def current_seed_to_global_pool() -> None:
 
     #Get the address of the current seed.
     current_seed_pointer_address = debugSession.symbol.getAddress('current_input')
-    # print('-----Current Seed Address -->', current_seed_pointer_address)
-    current_seed_pointer = debugSession.memory.readData(1, current_seed_pointer_address , 32)
-    # print('-----Current Seed Pointer -->', current_seed_pointer)
-    current_seed_address = debugSession.memory.readData(1, current_seed_pointer , 16)
+    print('-----Current Seed Address -->', current_seed_pointer_address)
+    current_seed_address = debugSession.memory.readData(1, current_seed_pointer_address , 32)
+    print('-----Current Seed Pointer -->', current_seed_address)
+    # current_seed_address = debugSession.memory.readData(1, current_seed_pointer , 16)
     # print('-----Current Seed Address ---> ',current_seed_address)
 
     #Pull the stage cycles to determine what mutation pattern is effective
@@ -677,8 +678,8 @@ def crash_reload() -> None:
     dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
     #Put the crashing input in the crashes directory.
     current_seed_pointer_address = debugSession.symbol.getAddress('current_input')
-    current_seed_pointer = debugSession.memory.readData(1, current_seed_pointer_address , 32)
-    current_seed_address = debugSession.memory.readData(1, current_seed_pointer , 16)
+    current_seed_address = debugSession.memory.readData(1, current_seed_pointer_address , 32)
+    # current_seed_address = debugSession.memory.readData(1, current_seed_pointer , 16)
     _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/' + dt_string, isCrash=True)
 
     # #Pull coverage map before loading
@@ -746,10 +747,10 @@ def device_listener() -> None:
     while(1):    
         #Once the device is halted check to see what breakpoint was hit.
         # debugSession.target.waitForHalt()
-        # try:
-        debugSession.target.run()
-        # except:
-        #     reset_and_reload()
+        try:
+            debugSession.target.run()
+        except:
+            crash_reload()
         if (sanity_check):
             sanity_check.cancel()
             sanity_check = None
@@ -791,10 +792,10 @@ def set_refresh_breakpoint() -> None:
 
     #If we set the refresh breakpoint and it is not hit within a second which is a long time -> assume a crash.
     print("-----Starting Sanity Check-----")
-    sanity_check = threading.Timer(4, crash_reload)
+    sanity_check = threading.Timer(10, crash_reload)
     sanity_check.start()
 
-    #Sleep for a second and wait for the fuzzer to finish its latest run.
+    # Sleep for a second and wait for the fuzzer to finish its latest run.
     # time.sleep(0.05)
 
     # _pull_statistics()

@@ -54,11 +54,12 @@ SECTIONS
         //.bss     : {} > SARAM15 PAGE 0      /* for normal testing, move .bss off of DARAM */
         .bss    :  {} > SARAM5        /* for optimal timing tests, put .bss in DARAM */
         .input   : {} > DARAM2  PAGE 0        /* for optimal timing tests, put .input in DARAM */
-        .coeffs  : {} > DARAM0  PAGE 0        /* for optimal timing tests, put .coeffs in DARAM */
-        .dbuffer : {} > DARAM1  PAGE 0        /* for optimal timing tests, put .dbuffer in DARAM */
+        .coeffs  : {} > DARAM1  PAGE 0        /* for optimal timing tests, put .coeffs in DARAM */
+        .dbuffer : {} > DARAM2  PAGE 0        /* for optimal timing tests, put .dbuffer in DARAM */
         .const   : {} > SARAM8  PAGE 0        
         .cio     : {} > DARAM2  PAGE 0
 	.switch  : {} > SARAM9  PAGE 0
+	.twiddle : {} > SARAM3  PAGE 0, align(2048)
         .program_sandbox : > SARAM11 /* Store the device under test here */
         {
 		/*new_test_fuzz.obj*/

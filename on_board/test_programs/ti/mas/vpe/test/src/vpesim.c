@@ -144,13 +144,13 @@ void  vpe_sim_fileio_end    (vpeSimFileIo_t *fioptr);
 void  vpe_sim_init          (int16_t * input);
 int16_t  vpe_init              (int16_t * input);
 // extern tbool vpe_sim_fread         (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
-tbool vpe_sim_fread         (linSample *buf, tint buf_size, int16_t * inptr, int16_t size);
-void  vpe_sim_fwrite        (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
+// tbool vpe_sim_fread         (linSample *buf, tint buf_size, int16_t * inptr, int16_t size);
+// void  vpe_sim_fwrite        (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
 void  vpe_sim_input_mux     (void);
 void  vpe_sim_output_mux    (void);
-void  vpe_print             (char *str);
-void  vpe_iprint            (char *str, tlong ivar);
-void  vpe_sprint            (char *str, char *svar);
+// void  vpe_print             (char *str);
+// void  vpe_iprint            (char *str, tlong ivar);
+// void  vpe_sprint            (char *str, char *svar);
 void  vpe_sim_open_sgn      (void *inst, int16_t * input);
 void  vpe_sim_set_sgn (void *inst, vpeSGNPars_t *sgn, tint Fs);
 void  vpe_sim_gen_frame     (void *inst, tint frame_size, linSample *frame);
@@ -422,16 +422,16 @@ int16_t telecom_test(int16_t * input, int16_t size)
       }
 
       /* Check for simulation halt */
-      sample_total = (tulong) second_count * vpeSim->Fs + sample_count;
-      if ((vpeSim->sample_bp != 0)            &&
-          (sample_total >= vpeSim->sample_bp) && 
-          (sample_total  - vpeSim->sample_bp) < vpeSim->frame_size_in) {
-//        vpe_iprint (" - Halting after %d samples\n", sample_total);
-        vpeSim->exec = FALSE;
-        // return vpe_SIM_ERR_5;
-        // vpe_halt (&vpeSim->exec);
-      }
-      vpeSim->sample_cnt = sample_total;
+//       sample_total = (tulong) second_count * vpeSim->Fs + sample_count;
+//       if ((vpeSim->sample_bp != 0)            &&
+//           (sample_total >= vpeSim->sample_bp) && 
+//           (sample_total  - vpeSim->sample_bp) < vpeSim->frame_size_in) {
+// //        vpe_iprint (" - Halting after %d samples\n", sample_total);
+//         vpeSim->exec = FALSE;
+//         // return vpe_SIM_ERR_5;
+//         // vpe_halt (&vpeSim->exec);
+//       }
+//       vpeSim->sample_cnt = sample_total;
 
   if(vpeSim->nr_on) {
     retVal = vpe_deinstantiate_nr();

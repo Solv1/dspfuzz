@@ -15,7 +15,6 @@ int16_t test(uint16_t argc, int16_t args[]) {
     // if (args == NULL){
     //     while(1);
     // }
-
     if ((args[0] % 256) == 'D'){
         if ((args[1] % 256) == 'E'){
             if ((args[2] % 256) == 'A'){

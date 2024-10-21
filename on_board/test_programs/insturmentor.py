@@ -201,6 +201,7 @@ def third_pass(lines, insturment_labels):
     #Now that we have checked for rpt blocks we can see where we need to add insturmentation
     #We track line numbers where these instructions are and then add them to a list to be insturmented
     print("These are the labels: ", insturment_labels)
+    print(len(insturment_labels))
     inRepeatBlock = False
     for index, pre_line in enumerate(lines, start = 1):
         

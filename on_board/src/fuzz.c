@@ -89,8 +89,8 @@ volatile uint16_t mutation_degression = 1;
 
 // extern int16_t telecom_test(int16_t * input, int16_t size );
 // extern int32_t jpeg_test(uint16_t * input, uint16_t w, uint16_t h);
-extern int16_t sonar_test(int16_t * input, int16_t size);
-// extern int16_t test(uint16_t argc, int16_t args[]);
+// extern int16_t sonar_test(int16_t * input, int16_t size);
+extern int16_t test(uint16_t argc, int16_t args[]);
 // extern int16_t pace_test(int16_t * raw_data, uint16_t size);
 // extern int16_t process_image(int16_t * raw_sample, int16_t size);
 
@@ -595,10 +595,10 @@ void main_harness_loop(){
     int16_t test_case_size ;
 	uint16_t i;
     CSL_Handle timer_handle;
-    test_case_size = 125;
+    test_case_size = 35;
 
     // setup(&test);
-    setup(&sonar_test);
+    setup(&test);
 
     setjmp(saved_context);
 
@@ -614,23 +614,25 @@ void main_harness_loop(){
     //printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", num_of_seeds, stage_cycles);
 
     
-    //test(32,current_input);
+    
     // communcation_test(current_input, sizeof(current_input));
     
     //filter_test(current_input,output_buffer,sizeof(current_input));
     
     //compress_and_decompress(current_input, sizeof(current_input));
     
-    // jpeg_test(current_input, current_input[0]%30, current_input[1]%30);
     
-    // test(test_case_size ,current_input);
+    
+    
     
     
 
     start_timer(&timer_handle);
+    // jpeg_test(current_input, current_input[0]%30, current_input[1]%30);
     // pace_test(current_input,current_input[0]%test_case_size+1);
-    // telecom_test(current_input, test_case_size);    
-    sonar_test(current_input, test_case_size);
+    // telecom_test(current_in1put, test_case_size);    
+    test(test_case_size ,current_input);
+    // sonar_test(current_input, current_input[0]%test_case_size);
     // process_image(current_input,(current_input[0]%test_case_size+1));
     stop_timer(&timer_handle);
 

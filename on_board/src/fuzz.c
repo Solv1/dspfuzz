@@ -43,11 +43,9 @@
 volatile int16_t local_pool[SEED_CAPACITY][WIDTH]; // A bunch of inputs here
 volatile int16_t current_seed_num = 0; //Track which seeds are in use
 
+#pragma DATA_SECTION(intersting_cases,".program_sandbox")
+volatile uint16_t intersting_cases = 0;
 
-// int16_t * previous_input;
-// int16_t previous_size;
-// int16_t * current_input;
-// int16_t current_size;
 
 // #pragma DATA_SECTION(current_input, ".program_sandbox") // Store the current_seed in a sandbox away from program memory.
 // int16_t current_input[WIDTH];
@@ -62,7 +60,7 @@ volatile uint16_t * coverage_map_head; //Head tracker of the coverage map.
 
 
 volatile uint16_t return_address = 0;
-//uint16_t coverage_map[MAX_COVERAGE] = {0};
+
 
 int16_t retVal;
 uint16_t seed_number = 0;
@@ -87,10 +85,10 @@ volatile uint16_t iterations = 0;
 
 volatile uint16_t mutation_degression = 1;
 
-// extern int16_t telecom_test(int16_t * input, int16_t size );
+extern int16_t telecom_test(int16_t * input, int16_t size );
 // extern int32_t jpeg_test(uint16_t * input, uint16_t w, uint16_t h);
 // extern int16_t sonar_test(int16_t * input, int16_t size);
-extern int16_t test(uint16_t argc, int16_t args[]);
+// extern int16_t test(uint16_t argc, int16_t args[]);
 // extern int16_t pace_test(int16_t * raw_data, uint16_t size);
 // extern int16_t process_image(int16_t * raw_sample, int16_t size);
 
@@ -377,7 +375,7 @@ void mutator(int16_t * input, size_t input_size){
     //         }
     //     }
     // }
-    if(stage_cycles < 2 ){
+    if(stage_cycles < 2 && mutation_degression < 5){
         for(i = start; i < input_size; i = i + mutation_amount){
             //Walking 1-bit flip with one bit step over
             for(j = stage_cycles % 2; j < 16; j++){
@@ -387,7 +385,7 @@ void mutator(int16_t * input, size_t input_size){
         }
     }
 
-    else if(stage_cycles < 4 ){
+    else if(stage_cycles < 4 && mutation_degression < 5){
         for(i = start; i < input_size; i = i + mutation_amount){
             // Walking 2-bit flip with one bit step over
             for(j = stage_cycles % 2; j < 16; j++){
@@ -397,7 +395,7 @@ void mutator(int16_t * input, size_t input_size){
             }
         }
     }
-    else if(stage_cycles < 6){
+    else if(stage_cycles < 6 && mutation_degression < 5){
         for(i = start; i < input_size; i = i + mutation_amount){
             // Walking 4-bit with one bit step over
             for(j = stage_cycles % 2; j < 16; j++){
@@ -409,21 +407,21 @@ void mutator(int16_t * input, size_t input_size){
             }            
         }
     }
-    else if(stage_cycles < 8){
+    else if(stage_cycles < 8 && mutation_degression < 5){
 
         //walking 8-bit flip -> reminder: bytes are 16-bits here
         for(i = start; i < input_size; i = i + mutation_amount){
             input[i] = byteflip(input[i], (stage_cycles % 2));
         }
     }
-    else if(stage_cycles < 10){
+    else if(stage_cycles < 10 && mutation_degression < 5){
         //Walking full byte flip
         for(i = start; i < input_size; i = i + mutation_amount){
             input[i] = byteflip(input[i], 0);
             input[i] = byteflip(input[i], 1);
         }
     }
-    else if(stage_cycles < 12){
+    else if(stage_cycles < 12 && mutation_degression < 5){
         //Walking 32-bit flip
         for(i = start; i < input_size; i = i + mutation_amount + 2){
             if((i+1) >= start + mutation_amount){
@@ -436,14 +434,14 @@ void mutator(int16_t * input, size_t input_size){
         }
     }
     
-    else if(stage_cycles < 48){
+    else if(stage_cycles < 48 && mutation_degression < 5){
         //Add a increasing value.
         for(i = start; i < input_size; i = i + mutation_amount){
             input[i] = input[i] + (stage_cycles % 35);
             i++;
         }
     }
-    else if(stage_cycles < 82){
+    else if(stage_cycles < 82 && mutation_degression < 5){
         //Subtract a increasing value.
         for(i = start; i < input_size; i = i + mutation_amount){
                 input[i] = input[i] - (stage_cycles % 35);
@@ -598,7 +596,7 @@ void main_harness_loop(){
     test_case_size = 35;
 
     // setup(&test);
-    setup(&test);
+    setup(&telecom_test);
 
     setjmp(saved_context);
 
@@ -621,23 +619,17 @@ void main_harness_loop(){
     
     //compress_and_decompress(current_input, sizeof(current_input));
     
-    
-    
-    
-    
-    
-
     start_timer(&timer_handle);
     // jpeg_test(current_input, current_input[0]%30, current_input[1]%30);
     // pace_test(current_input,current_input[0]%test_case_size+1);
-    // telecom_test(current_in1put, test_case_size);    
-    test(test_case_size ,current_input);
+    telecom_test(current_input, test_case_size);    
+    // test(test_case_size ,current_input);
     // sonar_test(current_input, current_input[0]%test_case_size);
     // process_image(current_input,(current_input[0]%test_case_size+1));
     stop_timer(&timer_handle);
 
     if(cov_function_enter && (coverage_map[0] != -1)){
-
+        intersting_cases++;
         bubble_coverage();
 
         /* Clear the coverage map*/
@@ -650,7 +642,7 @@ void main_harness_loop(){
         mutation_degression = 1;
     }
     else if(cov_function_enter){
-    printf("ERROR: Coverage map is zeroed but flag is set. \n");
+        printf("ERROR: Coverage map is zeroed but flag is set. \n");
     }
 
     longjmp(saved_context, true);

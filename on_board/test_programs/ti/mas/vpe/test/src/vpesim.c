@@ -315,15 +315,15 @@ int16_t telecom_test(int16_t * input, int16_t size)
       if (vpeSim->snl_on ){
         /* calculate snl */
         retVal = snlProcess (snlInst_ptr, buf_Inptr, vpeSim->frame_size_out);
-        if(retVal != 0){
+        // if(retVal != 0){
         
-          return 1;
-        }
+        //   return 1;
+        // }
         retVal = snlGetLevels (snlInst_ptr, &spchLevdB, &noiseLevdB, &Nthresh);
-        if(retVal != 0){
+        // if(retVal != 0){
         
-          return 1;
-        }
+        //   return 1;
+        // }
 
         /* write SNL results to a file */
 //        vpe_sim_fwrite (&spchLevdB, 1, &snlLevOut);
@@ -335,16 +335,16 @@ int16_t telecom_test(int16_t * input, int16_t size)
       if (vpeSim->svd_on ){
         /* run svd and get decisions */
         retVal = svdProcess (svdInst_ptr, buf_Inptr, vpeSim->frame_size_out);
-        if(retVal != 0){
+        // if(retVal != 0){
         
-          return 1;
-        }
+        //   return 1;
+        // }
         vad_flag = svdGetDecision (svdInst_ptr, &svd_sig_pow);
         retVal = svdGetLevels (svdInst_ptr, &spchLevdB, &noiseLevdB, &Nthresh);
-        if(retVal != 0){
+        // if(retVal != 0){
         
-          return 1;
-        }
+        //   return 1;
+        // }
         
         /* write SVD results to a file */
 //        vpe_sim_fwrite (&vad_flag, 1, &svdOut);

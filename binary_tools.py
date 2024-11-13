@@ -47,9 +47,10 @@ def _read_raw_binary(bin_path):
 
     return raw_binary
 
-def find_calls(bin_path, disasm) -> dict:
+def find_calls(bin_path, disasm, priorTest) -> dict:
     """Searches binary file for our distinct byte value for our insturmentation i.e 0x6c014b19.
     When the begining of a call is found its offset from the first call made in the program is saved along with the byte number to uninsturment later.
+    This is stored in a local file for use in future 
 
     @Arguments: bin_file -> path to the binary we are going to search.
     @Return: A dictionary -> offset:byte number
@@ -62,14 +63,24 @@ def find_calls(bin_path, disasm) -> dict:
     flag_2 = False
     flag_3 = False
     byte_1 = binascii.hexlify((((disasm >> 24) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_1)
+    # print(byte_1)
     byte_2 = binascii.hexlify((((disasm >> 16) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_2)
+    # print(byte_2)
     byte_3 = binascii.hexlify((((disasm >> 8) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_3)
+    # print(byte_3)
     byte_4 = binascii.hexlify((((disasm) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_4)
+    # print(byte_4)
     
+    if priorTest:
+        data = {}
+        with open('./cov.dat', 'r+') as fp:
+            for line in fp:
+                key, value = line.strip().split(': ')
+                data[int(key)] = int(value)
+        print('-----Loading Previous Offsets-----')
+        print(data)
+        return data
+
 
 
     raw_binary = _read_raw_binary(bin_path)
@@ -97,8 +108,13 @@ def find_calls(bin_path, disasm) -> dict:
     for x in range(0,  len(call_function_starts)):
         # Saves the offset|byte number pair for later referance and uninsturmentation.
         coverage_locations[call_function_starts[x] - call_function_starts[0]] = call_function_starts[x]
-        
-    #print(coverage_locations)
+
+    print(coverage_locations)
+    print('---------------------------------')
+    with open('./cov.dat', 'w+') as fp:
+        for offset, byte_number in coverage_locations.items():
+            fp.write(f"{offset}: {byte_number}\n")
+
     return coverage_locations
 
 
@@ -150,6 +166,10 @@ def uninsturment(coverage_dict,coverage_map):
     if missing_coverage:
         return None
     print('-----New Coverage-----\n', new_coverage)
+    with open('./cov.dat', 'w+') as fp:
+        for offset, byte_number in new_coverage.items():
+            fp.write(f"{offset}: {byte_number}\n")
+
     return new_coverage
 
 

@@ -1,6 +1,6 @@
 ;*******************************************************************************
 ;* TMS320C55x C/C++ Codegen                                        Unix v4.4.1 *
-;* Date/Time created: Tue Oct 15 21:54:08 2024                                 *
+;* Date/Time created: Mon Nov  4 15:03:35 2024                                 *
 ;*******************************************************************************
 	.compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --object_format=coff --silicon_core_1_0 --silicon_core_1_1 --silicon_core_2_0 --silicon_core_2_1 --silicon_core_2_2 --symdebug:dwarf 
 	.mmregs
@@ -757,7 +757,7 @@ $C$DW$136	.dwtag  DW_TAG_variable, DW_AT_name("outCnt")
 	.dwattr $C$DW$136, DW_AT_location[DW_OP_addr _outCnt]
 	.dwattr $C$DW$136, DW_AT_type(*$C$DW$T$21)
 	.dwattr $C$DW$136, DW_AT_external
-;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/45718sctJXU 
+;	/home/santiago/Research/Ti/C55_Tools/acp55 -@/tmp/22491JM0TzU 
 	.sect	".text"
 	.global	_telecom_test
 
@@ -874,7 +874,7 @@ $C$DW$151	.dwtag  DW_TAG_TI_branch
                                         ; branchcc occurs ; |191| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 193,column 5,is_stmt
         MOV #1, T0
-        B $C$L19  ; |193| 
+        B $C$L17  ; |193| 
                                         ; branch occurs ; |193| 
 $C$L1:    
 	CALL #_coverage_log;
@@ -889,7 +889,7 @@ $C$DW$152	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#13) ; |195| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 196,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L19,AR1 > #0 ; |196| 
+        BCC $C$L17,AR1 > #0 ; |196| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |196| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 198,column 5,is_stmt
@@ -1004,7 +1004,7 @@ $C$DW$156	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#13) ; |253| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 254,column 9,is_stmt
         MOV T0, AR1
-        BCC $C$L19,AR1 != #0 ; |254| 
+        BCC $C$L17,AR1 != #0 ; |254| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |254| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 256,column 11,is_stmt
@@ -1047,7 +1047,7 @@ $C$DW$157	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |267| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 269,column 13,is_stmt
         MOV #6, T0
-        B $C$L19  ; |269| 
+        B $C$L17  ; |269| 
                                         ; branch occurs ; |269| 
 $C$L7:    
 	CALL #_coverage_log;
@@ -1074,14 +1074,14 @@ $C$DW$158	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |275| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 277,column 11,is_stmt
         MOV #1, T0
-        B $C$L19  ; |277| 
+        B $C$L17  ; |277| 
                                         ; branch occurs ; |277| 
 $C$L8:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 315,column 7,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#3)), AR1 ; |315| 
-        BCC $C$L10,AR1 == #0 ; |315| 
+        BCC $C$L9,AR1 == #0 ; |315| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |315| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 317,column 9,is_stmt
@@ -1095,22 +1095,11 @@ $C$DW$159	.dwtag  DW_TAG_TI_branch
         CALL #_snlProcess ; |317| 
                                         ; call occurs [#_snlProcess] ; |317| 
         MOV T0, *SP(#13) ; |317| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 318,column 9,is_stmt
-        MOV T0, AR1
-        BCC $C$L9,AR1 == #0 ; |318| 
-	CALL #_coverage_log;
-                                        ; branchcc occurs ; |318| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 320,column 11,is_stmt
-        MOV #1, T0
-        B $C$L19  ; |320| 
-                                        ; branch occurs ; |320| 
-$C$L9:    
-	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 322,column 9,is_stmt
-        MOV dbl(*(#_snlInst_ptr)), XAR0
-        AMOV #_Nthresh, XAR3 ; |322| 
         AMOV #_noiseLevdB, XAR2 ; |322| 
+        AMOV #_Nthresh, XAR3 ; |322| 
         AMOV #_spchLevdB, XAR1 ; |322| 
+        MOV dbl(*(#_snlInst_ptr)), XAR0
 $C$DW$160	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$160, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$160, DW_AT_name("_snlGetLevels")
@@ -1118,21 +1107,12 @@ $C$DW$160	.dwtag  DW_TAG_TI_branch
         CALL #_snlGetLevels ; |322| 
                                         ; call occurs [#_snlGetLevels] ; |322| 
         MOV T0, *SP(#13) ; |322| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 323,column 9,is_stmt
-        MOV T0, AR1
-        BCC $C$L10,AR1 == #0 ; |323| 
-	CALL #_coverage_log;
-                                        ; branchcc occurs ; |323| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 325,column 11,is_stmt
-        MOV #1, T0
-        B $C$L19  ; |325| 
-                                        ; branch occurs ; |325| 
-$C$L10:    
+$C$L9:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 335,column 7,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#4)), AR1 ; |335| 
-        BCC $C$L12,AR1 == #0 ; |335| 
+        BCC $C$L10,AR1 == #0 ; |335| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |335| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 337,column 9,is_stmt
@@ -1146,17 +1126,6 @@ $C$DW$161	.dwtag  DW_TAG_TI_branch
         CALL #_svdProcess ; |337| 
                                         ; call occurs [#_svdProcess] ; |337| 
         MOV T0, *SP(#13) ; |337| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 338,column 9,is_stmt
-        MOV T0, AR1
-        BCC $C$L11,AR1 == #0 ; |338| 
-	CALL #_coverage_log;
-                                        ; branchcc occurs ; |338| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 340,column 11,is_stmt
-        MOV #1, T0
-        B $C$L19  ; |340| 
-                                        ; branch occurs ; |340| 
-$C$L11:    
-	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 342,column 9,is_stmt
         MOV XSP, XAR1
         MOV dbl(*(#_svdInst_ptr)), XAR0
@@ -1169,10 +1138,10 @@ $C$DW$162	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_svdGetDecision] ; |342| 
         MOV T0, *SP(#14) ; |342| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 343,column 9,is_stmt
-        AMOV #_Nthresh, XAR3 ; |343| 
-        AMOV #_noiseLevdB, XAR2 ; |343| 
         AMOV #_spchLevdB, XAR1 ; |343| 
         MOV dbl(*(#_svdInst_ptr)), XAR0
+        AMOV #_noiseLevdB, XAR2 ; |343| 
+        AMOV #_Nthresh, XAR3 ; |343| 
 $C$DW$163	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$163, DW_AT_low_pc(0x00)
 	.dwattr $C$DW$163, DW_AT_name("_svdGetLevels")
@@ -1180,16 +1149,7 @@ $C$DW$163	.dwtag  DW_TAG_TI_branch
         CALL #_svdGetLevels ; |343| 
                                         ; call occurs [#_svdGetLevels] ; |343| 
         MOV T0, *SP(#13) ; |343| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 344,column 9,is_stmt
-        MOV T0, AR1
-        BCC $C$L12,AR1 == #0 ; |344| 
-	CALL #_coverage_log;
-                                        ; branchcc occurs ; |344| 
-	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 346,column 11,is_stmt
-        MOV #1, T0
-        B $C$L19  ; |346| 
-                                        ; branch occurs ; |346| 
-$C$L12:    
+$C$L10:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 358,column 12,is_stmt
         MOV #0, *SP(#12) ; |358| 
@@ -1201,12 +1161,12 @@ $C$L12:
         CMPU AR2 >= AR1, TC1 ; |358| 
 ||      NOP       ;                     avoids Silicon Exception CPU_24
 
-        BCC $C$L14,TC1 ; |358| 
+        BCC $C$L12,TC1 ; |358| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |358| 
-$C$L13:    
+$C$L11:    
 	CALL #_coverage_log;
-$C$DW$L$_telecom_test$30$B:
+$C$DW$L$_telecom_test$24$B:
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 359,column 9,is_stmt
         MOV dbl(*SP(#6)), XAR3
         MOV *SP(#12), T0 ; |359| 
@@ -1224,20 +1184,20 @@ $C$DW$L$_telecom_test$30$B:
         CMPU AR2 < AR1, TC1 ; |358| 
 ||      NOP       ;                     avoids Silicon Exception CPU_24
 
-        BCC $C$L13,TC1 ; |358| 
+        BCC $C$L11,TC1 ; |358| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |358| 
-$C$DW$L$_telecom_test$30$E:
-$C$L14:    
+$C$DW$L$_telecom_test$24$E:
+$C$L12:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 363,column 7,is_stmt
         MOV *AR3(short(#2)), AR1 ; |363| 
-        BCC $C$L16,AR1 == #0 ; |363| 
+        BCC $C$L14,AR1 == #0 ; |363| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |363| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 364,column 9,is_stmt
         MOV *AR3(#19), AR1 ; |364| 
-        BCC $C$L15,AR1 == #0 ; |364| 
+        BCC $C$L13,AR1 == #0 ; |364| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |364| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 365,column 11,is_stmt
@@ -1255,7 +1215,7 @@ $C$DW$164	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#13) ; |366| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 367,column 11,is_stmt
         MOV T0, AR1
-        BCC $C$L15,AR1 == #0 ; |367| 
+        BCC $C$L13,AR1 == #0 ; |367| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |367| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 368,column 13,is_stmt
@@ -1266,9 +1226,9 @@ $C$DW$164	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |369| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 371,column 13,is_stmt
         MOV #9, T0
-        B $C$L19  ; |371| 
+        B $C$L17  ; |371| 
                                         ; branch occurs ; |371| 
-$C$L15:    
+$C$L13:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 375,column 9,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
@@ -1284,7 +1244,7 @@ $C$DW$165	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#13) ; |375| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 376,column 9,is_stmt
         MOV T0, AR1
-        BCC $C$L16,AR1 == #0 ; |376| 
+        BCC $C$L14,AR1 == #0 ; |376| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |376| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 377,column 11,is_stmt
@@ -1295,9 +1255,9 @@ $C$DW$165	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |378| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 380,column 11,is_stmt
         MOV #2, T0
-        B $C$L19  ; |380| 
+        B $C$L17  ; |380| 
                                         ; branch occurs ; |380| 
-$C$L16:    
+$C$L14:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 417,column 7,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
@@ -1311,7 +1271,7 @@ $C$L16:
         CMPU AR2 < AR1, TC1 ; |418| 
 ||      NOP       ;                     avoids Silicon Exception CPU_24
 
-        BCC $C$L17,TC1 ; |418| 
+        BCC $C$L15,TC1 ; |418| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |418| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 419,column 9,is_stmt
@@ -1320,11 +1280,11 @@ $C$L16:
         MOV AC0, *SP(#11) ; |419| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 420,column 9,is_stmt
         ADD #1, *SP(#10) ; |420| 
-$C$L17:    
+$C$L15:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 436,column 3,is_stmt
         MOV *AR3(short(#5)), AR1 ; |436| 
-        BCC $C$L18,AR1 == #0 ; |436| 
+        BCC $C$L16,AR1 == #0 ; |436| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |436| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 437,column 5,is_stmt
@@ -1337,18 +1297,18 @@ $C$DW$166	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#13) ; |437| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 438,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L18,AR1 == #0 ; |438| 
+        BCC $C$L16,AR1 == #0 ; |438| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |438| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 439,column 7,is_stmt
         MOV #1, T0
-        B $C$L19  ; |439| 
+        B $C$L17  ; |439| 
                                         ; branch occurs ; |439| 
-$C$L18:    
+$C$L16:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 443,column 3,is_stmt
         MOV #0, T0
-$C$L19:    
+$C$L17:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 444,column 1,is_stmt
         AADD #15, SP
@@ -1360,18 +1320,18 @@ $C$DW$167	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$168	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$168, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/test_programs/vpesim.asm:$C$L13:1:1729043648")
+	.dwattr $C$DW$168, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/test_programs/vpesim.asm:$C$L11:1:1730750615")
 	.dwattr $C$DW$168, DW_AT_TI_begin_file("./ti/mas/vpe/test/src/vpesim.c")
 	.dwattr $C$DW$168, DW_AT_TI_begin_line(0x166)
 	.dwattr $C$DW$168, DW_AT_TI_end_line(0x168)
 $C$DW$169	.dwtag  DW_TAG_TI_loop_range
-	.dwattr $C$DW$169, DW_AT_low_pc($C$DW$L$_telecom_test$30$B)
-	.dwattr $C$DW$169, DW_AT_high_pc($C$DW$L$_telecom_test$30$E)
+	.dwattr $C$DW$169, DW_AT_low_pc($C$DW$L$_telecom_test$24$B)
+	.dwattr $C$DW$169, DW_AT_high_pc($C$DW$L$_telecom_test$24$E)
 	.dwendtag $C$DW$168
 
 
 $C$DW$170	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$170, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/test_programs/vpesim.asm:$C$L4:1:1729043648")
+	.dwattr $C$DW$170, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/test_programs/vpesim.asm:$C$L4:1:1730750615")
 	.dwattr $C$DW$170, DW_AT_TI_begin_file("./ti/mas/vpe/test/src/vpesim.c")
 	.dwattr $C$DW$170, DW_AT_TI_begin_line(0xf7)
 	.dwattr $C$DW$170, DW_AT_TI_end_line(0xf9)
@@ -1591,21 +1551,21 @@ $C$DW$179	.dwtag  DW_TAG_variable, DW_AT_name("samp_freq")
         MOV AR1, *AR3(#21) ; |561| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 562,column 3,is_stmt
         CMP *SP(#2) == #16000, TC1 ; |562| 
-        BCC $C$L20,!TC1 ; |562| 
+        BCC $C$L18,!TC1 ; |562| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |562| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 563,column 5,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV #1, *AR3(#24) ; |563| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 564,column 3,is_stmt
-        B $C$L21  ; |564| 
+        B $C$L19  ; |564| 
                                         ; branch occurs ; |564| 
-$C$L20:    
+$C$L18:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 566,column 5,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV #0, *AR3(#24) ; |566| 
-$C$L21:    
+$C$L19:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 579,column 2,is_stmt
         MOV dbl(*SP(#0)), XAR3
@@ -1756,19 +1716,19 @@ $C$DW$193	.dwtag  DW_TAG_variable, DW_AT_name("retVal")
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 607,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         CMP *AR3(#21) == #16000, TC1 ; |607| 
-        BCC $C$L22,!TC1 ; |607| 
+        BCC $C$L20,!TC1 ; |607| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |607| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 608,column 5,is_stmt
         MOV #160, *SP(#16) ; |608| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 609,column 3,is_stmt
-        B $C$L23  ; |609| 
+        B $C$L21  ; |609| 
                                         ; branch occurs ; |609| 
-$C$L22:    
+$C$L20:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 611,column 5,is_stmt
         MOV #80, *SP(#16) ; |611| 
-$C$L23:    
+$C$L21:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 616,column 3,is_stmt
         MOV *SP(#16), AR1 ; |616| 
@@ -1780,7 +1740,7 @@ $C$L23:
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 618,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#6)), AR1 ; |618| 
-        BCC $C$L24,AR1 == #0 ; |618| 
+        BCC $C$L22,AR1 == #0 ; |618| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |618| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 619,column 5,is_stmt
@@ -1799,12 +1759,12 @@ $C$DW$194	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$194, DW_AT_TI_call
         CALL #_memset ; |620| 
                                         ; call occurs [#_memset] ; |620| 
-$C$L24:    
+$C$L22:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 622,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#7)), AR1 ; |622| 
-        BCC $C$L25,AR1 == #0 ; |622| 
+        BCC $C$L23,AR1 == #0 ; |622| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |622| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 623,column 5,is_stmt
@@ -1821,12 +1781,12 @@ $C$DW$195	.dwtag  DW_TAG_TI_branch
 	.dwattr $C$DW$195, DW_AT_TI_call
         CALL #_memset ; |624| 
                                         ; call occurs [#_memset] ; |624| 
-$C$L25:    
+$C$L23:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 627,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#1)), AR1 ; |627| 
-        BCC $C$L32,AR1 == #0 ; |627| 
+        BCC $C$L30,AR1 == #0 ; |627| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |627| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 629,column 5,is_stmt
@@ -1841,7 +1801,7 @@ $C$DW$196	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |629| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 630,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L26,AR1 == #0 ; |630| 
+        BCC $C$L24,AR1 == #0 ; |630| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |630| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 631,column 7,is_stmt
@@ -1852,9 +1812,9 @@ $C$DW$196	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |632| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 633,column 7,is_stmt
         MOV #4, T0
-        B $C$L50  ; |633| 
+        B $C$L48  ; |633| 
                                         ; branch occurs ; |633| 
-$C$L26:    
+$C$L24:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 637,column 5,is_stmt
         MOV *SP(#10), T0 ; |637| 
@@ -1872,19 +1832,19 @@ $C$DW$197	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 644,column 5,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         CMP *AR3(#21) == #8000, TC1 ; |644| 
-        BCC $C$L27,!TC1 ; |644| 
+        BCC $C$L25,!TC1 ; |644| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |644| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 645,column 7,is_stmt
         MOV #1, *SP(#6) ; |645| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 646,column 5,is_stmt
-        B $C$L28  ; |646| 
+        B $C$L26  ; |646| 
                                         ; branch occurs ; |646| 
-$C$L27:    
+$C$L25:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 648,column 5,is_stmt
         MOV #2, *SP(#6) ; |648| 
-$C$L28:    
+$C$L26:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 652,column 5,is_stmt
         MOV #320, AR2 ; |652| 
@@ -1893,7 +1853,7 @@ $C$L28:
         CMPU AR1 > AR2, TC1 ; |652| 
 ||      NOP       ;                     avoids Silicon Exception CPU_24
 
-        BCC $C$L29,TC1 ; |652| 
+        BCC $C$L27,TC1 ; |652| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |652| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 653,column 7,is_stmt
@@ -1902,9 +1862,9 @@ $C$L28:
         MOV *AR3(#835), AR1 ; |654| 
         MOV AR1, *SP(#7) ; |654| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 655,column 5,is_stmt
-        B $C$L30  ; |655| 
+        B $C$L28  ; |655| 
                                         ; branch occurs ; |655| 
-$C$L29:    
+$C$L27:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 657,column 7,is_stmt
         MOV #5, *AR3(#833) ; |657| 
@@ -1913,9 +1873,9 @@ $C$L29:
         MOV #0, *AR3 ; |658| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 659,column 7,is_stmt
         MOV #5, T0
-        B $C$L50  ; |659| 
+        B $C$L48  ; |659| 
                                         ; branch occurs ; |659| 
-$C$L30:    
+$C$L28:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 663,column 5,is_stmt
         MOV XSP, XAR1
@@ -1929,7 +1889,7 @@ $C$DW$198	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |663| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 664,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L31,AR1 == #0 ; |664| 
+        BCC $C$L29,AR1 == #0 ; |664| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |664| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 665,column 7,is_stmt
@@ -1940,9 +1900,9 @@ $C$DW$198	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |666| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 667,column 7,is_stmt
         MOV #5, T0
-        B $C$L50  ; |667| 
+        B $C$L48  ; |667| 
                                         ; branch occurs ; |667| 
-$C$L31:    
+$C$L29:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 671,column 5,is_stmt
         MOV dbl(*(#_hctrlInst_ptr)), XAR3
@@ -1959,7 +1919,7 @@ $C$DW$199	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |672| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 673,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L32,AR1 == #0 ; |673| 
+        BCC $C$L30,AR1 == #0 ; |673| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |673| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 674,column 7,is_stmt
@@ -1970,14 +1930,14 @@ $C$DW$199	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |675| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 676,column 7,is_stmt
         MOV #7, T0
-        B $C$L50  ; |676| 
+        B $C$L48  ; |676| 
                                         ; branch occurs ; |676| 
-$C$L32:    
+$C$L30:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 682,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#2)), AR1 ; |682| 
-        BCC $C$L36,AR1 == #0 ; |682| 
+        BCC $C$L34,AR1 == #0 ; |682| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |682| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 684,column 5,is_stmt
@@ -1992,7 +1952,7 @@ $C$DW$200	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |684| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 685,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L33,AR1 == #0 ; |685| 
+        BCC $C$L31,AR1 == #0 ; |685| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |685| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 686,column 7,is_stmt
@@ -2003,9 +1963,9 @@ $C$DW$200	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |687| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 688,column 7,is_stmt
         MOV #10, T0
-        B $C$L50  ; |688| 
+        B $C$L48  ; |688| 
                                         ; branch occurs ; |688| 
-$C$L33:    
+$C$L31:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 691,column 5,is_stmt
         MOV *SP(#11), T0 ; |691| 
@@ -2023,19 +1983,19 @@ $C$DW$201	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 697,column 5,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         CMP *AR3(#21) == #8000, TC1 ; |697| 
-        BCC $C$L34,!TC1 ; |697| 
+        BCC $C$L32,!TC1 ; |697| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |697| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 698,column 7,is_stmt
         MOV #2, *SP(#9) ; |698| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 699,column 5,is_stmt
-        B $C$L35  ; |699| 
+        B $C$L33  ; |699| 
                                         ; branch occurs ; |699| 
-$C$L34:    
+$C$L32:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 701,column 7,is_stmt
         MOV #1, *SP(#9) ; |701| 
-$C$L35:    
+$C$L33:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 704,column 5,is_stmt
         MOV XSP, XAR1
@@ -2049,7 +2009,7 @@ $C$DW$202	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |704| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 705,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L36,AR1 == #0 ; |705| 
+        BCC $C$L34,AR1 == #0 ; |705| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |705| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 706,column 7,is_stmt
@@ -2060,14 +2020,14 @@ $C$DW$202	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |707| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 708,column 7,is_stmt
         MOV #8, T0
-        B $C$L50  ; |708| 
+        B $C$L48  ; |708| 
                                         ; branch occurs ; |708| 
-$C$L36:    
+$C$L34:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 714,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#3)), AR1 ; |714| 
-        BCC $C$L41,AR1 == #0 ; |714| 
+        BCC $C$L39,AR1 == #0 ; |714| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |714| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 715,column 5,is_stmt
@@ -2082,7 +2042,7 @@ $C$DW$203	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |715| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 716,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L37,AR1 == #0 ; |716| 
+        BCC $C$L35,AR1 == #0 ; |716| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |716| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 717,column 7,is_stmt
@@ -2093,9 +2053,9 @@ $C$DW$203	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |718| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 719,column 7,is_stmt
         MOV #11, T0
-        B $C$L50  ; |719| 
+        B $C$L48  ; |719| 
                                         ; branch occurs ; |719| 
-$C$L37:    
+$C$L35:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 722,column 5,is_stmt
         MOV *SP(#12), T0 ; |722| 
@@ -2109,19 +2069,19 @@ $C$DW$204	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 724,column 5,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         CMP *AR3(#21) == #8000, TC1 ; |724| 
-        BCC $C$L38,!TC1 ; |724| 
+        BCC $C$L36,!TC1 ; |724| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |724| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 725,column 7,is_stmt
         MOV #1, *SP(#15) ; |725| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 726,column 5,is_stmt
-        B $C$L39  ; |726| 
+        B $C$L37  ; |726| 
                                         ; branch occurs ; |726| 
-$C$L38:    
+$C$L36:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 728,column 7,is_stmt
         MOV #2, *SP(#15) ; |728| 
-$C$L39:    
+$C$L37:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 731,column 5,is_stmt
         MOV *SP(#15), T0 ; |731| 
@@ -2134,7 +2094,7 @@ $C$DW$205	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |731| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 732,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L40,AR1 == #0 ; |732| 
+        BCC $C$L38,AR1 == #0 ; |732| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |732| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 733,column 7,is_stmt
@@ -2145,9 +2105,9 @@ $C$DW$205	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |734| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 735,column 7,is_stmt
         MOV #12, T0
-        B $C$L50  ; |735| 
+        B $C$L48  ; |735| 
                                         ; branch occurs ; |735| 
-$C$L40:    
+$C$L38:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 738,column 4,is_stmt
         AMOV #$C$FSL1, XAR1 ; |738| 
@@ -2163,12 +2123,12 @@ $C$DW$206	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 740,column 4,is_stmt
         MOV #0, AC0 ; |740| 
         MOV AC0, dbl(*(#(_snlLevOut+2)))
-$C$L41:    
+$C$L39:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 744,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#4)), AR1 ; |744| 
-        BCC $C$L46,AR1 == #0 ; |744| 
+        BCC $C$L44,AR1 == #0 ; |744| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |744| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 745,column 5,is_stmt
@@ -2183,7 +2143,7 @@ $C$DW$207	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |745| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 746,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L42,AR1 == #0 ; |746| 
+        BCC $C$L40,AR1 == #0 ; |746| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |746| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 747,column 7,is_stmt
@@ -2194,9 +2154,9 @@ $C$DW$207	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |748| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 749,column 7,is_stmt
         MOV #18, T0 ; |749| 
-        B $C$L50  ; |749| 
+        B $C$L48  ; |749| 
                                         ; branch occurs ; |749| 
-$C$L42:    
+$C$L40:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 752,column 5,is_stmt
         MOV *SP(#13), T0 ; |752| 
@@ -2210,19 +2170,19 @@ $C$DW$208	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 754,column 5,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         CMP *AR3(#21) == #8000, TC1 ; |754| 
-        BCC $C$L43,!TC1 ; |754| 
+        BCC $C$L41,!TC1 ; |754| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |754| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 755,column 7,is_stmt
         MOV #1, *SP(#15) ; |755| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 756,column 5,is_stmt
-        B $C$L44  ; |756| 
+        B $C$L42  ; |756| 
                                         ; branch occurs ; |756| 
-$C$L43:    
+$C$L41:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 758,column 7,is_stmt
         MOV #2, *SP(#15) ; |758| 
-$C$L44:    
+$C$L42:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 761,column 5,is_stmt
         MOV *SP(#15), T0 ; |761| 
@@ -2235,7 +2195,7 @@ $C$DW$209	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |761| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 762,column 5,is_stmt
         MOV T0, AR1
-        BCC $C$L45,AR1 == #0 ; |762| 
+        BCC $C$L43,AR1 == #0 ; |762| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |762| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 763,column 7,is_stmt
@@ -2246,9 +2206,9 @@ $C$DW$209	.dwtag  DW_TAG_TI_branch
         MOV #0, *AR3 ; |764| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 765,column 7,is_stmt
         MOV #19, T0 ; |765| 
-        B $C$L50  ; |765| 
+        B $C$L48  ; |765| 
                                         ; branch occurs ; |765| 
-$C$L45:    
+$C$L43:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 769,column 5,is_stmt
         AMOV #$C$FSL2, XAR1 ; |769| 
@@ -2264,29 +2224,29 @@ $C$DW$210	.dwtag  DW_TAG_TI_branch
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 771,column 5,is_stmt
         MOV #0, AC0 ; |771| 
         MOV AC0, dbl(*(#(_svdOut+2)))
-$C$L46:    
+$C$L44:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 774,column 3,is_stmt
         MOV dbl(*(#_vpeSim)), XAR3
         MOV *AR3(short(#5)), AR1 ; |774| 
-        BCC $C$L49,AR1 == #0 ; |774| 
+        BCC $C$L47,AR1 == #0 ; |774| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |774| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 775,column 5,is_stmt
         CMP *AR3(#21) == #8000, TC1 ; |775| 
-        BCC $C$L47,!TC1 ; |775| 
+        BCC $C$L45,!TC1 ; |775| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |775| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 776,column 7,is_stmt
         MOV #0, *SP(#15) ; |776| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 777,column 5,is_stmt
-        B $C$L48  ; |777| 
+        B $C$L46  ; |777| 
                                         ; branch occurs ; |777| 
-$C$L47:    
+$C$L45:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 779,column 5,is_stmt
         MOV #1, *SP(#15) ; |779| 
-$C$L48:    
+$C$L46:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 782,column 3,is_stmt
         MOV *SP(#15), T0 ; |782| 
@@ -2299,7 +2259,7 @@ $C$DW$211	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |782| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 783,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L50,AR1 != #0 ; |783| 
+        BCC $C$L48,AR1 != #0 ; |783| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |783| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 784,column 5,is_stmt
@@ -2315,11 +2275,11 @@ $C$DW$212	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#17) ; |787| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 788,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L50,AR1 != #0 ; |788| 
+        BCC $C$L48,AR1 != #0 ; |788| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |788| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 789,column 5,is_stmt
-$C$L49:    
+$C$L47:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 807,column 3,is_stmt
         MOV dbl(*SP(#0)), XAR3
@@ -2410,7 +2370,7 @@ $C$DW$215	.dwtag  DW_TAG_TI_branch
                                         ; call occurs [#_vpe_sim_open_sgn] ; |822| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 824,column 3,is_stmt
         MOV #0, T0
-$C$L50:    
+$C$L48:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 825,column 1,is_stmt
         AADD #19, SP
@@ -2639,7 +2599,7 @@ $C$DW$232	.dwtag  DW_TAG_variable, DW_AT_name("ctl")
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 886,column 3,is_stmt
         MOV dbl(*SP(#2)), XAR3
         MOV *AR3, AR1 ; |886| 
-        BCC $C$L55,AR1 == #0 ; |886| 
+        BCC $C$L53,AR1 == #0 ; |886| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |886| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 887,column 5,is_stmt
@@ -2648,14 +2608,14 @@ $C$DW$232	.dwtag  DW_TAG_variable, DW_AT_name("ctl")
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 888,column 5,is_stmt
         MOV dbl(*SP(#2)), XAR3
         CMP *AR3(short(#2)) == #4, TC1 ; |888| 
-        BCC $C$L51,TC1 ; |888| 
+        BCC $C$L49,TC1 ; |888| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |888| 
         CMP *AR3(short(#2)) == #5, TC1 ; |888| 
-        BCC $C$L52,!TC1 ; |888| 
+        BCC $C$L50,!TC1 ; |888| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |888| 
-$C$L51:    
+$C$L49:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 889,column 7,is_stmt
         MOV #6, *SP(#6) ; |889| 
@@ -2664,13 +2624,13 @@ $C$L51:
         MOV *AR3(#11), AR1 ; |890| 
         MOV AR1, *SP(#8) ; |890| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 891,column 5,is_stmt
-        B $C$L54  ; |891| 
+        B $C$L52  ; |891| 
                                         ; branch occurs ; |891| 
-$C$L52:    
+$C$L50:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 892,column 10,is_stmt
         CMP *AR3(short(#2)) == #7, TC1 ; |892| 
-        BCC $C$L53,!TC1 ; |892| 
+        BCC $C$L51,!TC1 ; |892| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |892| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 893,column 7,is_stmt
@@ -2680,9 +2640,9 @@ $C$L52:
         MOV *AR3(#11), AR1 ; |894| 
         MOV AR1, *SP(#8) ; |894| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 895,column 5,is_stmt
-        B $C$L54  ; |895| 
+        B $C$L52  ; |895| 
                                         ; branch occurs ; |895| 
-$C$L53:    
+$C$L51:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 897,column 7,is_stmt
         MOV #1, *SP(#6) ; |897| 
@@ -2702,7 +2662,7 @@ $C$L53:
         MOV dbl(*SP(#2)), XAR3
         MOV *AR3(short(#6)), AR1 ; |901| 
         MOV AR1, *SP(#11) ; |901| 
-$C$L54:    
+$C$L52:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 903,column 5,is_stmt
         MOV XSP, XAR1
@@ -2721,33 +2681,33 @@ $C$DW$233	.dwtag  DW_TAG_TI_branch
         MOV *AR3(short(#7)), AR1 ; |906| 
         MOV AR1, *SP(#8) ; |906| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 907,column 3,is_stmt
-        B $C$L60  ; |907| 
+        B $C$L58  ; |907| 
                                         ; branch occurs ; |907| 
-$C$L55:    
+$C$L53:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 909,column 5,is_stmt
         CMP *AR3(short(#2)) == #4, TC1 ; |909| 
-        BCC $C$L56,TC1 ; |909| 
+        BCC $C$L54,TC1 ; |909| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |909| 
         CMP *AR3(short(#2)) == #5, TC1 ; |909| 
-        BCC $C$L57,!TC1 ; |909| 
+        BCC $C$L55,!TC1 ; |909| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |909| 
-$C$L56:    
+$C$L54:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 910,column 7,is_stmt
         MOV #6, *SP(#6) ; |910| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 911,column 7,is_stmt
         MOV #-80, *SP(#8) ; |911| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 912,column 5,is_stmt
-        B $C$L59  ; |912| 
+        B $C$L57  ; |912| 
                                         ; branch occurs ; |912| 
-$C$L57:    
+$C$L55:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 913,column 10,is_stmt
         CMP *AR3(short(#2)) == #7, TC1 ; |913| 
-        BCC $C$L58,!TC1 ; |913| 
+        BCC $C$L56,!TC1 ; |913| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |913| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 914,column 7,is_stmt
@@ -2755,9 +2715,9 @@ $C$L57:
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 915,column 7,is_stmt
         MOV #-80, *SP(#8) ; |915| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 916,column 5,is_stmt
-        B $C$L59  ; |916| 
+        B $C$L57  ; |916| 
                                         ; branch occurs ; |916| 
-$C$L58:    
+$C$L56:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 918,column 7,is_stmt
         MOV #1, *SP(#6) ; |918| 
@@ -2773,7 +2733,7 @@ $C$L58:
         MOV #0, *SP(#10) ; |921| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 922,column 7,is_stmt
         MOV #0, *SP(#11) ; |922| 
-$C$L59:    
+$C$L57:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 924,column 5,is_stmt
         MOV XSP, XAR1
@@ -2789,7 +2749,7 @@ $C$DW$234	.dwtag  DW_TAG_TI_branch
         MOV #2, *SP(#6) ; |926| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 927,column 5,is_stmt
         MOV #-80, *SP(#8) ; |927| 
-$C$L60:    
+$C$L58:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 929,column 3,is_stmt
         MOV XSP, XAR1
@@ -3100,20 +3060,20 @@ $C$DW$263	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#54) ; |987| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 988,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L64,AR1 != #0 ; |988| 
+        BCC $C$L62,AR1 != #0 ; |988| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |988| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 991,column 5,is_stmt
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 994,column 3,is_stmt
         CMP *SP(#53) == #7, TC1 ; |994| 
-        BCC $C$L61,TC1 ; |994| 
+        BCC $C$L59,TC1 ; |994| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |994| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 998,column 5,is_stmt
         MOV #3, T0
-        B $C$L64  ; |998| 
+        B $C$L62  ; |998| 
                                         ; branch occurs ; |998| 
-$C$L61:    
+$C$L59:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1003,column 8,is_stmt
         MOV #0, *SP(#55) ; |1003| 
@@ -3124,10 +3084,10 @@ $C$L61:
         CMP AR2 >= AR1, TC1 ; |1003| 
 ||      NOP       ;                     avoids Silicon Exception CPU_24
 
-        BCC $C$L63,TC1 ; |1003| 
+        BCC $C$L61,TC1 ; |1003| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1003| 
-$C$L62:    
+$C$L60:    
 	CALL #_coverage_log;
 $C$DW$L$_vpe_instantiate_nr$5$B:
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1004,column 5,is_stmt
@@ -3151,11 +3111,11 @@ $C$DW$L$_vpe_instantiate_nr$5$B:
         CMP AR2 < AR1, TC1 ; |1003| 
 ||      NOP       ;                     avoids Silicon Exception CPU_24
 
-        BCC $C$L62,TC1 ; |1003| 
+        BCC $C$L60,TC1 ; |1003| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1003| 
 $C$DW$L$_vpe_instantiate_nr$5$E:
-$C$L63:    
+$C$L61:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1007,column 3,is_stmt
         AMOV #_nr_buff0, XAR3 ; |1007| 
@@ -3238,7 +3198,7 @@ $C$DW$264	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#54) ; |1041| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1042,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L64,AR1 != #0 ; |1042| 
+        BCC $C$L62,AR1 != #0 ; |1042| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1042| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1045,column 5,is_stmt
@@ -3258,13 +3218,13 @@ $C$DW$265	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#54) ; |1050| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1051,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L64,AR1 != #0 ; |1051| 
+        BCC $C$L62,AR1 != #0 ; |1051| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1051| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1054,column 5,is_stmt
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1056,column 2,is_stmt
         MOV #0, T0
-$C$L64:    
+$C$L62:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1057,column 1,is_stmt
         AADD #57, SP
@@ -3276,7 +3236,7 @@ $C$DW$266	.dwtag  DW_TAG_TI_branch
                                         ; return occurs
 
 $C$DW$267	.dwtag  DW_TAG_TI_loop
-	.dwattr $C$DW$267, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/test_programs/vpesim.asm:$C$L62:1:1729043648")
+	.dwattr $C$DW$267, DW_AT_name("/home/santiago/Research/DSPFuzz/on_board/test_programs/vpesim.asm:$C$L60:1:1730750615")
 	.dwattr $C$DW$267, DW_AT_TI_begin_file("./ti/mas/vpe/test/src/vpesim.c")
 	.dwattr $C$DW$267, DW_AT_TI_begin_line(0x3eb)
 	.dwattr $C$DW$267, DW_AT_TI_end_line(0x3ee)
@@ -3402,18 +3362,18 @@ $C$DW$274	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#15) ; |1096| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1097,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L65,AR1 == #0 ; |1097| 
+        BCC $C$L63,AR1 == #0 ; |1097| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1097| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1100,column 5,is_stmt
         MOV #1, T0
-        B $C$L66  ; |1100| 
+        B $C$L64  ; |1100| 
                                         ; branch occurs ; |1100| 
-$C$L65:    
+$C$L63:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1102,column 3,is_stmt
         MOV #0, T0
-$C$L66:    
+$C$L64:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1103,column 1,is_stmt
         AADD #17, SP
@@ -3485,7 +3445,7 @@ $C$DW$280	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#42) ; |1115| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1116,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L74,AR1 != #0 ; |1116| 
+        BCC $C$L72,AR1 != #0 ; |1116| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1116| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1119,column 5,is_stmt
@@ -3502,7 +3462,7 @@ $C$DW$281	.dwtag  DW_TAG_TI_branch
         MOV T0, *SP(#42) ; |1122| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1123,column 3,is_stmt
         MOV T0, AR1
-        BCC $C$L74,AR1 != #0 ; |1123| 
+        BCC $C$L72,AR1 != #0 ; |1123| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1123| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1126,column 5,is_stmt
@@ -3513,11 +3473,11 @@ $C$DW$281	.dwtag  DW_TAG_TI_branch
         MOV XAR3, AC1
         CMPU AC1 == AC0, TC1 ; |1129| 
         MOV #0, AR2
-        BCC $C$L67,TC1 ; |1129| 
+        BCC $C$L65,TC1 ; |1129| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1129| 
         MOV #1, AR2
-$C$L67:    
+$C$L65:    
 	CALL #_coverage_log;
         AMOV #_nr_buff1, XAR3 ; |1129| 
         MOV XAR3, AC0
@@ -3525,15 +3485,45 @@ $C$L67:
         MOV XAR3, AC1
         CMPU AC1 == AC0, TC1 ; |1129| 
         MOV #0, AR1
-        BCC $C$L68,TC1 ; |1129| 
+        BCC $C$L66,TC1 ; |1129| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1129| 
         MOV #1, AR1
-$C$L68:    
+$C$L66:    
 	CALL #_coverage_log;
         AMOV #_nr_buff2, XAR3 ; |1129| 
         MOV XAR3, AC0
         MOV dbl(*SP(#16)), XAR3
+        MOV XAR3, AC1
+        CMPU AC1 == AC0, TC1 ; |1129| 
+
+        MOV #0, AR2
+||      OR AR2, AR1 ; |1129| 
+
+        BCC $C$L67,TC1 ; |1129| 
+	CALL #_coverage_log;
+                                        ; branchcc occurs ; |1129| 
+        MOV #1, AR2
+$C$L67:    
+	CALL #_coverage_log;
+        AMOV #_nr_buff3, XAR3 ; |1129| 
+        MOV XAR3, AC0
+        MOV dbl(*SP(#22)), XAR3
+        MOV XAR3, AC1
+        CMPU AC1 == AC0, TC1 ; |1129| 
+
+        MOV #0, AR2
+||      OR AR2, AR1 ; |1129| 
+
+        BCC $C$L68,TC1 ; |1129| 
+	CALL #_coverage_log;
+                                        ; branchcc occurs ; |1129| 
+        MOV #1, AR2
+$C$L68:    
+	CALL #_coverage_log;
+        AMOV #_nr_buff4, XAR3 ; |1129| 
+        MOV XAR3, AC0
+        MOV dbl(*SP(#28)), XAR3
         MOV XAR3, AC1
         CMPU AC1 == AC0, TC1 ; |1129| 
 
@@ -3546,9 +3536,9 @@ $C$L68:
         MOV #1, AR2
 $C$L69:    
 	CALL #_coverage_log;
-        AMOV #_nr_buff3, XAR3 ; |1129| 
+        AMOV #_nr_buff5, XAR3 ; |1129| 
         MOV XAR3, AC0
-        MOV dbl(*SP(#22)), XAR3
+        MOV dbl(*SP(#34)), XAR3
         MOV XAR3, AC1
         CMPU AC1 == AC0, TC1 ; |1129| 
 
@@ -3561,51 +3551,21 @@ $C$L69:
         MOV #1, AR2
 $C$L70:    
 	CALL #_coverage_log;
-        AMOV #_nr_buff4, XAR3 ; |1129| 
-        MOV XAR3, AC0
-        MOV dbl(*SP(#28)), XAR3
-        MOV XAR3, AC1
-        CMPU AC1 == AC0, TC1 ; |1129| 
-
-        MOV #0, AR2
-||      OR AR2, AR1 ; |1129| 
-
-        BCC $C$L71,TC1 ; |1129| 
-	CALL #_coverage_log;
-                                        ; branchcc occurs ; |1129| 
-        MOV #1, AR2
-$C$L71:    
-	CALL #_coverage_log;
-        AMOV #_nr_buff5, XAR3 ; |1129| 
-        MOV XAR3, AC0
-        MOV dbl(*SP(#34)), XAR3
-        MOV XAR3, AC1
-        CMPU AC1 == AC0, TC1 ; |1129| 
-
-        MOV #0, AR2
-||      OR AR2, AR1 ; |1129| 
-
-        BCC $C$L72,TC1 ; |1129| 
-	CALL #_coverage_log;
-                                        ; branchcc occurs ; |1129| 
-        MOV #1, AR2
-$C$L72:    
-	CALL #_coverage_log;
         OR AR2, AR1 ; |1129| 
         MOV AR1, *SP(#43) ; |1129| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1135,column 3,is_stmt
-        BCC $C$L73,AR1 == #0 ; |1135| 
+        BCC $C$L71,AR1 == #0 ; |1135| 
 	CALL #_coverage_log;
                                         ; branchcc occurs ; |1135| 
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1138,column 5,is_stmt
         MOV #3, T0
-        B $C$L74  ; |1138| 
+        B $C$L72  ; |1138| 
                                         ; branch occurs ; |1138| 
-$C$L73:    
+$C$L71:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1140,column 3,is_stmt
         MOV #0, T0
-$C$L74:    
+$C$L72:    
 	CALL #_coverage_log;
 	.dwpsn	file "./ti/mas/vpe/test/src/vpesim.c",line 1141,column 1,is_stmt
         AADD #45, SP

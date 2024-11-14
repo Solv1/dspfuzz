@@ -2,6 +2,6 @@
 #define _VISION_H_
 
 
-void process_image(int16_t * raw_sample, int16_t size);
+int16_t process_image(int16_t * raw_sample, int16_t size);
 
 #endif

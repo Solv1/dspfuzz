@@ -46,7 +46,10 @@ jpec_buffer_t *jpec_buffer_new2(int32_t siz)
 
 void jpec_buffer_write_byte(jpec_buffer_t *b, int32_t val)
 {
-    assert(b);
+    // assert(b);
+    if(b == NULL){
+        return;
+    }
 
 #if HOST_TEST
     if (b->siz == b->len)
@@ -54,12 +57,12 @@ void jpec_buffer_write_byte(jpec_buffer_t *b, int32_t val)
 #if NEW_INPUT_IMAGE
         int32_t nsiz = (b->siz > 0) ? 2 * b->siz : JPEC_BUFFER_INIT_SIZ;
         void *tmp = realloc(b->stream, nsiz);
-        printf("Increasing output buffer size to %d\n", nsiz);
+        //printf("Increasing output buffer size to %d\n", nsiz);
         b->stream = (uint16_t *)tmp;
         b->siz = nsiz;
 #else
-        printf("Insufficient space for output image. Increase OUTPUT_BUF_SIZE.\r\n");
-        exit(1);
+        //printf("Insufficient space for output image. Increase OUTPUT_BUF_SIZE.\r\n");
+        return;
 #endif  // NEW_INPUT_IMAGE
     }
 #endif  // HOST_TEST
@@ -69,7 +72,9 @@ void jpec_buffer_write_byte(jpec_buffer_t *b, int32_t val)
 
 void jpec_buffer_write_2bytes(jpec_buffer_t *b, int32_t val)
 {
-    assert(b);
+    if(b == NULL){
+        return;
+    }
     jpec_buffer_write_byte(b, (val >> 8) & 0xFF);
     jpec_buffer_write_byte(b, val & 0xFF);
 }

@@ -72,7 +72,7 @@
 #define _VPESIM_H
 
 /* RTSC headers */
-#include <ti/mas/types/types.h>
+#include <../test_programs/ti/mas/types/types.h>
 #include <ti/mas/fract/fract.h>
 #include <ti/mas/types/const.h>
 #include <ti/mas/util/ecomem.h>
@@ -162,6 +162,23 @@
 #define vpe_SIM_ERR_16      (17)    // 
 #define vpe_SIM_ERR_17      (18)    // 
 #define vpe_SIM_ERR_18      (19)    // 
+
+/* sgn defaults */
+#define  vpe_SGN_DEF_DC_OFFSET        0
+#define  vpe_SGN_DEF_WF_TYPE          1     
+#define  vpe_SGN_DEF_F1               1000  
+#define  vpe_SGN_DEF_F2               400
+#define  vpe_SGN_DEF_T_AMP1           0x1400
+#define  vpe_SGN_DEF_T_AMP2           0x3700
+#define  vpe_SGN_DEF_PR_PERIOD        1000
+#define  vpe_SGN_DEF_PR_ENABLE        FALSE
+#define  vpe_SGN_DEF_NOISE_LEVEL      (-100)
+#define  vpe_SGN_DEF_NOISE_SEED       40
+#define  vpe_SGN_DEF_NOISE_TYPE       sgn_NT_GAUSS
+#define  vpe_SGN_DEF_FSK_DURATION     90
+#define  vpe_SGN_DEF_FSK_DATA_LEN     1
+#define  vpe_SGN_DEF_POWER_LEVEL      (-10)
+#define  vpe_SGN_DEF_HOTH_WNG_SEED    20
 
 /* Simulation constraints */
 #define vpe_SIM_MAX_SAMPLES          320    // Maximum frame_size
@@ -279,29 +296,8 @@ typedef struct {
   char   baseDir[vpe_SIM_MAX_STRING]; /* Base directory for file I/O                */
 } vpeSimConfig_t;
 						
-void test();
-extern void  vpe_sim_fileio_init   (vpeSimFileIo_t *fioptr, tuint code);
-extern void  vpe_sim_fileio_end    (vpeSimFileIo_t *fioptr);
-extern void  vpe_sim_init          ();
-extern void  vpe_init              (void);
-extern tbool vpe_sim_fread         (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
-extern void  vpe_sim_fwrite        (linSample *buf, tint buf_size, vpeSimFileIo_t *fioptr);
-extern void  vpe_sim_input_mux     (void);
-extern void  vpe_sim_output_mux    (void);
-extern void  vpe_print             (char *str);
-extern void  vpe_iprint            (char *str, tlong ivar);
-extern void  vpe_sprint            (char *str, char *svar);
-extern void  vpe_sim_open_sgn      (void *inst);
-extern void  vpe_sim_set_sgn (void *inst, vpeSGNPars_t *sgn, tint Fs);
-extern void  vpe_sim_gen_frame     (void *inst, tint frame_size, linSample *frame);
-extern sgnFileIo_t *vpe_sim_in_file(sgnFileIo_t *dsc);
-extern sgnFileIo_t *vpe_sim_in_file(sgnFileIo_t *dsc);
-extern void  vpe_instantiate_nr(tint srate);
-extern void  vpe_config_nr(vpeASNRPars_t *asnr_params);
-extern void  vpe_deinstantiate_nr();
-extern void  vpe_halt (tbool *exec);
-extern void  vpe_sim_flush_cache();
-extern void  vpe_sim_read_cfg();
+int16_t telecom_test(int16_t * input, int16_t size );
+
 						
 #endif /* _VPESIM_H */
 

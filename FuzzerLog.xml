@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="DefaultStylesheet.xsl"?>
+<log>
+<record>
+  <date>2024-11-13T18:34:46.303334Z</date>
+  <millis>1731522886303</millis>
+  <nanos>334000</nanos>
+  <sequence>42</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>INFO</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: GEL Output: Reset Peripherals is complete.
+</message>
+</record>
+<record>
+  <date>2024-11-13T18:34:46.310227Z</date>
+  <millis>1731522886310</millis>
+  <nanos>227000</nanos>
+  <sequence>43</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>INFO</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: GEL Output: Configuring PLL (100 MHz).
+</message>
+</record>
+<record>
+  <date>2024-11-13T18:34:46.436706Z</date>
+  <millis>1731522886436</millis>
+  <nanos>706000</nanos>
+  <sequence>44</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>INFO</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: GEL Output: PLL Init Done.</message>
+</record>
+<record>
+  <date>2024-11-13T18:34:46.437223Z</date>
+  <millis>1731522886437</millis>
+  <nanos>223000</nanos>
+  <sequence>45</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>INFO</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: GEL Output: Target Connection Complete.
+</message>
+</record>

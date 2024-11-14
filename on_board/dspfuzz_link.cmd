@@ -4,10 +4,8 @@
 /*                                                        */
 /**********************************************************/
 
--stack      0x1000   /* PRIMARY STACK SIZE    */
 -sysstack   0x0400   /* SECONDARY STACK SIZE  */
--heap       0x1000   /* HEAP AREA SIZE        */  
- 
+-heap	    0x6000 
 MEMORY
 {
     PAGE 0:
@@ -16,8 +14,8 @@ MEMORY
         SPRAM   : origin = 00000c0h, length = 0000040
         DARAM0  : origin = 0000100h, length = 0003F00h
         DARAM1  (RWX): origin = 0004000h, length = 0004000h
-        DARAM2 (RWX) : origin = 0008000h, length = 0004000h
-        DARAM3 (RWX) : origin = 000c000h, length = 0004000h
+        DARAM2 (RWX) : origin = 0008000h, length = 0008000h
+        /*DARAM3 (RWX) : origin = 000c000h, length = 0004000h*/
 
         SARAM01 (RWX) : origin = 0010000h, length = 0008000h
         SARAM2  : origin = 0018000h, length = 0004000h
@@ -31,7 +29,7 @@ MEMORY
         SARAM10 (RWX): origin = 0044000h, length = 0004000h
         SARAM11 : origin = 0048000h, length = 0008000h	/* For the corpus sandbox so that it will not effect program memory*/
 
-        CE0     : origin = 0050000h, length = 03b0000h 
+        /*CE0     : origin = 0050000h, length = 03b0000h */
         CE1     : origin = 0400000h, length = 0400000h
         CE2     : origin = 0800000h, length = 0400000h
         CE3     : origin = 0c00000h, length = 03f8000h
@@ -49,21 +47,23 @@ SECTIONS
         isrs     : {} > SARAM2  PAGE 0
         .stack   : {} > DARAM0  PAGE 0 ALIGN = 4
         .sysstack: {} > DARAM0  PAGE 0 ALIGN = 4
-        .sysmem  : {} > DARAM1  PAGE 0 ALIGN = 4
-        .data    : {} > SARAM8  PAGE 0        /* force .data to not be on Page 0 */
+        .sysmem  : {} > DARAM2 PAGE 0 ALIGN = 4
+        .data    : {} > SARAM6  PAGE 0        /* force .data to not be on Page 0 */
         //.bss:saram  : {} > DARAM2  PAGE 0     /* must be a different on-chip block than .bss */
         //.bss:saram2 : {} > SARAM3  PAGE 0     /* must be a different on-chip block than .bss */
         //.bss     : {} > SARAM15 PAGE 0      /* for normal testing, move .bss off of DARAM */
         .bss    :  {} > SARAM5        /* for optimal timing tests, put .bss in DARAM */
-        .input   : {} > DARAM3  PAGE 0        /* for optimal timing tests, put .input in DARAM */
-        .coeffs  : {} > DARAM0  PAGE 0        /* for optimal timing tests, put .coeffs in DARAM */
-        .dbuffer : {} > DARAM1  PAGE 0        /* for optimal timing tests, put .dbuffer in DARAM */
+        .input   : {} > DARAM2  PAGE 0        /* for optimal timing tests, put .input in DARAM */
+        .coeffs  : {} > DARAM1  PAGE 0        /* for optimal timing tests, put .coeffs in DARAM */
+        .dbuffer : {} > DARAM2  PAGE 0        /* for optimal timing tests, put .dbuffer in DARAM */
         .const   : {} > SARAM8  PAGE 0        
         .cio     : {} > DARAM2  PAGE 0
+	.switch  : {} > SARAM9  PAGE 0
+	.twiddle : {} > SARAM3  PAGE 0, align(2048)
         .program_sandbox : > SARAM11 /* Store the device under test here */
         {
-		sonar.obj
-        	/*new_test_fuzz.obj
+		/*new_test_fuzz.obj*/
+        	/*new_test_fuzz.obj*/
 		/*--library=*ximagex.lib<Boundarymn.obj>(.text)*/
         }
         .data_sandbox : {} > SARAM10 				   /* Data may get muddled because of the SUT having a error */

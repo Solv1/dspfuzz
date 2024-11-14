@@ -1,0 +1,270 @@
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 8.500884031003807
+DSLOG: Time taken for set_intial_breakpoints = 0.034614403994055465
+DSLOG: Time taken for refresh_global_pool = 5.993500235490501e-05
+DSLOG: We have 1 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.015648525004507974
+Time of start = 02/10/2024 18:34:34
+------Finding Coverage Calls in Binary------
+0x6c02cf8e
+0x6c02cf8e
+DSLOG: Time taken for find_coverage_call = 0.002547863987274468
+DSLOG: Time taken for refresh_global_pool = 1.5085010090842843e-05
+------Starting the Device Listener------
+-------Found coverage-increasing input-------
+Current time = 02/10/2024 18:34:34
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.13419532775878906
+Effective Mutaton: bitflip 1/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003054912987863645
+[0, 2132, 2452, 2481, 2513, 2634, 2654, 2671, 2704, 2738, 2753, 2781, 2797, 2847, 2893, 2900, 2919, 2958, 3004, 3069]
+{0: 7340, 52: 7392, 89: 7429, 100: 7440, 137: 7477, 166: 7506, 182: 7522, 192: 7532, 196: 7536, 206: 7546, 252: 7592, 263: 7603, 267: 7607, 285: 7625, 289: 7629, 330: 7670, 334: 7674, 351: 7691, 375: 7715, 386: 7726, 410: 7750, 430: 7770, 434: 7774, 480: 7820, 484: 7824, 499: 7839, 527: 7867, 531: 7871, 547: 7887, 558: 7898, 593: 7933, 622: 7962, 646: 7986, 675: 8015, 691: 8031, 711: 8051, 715: 8055, 765: 8105, 769: 8109, 816: 8156, 820: 8160, 874: 8214, 878: 8218, 894: 8234, 914: 8254, 918: 8258, 968: 8308, 972: 8312, 1019: 8359, 1023: 8363, 1077: 8417, 1081: 8421, 1096: 8436, 1149: 8489, 1164: 8504, 1235: 8575, 1261: 8601, 1265: 8605, 1308: 8648, 1312: 8652, 1322: 8662, 1333: 8673, 1369: 8709, 1398: 8738, 1432: 8772, 1461: 8801, 1478: 8818, 1501: 8841, 1512: 8852, 1533: 8873, 1559: 8899, 1563: 8903, 1609: 8949, 1613: 8953, 1625: 8965, 1641: 8981, 1652: 8992, 1656: 8996, 1680: 9020, 1684: 9024, 1728: 9068, 1732: 9072, 1750: 9090, 1754: 9094, 1792: 9132, 1796: 9136, 1828: 9168, 1845: 9185, 1873: 9213, 1891: 9231, 1913: 9253, 1920: 9260, 1958: 9298, 1971: 9311, 1979: 9319, 1985: 9325, 1993: 9333, 2016: 9356, 2025: 9365, 2061: 9401, 2065: 9405, 2114: 9454, 2118: 9458, 2124: 9464, 2132: 9472, 2452: 9792, 2481: 9821, 2498: 9838, 2513: 9853, 2634: 9974, 2654: 9994, 2664: 10004, 2671: 10011, 2704: 10044, 2738: 10078, 2753: 10093, 2781: 10121, 2797: 10137, 2818: 10158, 2847: 10187, 2884: 10224, 2893: 10233, 2900: 10240, 2919: 10259, 2935: 10275, 2958: 10298, 2975: 10315, 3004: 10344, 3040: 10380, 3069: 10409, 3085: 10425, 3106: 10446, 3135: 10475, 3172: 10512, 3181: 10521, 3188: 10528, 3209: 10549, 3238: 10578, 3254: 10594, 3275: 10615, 3304: 10644, 3334: 10674, 3343: 10683, 3350: 10690, 3367: 10707, 3396: 10736, 3412: 10752, 3433: 10773, 3464: 10804, 3494: 10834, 3503: 10843, 3510: 10850, 3527: 10867, 3558: 10898, 3573: 10913, 3585: 10925, 3594: 10934, 3601: 10941, 3618: 10958, 3642: 10982, 3646: 10986, 3823: 11163, 3831: 11171, 3943: 11283, 3966: 11306, 3983: 11323, 3994: 11334, 3998: 11338, 4017: 11357, 4028: 11368, 4046: 11386, 4081: 11421, 4111: 11451, 4121: 11461, 4132: 11472, 4136: 11476, 4148: 11488, 4158: 11498, 4170: 11510, 4197: 11537, 4220: 11560, 4241: 11581, 4268: 11608, 4306: 11646, 4344: 11684, 4350: 11690, 4392: 11732, 4402: 11742, 4411: 11751, 4429: 11769, 4433: 11773, 4482: 11822, 4486: 11826, 4657: 11997, 4687: 12027, 4693: 12033, 4701: 12041, 4822: 12162, 4830: 12170, 4836: 12176, 4844: 12184, 4868: 12208, 4894: 12234, 4918: 12258, 4924: 12264, 4948: 12288, 4954: 12294, 4980: 12320, 4986: 12326, 5012: 12352, 5018: 12358, 5044: 12384, 5050: 12390, 5076: 12416, 5082: 12422, 5092: 12432, 5100: 12440, 5106: 12446}
+[0, 2132, 2452, 2481, 2513, 2634, 2654, 2671, 2704, 2738, 2753, 2781, 2797, 2847, 2893, 2900, 2919, 2958, 3004, 3069]
+DSLOG: Time taken for refresh_global_pool = 3.804999869316816e-05
+DSLOG: Time taken for refresh_global_pool = 4.5801978558301926e-05
+DSLOG: We have 2 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.03631100899656303
+DSLOG: Time taken for refresh_global_pool = 3.9058999391272664e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.4078377349942457
+-------Found coverage-increasing input-------
+Current time = 02/10/2024 18:34:36
+DSLOG: Total number of iterations: 40
+DSLOG: Average throughput time: 0.04175832271575928
+Effective Mutaton: arith-add |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0031966050155460835
+DSLOG: Found the end of the coverage map.
+[3367]
+{52: 7392, 89: 7429, 100: 7440, 137: 7477, 166: 7506, 182: 7522, 192: 7532, 196: 7536, 206: 7546, 252: 7592, 263: 7603, 267: 7607, 285: 7625, 289: 7629, 330: 7670, 334: 7674, 351: 7691, 375: 7715, 386: 7726, 410: 7750, 430: 7770, 434: 7774, 480: 7820, 484: 7824, 499: 7839, 527: 7867, 531: 7871, 547: 7887, 558: 7898, 593: 7933, 622: 7962, 646: 7986, 675: 8015, 691: 8031, 711: 8051, 715: 8055, 765: 8105, 769: 8109, 816: 8156, 820: 8160, 874: 8214, 878: 8218, 894: 8234, 914: 8254, 918: 8258, 968: 8308, 972: 8312, 1019: 8359, 1023: 8363, 1077: 8417, 1081: 8421, 1096: 8436, 1149: 8489, 1164: 8504, 1235: 8575, 1261: 8601, 1265: 8605, 1308: 8648, 1312: 8652, 1322: 8662, 1333: 8673, 1369: 8709, 1398: 8738, 1432: 8772, 1461: 8801, 1478: 8818, 1501: 8841, 1512: 8852, 1533: 8873, 1559: 8899, 1563: 8903, 1609: 8949, 1613: 8953, 1625: 8965, 1641: 8981, 1652: 8992, 1656: 8996, 1680: 9020, 1684: 9024, 1728: 9068, 1732: 9072, 1750: 9090, 1754: 9094, 1792: 9132, 1796: 9136, 1828: 9168, 1845: 9185, 1873: 9213, 1891: 9231, 1913: 9253, 1920: 9260, 1958: 9298, 1971: 9311, 1979: 9319, 1985: 9325, 1993: 9333, 2016: 9356, 2025: 9365, 2061: 9401, 2065: 9405, 2114: 9454, 2118: 9458, 2124: 9464, 2498: 9838, 2664: 10004, 2818: 10158, 2884: 10224, 2935: 10275, 2975: 10315, 3040: 10380, 3085: 10425, 3106: 10446, 3135: 10475, 3172: 10512, 3181: 10521, 3188: 10528, 3209: 10549, 3238: 10578, 3254: 10594, 3275: 10615, 3304: 10644, 3334: 10674, 3343: 10683, 3350: 10690, 3367: 10707, 3396: 10736, 3412: 10752, 3433: 10773, 3464: 10804, 3494: 10834, 3503: 10843, 3510: 10850, 3527: 10867, 3558: 10898, 3573: 10913, 3585: 10925, 3594: 10934, 3601: 10941, 3618: 10958, 3642: 10982, 3646: 10986, 3823: 11163, 3831: 11171, 3943: 11283, 3966: 11306, 3983: 11323, 3994: 11334, 3998: 11338, 4017: 11357, 4028: 11368, 4046: 11386, 4081: 11421, 4111: 11451, 4121: 11461, 4132: 11472, 4136: 11476, 4148: 11488, 4158: 11498, 4170: 11510, 4197: 11537, 4220: 11560, 4241: 11581, 4268: 11608, 4306: 11646, 4344: 11684, 4350: 11690, 4392: 11732, 4402: 11742, 4411: 11751, 4429: 11769, 4433: 11773, 4482: 11822, 4486: 11826, 4657: 11997, 4687: 12027, 4693: 12033, 4701: 12041, 4822: 12162, 4830: 12170, 4836: 12176, 4844: 12184, 4868: 12208, 4894: 12234, 4918: 12258, 4924: 12264, 4948: 12288, 4954: 12294, 4980: 12320, 4986: 12326, 5012: 12352, 5018: 12358, 5044: 12384, 5050: 12390, 5076: 12416, 5082: 12422, 5092: 12432, 5100: 12440, 5106: 12446}
+[3367]
+DSLOG: Time taken for refresh_global_pool = 3.439400461502373e-05
+DSLOG: Time taken for refresh_global_pool = 4.7223991714417934e-05
+DSLOG: We have 3 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.06650277102016844
+DSLOG: Time taken for refresh_global_pool = 2.4562992621213198e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.4331219099985901
+-------Found coverage-increasing input-------
+Current time = 02/10/2024 18:34:36
+DSLOG: Total number of iterations: 41
+DSLOG: Average throughput time: 0.05269932746887207
+Effective Mutaton: arith-add |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0024233989825006574
+DSLOG: Found the end of the coverage map.
+[2975]
+{52: 7392, 89: 7429, 100: 7440, 137: 7477, 166: 7506, 182: 7522, 192: 7532, 196: 7536, 206: 7546, 252: 7592, 263: 7603, 267: 7607, 285: 7625, 289: 7629, 330: 7670, 334: 7674, 351: 7691, 375: 7715, 386: 7726, 410: 7750, 430: 7770, 434: 7774, 480: 7820, 484: 7824, 499: 7839, 527: 7867, 531: 7871, 547: 7887, 558: 7898, 593: 7933, 622: 7962, 646: 7986, 675: 8015, 691: 8031, 711: 8051, 715: 8055, 765: 8105, 769: 8109, 816: 8156, 820: 8160, 874: 8214, 878: 8218, 894: 8234, 914: 8254, 918: 8258, 968: 8308, 972: 8312, 1019: 8359, 1023: 8363, 1077: 8417, 1081: 8421, 1096: 8436, 1149: 8489, 1164: 8504, 1235: 8575, 1261: 8601, 1265: 8605, 1308: 8648, 1312: 8652, 1322: 8662, 1333: 8673, 1369: 8709, 1398: 8738, 1432: 8772, 1461: 8801, 1478: 8818, 1501: 8841, 1512: 8852, 1533: 8873, 1559: 8899, 1563: 8903, 1609: 8949, 1613: 8953, 1625: 8965, 1641: 8981, 1652: 8992, 1656: 8996, 1680: 9020, 1684: 9024, 1728: 9068, 1732: 9072, 1750: 9090, 1754: 9094, 1792: 9132, 1796: 9136, 1828: 9168, 1845: 9185, 1873: 9213, 1891: 9231, 1913: 9253, 1920: 9260, 1958: 9298, 1971: 9311, 1979: 9319, 1985: 9325, 1993: 9333, 2016: 9356, 2025: 9365, 2061: 9401, 2065: 9405, 2114: 9454, 2118: 9458, 2124: 9464, 2498: 9838, 2664: 10004, 2818: 10158, 2884: 10224, 2935: 10275, 2975: 10315, 3040: 10380, 3085: 10425, 3106: 10446, 3135: 10475, 3172: 10512, 3181: 10521, 3188: 10528, 3209: 10549, 3238: 10578, 3254: 10594, 3275: 10615, 3304: 10644, 3334: 10674, 3343: 10683, 3350: 10690, 3396: 10736, 3412: 10752, 3433: 10773, 3464: 10804, 3494: 10834, 3503: 10843, 3510: 10850, 3527: 10867, 3558: 10898, 3573: 10913, 3585: 10925, 3594: 10934, 3601: 10941, 3618: 10958, 3642: 10982, 3646: 10986, 3823: 11163, 3831: 11171, 3943: 11283, 3966: 11306, 3983: 11323, 3994: 11334, 3998: 11338, 4017: 11357, 4028: 11368, 4046: 11386, 4081: 11421, 4111: 11451, 4121: 11461, 4132: 11472, 4136: 11476, 4148: 11488, 4158: 11498, 4170: 11510, 4197: 11537, 4220: 11560, 4241: 11581, 4268: 11608, 4306: 11646, 4344: 11684, 4350: 11690, 4392: 11732, 4402: 11742, 4411: 11751, 4429: 11769, 4433: 11773, 4482: 11822, 4486: 11826, 4657: 11997, 4687: 12027, 4693: 12033, 4701: 12041, 4822: 12162, 4830: 12170, 4836: 12176, 4844: 12184, 4868: 12208, 4894: 12234, 4918: 12258, 4924: 12264, 4948: 12288, 4954: 12294, 4980: 12320, 4986: 12326, 5012: 12352, 5018: 12358, 5044: 12384, 5050: 12390, 5076: 12416, 5082: 12422, 5092: 12432, 5100: 12440, 5106: 12446}
+[2975]
+DSLOG: Time taken for refresh_global_pool = 2.851997851394117e-05
+DSLOG: Time taken for refresh_global_pool = 2.2974010789766908e-05
+DSLOG: We have 4 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.09300799202173948
+DSLOG: Time taken for refresh_global_pool = 2.8743990696966648e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.4339778190187644
+-------Found coverage-increasing input-------
+Current time = 02/10/2024 18:48:24
+DSLOG: Total number of iterations: 29394
+DSLOG: Average throughput time: 0.02821812110100667
+Effective Mutation: random |Mutation Percentage:  10
+DSLOG: Time taken for _pull_stage_cycles = 0.0026376649911981076
+DSLOG: Found the end of the coverage map.
+[3209]
+{52: 7392, 89: 7429, 100: 7440, 137: 7477, 166: 7506, 182: 7522, 192: 7532, 196: 7536, 206: 7546, 252: 7592, 263: 7603, 267: 7607, 285: 7625, 289: 7629, 330: 7670, 334: 7674, 351: 7691, 375: 7715, 386: 7726, 410: 7750, 430: 7770, 434: 7774, 480: 7820, 484: 7824, 499: 7839, 527: 7867, 531: 7871, 547: 7887, 558: 7898, 593: 7933, 622: 7962, 646: 7986, 675: 8015, 691: 8031, 711: 8051, 715: 8055, 765: 8105, 769: 8109, 816: 8156, 820: 8160, 874: 8214, 878: 8218, 894: 8234, 914: 8254, 918: 8258, 968: 8308, 972: 8312, 1019: 8359, 1023: 8363, 1077: 8417, 1081: 8421, 1096: 8436, 1149: 8489, 1164: 8504, 1235: 8575, 1261: 8601, 1265: 8605, 1308: 8648, 1312: 8652, 1322: 8662, 1333: 8673, 1369: 8709, 1398: 8738, 1432: 8772, 1461: 8801, 1478: 8818, 1501: 8841, 1512: 8852, 1533: 8873, 1559: 8899, 1563: 8903, 1609: 8949, 1613: 8953, 1625: 8965, 1641: 8981, 1652: 8992, 1656: 8996, 1680: 9020, 1684: 9024, 1728: 9068, 1732: 9072, 1750: 9090, 1754: 9094, 1792: 9132, 1796: 9136, 1828: 9168, 1845: 9185, 1873: 9213, 1891: 9231, 1913: 9253, 1920: 9260, 1958: 9298, 1971: 9311, 1979: 9319, 1985: 9325, 1993: 9333, 2016: 9356, 2025: 9365, 2061: 9401, 2065: 9405, 2114: 9454, 2118: 9458, 2124: 9464, 2498: 9838, 2664: 10004, 2818: 10158, 2884: 10224, 2935: 10275, 3040: 10380, 3085: 10425, 3106: 10446, 3135: 10475, 3172: 10512, 3181: 10521, 3188: 10528, 3209: 10549, 3238: 10578, 3254: 10594, 3275: 10615, 3304: 10644, 3334: 10674, 3343: 10683, 3350: 10690, 3396: 10736, 3412: 10752, 3433: 10773, 3464: 10804, 3494: 10834, 3503: 10843, 3510: 10850, 3527: 10867, 3558: 10898, 3573: 10913, 3585: 10925, 3594: 10934, 3601: 10941, 3618: 10958, 3642: 10982, 3646: 10986, 3823: 11163, 3831: 11171, 3943: 11283, 3966: 11306, 3983: 11323, 3994: 11334, 3998: 11338, 4017: 11357, 4028: 11368, 4046: 11386, 4081: 11421, 4111: 11451, 4121: 11461, 4132: 11472, 4136: 11476, 4148: 11488, 4158: 11498, 4170: 11510, 4197: 11537, 4220: 11560, 4241: 11581, 4268: 11608, 4306: 11646, 4344: 11684, 4350: 11690, 4392: 11732, 4402: 11742, 4411: 11751, 4429: 11769, 4433: 11773, 4482: 11822, 4486: 11826, 4657: 11997, 4687: 12027, 4693: 12033, 4701: 12041, 4822: 12162, 4830: 12170, 4836: 12176, 4844: 12184, 4868: 12208, 4894: 12234, 4918: 12258, 4924: 12264, 4948: 12288, 4954: 12294, 4980: 12320, 4986: 12326, 5012: 12352, 5018: 12358, 5044: 12384, 5050: 12390, 5076: 12416, 5082: 12422, 5092: 12432, 5100: 12440, 5106: 12446}
+[3209]
+DSLOG: Time taken for refresh_global_pool = 3.630900755524635e-05
+DSLOG: Time taken for refresh_global_pool = 3.3526011975482106e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12087938000331633
+DSLOG: Time taken for refresh_global_pool = 3.21839761454612e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.4749610740109347
+11
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013192359765525907
+Current time = 02/10/2024 19:08:24
+DSLOG: Total number of iterations: 72275
+DSLOG: Average throughput time: 0.028086585902870834
+DSLOG: Time taken for refresh_global_pool = 4.598498344421387e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11885901298956014
+DSLOG: Time taken for refresh_global_pool = 3.206799738109112e-05
+DSLOG: Time taken for refresh_local_pool = 0.12590362201444805
+12
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.007061519980197772
+Current time = 02/10/2024 19:28:24
+DSLOG: Total number of iterations: 115172
+DSLOG: Average throughput time: 0.028046106214062592
+DSLOG: Time taken for refresh_global_pool = 3.561499761417508e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11899259200436063
+DSLOG: Time taken for refresh_global_pool = 3.2208015909418464e-05
+DSLOG: Time taken for refresh_local_pool = 0.12616112298564985
+13
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.01082216200302355
+Current time = 02/10/2024 19:48:24
+DSLOG: Total number of iterations: 158016
+DSLOG: Average throughput time: 0.028037031031405698
+DSLOG: Time taken for refresh_global_pool = 3.473099786788225e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12017874099547043
+DSLOG: Time taken for refresh_global_pool = 3.3402000553905964e-05
+DSLOG: Time taken for refresh_local_pool = 0.12701771801221184
+14
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002657032018760219
+Current time = 02/10/2024 20:08:25
+DSLOG: Total number of iterations: 200914
+DSLOG: Average throughput time: 0.028024288474186167
+DSLOG: Time taken for refresh_global_pool = 4.586201976053417e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11865918900002725
+DSLOG: Time taken for refresh_global_pool = 3.470800584182143e-05
+DSLOG: Time taken for refresh_local_pool = 0.12606202697497793
+15
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.009361506992718205
+Current time = 02/10/2024 20:28:25
+DSLOG: Total number of iterations: 243810
+DSLOG: Average throughput time: 0.028016186044085217
+DSLOG: Time taken for refresh_global_pool = 3.711201134137809e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12404197399155237
+DSLOG: Time taken for refresh_global_pool = 3.0067021725699306e-05
+DSLOG: Time taken for refresh_local_pool = 0.13130454599740915
+16
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0023887110000941902
+Current time = 02/10/2024 20:48:25
+DSLOG: Total number of iterations: 286710
+DSLOG: Average throughput time: 0.028010194036584817
+DSLOG: Time taken for refresh_global_pool = 7.94529914855957e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11799538301420398
+DSLOG: Time taken for refresh_global_pool = 2.522999420762062e-05
+DSLOG: Time taken for refresh_local_pool = 0.12591678299941123
+17
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003383200993994251
+Current time = 02/10/2024 21:08:25
+DSLOG: Total number of iterations: 329608
+DSLOG: Average throughput time: 0.028005849964708205
+DSLOG: Time taken for refresh_global_pool = 5.2219023928046227e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.123281946987845
+DSLOG: Time taken for refresh_global_pool = 0.00022032199194654822
+DSLOG: Time taken for refresh_local_pool = 0.13144279600237496
+18
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0068559140199795365
+Current time = 02/10/2024 21:28:25
+DSLOG: Total number of iterations: 372516
+DSLOG: Average throughput time: 0.02800181736392256
+DSLOG: Time taken for refresh_global_pool = 4.235602682456374e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11968626599991694
+DSLOG: Time taken for refresh_global_pool = 3.6137993447482586e-05
+DSLOG: Time taken for refresh_local_pool = 0.12709425800130703
+19
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.003551241010427475
+Current time = 02/10/2024 21:48:25
+DSLOG: Total number of iterations: 415382
+DSLOG: Average throughput time: 0.028001454350012653
+DSLOG: Time taken for refresh_global_pool = 7.349101360887289e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12194517199532129
+DSLOG: Time taken for refresh_global_pool = 3.025500336661935e-05
+DSLOG: Time taken for refresh_local_pool = 0.12861310300650075
+20
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008545523014618084
+Current time = 02/10/2024 22:08:26
+DSLOG: Total number of iterations: 458250
+DSLOG: Average throughput time: 0.028000998940808618
+DSLOG: Time taken for refresh_global_pool = 4.53899847343564e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.1199389680114109
+DSLOG: Time taken for refresh_global_pool = 2.6097986847162247e-05
+DSLOG: Time taken for refresh_local_pool = 0.12739270698511973
+21
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.002949716988950968
+Current time = 02/10/2024 22:28:26
+DSLOG: Total number of iterations: 501161
+DSLOG: Average throughput time: 0.027998203774663662
+DSLOG: Time taken for refresh_global_pool = 3.8156984373927116e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11783305599237792
+DSLOG: Time taken for refresh_global_pool = 2.156899427063763e-05
+DSLOG: Time taken for refresh_local_pool = 0.12464411099790595
+22
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.001928231999045238
+Current time = 02/10/2024 22:48:26
+DSLOG: Total number of iterations: 544019
+DSLOG: Average throughput time: 0.02799856997905098
+DSLOG: Time taken for refresh_global_pool = 0.00011987300240434706
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12453773900051601
+DSLOG: Time taken for refresh_global_pool = 3.399798879399896e-05
+DSLOG: Time taken for refresh_local_pool = 0.1311620169726666
+23
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0028178619977552444
+Current time = 02/10/2024 23:08:26
+DSLOG: Total number of iterations: 586933
+DSLOG: Average throughput time: 0.027996278184197587
+DSLOG: Time taken for refresh_global_pool = 7.467600516974926e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12177817398332991
+DSLOG: Time taken for refresh_global_pool = 3.102901973761618e-05
+DSLOG: Time taken for refresh_local_pool = 0.12903958701645024
+24
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.008784593985183164
+Current time = 02/10/2024 23:28:26
+DSLOG: Total number of iterations: 629835
+DSLOG: Average throughput time: 0.027994787071931992
+DSLOG: Time taken for refresh_global_pool = 5.3915980970487e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11894444399513304
+DSLOG: Time taken for refresh_global_pool = 2.5779998395591974e-05
+DSLOG: Time taken for refresh_local_pool = 0.12664185799076222
+25
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0015308269939851016
+Current time = 02/10/2024 23:48:26
+DSLOG: Total number of iterations: 672730
+DSLOG: Average throughput time: 0.027993813692010986
+DSLOG: Time taken for refresh_global_pool = 5.347799742594361e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.12033212100504898
+DSLOG: Time taken for refresh_global_pool = 2.3984990548342466e-05
+DSLOG: Time taken for refresh_local_pool = 0.12776949000544846
+26
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.0033296209876425564
+Current time = 03/10/2024 00:08:27
+DSLOG: Total number of iterations: 715596
+DSLOG: Average throughput time: 0.02799407008127385
+DSLOG: Time taken for refresh_global_pool = 4.476300091482699e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11743499001022428
+DSLOG: Time taken for refresh_global_pool = 3.2280979212373495e-05
+DSLOG: Time taken for refresh_local_pool = 0.12475854897638783
+27
+-----Starting Sanity Check-----
+DSLOG: Time taken for set_refresh_breakpoint = 0.010884790011914447
+Current time = 03/10/2024 00:28:27
+DSLOG: Total number of iterations: 758478
+DSLOG: Average throughput time: 0.027993692371111135
+DSLOG: Time taken for refresh_global_pool = 3.814700176008046e-05
+DSLOG: We have 5 in the global pool.
+DSLOG: Time taken for write_local_pool = 0.11805989398271777
+DSLOG: Time taken for refresh_global_pool = 2.8691982151940465e-05
+DSLOG: Time taken for refresh_local_pool = 0.12955814599990845
+

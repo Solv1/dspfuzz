@@ -1,0 +1,4 @@
+/home/santiago/Research/Ti/C55_Tools/cl55 -v5515 --memory_model=large -g --define=c5515 --display_error_number --diag_warning=225 --ptrdiff_size=16 -z  --stack_size=0x200 --heap_size=0x800 -i/home/santiago/Research/Ti/C55_Libraries/ -l./libs/55ximagex.lib -i/home/santiago/Research/Ti/C55_Includes/ -l./libs/55xdspx_r3.lib  -l ./libs/C55CSL_3.lib -i ./test_programs/jpeg/ --reread_libs --display_error_number --warn_sections  -m"DSPOut.map" --rom_model --sys_stacksize=0x400  ./coverage.obj ./fuzz.obj ./test_programs/jpeg/new_buf.obj ./test_programs/jpeg/new_common.obj ./test_programs/jpeg/new_huff.obj ./test_programs/jpeg/new_jpeg_encode_test.obj ./test_programs/jpeg/new_conf.obj ./test_programs/jpeg/new_enc.obj ./test_programs/jpeg/jpeg_linker.cmd -o DSPFuzz.out
+
+
+

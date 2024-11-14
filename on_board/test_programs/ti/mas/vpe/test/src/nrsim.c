@@ -3,7 +3,7 @@
  *                            
  * Description: Example and testing code of the NR API functions.
  * 
- *        Copyright (c) 2007 – 2013 Texas Instruments Incorporated                
+ *        Copyright (c) 2007 ï¿½ 2013 Texas Instruments Incorporated                
  *                                                                                
  *              All rights reserved not granted herein.                           
  *                                                                                
@@ -16,8 +16,8 @@
  *  foregoing patent license, such license is granted solely to the extent that   
  *  any such patent is necessary to Utilize the software alone.  The patent       
  *  license shall not apply to any combinations which include this software,      
- *  other than combinations with devices manufactured by or for TI (“TI           
- *  Devices”).  No hardware patent is licensed hereunder.                         
+ *  other than combinations with devices manufactured by or for TI (ï¿½TI           
+ *  Devicesï¿½).  No hardware patent is licensed hereunder.                         
  *                                                                                
  *  Redistributions must preserve existing copyright notices and reproduce this   
  *  license (including the above copyright notice and the disclaimer and (if      
@@ -53,10 +53,10 @@
  *                                                                                
  *  DISCLAIMER.                                                                   
  *                                                                                
- *  THIS SOFTWARE IS PROVIDED BY TI AND TI’S LICENSORS "AS IS" AND ANY EXPRESS    
+ *  THIS SOFTWARE IS PROVIDED BY TI AND TIï¿½S LICENSORS "AS IS" AND ANY EXPRESS    
  *  OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED             
  *  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE        
- *  DISCLAIMED. IN NO EVENT SHALL TI AND TI’S LICENSORS BE LIABLE FOR ANY         
+ *  DISCLAIMED. IN NO EVENT SHALL TI AND TIï¿½S LICENSORS BE LIABLE FOR ANY         
  *  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES    
  *  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR            
  *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER    
@@ -84,14 +84,14 @@
 #include <ti/mas/vpe/test/src/nrbufst.h>
 
 void *nr_handle = NULL;
-extern void *nrInst_ptr;
+void *nrInst_ptr;
 
 /*-----------------------------------------------------------------
  * Function:  vpe_instantiate_nr
  *                            
  * Description: Instantiate ASNR module
  *-----------------------------------------------------------------*/
-void vpe_instantiate_nr(tint srate)
+int16_t vpe_instantiate_nr(tint srate)
 {
   const ecomemBuffer_t *bufs_req_by_nr;
   ecomemBuffer_t        bufs_alloc_for_nr[VPE_NR_NUM_BUFS];
@@ -105,26 +105,28 @@ void vpe_instantiate_nr(tint srate)
   nr_size_cfg.max_sampling_rate=srate;
   status = asnrGetSizes(&num_bufs_req_by_nr, &bufs_req_by_nr, &nr_size_cfg);
   if(status != asnr_NOERR) {
-    printf("Error returned by asnrGetSizes() = %d\n",status);
-    exit(0);
+    // printf("Error returned by asnrGetSizes() = %d\n",status);
+    // exit(0);
+    return status;
   }
   
   if(num_bufs_req_by_nr != VPE_NR_NUM_BUFS) {
-    printf("NR needs %d buffers, but %d buffers are allocated!\n", 
-            num_bufs_req_by_nr, VPE_NR_NUM_BUFS);
-    exit(0);
+    // printf("NR needs %d buffers, but %d buffers are allocated!\n", 
+    //         num_bufs_req_by_nr, VPE_NR_NUM_BUFS);
+    // exit(0);
+    return 3;
   }
 
-  printf("Buffers requested by NR:\n");
-  printf("    Buffer    Size(twords)    Alignment    Volatile\n");
-  for(i=0; i<num_bufs_req_by_nr; i++) {
-    printf("     %3d       %7d         %4d       ", 
-                 i, (int)bufs_req_by_nr[i].size, (int)bufs_req_by_nr[i].log2align);
-    if(bufs_req_by_nr[i].volat)
-      printf("    yes\n");
-    else  
-      printf("    no \n");
-  }
+  // printf("Buffers requested by NR:\n");
+  // printf("    Buffer    Size(twords)    Alignment    Volatile\n");
+  // for(i=0; i<num_bufs_req_by_nr; i++) {
+  //   printf("     %3d       %7d         %4d       ", 
+  //                i, (int)bufs_req_by_nr[i].size, (int)bufs_req_by_nr[i].log2align);
+  //   if(bufs_req_by_nr[i].volat)
+  //     printf("    yes\n");
+  //   else  
+  //     printf("    no \n");
+  // }
   
   /* Statically allocate buffers for NR */ 
   for (i=0; i<num_bufs_req_by_nr; i++) {
@@ -167,31 +169,33 @@ void vpe_instantiate_nr(tint srate)
   nr_new_cfg.sizeCfg = nr_size_cfg;
   status = asnrNew(&nrInst_ptr, num_bufs_req_by_nr, bufs_alloc_for_nr, &nr_new_cfg);
   if (status != asnr_NOERR) {
-    printf("Error returned by asnrNew() = %d\n",status);
-    exit(0);
+    // printf("Error returned by asnrNew() = %d\n",status);
+    // exit(0);
+    return status;
   }
 
-  printf("Buffers allocated for NR:\n");
-  printf("    Buffer    Size(twords)    Alignment    Volatile   address\n");
-  for(i=0; i<num_bufs_req_by_nr; i++) {
-    printf("     %3d       %7d         %4d       ", 
-                 i, (int)bufs_alloc_for_nr[i].size, (int)bufs_alloc_for_nr[i].log2align);
-    if(bufs_alloc_for_nr[i].volat)
-      printf("    yes   ");
-    else  
-      printf("    no    ");
+  // printf("Buffers allocated for NR:\n");
+  // printf("    Buffer    Size(twords)    Alignment    Volatile   address\n");
+  // for(i=0; i<num_bufs_req_by_nr; i++) {
+  //   printf("     %3d       %7d         %4d       ", 
+  //                i, (int)bufs_alloc_for_nr[i].size, (int)bufs_alloc_for_nr[i].log2align);
+  //   if(bufs_alloc_for_nr[i].volat)
+  //     printf("    yes   ");
+  //   else  
+  //     printf("    no    ");
     
-    printf("    0x%x\n", bufs_alloc_for_nr[i].base);
-  }
+  //   printf("    0x%x\n", bufs_alloc_for_nr[i].base);
+  // }
   
   /* Open newly created NR instance */
   nr_open_cfg.sampling_rate = srate;
   status = asnrOpen(nrInst_ptr, &nr_open_cfg);
   if (status != asnr_NOERR) {
-    printf("Error returned by asnrOpen() = %d!\n", status);
-    exit(0);
+    // printf("Error returned by asnrOpen() = %d!\n", status);
+    // exit(0);
+    return status;
   }
- 
+ return 0;
 }  /* vpe_instantiate_nr */
 
 
@@ -200,7 +204,7 @@ void vpe_instantiate_nr(tint srate)
  *                            
  * Description: Configure ASNR instance
  *-----------------------------------------------------------------*/
-void vpe_config_nr(vpeASNRPars_t *asnr_params)
+int16_t vpe_config_nr(vpeASNRPars_t *asnr_params)
 {
   asnrControl_t nr_control_cfg;
   tint status;
@@ -233,9 +237,11 @@ void vpe_config_nr(vpeASNRPars_t *asnr_params)
   
   status = asnrControl(nrInst_ptr, &nr_control_cfg);
   if (status != asnr_NOERR) {
-    printf("Error returned by asnrControl = %d!\n", status);
-    exit(0);
+    // printf("Error returned by asnrControl = %d!\n", status);
+    // exit(0);
+    return 1;
   } 
+  return 0;
 } /* vpe_config_nr */
 
 /*-----------------------------------------------------------------
@@ -243,21 +249,23 @@ void vpe_config_nr(vpeASNRPars_t *asnr_params)
  *                            
  * Description: Deinstantiate ASNR module
  *-----------------------------------------------------------------*/
-void vpe_deinstantiate_nr()
+int16_t vpe_deinstantiate_nr()
 { 
   ecomemBuffer_t bufs_returned_by_nr[VPE_NR_NUM_BUFS];
   tint           status, error;
  
   status = asnrClose(nrInst_ptr);
   if(status != asnr_NOERR) {
-    printf("Error returned by asnrClose() = %d!\n", status);
-    exit(0);
+    // printf("Error returned by asnrClose() = %d!\n", status);
+    // exit(0);
+    return status;
   }
 
   status = asnrDelete(&nrInst_ptr, VPE_NR_NUM_BUFS, bufs_returned_by_nr);
   if(status != asnr_NOERR) {
-    printf("Error returned by asnrDelete() = %d!\n", status);
-    exit(0);
+    // printf("Error returned by asnrDelete() = %d!\n", status);
+    // exit(0);
+    return status;
   }
   
   error =    (bufs_returned_by_nr[0].base != nr_buff0)
@@ -267,9 +275,11 @@ void vpe_deinstantiate_nr()
            | (bufs_returned_by_nr[4].base != nr_buff4)
            | (bufs_returned_by_nr[5].base != nr_buff5); 
   if(error) {
-    printf("Buffers returned by asnrDelete() are wrong!\n");
-    exit(0);
+    // printf("Buffers returned by asnrDelete() are wrong!\n");
+    // exit(0);
+    return 3;
   }
+  return 0;
 } /* vpe_deinstantiate_nr */
 
 /* Nothing past this point */

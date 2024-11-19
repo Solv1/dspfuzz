@@ -13,7 +13,17 @@ from datetime import datetime
 
 from jpype.types import *
 #TODO: Set this to be a enviorment varriable.
-jpype.startJVM(classpath=['/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.ccstudio.scripting.environment_3.1.0.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/dss.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar'])
+
+#Source these env variables from java_home.sh
+try:
+    classpath1 = os.environ["SCRIPTING_JAR"]
+    classpath2 = os.environ["DSS_JAR"]
+    classpath3 = os.environ["DBENG_JAR"]
+except KeyError:
+    print('SetupError: Missing a enviorment variable, trying setting it via java_setup.sh and try again')
+    exit(0)
+# jpype.startJVM(classpath=['/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.ccstudio.scripting.environment_3.1.0.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/dss.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar'])
+jpype.startJVM(classpath=[classpath1+':'+classpath2+':'+classpath3])
 
 from com.ti.debug.engine.scripting import *
 from com.ti.ccstudio.scripting.environment import *

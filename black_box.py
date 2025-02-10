@@ -40,13 +40,13 @@ global_coverage_map = [0] * COVERAGE_SIZE
 coverage_dict = {}
 seed_dir = ''
 results_dir = ''
-local_pool_size = 5
-global_pool_size = 10
+local_pool_size = 0
+global_pool_size = 9
 global_pool = [] #List of all seeds in the SEED_DIR of the users choosing.
 local_pool = [] #What is currently loaded into the device ID only 
 crash_void_address = 0 #Holds the address of where errors go when there is a crash condition(hang, bus error, data log error)
 program_to_load = 'DSPFuzz.out'
-seed_size = 500 #Size of current seed
+seed_size = 128 #Size of current seed
 amount_of_crashes = 0
 start_time = 0
 sanity_check = None
@@ -73,8 +73,7 @@ def log(func):
         ret_value = func(*args,**kwargs)        
         end_time = time.clock_gettime(time.CLOCK_BOOTTIME)
         logging.debug('Exiting ' + func.__name__)
-        print('--------------------------------')
-        print('LOG: Time taken for ' + func.__name__ + ' = ' + str(end_time-start_time))
+        print('DSLOG: Time taken for ' + func.__name__ + ' = ' + str(end_time-start_time))
         print('--------------------------------')
         return ret_value
     return wrapper
@@ -118,11 +117,9 @@ def find_coverage_call():
         Locates the asm instructions for a call to the coverage logging function.
         This only done once at the start to find what the call is.
     """
-
-    #This needs SO MUCH WORK.
     global debugServer, debugSession, script, asm_in_mem
     
-    sut_address_var = debugSession.symbol.getAddress('g_sutStartAddress')
+    sut_address_var = debugSession.symbol.getAddress('sut_start_address')
     sut_address = debugSession.memory.readData(1, sut_address_var, 32)
     if (sut_address % 2):
         first_part = debugSession.memory.readData(1, (sut_address//2), 32)
@@ -150,6 +147,7 @@ def reset_and_reload():
     id_num = ''
     
     try:
+        # debugServer.target.restart()
         debugSession.target.reset()
     except:
         print('DSLOG: Failed to reset target using the debug server.')
@@ -171,8 +169,9 @@ def reset_and_reload():
         os.system('uhubctl -a off  -l 3-1 -p 1')
     
         time.sleep(20)
-        # os.system('uhubctl -a on  -l 3-1 -p 1')
-        # time.sleep(5)
+        # os.system('uhubctl -a on -d 2 -l 3-2 -p 1')
+        os.system('uhubctl -a on  -l 3-1 -p 1')
+        time.sleep(5)
 
         script = ScriptingEnvironment.instance()
 
@@ -358,10 +357,10 @@ def _pull_statistics():
     print("Current time =", dt_string)
 
     end_time = time.clock_gettime(time.CLOCK_REALTIME)
-    it_address = debugSession.symbol.getAddress('g_Iterations')
+    it_address = debugSession.symbol.getAddress('iterations')
     #time_address = debugSession.symbol.getAddress('total_time')
 
-    increasing_address = debugSession.symbol.getAddress('g_numIntersting')
+    increasing_address = debugSession.symbol.getAddress('intersting_cases')
     board_increasing_cases = debugSession.memory.readData(1, increasing_address ,16)
 
     print('Board has tracked this number of increasing test cases --> ',board_increasing_cases)
@@ -403,12 +402,18 @@ def set_intial_breakpoints():
         crash_void_address = debugSession.symbol.getAddress('crash_void')
         debugSession.breakpoint.add(crash_void_address) 
 
+
         #Find the coverage map address
-        coverage_map_address = debugSession.symbol.getAddress('g_coverageMap')
+        coverage_map_address = debugSession.symbol.getAddress('coverage_map')
 
         #Adds a breakpoint in the setup to load a intial local pool
+        # setup_pool_id = debugSession.breakpoint.add('setupLocalPool')
+        # setup_pool_address = 258479
+        # setup_pool_id = debugSession.breakpoint.add(setup_pool_address)
         lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
         lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
+        # print(lp_refresh_id)
+
 
         #Adds a breakpoint in the results handler if we have a coverage increasing input.
         coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
@@ -418,6 +423,7 @@ def set_intial_breakpoints():
         debugSession.target.run()
     except:
         print('------DSP run failure resetting the board...-------')
+        reset_and_reload()
         return -1
 
 def calculate_timeout(global_pool_size, local_pool_size) -> int:
@@ -498,8 +504,8 @@ def write_local_pool() -> None:
     
     global seed_size, local_pool_size, local_pool
 
-    corpus_address = debugSession.symbol.getAddress('g_localPool')
-    corpus_tracker_address = debugSession.symbol.getAddress('g_currentSeed')
+    corpus_address = debugSession.symbol.getAddress('local_pool')
+    corpus_tracker_address = debugSession.symbol.getAddress('current_seed_num')
 
    
 
@@ -507,6 +513,7 @@ def write_local_pool() -> None:
     num_seeds = refresh_global_pool()
     seeds_loaded = num_seeds % local_pool_size + 1
     print('DSLOG: We have '+ str(num_seeds) + ' in the global pool.')
+    num_seeds = 1 #Only load one seed at a time.
 
     #If the global pool only has less then the number of seeds to load then load them sequencially 
     if num_seeds <= local_pool_size:
@@ -578,31 +585,30 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
 
 @log
 def _pull_stage_cycles():
+    stage_cycle_address = debugSession.symbol.getAddress('stage_cycles')
+    stage_cycles = debugSession.memory.readData(1, stage_cycle_address, 16)
 
-    mutation_amount_address = debugSession.symbol.getAddress('g_mutationDegression')
+    mutation_amount_address = debugSession.symbol.getAddress('mutation_degression')
     mutation_amount = debugSession.memory.readData(1,mutation_amount_address, 16)
     mutation_amount = 100 // mutation_amount 
 
-    current_mutation_address = debugSession.symbol.getAddress('g_currentMutation')
-    current_mutation = debugSession.memory.readData(1,current_mutation_address, 16)
-
-    if(current_mutation == 0):
+    if(stage_cycles < 2):
         print("Effective Mutaton: bitflip 1/1 |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 1):
+    elif(stage_cycles < 4):
         print("Effective Mutaton: bitflip 2/1 |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 2):
+    elif(stage_cycles < 6):
         print("Effective Mutaton: bitflip 4/1 |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 3):
+    elif(stage_cycles < 8):
         print("Effective Mutaton: byteflip 1/1 |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 4):
+    elif(stage_cycles < 10):
         print("Effective Mutaton: bitflip 2/1 |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 5):
+    elif(stage_cycles < 12):
         print("Effective Mutaton: bitflip 4/1 |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 6):
+    elif(stage_cycles < 48):
         print("Effective Mutaton: arith-add |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 7):
+    elif(stage_cycles < 48):
         print("Effective Mutaton: arith-sub |Mutation Percentage: ",mutation_amount)
-    elif(current_mutation == 8):
+    elif(stage_cycles > 47):
         print("Effective Mutation: random |Mutation Percentage: ",mutation_amount)
 
 @log
@@ -667,7 +673,7 @@ def current_seed_to_global_pool() -> None:
     else:
         #Lets move the troubled seed somewhere else.
         print('-----Found a trouble seed-----')
-        seed_head_address = debugSession.symbol.getAddress('g_seedHead')
+        seed_head_address = debugSession.symbol.getAddress('seed_head')
         trouble_seed = debugSession.memory.readData(1, seed_head_address ,16)
         print('-----Trouble Seed = ',trouble_seed)
         files = os.listdir('./seeds/')
@@ -759,18 +765,18 @@ def refresh_local_pool():
     timer_thread.cancel()
     _pull_statistics()
     write_local_pool()
-    #Remove the breakpoint untill the next refresh.
-    try:
-        debugSession.breakpoint.remove(lp_refresh_id )
-    except:
-        print('DSERROR: Breakpoint can not be unset.')
+    # #Remove the breakpoint untill the next refresh.
+    # try:
+    #     debugSession.breakpoint.remove(lp_refresh_id )
+    # except:
+    #     print('DSERROR: Breakpoint can not be unset.')
     # debugSession.target.runAsynch()
 
     #Reschedule the timer.
-    timeout = calculate_timeout(refresh_global_pool(), 15)
+    # timeout = calculate_timeout(refresh_global_pool(), 15)
 
-    timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
-    timer_thread.start()
+    # timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+    # timer_thread.start()
             
 @log
 def device_listener() -> None:
@@ -880,7 +886,7 @@ def main():
     set_intial_breakpoints()
     
     # Get the address of the current seed. Only need to do this once.
-    current_seed_pointer_address = debugSession.symbol.getAddress('g_inputBuffer')
+    current_seed_pointer_address = debugSession.symbol.getAddress('current_input')
     print('-----Current Seed Address -->', current_seed_pointer_address)
     current_seed_address = debugSession.memory.readData(1, current_seed_pointer_address , 32)
     print('-----Current Seed Pointer -->', current_seed_address)
@@ -894,7 +900,7 @@ def main():
 
 
     #Remove the breakpoint untill the next refresh.
-    debugSession.breakpoint.remove(lp_refresh_id)
+    # debugSession.breakpoint.remove(lp_refresh_id)
     
     #debugSession.target.runAsynch()
 

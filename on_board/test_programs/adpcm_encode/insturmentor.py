@@ -184,7 +184,7 @@ def second_pass(lines,repeat_labels):
         #     dummy_label = _branch_helper(line)
         #     if dummy_label in labels_to_insturment:
         #         continue
-            labels_to_insturment.append(dummy_label)
+            # labels_to_insturment.append(dummy_label)
         elif 'RPT ' in line:
             #Single repeat instruction check for label after this 
             print(line)
@@ -201,6 +201,7 @@ def third_pass(lines, insturment_labels):
     #Now that we have checked for rpt blocks we can see where we need to add insturmentation
     #We track line numbers where these instructions are and then add them to a list to be insturmented
     print("These are the labels: ", insturment_labels)
+    print(len(insturment_labels))
     inRepeatBlock = False
     for index, pre_line in enumerate(lines, start = 1):
         
@@ -231,7 +232,7 @@ def third_pass(lines, insturment_labels):
 
 def forth_pass(lines):
     #This function takes the information gathered from previous passes and then adds insturmentation where it is needed.
-
+    total_blocks = 0
     new_lines = []
     identifierPlaced = False
 
@@ -241,12 +242,13 @@ def forth_pass(lines):
         if (index) in function_lines:
             new_lines.append(line)
             new_lines.append(trampoline_ti[0])
+            total_blocks +=1
         
         #Insert trampoline after the label of a branch instruction.
         elif (index) in branch_lines:
             new_lines.append(line)
             new_lines.append(trampoline_ti[0])
-            
+            total_blocks +=1
 
         #Only need to place the extern indentifier once.
         elif (index) in identifier_lines and not identifierPlaced:
@@ -257,6 +259,7 @@ def forth_pass(lines):
         else:
             new_lines.append(line)
 
+    print('The total number of blocks = ',total_blocks)
     #print(new_lines)
     return new_lines
 

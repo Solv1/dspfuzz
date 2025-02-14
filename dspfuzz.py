@@ -204,9 +204,10 @@ def reset_and_reload():
         print(f"DSLOG: USB Device: {layer} Port: {port}")
         
         # print('-----Resetting the Device-----')
-        os.system('uhubctl -a off -l 3-1 -p 2 -r 1000')
-        time.sleep(20)
-        os.system('uhubctl -a on -l 3-1 -p 2 -r 1000')
+        os.system(f'uhubctl -a off -l {layer} -p {port} -r 1000')
+        time.sleep(30)
+        os.system(f'uhubctl -a on -l {layer} -p {port} -r 1000')
+        time.sleep(15)
         # os.system('uhubctl -a on  -l 3-1 -p 1')
 
         script = ScriptingEnvironment.instance()

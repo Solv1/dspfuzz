@@ -17,13 +17,13 @@ MEMORY
         DARAM2 (RWX) : origin = 0008000h, length = 0008000h
         /*DARAM3 (RWX) : origin = 000c000h, length = 0004000h*/
 
-        SARAM01 (RWX) : origin = 0010000h, length = 0008000h
-        SARAM2  : origin = 0018000h, length = 0004000h
+        SARAM01 (RWX) : origin = 0010000h, length = 000c000h
+       /* SARAM2  : origin = 0018000h, length = 0004000h*/
         SARAM3  : origin = 001c000h, length = 0004000h
         SARAM4  : origin = 0020000h, length = 0004000h
-        SARAM5  : origin = 0024000h, length = 000c000h	/* A little larger for storing the fuzzer itself */
-        SARAM6  : origin = 0030000h, length = 0004000h
-        SARAM7 (RWX)  : origin = 0034000h, length = 0004000h
+        SARAM5  : origin = 0024000h, length = 000c800h	/* A little larger for storing the fuzzer itself */
+        /*SARAM6  : origin = 0030000h, length = 0004000h
+        SARAM7 (RWX)  : origin = 0034000h, length = 0004000h*/
         SARAM8 : origin = 0038000h, length = 0004000h
         SARAM9 : origin = 003c000h, length = 0008000h /* For DUT sandbox to prevent weird program behavior */
         SARAM10 (RWX): origin = 0044000h, length = 0004000h
@@ -44,11 +44,11 @@ SECTIONS
         vectors (NOLOAD) : {} > DARAM0  PAGE 0         /* interrupt vector table */ /* was VECS */
         .cinit   : {} > SARAM01 PAGE 0
         .text    : {} > SARAM01 PAGE 0
-        isrs     : {} > SARAM2  PAGE 0
+        isrs     : {} > SARAM3  PAGE 0
         .stack   : {} > DARAM0  PAGE 0 ALIGN = 4
         .sysstack: {} > DARAM0  PAGE 0 ALIGN = 4
         .sysmem  : {} > DARAM2 PAGE 0 ALIGN = 4
-        .data    : {} > SARAM6  PAGE 0        /* force .data to not be on Page 0 */
+        .data    : {} > SARAM9  PAGE 0        /* force .data to not be on Page 0 */
         //.bss:saram  : {} > DARAM2  PAGE 0     /* must be a different on-chip block than .bss */
         //.bss:saram2 : {} > SARAM3  PAGE 0     /* must be a different on-chip block than .bss */
         //.bss     : {} > SARAM15 PAGE 0      /* for normal testing, move .bss off of DARAM */
@@ -62,6 +62,7 @@ SECTIONS
 	.twiddle : {} > SARAM3  PAGE 0, align(2048)
         .program_sandbox : > SARAM11 /* Store the device under test here */
         {
+		susan.obj
 		/*new_test_fuzz.obj*/
         	/*new_test_fuzz.obj*/
 		/*--library=*ximagex.lib<Boundarymn.obj>(.text)*/

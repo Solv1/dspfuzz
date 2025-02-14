@@ -2,10 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="DefaultStylesheet.xsl"?>
 <log>
 <record>
-  <date>2024-11-13T18:34:46.303334Z</date>
-  <millis>1731522886303</millis>
-  <nanos>334000</nanos>
-  <sequence>42</sequence>
+  <date>2025-02-14T00:59:50.473860Z</date>
+  <millis>1739494790473</millis>
+  <nanos>860000</nanos>
+  <sequence>222874</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -15,10 +15,10 @@
 </message>
 </record>
 <record>
-  <date>2024-11-13T18:34:46.310227Z</date>
-  <millis>1731522886310</millis>
-  <nanos>227000</nanos>
-  <sequence>43</sequence>
+  <date>2025-02-14T00:59:50.474098Z</date>
+  <millis>1739494790474</millis>
+  <nanos>98000</nanos>
+  <sequence>222875</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -28,10 +28,10 @@
 </message>
 </record>
 <record>
-  <date>2024-11-13T18:34:46.436706Z</date>
-  <millis>1731522886436</millis>
-  <nanos>706000</nanos>
-  <sequence>44</sequence>
+  <date>2025-02-14T00:59:50.540806Z</date>
+  <millis>1739494790540</millis>
+  <nanos>806000</nanos>
+  <sequence>222876</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -40,10 +40,10 @@
   <message>C55xx: GEL Output: PLL Init Done.</message>
 </record>
 <record>
-  <date>2024-11-13T18:34:46.437223Z</date>
-  <millis>1731522886437</millis>
-  <nanos>223000</nanos>
-  <sequence>45</sequence>
+  <date>2025-02-14T00:59:50.540986Z</date>
+  <millis>1739494790540</millis>
+  <nanos>986000</nanos>
+  <sequence>222877</sequence>
   <logger>com.ti.debug.engine.scripting.DebugSession</logger>
   <level>INFO</level>
   <class>com.ti.debug.engine.scripting.DebugSession$DebuggerInfoListener</class>
@@ -52,3 +52,180 @@
   <message>C55xx: GEL Output: Target Connection Complete.
 </message>
 </record>
+<record>
+  <date>2025-02-14T00:59:50.897997Z</date>
+  <millis>1739494790897</millis>
+  <nanos>997000</nanos>
+  <sequence>222889</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerFatalListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Trouble Writing Memory Block at 0x10000 on Page 0 of Length 0x3718: (Error -1041 @ 0xFFFFFF66) The debug probe reported an error. Confirm debug probe configuration and connections, reset the debug probe, and retry the operation. (Emulation package 20.0.0.3178) 
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:50.898770Z</date>
+  <millis>1739494790898</millis>
+  <nanos>770000</nanos>
+  <sequence>222890</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: File Loader: Verification failed: Target failed to write 0x010000@PROGRAM
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:50.899294Z</date>
+  <millis>1739494790899</millis>
+  <nanos>294000</nanos>
+  <sequence>222891</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: GEL: File: /home/santiago/Research/dspfuzz/DSPFuzz.out: Load failed.
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:50.899908Z</date>
+  <millis>1739494790899</millis>
+  <nanos>908000</nanos>
+  <sequence>222893</sequence>
+  <logger>com.ti.ccstudio.scripting.environment.ScriptingException</logger>
+  <level>SEVERE</level>
+  <class>com.ti.ccstudio.scripting.environment.ScriptingException</class>
+  <method>logException</method>
+  <thread>102</thread>
+  <message>File: /home/santiago/Research/dspfuzz/DSPFuzz.out: Load failed.</message>
+  <exception>
+    <message>com.ti.ccstudio.scripting.environment.ScriptingException: File: /home/santiago/Research/dspfuzz/DSPFuzz.out: Load failed.</message>
+    <frame>
+      <class>com.ti.debug.engine.scripting.Memory</class>
+      <method>load</method>
+      <line>963</line>
+    </frame>
+    <frame>
+      <class>com.ti.debug.engine.scripting.Memory</class>
+      <method>loadProgram</method>
+      <line>922</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2025-02-14T00:59:50.900712Z</date>
+  <millis>1739494790900</millis>
+  <nanos>712000</nanos>
+  <sequence>222894</sequence>
+  <logger>com.ti.ccstudio.scripting.environment.ScriptingException</logger>
+  <level>SEVERE</level>
+  <class>com.ti.ccstudio.scripting.environment.ScriptingException</class>
+  <method>logException</method>
+  <thread>102</thread>
+  <message>Error loading "DSPFuzz.out": File: /home/santiago/Research/dspfuzz/DSPFuzz.out: Load failed.</message>
+  <exception>
+    <message>com.ti.ccstudio.scripting.environment.ScriptingException: Error loading "DSPFuzz.out": File: /home/santiago/Research/dspfuzz/DSPFuzz.out: Load failed.</message>
+    <frame>
+      <class>com.ti.debug.engine.scripting.Memory</class>
+      <method>loadProgram</method>
+      <line>932</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2025-02-14T00:59:50.901745Z</date>
+  <millis>1739494790901</millis>
+  <nanos>745000</nanos>
+  <sequence>222898</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerFatalListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Failed CPU Reset: (Error -1041 @ 0xFFFFFF66) The debug probe reported an error. Confirm debug probe configuration and connections, reset the debug probe, and retry the operation. (Emulation package 20.0.0.3178) 
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:50.914052Z</date>
+  <millis>1739494790914</millis>
+  <nanos>52000</nanos>
+  <sequence>222899</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerFatalListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Error: (Error -150 @ 0x0) One of the FTDI driver functions used during configuration returned a invalid status or an error. (Emulation package 20.0.0.3178) 
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:51.099009Z</date>
+  <millis>1739494791099</millis>
+  <nanos>9000</nanos>
+  <sequence>222900</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Unable to determine target status after 20 attempts
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:51.109568Z</date>
+  <millis>1739494791109</millis>
+  <nanos>568000</nanos>
+  <sequence>222901</sequence>
+  <logger>com.ti.debug.engine.scripting.DebugSession</logger>
+  <level>SEVERE</level>
+  <class>com.ti.debug.engine.scripting.DebugSession$DebuggerErrorListener</class>
+  <method>onEvent</method>
+  <thread>16</thread>
+  <message>C55xx: Failed to remove the debug state from the target before disconnecting.  There may still be breakpoint op-codes embedded in program memory.  It is recommended that you reset the emulator before you connect and reload your program before you continue debugging
+</message>
+</record>
+<record>
+  <date>2025-02-14T00:59:51.112716Z</date>
+  <millis>1739494791112</millis>
+  <nanos>716000</nanos>
+  <sequence>222903</sequence>
+  <logger>com.ti.ccstudio.scripting.environment.ScriptingException</logger>
+  <level>SEVERE</level>
+  <class>com.ti.ccstudio.scripting.environment.ScriptingException</class>
+  <method>logException</method>
+  <thread>102</thread>
+  <message>Target reset failed. Error: -1</message>
+  <exception>
+    <message>com.ti.ccstudio.scripting.environment.ScriptingException: Target reset failed. Error: -1</message>
+    <frame>
+      <class>com.ti.debug.engine.scripting.Target</class>
+      <method>reset</method>
+      <line>625</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2025-02-14T00:59:51.112855Z</date>
+  <millis>1739494791112</millis>
+  <nanos>855000</nanos>
+  <sequence>222904</sequence>
+  <logger>com.ti.ccstudio.scripting.environment.ScriptingException</logger>
+  <level>SEVERE</level>
+  <class>com.ti.ccstudio.scripting.environment.ScriptingException</class>
+  <method>logException</method>
+  <thread>102</thread>
+  <message>Error reseting target: Target reset failed. Error: -1</message>
+  <exception>
+    <message>com.ti.ccstudio.scripting.environment.ScriptingException: Error reseting target: Target reset failed. Error: -1</message>
+    <frame>
+      <class>com.ti.debug.engine.scripting.Target</class>
+      <method>reset</method>
+      <line>644</line>
+    </frame>
+  </exception>
+</record>
+</log>

@@ -1,0 +1,324 @@
+rd/DSPFuzz.out -r False
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 7.455073724999238
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.029564914999355096
+DSLOG: Current seed address --> 78730
+DSLOG: Current seed pointer --> 16386
+['3', '2', '5', '8', '6', '4', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 4.3400999857112765e-05
+DSLOG: We have 10 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.4586726699999417
+DSLOG: Time of start = 13/02/2025 14:39:59
+DSLOG: Finding coverage calls in binary
+DSLOG: We need 2 more nibbles.
+DSLOG: Coverage call: 0x6c012f07
+DSLOG: Time taken for find_coverage_call = 0.003665197000373155
+DSLOG: Starting address of SUT: 0x0004d9f8
+b'6c'
+b'01'
+b'2f'
+b'07'
+DSLOG: Total Coverage Points: 139.
+['3', '2', '5', '8', '6', '4', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 3.146699964418076e-05
+DSLOG: Starting the device listener.
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:39:59
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  1
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.08368134498596191
+DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0036152669999864884
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 6 new coverage.
+DSLOG: New coverage {317980: 38760, 318010: 38790, 318025: 38805, 318029: 38809, 318055: 38835, 318059: 38839, 318073: 38853, 318082: 38862, 318099: 38879, 318116: 38896, 318120: 38900, 318138: 38918, 318147: 38927, 318191: 38971, 318199: 38979, 318216: 38996, 318233: 39013, 318239: 39019, 318283: 39063, 318293: 39073, 318306: 39086, 318337: 39117, 318345: 39125, 318376: 39156, 318384: 39164, 318402: 39182, 318452: 39232, 318456: 39236, 318478: 39258, 318492: 39272, 318514: 39294, 318528: 39308, 318552: 39332, 318556: 39336, 318586: 39366, 318590: 39370, 318646: 39426, 318650: 39430, 318658: 39438, 318722: 39502, 318726: 39506, 318781: 39561, 318805: 39585, 318878: 39658, 318886: 39666, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319178: 39958, 319212: 39992, 319216: 39996, 319233: 40013, 319257: 40037, 319296: 40076, 319300: 40080, 319308: 40088, 319382: 40162, 319386: 40166, 319410: 40190, 319414: 40194, 319700: 40480, 319733: 40513, 319760: 40540, 319764: 40544, 319791: 40571, 319795: 40575, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 321966: 42746, 322016: 42796, 322047: 42827, 322061: 42841, 322094: 42874, 322116: 42896, 322169: 42949, 322173: 42953, 322218: 42998, 322222: 43002}
+['3', '2', '5', '8', '6', '4', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 3.54349995177472e-05
+DSLOG: Obtained seed.
+['3', '2', '5', '8', '6', '11', '4', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 7.451800047419965e-05
+DSLOG: We have 11 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.46922230100062734
+['3', '2', '5', '8', '6', '11', '4', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 4.2362000385764986e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.051586096000392
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:40:00
+DSLOG: Board has tracked this number of increasing test cases -->  2
+DSLOG: Host has tracked this number of increasing test cases -->  2
+DSLOG: Total number of iterations: 6
+DSLOG: Average throughput time: 0.22577114899953207
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0028557669993460877
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 53 new coverage.
+DSLOG: Coverage not found: 318874
+DSLOG: New coverage {318073: 38853, 318116: 38896, 318191: 38971, 318233: 39013, 318293: 39073, 318337: 39117, 318376: 39156, 318478: 39258, 318514: 39294, 318886: 39666, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319178: 39958, 319212: 39992, 319216: 39996, 319233: 40013, 319257: 40037, 319296: 40076, 319300: 40080, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322047: 42827, 322061: 42841, 322094: 42874}
+['3', '2', '5', '8', '6', '11', '4', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 2.8906000807182863e-05
+DSLOG: Obtained seed.
+['3', '2', '5', '8', '6', '11', '4', '12', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 6.624900015594903e-05
+DSLOG: We have 12 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.45008264600073744
+['3', '2', '5', '8', '6', '11', '4', '12', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 5.637600042973645e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.1224166869997134
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:40:02
+DSLOG: Board has tracked this number of increasing test cases -->  3
+DSLOG: Host has tracked this number of increasing test cases -->  3
+DSLOG: Total number of iterations: 11
+DSLOG: Average throughput time: 0.24059599096124823
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0028009899997414323
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: New coverage {318073: 38853, 318116: 38896, 318191: 38971, 318233: 39013, 318337: 39117, 318376: 39156, 318478: 39258, 318514: 39294, 318886: 39666, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319178: 39958, 319212: 39992, 319216: 39996, 319233: 40013, 319257: 40037, 319296: 40076, 319300: 40080, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322047: 42827, 322061: 42841, 322094: 42874}
+['3', '2', '5', '8', '6', '11', '4', '12', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 3.0470000638160855e-05
+DSLOG: Obtained seed.
+['3', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 5.4534999435418285e-05
+DSLOG: We have 13 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.4623457130001043
+['3', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 5.5117001465987414e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.9565292249990307
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:40:03
+DSLOG: Board has tracked this number of increasing test cases -->  4
+DSLOG: Host has tracked this number of increasing test cases -->  4
+DSLOG: Total number of iterations: 36
+DSLOG: Average throughput time: 0.12174172533882989
+DSLOG: effective mutaton: arith-add |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0031738400011818158
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 10 new coverage.
+DSLOG: New coverage {318073: 38853, 318116: 38896, 318191: 38971, 318233: 39013, 318337: 39117, 318376: 39156, 318478: 39258, 318514: 39294, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322061: 42841}
+['3', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 3.068500154768117e-05
+DSLOG: Obtained seed.
+['3', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  14
+DSLOG: Time taken for refresh_global_pool = 3.78480017388938e-05
+DSLOG: We have 14 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.4569248580010026
+['3', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  14
+DSLOG: Time taken for refresh_global_pool = 5.043499913881533e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.0694307920002757
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:40:12
+DSLOG: Board has tracked this number of increasing test cases -->  5
+DSLOG: Host has tracked this number of increasing test cases -->  5
+DSLOG: Total number of iterations: 248
+DSLOG: Average throughput time: 0.05127098483424033
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003016661999936332
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: New coverage {318073: 38853, 318116: 38896, 318191: 38971, 318337: 39117, 318376: 39156, 318478: 39258, 318514: 39294, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322061: 42841}
+['3', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  14
+DSLOG: Time taken for refresh_global_pool = 3.1429999580723234e-05
+DSLOG: Obtained seed.
+['3', '15', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  15
+DSLOG: Time taken for refresh_global_pool = 5.027100087318104e-05
+DSLOG: We have 15 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.46397476899983303
+['3', '15', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  15
+DSLOG: Time taken for refresh_global_pool = 6.265099909796845e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.9305906019999384
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:40:25
+DSLOG: Board has tracked this number of increasing test cases -->  6
+DSLOG: Host has tracked this number of increasing test cases -->  6
+DSLOG: Total number of iterations: 693
+DSLOG: Average throughput time: 0.0381204497074496
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0038479290014947765
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: New coverage {318073: 38853, 318191: 38971, 318337: 39117, 318376: 39156, 318478: 39258, 318514: 39294, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322061: 42841}
+['3', '15', '2', '5', '8', '6', '11', '4', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  15
+DSLOG: Time taken for refresh_global_pool = 4.353199983597733e-05
+DSLOG: Obtained seed.
+['3', '15', '2', '5', '8', '6', '11', '4', '16', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  16
+DSLOG: Time taken for refresh_global_pool = 4.550300036498811e-05
+DSLOG: We have 16 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.46979563199965924
+['3', '15', '2', '5', '8', '6', '11', '4', '16', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  16
+DSLOG: Time taken for refresh_global_pool = 4.374899981485214e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.0380532130002393
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:40:27
+DSLOG: Board has tracked this number of increasing test cases -->  7
+DSLOG: Host has tracked this number of increasing test cases -->  7
+DSLOG: Total number of iterations: 696
+DSLOG: Average throughput time: 0.039701648827256825
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0030737180004507536
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 2 new coverage.
+DSLOG: New coverage {318191: 38971, 318337: 39117, 318478: 39258, 318514: 39294, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322061: 42841}
+['3', '15', '2', '5', '8', '6', '11', '4', '16', '12', '13', '1', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  16
+DSLOG: Time taken for refresh_global_pool = 4.123600047023501e-05
+DSLOG: Obtained seed.
+['3', '15', '2', '5', '8', '6', '11', '4', '16', '12', '13', '1', '17', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 4.9820999265648425e-05
+DSLOG: We have 17 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.46312562099956267
+['3', '15', '2', '5', '8', '6', '11', '4', '16', '12', '13', '1', '17', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 6.401700011338107e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.9312651109994476
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:41:31
+DSLOG: Board has tracked this number of increasing test cases -->  8
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 2712
+DSLOG: Average throughput time: 0.03378852577687717
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0031216210009006318
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: New coverage {318191: 38971, 318478: 39258, 318514: 39294, 318914: 39694, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322061: 42841}
+['3', '15', '2', '5', '8', '6', '11', '4', '16', '12', '13', '1', '17', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 3.473000106168911e-05
+DSLOG: Obtained seed.
+['3', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 5.8449000789551064e-05
+DSLOG: We have 18 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.4620684270012134
+['3', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 6.58450007904321e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.946569993000594
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:43:36
+DSLOG: Board has tracked this number of increasing test cases -->  9
+DSLOG: Host has tracked this number of increasing test cases -->  9
+DSLOG: Total number of iterations: 6749
+DSLOG: Average throughput time: 0.03210892008223133
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0031398290011566132
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: New coverage {318191: 38971, 318478: 39258, 318514: 39294, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319803: 40583, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320293: 41073, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673, 321897: 42677, 322061: 42841}
+['3', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 3.8965999920037575e-05
+DSLOG: Obtained seed.
+['3', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 4.7823999921092764e-05
+DSLOG: We have 19 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.451491525000165
+['3', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 9.660000068834051e-05
+DSLOG: Time taken for current_seed_to_global_pool = 0.9930221280010301
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:44:23
+DSLOG: Board has tracked this number of increasing test cases -->  10
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 8232
+DSLOG: Average throughput time: 0.032026624019222426
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0036379160010255873
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 4 new coverage.
+DSLOG: New coverage {318191: 38971, 318478: 39258, 318514: 39294, 318949: 39729, 318953: 39733, 318971: 39751, 319134: 39914, 319174: 39954, 319700: 40480, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673}
+['3', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 5.252699884294998e-05
+DSLOG: Obtained seed.
+['3', '20', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 5.382900053518824e-05
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.47661871399941447
+['3', '20', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 6.3580000642105e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.0176027409997914
+DSLOG: Seed dir in current_seed is : seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 13/02/2025 14:46:46
+DSLOG: Board has tracked this number of increasing test cases -->  11
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 13162
+DSLOG: Average throughput time: 0.0308906017801099
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0037324839995562797
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 5 new coverage.
+DSLOG: New coverage {318191: 38971, 318478: 39258, 318514: 39294, 319700: 40480, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673}
+['3', '20', '15', '2', '5', '8', '6', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 3.923499934899155e-05
+DSLOG: Obtained seed.
+['3', '20', '15', '2', '5', '8', '6', '21', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 5.552099901251495e-05
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.453526409000915
+['3', '20', '15', '2', '5', '8', '6', '21', '11', '18', '4', '16', '12', '13', '1', '17', '19', '7', '14', '9', '10']
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 3.9163998735602945e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.0079395399989153
+
+
+{318191: 38971, 318478: 39258, 318514: 39294, 319700: 40480, 319880: 40660, 319884: 40664, 319908: 40688, 319912: 40692, 320198: 40978, 320231: 41011, 320258: 41038, 320262: 41042, 320289: 41069, 320317: 41097, 320321: 41101, 320345: 41125, 320349: 41129, 320380: 41160, 320462: 41242, 320846: 41626, 320860: 41640, 320875: 41655, 320909: 41689, 320926: 41706, 320947: 41727, 320956: 41736, 320976: 41756, 320993: 41773, 321013: 41793, 321029: 41809, 321038: 41818, 321052: 41832, 321066: 41846, 321108: 41888, 321150: 41930, 321177: 41957, 321188: 41968, 321197: 41977, 321213: 41993, 321569: 42349, 321584: 42364, 321618: 42398, 321635: 42415, 321652: 42432, 321672: 42452, 321688: 42468, 321698: 42478, 321714: 42494, 321726: 42506, 321768: 42548, 321810: 42590, 321835: 42615, 321862: 42642, 321866: 42646, 321893: 42673}
+

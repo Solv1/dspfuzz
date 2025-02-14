@@ -10,7 +10,7 @@
 /*#define NO_LOGGING*/                  /*For debugging messages.*/
 
 #define TIMEOUT 100000                  /*Assuming a 100Mhz Clock*/
-#define SEED_CAPACITY 5
+#define SEED_CAPACITY 10
 #define MAX_BLOCKS_PER_INPUT 200
 #define MAX_CYCLES 250                  /*250 Cycles for varrious mutation strats before getting a new seed.*/
 // #define WIDTH 128 //Fixed size width for now.
@@ -28,13 +28,13 @@ enum Mutation{
         RANDOM			//Do a random amount of stacked mutations
 };
 
-#pragma DATA_SECTION(g_localPool, ".program_sandbox") // Store the corpus in a sandbox away from program memory.
+//#pragma DATA_SECTION(g_localPool, ".program_sandbox") // Store the corpus in a sandbox away from program memory.
 
 volatile int16_t g_localPool[SEED_CAPACITY][WIDTH]; // A bunch of inputs here
 volatile int16_t g_currentSeed = 0; //Track which seeds are in use
 
-#pragma DATA_SECTION(g_numIntersting,".program_sandbox")
-volatile uint16_t g_numIntersting = 0;
+//#pragma DATA_SECTION(g_numIntersting,".program_sandbox")
+volatile uint16_t g_numInteresting = 0;
 
 
 // #pragma DATA_SECTION(g_inputBuffer, ".program_sandbox") // Store the current_seed in a
@@ -43,8 +43,8 @@ int16_t * g_inputBuffer;
 // #pragma DATA_SECTION(output_buffer, ".data_sandbox") //Keep the output here too
 // int16_t output_buffer[WIDTH] = {0};
 
-volatile uint16_t g_coverageMap[MAX_BLOCKS_PER_INPUT] = {0}; //Fill the coverage map with NULL characters.
-volatile uint16_t * g_coverageMapHead; //Head tracker of the coverage map.
+volatile uint32_t g_coverageMap[MAX_BLOCKS_PER_INPUT] = {0}; //Fill with 0's.
+volatile uint32_t * g_coverageMapHead; //Head tracker of the coverage map.
 
 uint16_t g_nSeeds = 0;
 
@@ -65,6 +65,7 @@ uint16_t g_poolLoops = 0;
 volatile uint16_t g_iterations = 0;
 volatile uint16_t g_currentMutation = 0;
 volatile uint16_t g_mutationDegression = 1;
+volatile uint16_t g_inputSize = WIDTH; /*Test cases needs a variable size */
 
 Uint32    cpuCycleCount = 0;            /*Interrupt Variables*/
 Uint32    sysClk;
@@ -250,7 +251,7 @@ int16_t setup(void * function_pointer){
     }
 
     memset(&g_coverageMap,NULL,sizeof(g_coverageMap));
-    g_coverageMap[0] = -1;
+    //g_coverageMap[0] = -1;
     memset(&g_localPool, 0, sizeof(g_localPool));
     g_coverageMapHead =  &g_coverageMap[0];
     g_sutStartAddress = ((uint32_t *)function_pointer); /*Finds the offset in memory of the start of our sut */
@@ -549,23 +550,19 @@ void main_harness_loop(){
  * @param  none
  * @return void
  ********************************************************/
-        retVal = 0;
-        int16_t test_case_size ;
-        uint16_t i;
         CSL_Handle timerHandle;
-        test_case_size = 500;
 
         setup(&susan_edges);
+	g_numInteresting = 0;
 
         setjmp(g_savedContext);
 
-    
         while(1){
         
         g_iterations++;
-        dequeue_seed(g_inputBuffer);
+        dequeue_seed();
 
-        mutator(g_inputBuffer,test_case_size);
+        mutator();
 
         #ifdef NO_LOGGING
         printf("\nLOG: Trying seed %d with Mutation Cycle %d \n", g_seedHead, g_stageCycles);
@@ -584,15 +581,16 @@ void main_harness_loop(){
         //process_image(g_inputBuffer,(g_inputBuffer[0]%test_case_size+1));
         stop_timer(&timerHandle);
 
-        if(g_covFunctionEnter && (g_coverageMap[0] != -1)){
-                g_numIntersting++;
+        if(g_covFunctionEnter && (g_coverageMap[0] != 0)){
+                g_numInteresting++;
                 bubble_coverage();
-
+		
+		uint16_t i;
                 /* Clear the coverage map*/
                 for(i = 0; i < MAX_BLOCKS_PER_INPUT; i++){
                         g_coverageMap[i] = 0;
                 }
-                g_coverageMap[0] = -1;
+                //g_coverageMap[0] = -1;
                 g_coverageMapHead = &g_coverageMap[0];
                 g_covFunctionEnter = false;
                 g_mutationDegression = 1;

@@ -5,7 +5,7 @@
 ;***********************************************************/
 
 	.global _coverage_log
-	.ref _coverage_map, _cov_function_enter, _sut_start_address, _coverage_map_head;, _iterations
+	.ref _g_coverageMap, _g_covFunctionEnter, _g_sutStartAddress, _g_coverageMapHead;, _iterations
 
 _coverage_log:
 	;AADD #-10, SP
@@ -35,9 +35,9 @@ _coverage_log:
 	SUB #4, AC0;
 	AND #0x0001, AC0, T0;			; The "FLAG for evenness is stored in AC1
 	SFTL AC0, #-1;
-	MOV AC0, XAR0;					;Do some address calculation magic here ORGIGNAL_ADDRESS - SIZE_OF_INSTURMENTION / 2 to account for data memory and program memory difference.
+	MOV AC0, XAR0;				;Do some address calculation magic here ORGIGNAL_ADDRESS - SIZE_OF_INSTURMENTION / 2
+						;to account for data memory and program memory difference.
 	
-
 ;	MOV dbl(*AR0), pair(T0); 		; First four bytes of memory to check AC0 has the memory location of the program.
 ;	ADD #2, AR0;
 ;	MOV *AR0, T2;					;Last two bytes
@@ -47,36 +47,42 @@ _coverage_log:
 ;	AND #0x02000, T0;
 	BCC even, T0 == #0 					;Mod is odd
 odd:
-		MOV AR1, low_byte(*AR0);
-		;MOV AR1, high_byte(*AR0);
-		ADD #1, AR0;
-		MOV AR1, high_byte(*AR0);
-		MOV AR1, low_byte(*AR0);
-		ADD #1, AR0;
-		MOV AR1, high_byte(*AR0);
-		B map_store;
+	MOV AR1, low_byte(*AR0);
+	;MOV AR1, high_byte(*AR0);
+	ADD #1, AR0;
+	MOV AR1, high_byte(*AR0);
+	MOV AR1, low_byte(*AR0);
+	ADD #1, AR0;
+	MOV AR1, high_byte(*AR0);
+	B map_store;
 
 even:
 	;XCC T0 == #0 					; Mod is even
-		MOV AR1, low_byte(*AR0);
-		MOV AR1, high_byte(*AR0);
-		ADD #1, AR0;
-		MOV AR1, low_byte(*AR0);
-		MOV AR1, high_byte(*AR0);
-		ADD #1, AR0;
-		;MOV AR1, low_byte(*AR0);
-		;MOV AR1, high_byte(*AR0);
+	MOV AR1, low_byte(*AR0);
+	MOV AR1, high_byte(*AR0);
+	ADD #1, AR0;
+	MOV AR1, low_byte(*AR0);
+	MOV AR1, high_byte(*AR0);
+	ADD #1, AR0;
+	;MOV AR1, low_byte(*AR0);
+	;MOV AR1, high_byte(*AR0);
 
 map_store:
-	MOV dbl(*SP(#00h)), AC0;    	;Return address for hashing function.
-	SUB #4, AC0;
-    MOV dbl(*(#_sut_start_address)), AC1; ;SUT address offset
+	;MOV dbl(*SP(#00h)), AC0;    	;Return address for hashing function.
+	;SUB #4, AC0;
+    	;MOV dbl(*(#_g_sutStartAddress)), AC1; ;SUT address offset
 
 	;CMP AC1 > AC0, TC1				;
 
 	;BCC greater, TC1			;
-    SUB AC1, AC0; 					;Raw Value = Return address - Start address -> AC0 
-    MOV AC0, AC1;					;Offset -> AC0 and AC1
+    	;SUB AC1, AC0; 					;Raw Value = Return address - Start address -> AC0 
+    	;MOV AC0, AC1;					;Offset -> AC0 and AC1
+	;-------------------------------------------------------------------------------------------------
+	MOV dbl(*SP(#00h)), AC0;		;This is the address of where the coverage_logging function begins in the SUT
+	SUB #4, AC0;
+	;AND #0xFFFF, AC0, AC1		;Mask off the last 16-bits of the function call location.		
+
+
 ;	B finish
 
 ;greater:
@@ -86,7 +92,7 @@ map_store:
 
 	;Byte Postion in BitMap
     ;SFTL AC0, #-4 					; byte_address = offset >> 4
-    ;AMOV #_coverage_map, XAR3;		;Accessing the coverage map at label _coverage_map
+    ;AMOV #_g_coverageMap, XAR3;		;Accessing the coverage map at label _g_coverageMap
     ;ADD AC0, AR3;					; Adding the which byte this to the orginal address
 
 	;Bit Position in BitMap
@@ -102,13 +108,14 @@ map_store:
 
 
 finish:
-	MOV dbl(*(#_coverage_map_head)), XAR2
-	MOV AC1, *AR2
-	AMAR *AR2+					;Stores the offset in the coverage list.
-	MOV XAR2, dbl(*(#_coverage_map_head))
+	MOV dbl(*(#_g_coverageMapHead)), XAR2
+	MOV AC0, dbl(*AR2)
+	AADD #2, AR2
+	;AMAR *AR2+2					;Stores the offset in the coverage list.
+	MOV XAR2, dbl(*(#_g_coverageMapHead))
 	
-	;ADD #1, #_coverage_map_head;				;Increment the head by one to reach the next address.
-	MOV #1, *(#_cov_function_enter);
+	;ADD #1, #_g_coverageMapHead;				;Increment the head by one to reach the next address.
+	MOV #1, *(#_g_covFunctionEnter);
 
 	;Restore the Register Context
     AADD #3, SP;

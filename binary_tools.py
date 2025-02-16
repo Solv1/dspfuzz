@@ -1,5 +1,7 @@
 import binascii
 import argparse
+import os 
+
 from functools import partial
 
 COVERAGE_SIZE = 20
@@ -14,11 +16,35 @@ def _handle_args():
         help='Binary File to Rewrite'
     )
     parser.add_argument('-m','--map' ,dest='map_file',action='store',
-        help='Map file containig memory locations.', required='true'
+        help='Map file containig memory locations.'
     )
     # 
     return parser.parse_args()
 
+
+
+
+
+def _get_disassembly(bin_file):
+    tools_dir = os.environ["TOOLS_DIR"]
+    disasm_name = 'disasm.asm'
+    
+    os.system(f'{tools_dir}/dis55 {bin_file} > {disasm_name}')
+
+    return disasm_name
+
+def read_disassembly_file(bin_file):
+    locations = []
+
+    disasm_file = _get_disassembly(bin_file)
+
+    with open(disasm_file, 'r') as fp:
+        for line in fp.readlines():
+            if 'CALL _coverage_log' in line:
+                split_line = line.split(':')
+                locations.append(int(split_line[0], 16))
+
+    return locations
 
 
 def read_map_file(map_file) -> int:
@@ -77,7 +103,87 @@ def _read_raw_binary(bin_path):
     # print(raw_binary)
     return raw_binary
 
-def find_calls(bin_path, disasm, priorTest) -> dict:
+# def find_calls(bin_path, disasm, priorTest) -> dict:
+#     """Searches binary file for our distinct byte value for our insturmentation i.e 0x6c014b19.
+#     When the begining of a call is found its offset from the first call made in the program is saved along with the byte number to uninsturment later.
+#     This is stored in a local file for use in future 
+
+#     @Arguments: bin_file -> path to the binary we are going to search.
+#     @Return: A dictionary -> offset:byte number
+#     """
+#     raw_binary = []
+#     call_function_starts = []
+#     coverage_locations = dict()
+
+#     flag_1 = False
+#     flag_2 = False
+#     flag_3 = False
+#     byte_1 = binascii.hexlify((((disasm >> 24) & 0xFF)).to_bytes(1,byteorder='big'))
+#     print(byte_1)
+#     byte_2 = binascii.hexlify((((disasm >> 16) & 0xFF)).to_bytes(1,byteorder='big'))
+#     print(byte_2)
+#     byte_3 = binascii.hexlify((((disasm >> 8) & 0xFF)).to_bytes(1,byteorder='big'))
+#     print(byte_3)
+#     byte_4 = binascii.hexlify((((disasm) & 0xFF)).to_bytes(1,byteorder='big'))
+#     print(byte_4)
+    
+#     if priorTest:
+#         data = {}
+#         with open('./cov.dat', 'r+') as fp:
+#             for line in fp:
+#                 key, value = line.strip().split(': ')
+#                 data[int(key)] = int(value)
+#         print(f'DSLOG: Loading previous offsets: {data}')
+#         return data
+
+
+
+#     raw_binary = _read_raw_binary(bin_path)
+#     # print(raw_binary)
+
+#     for count, byte in enumerate(raw_binary):
+#         if byte == byte_1 and not (flag_1 or flag_2 or flag_3):
+#             # print('1',byte)
+#             flag_1 = True
+#         elif byte == byte_2 and flag_1 and not(flag_2 or flag_3):
+#             # print('2',byte)
+#             flag_2 = True
+#         elif byte == byte_3 and flag_2 and not (flag_3):
+#             # print('3',byte, raw_binary[count + 1])
+#             #print("I am here")
+#             flag_3 = True
+#         elif byte == byte_4 and flag_3:
+#             # print('4',byte)
+#             #Store the byte number and reset the flags.
+#             call_function_starts.append(count - 3)
+#             flag_1 = False
+#             flag_2 = False
+#             flag_3 = False
+#         else:
+#             #Failed to find the patern completely dump the try.
+#             flag_1 = False
+#             flag_2 = False
+#             flag_3 = False
+    
+#     # print(call_function_starts)
+#     coverage_differences = []
+#     for x in range(0,  len(call_function_starts)):
+#         # Saves the offset|byte number pair for later referance and uninsturmentation.
+        
+#         coverage_differences.append(call_function_starts[x] - call_function_starts[0]) 
+        
+#         coverage_locations[call_function_starts[x] - call_function_starts[0]] = call_function_starts[x]
+#     print(coverage_differences, end='')
+#     print(coverage_locations)
+#     # print('---------------------------------')
+#     # with open('./cov.dat', 'w+') as fp:
+#     #     for offset, byte_number in coverage_locations.items():
+#     #         fp.write(f"{offset}: {byte_number}\n")
+
+#     return coverage_locations
+
+
+def find_calls(bin_path, disasm, priorTest):
     """Searches binary file for our distinct byte value for our insturmentation i.e 0x6c014b19.
     When the begining of a call is found its offset from the first call made in the program is saved along with the byte number to uninsturment later.
     This is stored in a local file for use in future 
@@ -86,20 +192,22 @@ def find_calls(bin_path, disasm, priorTest) -> dict:
     @Return: A dictionary -> offset:byte number
     """
     raw_binary = []
-    call_function_starts = []
+    # call_function_starts = []
     coverage_locations = dict()
+
+    call_function_starting_location = 0
 
     flag_1 = False
     flag_2 = False
     flag_3 = False
     byte_1 = binascii.hexlify((((disasm >> 24) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_1)
+    # print(byte_1)
     byte_2 = binascii.hexlify((((disasm >> 16) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_2)
+    # print(byte_2)
     byte_3 = binascii.hexlify((((disasm >> 8) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_3)
+    # print(byte_3)
     byte_4 = binascii.hexlify((((disasm) & 0xFF)).to_bytes(1,byteorder='big'))
-    print(byte_4)
+    # print(byte_4)
     
     if priorTest:
         data = {}
@@ -129,7 +237,8 @@ def find_calls(bin_path, disasm, priorTest) -> dict:
         elif byte == byte_4 and flag_3:
             # print('4',byte)
             #Store the byte number and reset the flags.
-            call_function_starts.append(count - 3)
+            call_function_starting_location = count-3
+            break
             flag_1 = False
             flag_2 = False
             flag_3 = False
@@ -140,13 +249,13 @@ def find_calls(bin_path, disasm, priorTest) -> dict:
             flag_3 = False
     
     # print(call_function_starts)
-    coverage_differences = []
-    for x in range(0,  len(call_function_starts)):
+    # coverage_differences = []
+    # for x in range(0,  len(call_function_starts)):
         # Saves the offset|byte number pair for later referance and uninsturmentation.
-        
-        coverage_differences.append(call_function_starts[x] - call_function_starts[0]) 
-        
-        coverage_locations[call_function_starts[x] - call_function_starts[0]] = call_function_starts[x]
+        # 
+        # coverage_differences.append(call_function_starts[x] - call_function_starts[0]) 
+        # 
+        # coverage_locations[call_function_starts[x] - call_function_starts[0]] = call_function_starts[x]
     # print(coverage_differences, end='')
     # print(coverage_locations)
     # print('---------------------------------')
@@ -154,8 +263,7 @@ def find_calls(bin_path, disasm, priorTest) -> dict:
     #     for offset, byte_number in coverage_locations.items():
     #         fp.write(f"{offset}: {byte_number}\n")
 
-    return coverage_locations
-
+    return call_function_starting_location
 
 
 
@@ -201,7 +309,7 @@ def uninsturment(coverage_dict,coverage_list):
 
     # if missing_coverage:
     #     return None
-    print(f'DSLOG: New coverage {coverage_dict}')
+    print(f'DSLOG: Remaining coverage points: {len(coverage_dict)}')
     with open('./cov.dat', 'w+') as fp:
         for address, byte_number in coverage_dict.items():
             fp.write(f"{address}: {byte_number}\n")
@@ -260,15 +368,42 @@ def uninsturment(coverage_dict,coverage_list):
 
 #     return new_coverage
 
-def calc_new_address(offsets, starting_address):
+def calc_offsets(coverage_locations, starting_byte):
+    result = {}
+
+    starting_address = coverage_locations[0]
+    
+    for loc in coverage_locations:
+        result[loc] = starting_byte + (loc - starting_address)
+
+    print(f'DSLOG: Coverage points {result}')
+    print(f'DSLOG: Total Coverage Points: {len(result)}')
+    return result
+
+
+def setup_offsets(offsets, coverage_locations):
+    result = {}
+    test_result = {}
+    print(f'Len of offsets: {len(offsets)}')
+    print(f'Len of coverage_locations {len(coverage_locations)}')
+
+    for count,(key, value) in enumerate(offsets.items()):
+        result[coverage_locations[count]] = offsets[key]
+        test_result[hex(coverage_locations[count])] = offsets[key] 
+    
+    print(test_result)
+    return result
+
+def calc_new_address(offsets, starting_address, coverage_locations):
     new_addresses = {}
-    # test_addresses = {}
+    test_addresses = {}
     for key in offsets.keys():
         new_addresses[starting_address + key] = offsets[key]
-        # test_addresses[hex(starting_address + key)] = offsets[key] 
+        #test_addresses[hex(starting_address + key)] = offsets[key] 
 
-    # print(test_addresses)
-    print(f'DSLOG: Total Coverage Points: {len(new_addresses)}.')
+    #print(test_addresses)
+    if (len(offsets) != len(coverage_locations)):
+        print(f'DSLOG: Total Coverage Points: {len(new_addresses)}.')
     return new_addresses
 
 def main():
@@ -279,11 +414,13 @@ def main():
 
     args = _handle_args()
     map_file = args.map_file
-    starting = read_map_file(map_file)
+    #starting = read_map_file(map_file)
     # print(starting)
     bin_file = args.bin_file
+    disasm_file = _get_disassembly(bin_file)
+    coverage_points = read_disassembly_file(disasm_file)
     coverage_differences = find_calls(bin_file, 1812016897 ,False)
-    calc_new_address(coverage_differences, starting)
+    calc_new_address(coverage_differences, coverage_points[0])
     #uninsturment()
     #tup = find_calls(bin_file=bin_file)
     #uninsturment(tup[1], coverage_map='./results/coverage.map', coverage_dict=tup[0])

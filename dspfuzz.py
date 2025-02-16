@@ -34,6 +34,7 @@ COVERAGE_SIZE = 200*2 #This is equal to the max number of blocks we can support 
 # SEED_SIZE = 256
 SENQUENCIAL = 1
 RANDOM = 2
+HARDWARE_ID = 1
 
 
 global_coverage_list = [0] * COVERAGE_SIZE
@@ -111,9 +112,12 @@ def coverage_setup(bin_path, isRestart):
     if not isRestart:
         shutil.copyfile(bin_path, './DSPFuzz.out')
 
-    starting_address = binary_tools.read_map_file('./DSPFuzz.map')
-    coverage_locations = binary_tools.find_calls('./DSPFuzz.out', asm_in_mem, isRestart)
-    coverage_dict = binary_tools.calc_new_address(coverage_locations, starting_address=starting_address)
+    # starting_address = binary_tools.read_map_file('./DSPFuzz.map')
+    coverage_locations = binary_tools.read_disassembly_file(bin_path)
+    starting_byte = binary_tools.find_calls('./DSPFuzz.out', asm_in_mem, isRestart)
+    coverage_dict = binary_tools.calc_offsets(coverage_locations, starting_byte)
+
+    #coverage_dict = binary_tools.calc_new_address(coverage_locations, starting_address=starting_address)
 
 @log
 def find_coverage_call():
@@ -167,7 +171,8 @@ def reset_and_reload():
     id_num = ''
     
     try:
-        debugSession.target.reset()
+        reset1 = debugSession.target.getResetType(0)   
+        reset1.issueReset()
     except:
         print('DSLOG: Failed to reset target using the debug server.')
     finally:
@@ -205,7 +210,7 @@ def reset_and_reload():
         
         # print('-----Resetting the Device-----')
         os.system(f'uhubctl -a off -l {layer} -p {port} -r 1000')
-        time.sleep(30)
+        time.sleep(20)
         os.system(f'uhubctl -a on -l {layer} -p {port} -r 1000')
         time.sleep(15)
         # os.system('uhubctl -a on  -l 3-1 -p 1')
@@ -387,6 +392,16 @@ def _pull_statistics():
     print('DSLOG: Total number of iterations: ' + str(iterations))
     print('DSLOG: Average throughput time: ' + str(elapsed_time/iterations))
 
+# def _set_breakpoints():
+#     crash_void_address = debugSession.symbol.getAddress('crash_void')
+#     debugSession.breakpoint.add(crash_void_address , "Hardware")
+
+#     lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
+#     lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address,  "Hardware")
+
+#     coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
+#     coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address , "Hardware")
+
 
 @log
 def set_intial_breakpoints():
@@ -395,30 +410,60 @@ def set_intial_breakpoints():
         @Return:    NONE
     """
 
-    global lp_refresh_id, crash_void_address, coverage_bubble_id, coverage_bubble_address, lp_refresh_address, coverage_list_address
+    global lp_refresh_id, crash_void_address, coverage_bubble_id, coverage_bubble_address, coverage_list_address, lp_refresh_address, lp_props
     
 
-    #Adds a breakpoint at the void
-    try:
-        crash_void_address = debugSession.symbol.getAddress('crash_void')
-        debugSession.breakpoint.add(crash_void_address) 
 
-        #Find the coverage map address
-        coverage_list_address = debugSession.symbol.getAddress('g_coverageMap')
 
-        #Adds a breakpoint in the setup to load a intial local pool
-        lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
-        lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
+    #Clears any stale breakpoints.
+    debugSession.breakpoint.removeAll()
 
-        #Adds a breakpoint in the results handler if we have a coverage increasing input.
-        coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
-        coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address)
+    lp_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
+    lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
+    lp_props.setString("Hardware Configuration.Type.Location", str(lp_refresh_address))
+    lp_refresh_id = debugSession.breakpoint.add(lp_props)
+    
+    crash_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
+    crash_address = debugSession.symbol.getAddress('crash_void')
+    crash_props.setString("Hardware Configuration.Type.Location", str(crash_address))
+    debugSession.breakpoint.add(crash_props)
 
-        print('DSLOG: Refresh breakpoints set.')
-        debugSession.target.run()
-    except:
-        print('DSLOG: DSP run failure resetting the board.')
-        return -1
+    coverage_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
+    coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
+    coverage_props.setString("Hardware Configuration.Type.Location", str(coverage_bubble_address))
+    coverage_bubble_id = debugSession.breakpoint.add(coverage_props)
+
+    #Find the coverage map address
+    coverage_list_address = debugSession.symbol.getAddress('g_coverageMap')
+    
+    print('DSLOG: Refresh breakpoints set.')
+    debugSession.target.run()
+
+
+    # try:
+        
+
+    #     crash_void_address = debugSession.symbol.getAddress('crash_void')
+    #     debugSession.breakpoint.add(crash_void_address) 
+        
+
+    #     #Find the coverage map address
+    #     coverage_list_address = debugSession.symbol.getAddress('g_coverageMap')
+
+    #     #Adds a breakpoint in the setup to load a intial local pool
+    #     lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
+    #     lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address, "Hardware")
+
+    #     #Adds a breakpoint in the results handler if we have a coverage increasing input.
+    #     coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
+    #     coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address , "Hardware")
+
+    #     print('DSLOG: Refresh breakpoints set.')
+    #     debugSession.target.run()
+    # except Exception:
+    #     print(Exception)
+    #     print('DSLOG: DSP run failure resetting the board.')
+    #     return -1
 
 def calculate_timeout(global_pool_size, local_pool_size) -> int:
 
@@ -483,6 +528,28 @@ def select_seed(num) -> list:
 
     return seed
 
+
+def _write_seed(corpus_address, seed):
+
+    global seed_size, local_pool_size, local_pool
+
+    seed_check = []
+
+    written_seed_len = len(seed)
+
+    isNotSame = True
+
+    while(isNotSame):
+        debugSession.memory.writeData(1, corpus_address, seed, 16)
+    
+        seed_check = debugSession.memory.readData(1, corpus_address, 16, written_seed_len, False)
+        seed_check = [int(j)for j in seed_check]
+
+        isNotSame = seed_check != seed
+        if(isNotSame):
+            print("DSLOG: Seed writting error trying again.")
+
+
 @log
 def write_local_pool() -> None:
     """Refreshes the local pool on the DSP
@@ -500,29 +567,66 @@ def write_local_pool() -> None:
 
     #Refresh the global pool incase there have been coverage increasing test cases added.
     num_seeds = refresh_global_pool()
-    seeds_loaded = num_seeds % local_pool_size + 1
+    seed_check = []
+    seeds_loaded = 0
     print('DSLOG: We have '+ str(num_seeds) + ' in the global pool.')
 
     #If the global pool only has less then the number of seeds to load then load them sequencially 
     if num_seeds <= local_pool_size:
         for x in range(0, num_seeds):
-            #print(x)
+            
             seed = select_seed(x)
-            debugSession.memory.writeData(1, corpus_address, seed, 16)
-            corpus_address = corpus_address + seed_size
+            _write_seed(corpus_address, seed)
 
-        #Make sure the corpus tracker is updated.
-        debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
+            corpus_address = corpus_address + seed_size
+            seeds_loaded += 1
+            
+            # debugSession.memory.writeData(1, corpus_address, seed, 16)
+            
+            # seed_check = debugSession.memory.readData(1, corpus_address, 16, seed_size, False)
+            # print(type(seed_check[0]))
+            # print(type(seed[0]))
+            # seed_check = [int(j)for j in seed_check]
+            # if seed_check != seed:
+            #     print(seed_check)
+            #     print(seed)
+            #     print(f'DSLOG: Failure to load seed {x} propererly.')
+
+
+            # corpus_address = corpus_address + seed_size
+            # seeds_loaded += 1
+
+        # #Make sure the corpus tracker is updated.
+        # debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
         
     
     elif num_seeds >= local_pool_size:
         for x in range(0, local_pool_size):
             seed = select_random_seed()
-            # print('Seed loaded --> ', seed)
-            debugSession.memory.writeData(1, corpus_address, seed, 16)
-            corpus_address = corpus_address + seed_size
 
-        debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
+            _write_seed(corpus_address, seed)
+
+            corpus_address = corpus_address + seed_size
+            seeds_loaded += 1
+
+            # print('Seed loaded --> ', seed)
+            # debugSession.memory.writeData(1, corpus_address, seed, 16)
+            # 
+            # seed_check = debugSession.memory.readData(1, corpus_address, 16, written_seed_len, False)
+            # print(type(seed_check[0]))
+            # print(type(seed[0]))
+            # seed_check = [int(j)for j in seed_check]
+            # print(type(seed_check[0]))
+            # if seed_check != seed:
+                # print(seed_check)
+                # print(seed)
+                # print(f'DSLOG: Failure to load seed {x} propererly.')
+                # exit(-1)
+
+            # corpus_address = corpus_address + seed_size
+            # seeds_loaded += 1
+
+    debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
 
     #TODO: Add more advanced seed selection here
     local_pool = [] #After everything is written set the tracking to be empty
@@ -681,6 +785,8 @@ def crash_reload() -> None:
 
     #Stop the local pool refresh until we can reload the board.
 
+    debugSession.breakpoint.removeAll()
+
     print("DSLOG: Found crash.")
 
     amount_of_crashes+=1
@@ -698,12 +804,12 @@ def crash_reload() -> None:
     _pull_seed(current_seed_address, amount_of_crashes, results_dir+'crashes/' + dt_string, isCrash=True)
 
     # #Pull coverage map before loading
-    cov = _pull_coverage()
+    #cov = _pull_coverage()
     #_update_global_map(cov, amount_of_crashes, isCrash=True )
-    new_coverage_dict = binary_tools.uninsturment(coverage_dict,cov)
+   # new_coverage_dict = binary_tools.uninsturment(coverage_dict,cov)
     #uinsturment bin file as coverage is found.
     
-    coverage_dict = new_coverage_dict
+    #coverage_dict = new_coverage_dict
 
     reset_and_reload()
 
@@ -715,7 +821,7 @@ def refresh_local_pool():
     write_local_pool()
     #Remove the breakpoint untill the next refresh.
     try:
-        debugSession.breakpoint.remove(lp_refresh_id )
+        debugSession.breakpoint.remove(lp_refresh_id)
     except:
         print('DSLOG: Error Breakpoint can not be unset.')
     # debugSession.target.runAsynch()
@@ -774,12 +880,12 @@ def set_refresh_breakpoint() -> None:
         @Return: None
     """
 
-    global timer_thread, lp_refresh_address, lp_refresh_id, timer_thread, sanity_check
+    global timer_thread, lp_refresh_address, lp_refresh_id, timer_thread, sanity_check, lp_props
     if(timer_thread):
         timer_thread.cancel()
 
     #Sets a breakpoint to refresh the pool.
-    lp_refresh_id = debugSession.breakpoint.add(lp_refresh_address)
+    lp_refresh_id = debugSession.breakpoint.add(lp_props)
 
     #If we set the refresh breakpoint and it is not hit within a second which is a long time -> assume a crash.
     print("DSLOG: Starting sanity check.")

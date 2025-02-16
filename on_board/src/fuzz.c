@@ -533,6 +533,7 @@ void dequeue_seed(){
         #ifdef NO_LOGGING
         printf("ERROR: Failed to copy seed to input buffer. \n");
         #endif
+        exit(-1);
     }
 
 }
@@ -580,7 +581,7 @@ void main_harness_loop(){
         //sonar_test(g_inputBuffer, g_inputBuffer[0]%test_case_size);
         //process_image(g_inputBuffer,(g_inputBuffer[0]%test_case_size+1));
         stop_timer(&timerHandle);
-
+	count = 0;
         if(g_covFunctionEnter && (g_coverageMap[0] != 0)){
                 g_numInteresting++;
                 bubble_coverage();

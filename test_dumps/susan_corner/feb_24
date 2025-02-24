@@ -1,0 +1,3106 @@
+python3 dspfuzz.py -l 10 -i ./seeds/ -o ./results/ -b ./on_board/DSPFuzz.out -r False
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 6.770343529060483
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.17096198350191116
+DSLOG: Current seed address --> 78730
+DSLOG: Current seed pointer --> 16386
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 8.019059896469116e-05
+DSLOG: We have 10 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7960877176374197
+DSLOG: Time of start = 23/02/2025 08:25:02
+DSLOG: Finding coverage calls in binary
+DSLOG: We need 2 more nibbles.
+DSLOG: Coverage call: 0x6c012d27
+DSLOG: 0x6c012d27
+DSLOG: Time taken for find_coverage_call = 0.0049285124987363815
+DSLOG: Coverage points {159080: 15128, 159116: 15164, 159146: 15194, 159161: 15209, 159165: 15213, 159191: 15239, 159195: 15243, 159211: 15259, 159228: 15276, 159245: 15293, 159249: 15297, 159267: 15315, 159276: 15324, 159320: 15368, 159329: 15377, 159346: 15394, 159363: 15411, 159369: 15417, 159376: 15424, 159384: 15432, 159418: 15466, 159428: 15476, 159432: 15480, 159441: 15489, 159470: 15518, 159478: 15526, 159507: 15555, 159515: 15563, 159533: 15581, 159583: 15631, 159587: 15635, 159609: 15657, 159623: 15671, 159645: 15693, 159659: 15707, 159683: 15731, 159687: 15735, 159717: 15765, 159721: 15769, 159777: 15825, 159781: 15829, 159789: 15837, 159841: 15889, 159845: 15893, 159900: 15948, 159924: 15972, 159993: 16041, 159997: 16045, 160005: 16053, 160048: 16096, 160052: 16100, 160063: 16111, 160262: 16310, 160323: 16371, 160347: 16395, 160351: 16399, 160359: 16407, 160429: 16477, 160433: 16481, 160457: 16505, 160461: 16509, 160985: 17033, 161031: 17079, 161071: 17119, 161108: 17156, 161161: 17209, 161201: 17249, 161241: 17289, 161281: 17329, 161321: 17369, 161361: 17409, 161398: 17446, 161451: 17499, 161491: 17539, 161531: 17579, 161571: 17619, 161608: 17656, 161660: 17708, 161699: 17747, 161735: 17783, 161768: 17816, 161795: 17843, 161799: 17847, 161826: 17874, 161830: 17878, 161859: 17907, 161863: 17911, 161887: 17935, 161891: 17939, 161928: 17976, 161969: 18017, 162008: 18056, 162047: 18095, 162088: 18136, 162127: 18175, 162168: 18216, 162209: 18257, 162250: 18298, 162291: 18339, 162330: 18378, 162371: 18419, 162412: 18460, 162453: 18501, 162494: 18542, 162533: 18581, 162574: 18622, 162615: 18663, 162656: 18704, 162697: 18745, 162736: 18784, 162777: 18825, 162816: 18864, 162855: 18903, 162896: 18944, 164695: 20743, 164704: 20752, 164731: 20779, 164735: 20783, 164762: 20810, 164766: 20814, 164787: 20835, 164795: 20843, 164888: 20936, 164897: 20945, 164966: 21014, 164974: 21022, 165018: 21066}
+DSLOG: Total Coverage Points: 127
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 5.8379024267196655e-05
+DSLOG: Starting the device listener.
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:25:02
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  1
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.2217414379119873
+DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.005667410790920258
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 6 new coverage.
+DSLOG: Remaining coverage points: 121
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 6.109289824962616e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 0.00014751218259334564
+DSLOG: We have 11 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8727560266852379
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 0.0001093149185180664
+DSLOG: Time taken for current_seed_to_global_pool = 1.6338332165032625
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:25:04
+DSLOG: Board has tracked this number of increasing test cases -->  2
+DSLOG: Host has tracked this number of increasing test cases -->  2
+DSLOG: Total number of iterations: 6
+DSLOG: Average throughput time: 0.3663171132405599
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003291076049208641
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 42 new coverage.
+DSLOG: Remaining coverage points: 79
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 6.974861025810242e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 0.00011042691767215729
+DSLOG: We have 12 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7887396160513163
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 9.855441749095917e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.6508818119764328
+DSLOG: You are in device_listner, attemping to run the target.
+Invalid CIO command (0) in the CIO buffer at address (0x7000) was not recognized. Please check the device and program memory maps.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025855451822280884
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x50 0x0 | Interrupt Flag Registers 0x10 0x100 | Status Registers  0x2430 0x865 0x7020 0x50 | Program Counter 0x7fd126
+DSLOG: Current time: 23/02/2025 08:45:25
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  2
+DSLOG: Total number of iterations: 7
+DSLOG: Average throughput time: 174.84039752823966
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09312385134398937
+DSLOG: Current time: 23/02/2025 08:45:56
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  2
+DSLOG: Total number of iterations: 8
+DSLOG: Average throughput time: 156.8702380657196
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 0.0001451149582862854
+DSLOG: We have 12 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8866678792983294
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 0.0001403503119945526
+DSLOG: Time taken for refresh_local_pool = 0.9099175985902548
+DSLOG: Time taken for crash_reload = 32.018571047112346
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:46:09
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  3
+DSLOG: Total number of iterations: 263
+DSLOG: Average throughput time: 4.820717405457007
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0035668350756168365
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: Remaining coverage points: 78
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 5.628727376461029e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 0.00011660903692245483
+DSLOG: We have 13 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7640981059521437
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 9.669177234172821e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.5301993731409311
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:47:36
+DSLOG: Board has tracked this number of increasing test cases -->  2
+DSLOG: Host has tracked this number of increasing test cases -->  4
+DSLOG: Total number of iterations: 2018
+DSLOG: Average throughput time: 0.671082166897648
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0023485831916332245
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 4 new coverage.
+DSLOG: Remaining coverage points: 74
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 7.344409823417664e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  14
+DSLOG: Time taken for refresh_global_pool = 0.00011114031076431274
+DSLOG: We have 14 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7703193426132202
+DSLOG: We have this many seeds in the global pool -->  14
+DSLOG: Time taken for refresh_global_pool = 0.00010981597006320953
+DSLOG: Time taken for current_seed_to_global_pool = 1.60786029137671
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:48:27
+DSLOG: Board has tracked this number of increasing test cases -->  3
+DSLOG: Host has tracked this number of increasing test cases -->  5
+DSLOG: Total number of iterations: 2950
+DSLOG: Average throughput time: 0.47646866483203437
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0038506165146827698
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: Remaining coverage points: 73
+DSLOG: We have this many seeds in the global pool -->  14
+DSLOG: Time taken for refresh_global_pool = 8.602812886238098e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  15
+DSLOG: Time taken for refresh_global_pool = 0.00012151338160037994
+DSLOG: We have 15 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8116147443652153
+DSLOG: We have this many seeds in the global pool -->  15
+DSLOG: Time taken for refresh_global_pool = 0.0001252107322216034
+DSLOG: Time taken for current_seed_to_global_pool = 1.544796135276556
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:49:18
+DSLOG: Board has tracked this number of increasing test cases -->  4
+DSLOG: Host has tracked this number of increasing test cases -->  6
+DSLOG: Total number of iterations: 3951
+DSLOG: Average throughput time: 0.368619601957649
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.0033021438866853714
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: Remaining coverage points: 72
+DSLOG: We have this many seeds in the global pool -->  15
+DSLOG: Time taken for refresh_global_pool = 6.473995745182037e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  16
+DSLOG: Time taken for refresh_global_pool = 0.0001166854053735733
+DSLOG: We have 16 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.789749963209033
+DSLOG: We have this many seeds in the global pool -->  16
+DSLOG: Time taken for refresh_global_pool = 0.00010707974433898926
+DSLOG: Time taken for current_seed_to_global_pool = 1.5701013896614313
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 08:54:57
+DSLOG: Board has tracked this number of increasing test cases -->  5
+DSLOG: Host has tracked this number of increasing test cases -->  7
+DSLOG: Total number of iterations: 10700
+DSLOG: Average throughput time: 0.16780226660666064
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.005320422351360321
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 8 new coverage.
+DSLOG: Remaining coverage points: 64
+DSLOG: We have this many seeds in the global pool -->  16
+DSLOG: Time taken for refresh_global_pool = 6.581656634807587e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 0.0001247841864824295
+DSLOG: We have 17 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8776060920208693
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 0.00013700127601623535
+DSLOG: Time taken for current_seed_to_global_pool = 1.6455997731536627
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 09:03:15
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  7
+DSLOG: Total number of iterations: 10700
+DSLOG: Average throughput time: 0.21431131331720085
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09198374673724174
+DSLOG: Current time: 23/02/2025 09:03:46
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  7
+DSLOG: Total number of iterations: 10701
+DSLOG: Average throughput time: 0.21717653177840812
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 0.0001873057335615158
+DSLOG: We have 17 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8808398395776749
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 0.0002236776053905487
+DSLOG: Time taken for refresh_local_pool = 0.9043178651481867
+DSLOG: Time taken for crash_reload = 31.806434355676174
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 09:17:13
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 26450
+DSLOG: Average throughput time: 0.11839603184301596
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003133688122034073
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: Remaining coverage points: 63
+DSLOG: We have this many seeds in the global pool -->  17
+DSLOG: Time taken for refresh_global_pool = 6.233714520931244e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00011965259909629822
+DSLOG: We have 18 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8447964712977409
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00012114457786083221
+DSLOG: Time taken for current_seed_to_global_pool = 1.6144851464778185
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.001972263678908348
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x0 0x100 | Status Registers  0xb600 0x6900 0xf000 0x1082 | Program Counter 0x1de4
+DSLOG: Current time: 23/02/2025 09:33:05
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 26450
+DSLOG: Average throughput time: 0.15437598560167395
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.0858650878071785
+DSLOG: Current time: 23/02/2025 09:33:36
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 26451
+DSLOG: Average throughput time: 0.1555432988936534
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00037742219865322113
+DSLOG: We have 18 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8785202000290155
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00014491006731987
+DSLOG: Time taken for refresh_local_pool = 0.8897059895098209
+DSLOG: Time taken for crash_reload = 31.97281308285892
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.002227703109383583
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x4e0 0x800 0xf000 0x0 | Program Counter 0x12315
+DSLOG: Current time: 23/02/2025 09:49:27
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 26459
+DSLOG: Average throughput time: 0.19143660436425738
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08929171599447727
+DSLOG: Current time: 23/02/2025 09:49:58
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 26460
+DSLOG: Average throughput time: 0.19260176974359283
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00027956627309322357
+DSLOG: We have 18 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9508006572723389
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.000147305428981781
+DSLOG: Time taken for refresh_local_pool = 0.9706320725381374
+DSLOG: Time taken for crash_reload = 32.04438470117748
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0048984866589307785
+DSLOG: Current time: 23/02/2025 10:05:29
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 44752
+DSLOG: Average throughput time: 0.1346819018588818
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00013438425958156586
+DSLOG: We have 18 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8592685386538506
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00017172470688819885
+DSLOG: Time taken for refresh_local_pool = 0.8790550343692303
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0038091186434030533
+DSLOG: Current time: 23/02/2025 10:21:00
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  8
+DSLOG: Total number of iterations: 63297
+DSLOG: Average throughput time: 0.10993037709791005
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00010523758828639984
+DSLOG: We have 18 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7556552365422249
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 0.00013921409845352173
+DSLOG: Time taken for refresh_local_pool = 0.7721262890845537
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 10:30:33
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  9
+DSLOG: Total number of iterations: 74928
+DSLOG: Average throughput time: 0.10051385358297339
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.00322883203625679
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 8 new coverage.
+DSLOG: Remaining coverage points: 55
+DSLOG: We have this many seeds in the global pool -->  18
+DSLOG: Time taken for refresh_global_pool = 7.476657629013062e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 0.00012085027992725372
+DSLOG: We have 19 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8961505480110645
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 0.00017493218183517456
+DSLOG: Time taken for current_seed_to_global_pool = 1.6721019577234983
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013494882732629776
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x50 0x0 | Interrupt Flag Registers 0x0 0x100 | Status Registers  0x244c 0x970 0xf000 0x31 | Program Counter 0x1322e
+DSLOG: Current time: 23/02/2025 10:46:10
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  9
+DSLOG: Total number of iterations: 74929
+DSLOG: Average throughput time: 0.11301394652431919
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.07994613982737064
+DSLOG: Current time: 23/02/2025 10:46:41
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  9
+DSLOG: Total number of iterations: 74930
+DSLOG: Average throughput time: 0.11342663808545426
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 0.00012012571096420288
+DSLOG: We have 19 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7967921383678913
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 0.00014017708599567413
+DSLOG: Time taken for refresh_local_pool = 0.8165906332433224
+DSLOG: Time taken for crash_reload = 31.897316709160805
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 10:49:58
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 78888
+DSLOG: Average throughput time: 0.11023631876893851
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003473348915576935
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 49 new coverage.
+DSLOG: Remaining coverage points: 6
+DSLOG: We have this many seeds in the global pool -->  19
+DSLOG: Time taken for refresh_global_pool = 5.554966628551483e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00012129172682762146
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9313060343265533
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.0001437608152627945
+DSLOG: Time taken for current_seed_to_global_pool = 1.707214506343007
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9e00 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 11:00:07
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 78888
+DSLOG: Average throughput time: 0.11795369005507889
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.10143046267330647
+DSLOG: Current time: 23/02/2025 11:00:38
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 78889
+DSLOG: Average throughput time: 0.1183439875140458
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00013165734708309174
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8657107353210449
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014809146523475647
+DSLOG: Time taken for refresh_local_pool = 0.8850301746279001
+DSLOG: Time taken for crash_reload = 31.816851422190666
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0040535032749176025
+DSLOG: Current time: 23/02/2025 11:15:39
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 96912
+DSLOG: Average throughput time: 0.10563194300300988
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014428608119487762
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8556947056204081
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014931336045265198
+DSLOG: Time taken for refresh_local_pool = 0.8726567700505257
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0xfe84 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 11:29:22
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 96912
+DSLOG: Average throughput time: 0.11413067040003348
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.0854474175721407
+DSLOG: Current time: 23/02/2025 11:29:53
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 96913
+DSLOG: Average throughput time: 0.11444817513577109
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00012163631618022919
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9482966978102922
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014103762805461884
+DSLOG: Time taken for refresh_local_pool = 0.969404324889183
+DSLOG: Time taken for crash_reload = 31.88202795572579
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 11:44:29
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 96913
+DSLOG: Average throughput time: 0.12348348631665017
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+DSLOG: Failed to set pool refresh breakpoint.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0010705552995204926
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09186440519988537
+DSLOG: Current time: 23/02/2025 11:45:00
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 96914
+DSLOG: Average throughput time: 0.1238004895372692
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014328397810459137
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8897430002689362
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014229491353034973
+DSLOG: Time taken for refresh_local_pool = 0.9095699489116669
+DSLOG: Time taken for crash_reload = 31.77974208816886
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x9e00 0x6100 0xf000 0x1002 | Program Counter 0x12c82
+DSLOG: Current time: 23/02/2025 11:45:14
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 97163
+DSLOG: Average throughput time: 0.12363400875503124
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08825106546282768
+DSLOG: Current time: 23/02/2025 11:45:51
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 97164
+DSLOG: Average throughput time: 0.12400998246610388
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00015793368220329285
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8240860644727945
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.00014377757906913757
+DSLOG: Time taken for refresh_local_pool = 0.8424998968839645
+DSLOG: Time taken for crash_reload = 37.66116833500564
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.010464664548635483
+DSLOG: Current time: 23/02/2025 12:00:52
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  10
+DSLOG: Total number of iterations: 115742
+DSLOG: Average throughput time: 0.1118884930226112
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.0001187790185213089
+DSLOG: We have 20 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9316749591380358
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 0.0001541581004858017
+DSLOG: Time taken for refresh_local_pool = 0.9488789830356836
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 12:03:39
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 119130
+DSLOG: Average throughput time: 0.11010764876190905
+DSLOG: effective mutaton: random |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.004088008776307106
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 1 new coverage.
+DSLOG: Coverage not found: 0
+DSLOG: Remaining coverage points: 6
+DSLOG: We have this many seeds in the global pool -->  20
+DSLOG: Time taken for refresh_global_pool = 7.888674736022949e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012140348553657532
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 6.360264595597982
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001266617327928543
+DSLOG: Time taken for current_seed_to_global_pool = 8.922426503151655
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.007492318749427795
+DSLOG: Current time: 23/02/2025 12:18:33
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 137714
+DSLOG: Average throughput time: 0.10174053115430055
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012270919978618622
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8736470863223076
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00015535205602645874
+DSLOG: Time taken for refresh_local_pool = 0.8902955874800682
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.013515140861272812
+DSLOG: Current time: 23/02/2025 12:33:19
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 155477
+DSLOG: Average throughput time: 0.09581505031880487
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012007728219032288
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8381363525986671
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00019535981118679047
+DSLOG: Time taken for refresh_local_pool = 0.8539675697684288
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0017688032239675522
+DSLOG: Current time: 23/02/2025 12:48:04
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 173940
+DSLOG: Average throughput time: 0.09073802992792339
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 9.027495980262756e-05
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8941088765859604
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001446641981601715
+DSLOG: Time taken for refresh_local_pool = 0.9101747293025255
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0019450895488262177
+DSLOG: Current time: 23/02/2025 13:02:50
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 191260
+DSLOG: Average throughput time: 0.08715321364468091
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00013266503810882568
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.884472107514739
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001486651599407196
+DSLOG: Time taken for refresh_local_pool = 0.9019051790237427
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.008583903312683105
+DSLOG: Current time: 23/02/2025 13:17:36
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 208884
+DSLOG: Average throughput time: 0.08404126711581672
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001219920814037323
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8791999500244856
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00021242350339889526
+DSLOG: Time taken for refresh_local_pool = 0.8963366243988276
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.013503078371286392
+DSLOG: Current time: 23/02/2025 13:32:22
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 226871
+DSLOG: Average throughput time: 0.0812833182897522
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011773966252803802
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.890337660908699
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001387614756822586
+DSLOG: Time taken for refresh_local_pool = 0.906485553830862
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.004507804289460182
+DSLOG: Current time: 23/02/2025 13:47:08
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 244604
+DSLOG: Average throughput time: 0.0790126329294801
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00018866732716560364
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8857247810810804
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00016103684902191162
+DSLOG: Time taken for refresh_local_pool = 0.9050082620233297
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025338251143693924
+DSLOG: Current time: 23/02/2025 14:01:54
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 262547
+DSLOG: Average throughput time: 0.07698726597750617
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001062881201505661
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8730647191405296
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00014866143465042114
+DSLOG: Time taken for refresh_local_pool = 0.8879788890480995
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0015972442924976349
+DSLOG: Current time: 23/02/2025 14:16:40
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 281135
+DSLOG: Average throughput time: 0.07504828121371808
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 7.165782153606415e-05
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8287205342203379
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001537669450044632
+DSLOG: Time taken for refresh_local_pool = 0.8434011191129684
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.011577608063817024
+DSLOG: Current time: 23/02/2025 14:31:26
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 298835
+DSLOG: Average throughput time: 0.07356775140268475
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00015788152813911438
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8533863592892885
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.000139603391289711
+DSLOG: Time taken for refresh_local_pool = 0.8623488284647465
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Current time: 23/02/2025 14:32:08
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 299631
+DSLOG: Average throughput time: 0.07351369288316273
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00016332976520061493
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 2.633561059832573
+SEVERE: Specified breakpoint ID 107 does not exist.
+DSLOG: Error refresh breakpoint can not be unset.
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00018649548292160034
+DSLOG: Time taken for refresh_local_pool = 2.6838585902005434
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.013235719874501228
+DSLOG: Current time: 23/02/2025 14:46:56
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 318160
+DSLOG: Average throughput time: 0.07202262326659106
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012091360986232758
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8663164339959621
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00013710930943489075
+DSLOG: Time taken for refresh_local_pool = 0.8835072182118893
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x4900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 14:52:30
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 318160
+DSLOG: Average throughput time: 0.073070525821052
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09975975193083286
+DSLOG: Current time: 23/02/2025 14:53:00
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 318161
+DSLOG: Average throughput time: 0.07316733947159881
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012052804231643677
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8661902006715536
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00014617107808589935
+DSLOG: Time taken for refresh_local_pool = 0.8812122922390699
+DSLOG: Time taken for crash_reload = 31.785031588748097
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0021386444568634033
+DSLOG: Current time: 23/02/2025 15:07:46
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 336139
+DSLOG: Average throughput time: 0.07188981925295448
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011968240141868591
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7897442560642958
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001309271901845932
+DSLOG: Time taken for refresh_local_pool = 0.7979641240090132
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 15:21:19
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 336139
+DSLOG: Average throughput time: 0.07430608522242328
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09460825473070145
+DSLOG: Current time: 23/02/2025 15:21:50
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 336140
+DSLOG: Average throughput time: 0.0743977210165212
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00019630230963230133
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8750245552510023
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00016958080232143402
+DSLOG: Time taken for refresh_local_pool = 0.9070159960538149
+DSLOG: Time taken for crash_reload = 31.81400945968926
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.02141200378537178
+DSLOG: Current time: 23/02/2025 15:36:36
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 354804
+DSLOG: Average throughput time: 0.07298121330664177
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001495499163866043
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7614322733134031
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00014204345643520355
+DSLOG: Time taken for refresh_local_pool = 0.7814586795866489
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.003622874617576599
+DSLOG: Current time: 23/02/2025 15:51:21
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 372435
+DSLOG: Average throughput time: 0.07190485191186455
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012717396020889282
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8289379719644785
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00010970421135425568
+DSLOG: Time taken for refresh_local_pool = 0.8356705717742443
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013780146837234497
+DSLOG: Current time: 23/02/2025 16:06:07
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 390614
+DSLOG: Average throughput time: 0.07082633316155842
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011330470442771912
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8572102840989828
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001442302018404007
+DSLOG: Time taken for refresh_local_pool = 0.8737986460328102
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.015857039019465446
+DSLOG: Current time: 23/02/2025 16:20:53
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 408845
+DSLOG: Average throughput time: 0.06983499344684377
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001871492713689804
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8562075141817331
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00014861300587654114
+DSLOG: Time taken for refresh_local_pool = 0.8733801301568747
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.002444066107273102
+DSLOG: Current time: 23/02/2025 16:35:39
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 426987
+DSLOG: Average throughput time: 0.06894269510124207
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0026774276047945023
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8245312757790089
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012226030230522156
+DSLOG: Time taken for refresh_local_pool = 0.842919984832406
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 16:38:15
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 426987
+DSLOG: Average throughput time: 0.06930888233575185
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08272995613515377
+DSLOG: Current time: 23/02/2025 16:38:46
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 426988
+DSLOG: Average throughput time: 0.06938090814106161
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00017725490033626556
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8732863422483206
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00012740492820739746
+DSLOG: Time taken for refresh_local_pool = 0.8987464625388384
+DSLOG: Time taken for crash_reload = 31.750357910990715
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.017329799011349678
+DSLOG: Current time: 23/02/2025 16:53:32
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 445218
+DSLOG: Average throughput time: 0.06852995560207552
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011458247900009155
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8578091263771057
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00013540126383304596
+DSLOG: Time taken for refresh_local_pool = 0.8766899965703487
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0018457695841789246
+DSLOG: Current time: 23/02/2025 17:08:18
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 463130
+DSLOG: Average throughput time: 0.0677924832474464
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011299364268779755
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9408577680587769
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001471247524023056
+DSLOG: Time taken for refresh_local_pool = 0.9574414901435375
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.01128043420612812
+DSLOG: Current time: 23/02/2025 17:23:04
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 481192
+DSLOG: Average throughput time: 0.06708910190588807
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00014048628509044647
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9173569530248642
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00015176646411418915
+DSLOG: Time taken for refresh_local_pool = 0.9333556909114122
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.008666256442666054
+DSLOG: Current time: 23/02/2025 17:37:50
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 498391
+DSLOG: Average throughput time: 0.0665516845157064
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 8.152052760124207e-05
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.95173130184412
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 7.346086204051971e-05
+DSLOG: Time taken for refresh_local_pool = 0.9658421780914068
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.009424146264791489
+DSLOG: Current time: 23/02/2025 17:52:36
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 514931
+DSLOG: Average throughput time: 0.0661346422648322
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00016015209257602692
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7852119486778975
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001485925167798996
+DSLOG: Time taken for refresh_local_pool = 0.8102019038051367
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 17:59:40
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 514931
+DSLOG: Average throughput time: 0.06695675896215623
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.07604153268039227
+DSLOG: Current time: 23/02/2025 18:00:11
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 514932
+DSLOG: Average throughput time: 0.06701671744598993
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 9.72263514995575e-05
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.893962724134326
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001429729163646698
+DSLOG: Time taken for refresh_local_pool = 0.9131909608840942
+DSLOG: Time taken for crash_reload = 31.881899505853653
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.006730437278747559
+DSLOG: Current time: 23/02/2025 18:14:57
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 532143
+DSLOG: Average throughput time: 0.066514207130483
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00010451115667819977
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8826064690947533
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00015388987958431244
+DSLOG: Time taken for refresh_local_pool = 0.9011097513139248
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.001159612089395523
+DSLOG: Current time: 23/02/2025 18:29:43
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 550402
+DSLOG: Average throughput time: 0.06591738734259041
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001290682703256607
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7668380681425333
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001455303281545639
+DSLOG: Time taken for refresh_local_pool = 0.7833711393177509
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.017941629514098167
+DSLOG: Current time: 23/02/2025 18:44:28
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 568117
+DSLOG: Average throughput time: 0.06542121190599089
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011578202247619629
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8250504527240992
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0002683699131011963
+DSLOG: Time taken for refresh_local_pool = 0.8435366563498974
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.018310805782675743
+DSLOG: Current time: 23/02/2025 18:59:14
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 585609
+DSLOG: Average throughput time: 0.06497988485755865
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001299045979976654
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8911736402660608
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.0001498926430940628
+DSLOG: Time taken for refresh_local_pool = 0.9070368334650993
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0027519073337316513
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x0 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9e00 0x6100 0xf000 0x1002 | Program Counter 0x2eb75
+DSLOG: Current time: 23/02/2025 19:14:20
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 585609
+DSLOG: Average throughput time: 0.06652692318929171
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09517066366970539
+DSLOG: Current time: 23/02/2025 19:14:51
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  11
+DSLOG: Total number of iterations: 585610
+DSLOG: Average throughput time: 0.06657990787453535
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00011719763278961182
+DSLOG: We have 21 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8450114019215107
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 0.00014567002654075623
+DSLOG: Time taken for refresh_local_pool = 0.8642912004143
+DSLOG: Time taken for crash_reload = 32.00773272663355
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 23/02/2025 19:14:55
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 585663
+DSLOG: Average throughput time: 0.06657989855180128
+DSLOG: effective mutaton: arith-add |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.004381192848086357
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 2 new coverage.
+DSLOG: Remaining coverage points: 4
+DSLOG: We have this many seeds in the global pool -->  21
+DSLOG: Time taken for refresh_global_pool = 6.279908120632172e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001204032450914383
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9264642596244812
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013826042413711548
+DSLOG: Time taken for current_seed_to_global_pool = 1.707537392154336
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0058092959225177765
+DSLOG: Current time: 23/02/2025 19:29:27
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 603495
+DSLOG: Average throughput time: 0.06605709710343693
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012842752039432526
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8839009385555983
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001477748155593872
+DSLOG: Time taken for refresh_local_pool = 0.8988483883440495
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.006321361288428307
+DSLOG: Current time: 23/02/2025 19:43:58
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 621138
+DSLOG: Average throughput time: 0.0655829714128294
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001348685473203659
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8888364434242249
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001367516815662384
+DSLOG: Time taken for refresh_local_pool = 0.9081976283341646
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 19:56:21
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 621138
+DSLOG: Average throughput time: 0.06677958269619393
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08371034823358059
+DSLOG: Current time: 23/02/2025 19:56:52
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 621139
+DSLOG: Average throughput time: 0.0668292054521402
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012050755321979523
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7841816041618586
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013784505426883698
+DSLOG: Time taken for refresh_local_pool = 0.8078834395855665
+DSLOG: Time taken for crash_reload = 31.72488476149738
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0025468599051237106
+DSLOG: Current time: 23/02/2025 20:11:23
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 638081
+DSLOG: Average throughput time: 0.06641958964693385
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001169741153717041
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.894647428765893
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012453831732273102
+DSLOG: Time taken for refresh_local_pool = 0.9033294375985861
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.005823835730552673
+DSLOG: Current time: 23/02/2025 20:25:54
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 655892
+DSLOG: Average throughput time: 0.06594387561534129
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001053977757692337
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.872478786855936
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001501515507698059
+DSLOG: Time taken for refresh_local_pool = 0.8868266213685274
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.009100737050175667
+DSLOG: Current time: 23/02/2025 20:40:25
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 672587
+DSLOG: Average throughput time: 0.06560192250981342
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001181289553642273
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8724478259682655
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015325099229812622
+DSLOG: Time taken for refresh_local_pool = 0.889297965914011
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.010577352717518806
+DSLOG: Current time: 23/02/2025 20:54:55
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 690439
+DSLOG: Average throughput time: 0.06516720634522905
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00011699646711349487
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8659528158605099
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013976730406284332
+DSLOG: Time taken for refresh_local_pool = 0.8829748369753361
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.01870197057723999
+DSLOG: Current time: 23/02/2025 21:09:26
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 707227
+DSLOG: Average throughput time: 0.0648517707633753
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012317858636379242
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9290355797857046
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015678443014621735
+DSLOG: Time taken for refresh_local_pool = 0.9458825271576643
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.018221065402030945
+DSLOG: Current time: 23/02/2025 21:23:57
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 724050
+DSLOG: Average throughput time: 0.06454793041610692
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012058019638061523
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9456963166594505
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0007396209985017776
+DSLOG: Time taken for refresh_local_pool = 0.9625794030725956
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0008494853973388672
+DSLOG: Current time: 23/02/2025 21:38:29
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 741334
+DSLOG: Average throughput time: 0.06421804952771072
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 8.492916822433472e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9019718393683434
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00023928284645080566
+DSLOG: Time taken for refresh_local_pool = 0.9215674605220556
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.019760895520448685
+DSLOG: Current time: 23/02/2025 21:53:00
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 759200
+DSLOG: Average throughput time: 0.06385406589263105
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012268312275409698
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8000184465199709
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015372782945632935
+DSLOG: Time taken for refresh_local_pool = 0.8177416566759348
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.008174736052751541
+DSLOG: Current time: 23/02/2025 22:07:30
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 776284
+DSLOG: Average throughput time: 0.0635706895241269
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014090724289417267
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7969613336026669
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00016951188445091248
+DSLOG: Time taken for refresh_local_pool = 0.8167822696268559
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.002043178305029869
+DSLOG: Current time: 23/02/2025 22:22:01
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 793427
+DSLOG: Average throughput time: 0.06329477817710691
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013931840658187866
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8581482414156199
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015561096370220184
+DSLOG: Time taken for refresh_local_pool = 0.8649539817124605
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.002628607675433159
+DSLOG: Current time: 23/02/2025 22:36:32
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 810365
+DSLOG: Average throughput time: 0.06304652243965703
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00011662207543849945
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8759447392076254
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012509524822235107
+DSLOG: Time taken for refresh_local_pool = 0.8934599421918392
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.006514521315693855
+DSLOG: Current time: 23/02/2025 22:51:03
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 828112
+DSLOG: Average throughput time: 0.0627471092353292
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 8.347257971763611e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8813668973743916
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001863241195678711
+DSLOG: Time taken for refresh_local_pool = 0.8973784372210503
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0028724893927574158
+DSLOG: Current time: 23/02/2025 23:05:34
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 844869
+DSLOG: Average throughput time: 0.06253348643772737
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00016265735030174255
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7895085271447897
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014589913189411163
+DSLOG: Time taken for refresh_local_pool = 0.8102887496352196
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.00836438313126564
+DSLOG: Current time: 23/02/2025 23:20:05
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 861882
+DSLOG: Average throughput time: 0.062309602272720185
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012516416609287262
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8535338174551725
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.000173201784491539
+DSLOG: Time taken for refresh_local_pool = 0.870297146961093
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.019984358921647072
+DSLOG: Current time: 23/02/2025 23:34:36
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 880002
+DSLOG: Average throughput time: 0.06201628865888575
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015129894018173218
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8217129278928041
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00017043016850948334
+DSLOG: Time taken for refresh_local_pool = 0.8399144615978003
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9e00 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 23/02/2025 23:47:16
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 880002
+DSLOG: Average throughput time: 0.0628796718787284
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08260811306536198
+DSLOG: Current time: 23/02/2025 23:47:47
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 880003
+DSLOG: Average throughput time: 0.06291476914584537
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014925934374332428
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9509947951883078
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015244819223880768
+DSLOG: Time taken for refresh_local_pool = 0.9732329100370407
+DSLOG: Time taken for crash_reload = 31.950336568057537
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0017631333321332932
+DSLOG: Current time: 24/02/2025 00:02:18
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 896983
+DSLOG: Average throughput time: 0.06269493216556077
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012729503214359283
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8153981454670429
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001390557736158371
+DSLOG: Time taken for refresh_local_pool = 0.8327408283948898
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.01002204418182373
+DSLOG: Current time: 24/02/2025 00:16:49
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 915039
+DSLOG: Average throughput time: 0.06240959858703335
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 7.308274507522583e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8664593659341335
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.000142635777592659
+DSLOG: Time taken for refresh_local_pool = 0.8848499376326799
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0019032005220651627
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6100 0xf000 0x1002 | Program Counter 0x2b562
+DSLOG: Current time: 24/02/2025 00:31:40
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 915039
+DSLOG: Average throughput time: 0.06338326083586807
+DSLOG: Obtained seed.
+DSLOG: Failed to reset the device.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08891920372843742
+DSLOG: Current time: 24/02/2025 00:32:11
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 915040
+DSLOG: Average throughput time: 0.0634171095026146
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00016926229000091553
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8489745073020458
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013697892427444458
+DSLOG: Time taken for refresh_local_pool = 0.8678935021162033
+DSLOG: Time taken for crash_reload = 31.95453796349466
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0050630029290914536
+DSLOG: Current time: 24/02/2025 00:46:42
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 932950
+DSLOG: Average throughput time: 0.0631331839776894
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.000123465433716774
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9497982673346996
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015406496822834015
+DSLOG: Time taken for refresh_local_pool = 0.9665763862431049
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.009834099560976028
+DSLOG: Current time: 24/02/2025 01:01:13
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 950165
+DSLOG: Average throughput time: 0.06290604424801695
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00017614848911762238
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8498838152736425
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014490820467472076
+DSLOG: Time taken for refresh_local_pool = 0.8676703572273254
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.019908489659428596
+DSLOG: Current time: 24/02/2025 01:15:44
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 968249
+DSLOG: Average throughput time: 0.06263063710903198
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014361366629600525
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9232776258140802
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015064701437950134
+DSLOG: Time taken for refresh_local_pool = 0.9444451201707125
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 01:19:35
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 968249
+DSLOG: Average throughput time: 0.06286939661412634
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08686472475528717
+DSLOG: Current time: 24/02/2025 01:20:06
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 968250
+DSLOG: Average throughput time: 0.0629012574785106
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 8.703581988811493e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8660049922764301
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014694780111312866
+DSLOG: Time taken for refresh_local_pool = 0.8846063055098057
+DSLOG: Time taken for crash_reload = 31.826561791822314
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.022145910188555717
+DSLOG: Current time: 24/02/2025 01:34:37
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 985467
+DSLOG: Average throughput time: 0.06268611119376011
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013972073793411255
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8446395993232727
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00017765536904335022
+DSLOG: Time taken for refresh_local_pool = 0.8611171320080757
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.016974875703454018
+DSLOG: Current time: 24/02/2025 01:49:08
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1002417
+DSLOG: Average throughput time: 0.062494960652364664
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001190677285194397
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8097293842583895
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001504272222518921
+DSLOG: Time taken for refresh_local_pool = 0.8267099037766457
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 01:51:42
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1002417
+DSLOG: Average throughput time: 0.06264872197823527
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09695985913276672
+DSLOG: Current time: 24/02/2025 01:52:13
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1002418
+DSLOG: Average throughput time: 0.06267958250505651
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 9.097158908843994e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9251949340105057
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0002463292330503464
+DSLOG: Time taken for refresh_local_pool = 0.9443122446537018
+DSLOG: Time taken for crash_reload = 31.973655791953206
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Current time: 24/02/2025 01:53:46
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1004361
+DSLOG: Average throughput time: 0.06265106490361767
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012027844786643982
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 2.723169207572937
+SEVERE: Specified breakpoint ID 217 does not exist.
+DSLOG: Error refresh breakpoint can not be unset.
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013093464076519012
+DSLOG: Time taken for refresh_local_pool = 2.769354321062565
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.019563553854823112
+DSLOG: Current time: 24/02/2025 02:08:19
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1022101
+DSLOG: Average throughput time: 0.06241765533483528
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 9.462796151638031e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8525724206119776
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001485925167798996
+DSLOG: Time taken for refresh_local_pool = 0.8701465018093586
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.009204467758536339
+DSLOG: Current time: 24/02/2025 02:22:50
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1039773
+DSLOG: Average throughput time: 0.062194405589520975
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001336652785539627
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8349042851477861
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001535620540380478
+DSLOG: Time taken for refresh_local_pool = 0.8503569085150957
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.008740639314055443
+DSLOG: Current time: 24/02/2025 02:37:21
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1056803
+DSLOG: Average throughput time: 0.06201628538231577
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013843737542629242
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8341710884124041
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001529194414615631
+DSLOG: Time taken for refresh_local_pool = 0.8514961954206228
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 02:50:59
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1056803
+DSLOG: Average throughput time: 0.06279043362853096
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08624917827546597
+DSLOG: Current time: 24/02/2025 02:51:30
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1056804
+DSLOG: Average throughput time: 0.06281963641096454
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0005673766136169434
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8679731301963329
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013310648500919342
+DSLOG: Time taken for refresh_local_pool = 0.8906452413648367
+DSLOG: Time taken for crash_reload = 31.8436127807945
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0xbd84 0x6100 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 03:02:55
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1056804
+DSLOG: Average throughput time: 0.06346812117122819
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08703709207475185
+DSLOG: Current time: 24/02/2025 03:03:26
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1056805
+DSLOG: Average throughput time: 0.06349732818509485
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0003837496042251587
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8444100674241781
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001444350928068161
+DSLOG: Time taken for refresh_local_pool = 0.8664220999926329
+DSLOG: Time taken for crash_reload = 31.82380244322121
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.01918247900903225
+DSLOG: Current time: 24/02/2025 03:17:57
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1074687
+DSLOG: Average throughput time: 0.06325117753533487
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00011730380356311798
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7770005092024803
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001925211399793625
+DSLOG: Time taken for refresh_local_pool = 0.7938004303723574
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9200 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 03:25:14
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1074687
+DSLOG: Average throughput time: 0.06365810902715167
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.0871291495859623
+DSLOG: Current time: 24/02/2025 03:25:45
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1074688
+DSLOG: Average throughput time: 0.06368680481930725
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00010277144610881805
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.881037525832653
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014542043209075928
+DSLOG: Time taken for refresh_local_pool = 0.9017280042171478
+DSLOG: Time taken for crash_reload = 31.835838481783867
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.004943853244185448
+DSLOG: Current time: 24/02/2025 03:40:16
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1092331
+DSLOG: Average throughput time: 0.0634554847008616
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001234188675880432
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8651829306036234
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00016004592180252075
+DSLOG: Time taken for refresh_local_pool = 0.8833674490451813
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.008549841120839119
+DSLOG: Current time: 24/02/2025 03:54:47
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1110484
+DSLOG: Average throughput time: 0.0632024654596379
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012205913662910461
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9280574731528759
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001354999840259552
+DSLOG: Time taken for refresh_local_pool = 0.9449238553643227
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.004564397037029266
+DSLOG: Current time: 24/02/2025 04:09:18
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1127072
+DSLOG: Average throughput time: 0.06304508476204727
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001040194183588028
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8853602018207312
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00017656944692134857
+DSLOG: Time taken for refresh_local_pool = 0.8969636224210262
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9e00 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 04:19:56
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1127072
+DSLOG: Average throughput time: 0.06361097356255925
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08532267063856125
+DSLOG: Current time: 24/02/2025 04:20:27
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1127073
+DSLOG: Average throughput time: 0.06363845899383322
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00017569772899150848
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8922270126640797
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 7.978081703186035e-05
+DSLOG: Time taken for refresh_local_pool = 0.9008279256522655
+DSLOG: Time taken for crash_reload = 31.98028475418687
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.006243087351322174
+DSLOG: Current time: 24/02/2025 04:34:58
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1144249
+DSLOG: Average throughput time: 0.06344439791384798
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00024532340466976166
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8739329632371664
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0010728593915700912
+DSLOG: Time taken for refresh_local_pool = 0.8928012661635876
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0031000692397356033
+DSLOG: Current time: 24/02/2025 04:49:29
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1162603
+DSLOG: Average throughput time: 0.06319193671670059
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001280214637517929
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8586729280650616
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001996401697397232
+DSLOG: Time taken for refresh_local_pool = 0.8776375632733107
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.001371709629893303
+DSLOG: Current time: 24/02/2025 05:04:00
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1179493
+DSLOG: Average throughput time: 0.0630254630552631
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00025575608015060425
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8604834340512753
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001394655555486679
+DSLOG: Time taken for refresh_local_pool = 0.8707737475633621
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.003019014373421669
+DSLOG: Current time: 24/02/2025 05:18:31
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1196615
+DSLOG: Average throughput time: 0.06285148980906696
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001622270792722702
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7967445813119411
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00022061169147491455
+DSLOG: Time taken for refresh_local_pool = 0.8136930428445339
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0031859111040830612
+DSLOG: Current time: 24/02/2025 05:33:01
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1214464
+DSLOG: Average throughput time: 0.0626448630979583
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 9.667500853538513e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8385798390954733
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00013449974358081818
+DSLOG: Time taken for refresh_local_pool = 0.8544649090617895
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9f24 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 05:47:04
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1214464
+DSLOG: Average throughput time: 0.06333877743986666
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+DSLOG: Failed to set pool refresh breakpoint.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.001147231087088585
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08271692506968975
+DSLOG: Current time: 24/02/2025 05:47:35
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1214465
+DSLOG: Average throughput time: 0.06336413155785128
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015479512512683868
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9387597218155861
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014795362949371338
+DSLOG: Time taken for refresh_local_pool = 0.9571055602282286
+DSLOG: Time taken for crash_reload = 31.841593023389578
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Toggling Timeout.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x10 0x100 | Status Registers  0xb600 0x6900 0xf000 0x1002 | Program Counter 0x12c82
+DSLOG: Current time: 24/02/2025 05:47:53
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1214820
+DSLOG: Average throughput time: 0.06336022173714052
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08803688548505306
+DSLOG: Current time: 24/02/2025 05:48:37
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1214821
+DSLOG: Average throughput time: 0.06339657936807148
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001049581915140152
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9347238279879093
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 9.96813178062439e-05
+DSLOG: Time taken for refresh_local_pool = 0.94239766523242
+DSLOG: Time taken for crash_reload = 45.632902873679996
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.017751431092619896
+DSLOG: Current time: 24/02/2025 06:03:08
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1232407
+DSLOG: Average throughput time: 0.06319870119821545
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0037901829928159714
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8503641802817583
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014728307723999023
+DSLOG: Time taken for refresh_local_pool = 0.8719770517200232
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x8e00 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 06:06:24
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1232407
+DSLOG: Average throughput time: 0.06335793387440102
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.09008058719336987
+DSLOG: Current time: 24/02/2025 06:06:55
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1232408
+DSLOG: Average throughput time: 0.06338292779257362
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 9.853951632976532e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.855841938406229
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014912523329257965
+DSLOG: Time taken for refresh_local_pool = 0.8779841046780348
+DSLOG: Time taken for crash_reload = 31.7679187618196
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0139397494494915
+DSLOG: Current time: 24/02/2025 06:21:26
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1249850
+DSLOG: Average throughput time: 0.06319523063169344
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00012444891035556793
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9376679267734289
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0002443026751279831
+DSLOG: Time taken for refresh_local_pool = 0.9452320281416178
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1082 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 06:29:17
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1249850
+DSLOG: Average throughput time: 0.06357210515484636
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08845802582800388
+DSLOG: Current time: 24/02/2025 06:29:48
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1249851
+DSLOG: Average throughput time: 0.06359676101307231
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001494716852903366
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8555297255516052
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001511741429567337
+DSLOG: Time taken for refresh_local_pool = 0.8758872989565134
+DSLOG: Time taken for crash_reload = 31.781631287187338
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Found crash.
+Interrupt Enable Registers 0x10 0x100 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x9600 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DSLOG: Current time: 24/02/2025 06:32:07
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1249851
+DSLOG: Average throughput time: 0.06370772084173303
+DSLOG: Obtained seed.
+DSLOG: USB Device: 1-1 Port: 3
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0503 power highspeed enable connect [0403:a6d0 SD Texas Instruments Inc.XDS100 Ver 2.0 SD0W9XLO]
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power off request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Current status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0000 off
+Failed to set port status by writing to /sys/bus/usb/devices/1-1:1.0/1-1-port3/disable (Permission denied).
+Follow https://git.io/JIB2Z to make sure that udev is set up correctly.
+Falling back to libusb based port control.
+Use -S to skip trying the sysfs interface and printing this message.
+Sent power on request
+New status for hub 1-1 [2109:2817 VIA Labs, Inc. USB2.0 Hub, USB 2.10, 4 ports, ppps]
+  Port 3: 0101 power connect [0403:a6d0]
+DSLOG: Failed to reset the device after power cycle.
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a82
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.08516115136444569
+DSLOG: Current time: 24/02/2025 06:32:38
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1249852
+DSLOG: Average throughput time: 0.06373242117596857
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0001356620341539383
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9532475247979164
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014703534543514252
+DSLOG: Time taken for refresh_local_pool = 0.9735283609479666
+DSLOG: Time taken for crash_reload = 31.934858376160264
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.014045445248484612
+DSLOG: Current time: 24/02/2025 06:47:09
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1267754
+DSLOG: Average throughput time: 0.06351952027819197
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014068558812141418
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7761433720588684
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014534033834934235
+DSLOG: Time taken for refresh_local_pool = 0.7938159517943859
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.007446294650435448
+DSLOG: Current time: 24/02/2025 07:01:40
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1284914
+DSLOG: Average throughput time: 0.06334898826262894
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00017197243869304657
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.7625011820346117
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014349818229675293
+DSLOG: Time taken for refresh_local_pool = 0.7819772753864527
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.004362212494015694
+DSLOG: Current time: 24/02/2025 07:16:10
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1302084
+DSLOG: Average throughput time: 0.06318242797634151
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0005018804222345352
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9547886531800032
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014076568186283112
+DSLOG: Time taken for refresh_local_pool = 0.972329368814826
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.016796650364995003
+DSLOG: Current time: 24/02/2025 07:30:41
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1320032
+DSLOG: Average throughput time: 0.0629832408694622
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.0003297682851552963
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8597662840038538
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014764443039894104
+DSLOG: Time taken for refresh_local_pool = 0.8768069446086884
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.002260584384202957
+DSLOG: Current time: 24/02/2025 07:45:12
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1337611
+DSLOG: Average throughput time: 0.06280663477670166
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015621259808540344
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.966824458912015
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00014874152839183807
+DSLOG: Time taken for refresh_local_pool = 0.984753917902708
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.023060640320181847
+DSLOG: Current time: 24/02/2025 07:59:43
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1354774
+DSLOG: Average throughput time: 0.06265391325094179
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00011689402163028717
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8604041859507561
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00011539086699485779
+DSLOG: Time taken for refresh_local_pool = 0.8661101628094912
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0038889609277248383
+DSLOG: Current time: 24/02/2025 08:14:14
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1372197
+DSLOG: Average throughput time: 0.062493066855266594
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 8.534640073776245e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8311897683888674
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00018363259732723236
+DSLOG: Time taken for refresh_local_pool = 0.8365875016897917
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.010117217898368835
+DSLOG: Current time: 24/02/2025 08:28:45
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1389677
+DSLOG: Average throughput time: 0.06233368294295164
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00011591985821723938
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.8946567494422197
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00015777535736560822
+DSLOG: Time taken for refresh_local_pool = 0.9126809630542994
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Starting sanity check.
+DSLOG: Time taken for set_refresh_breakpoint = 0.0013282839208841324
+DSLOG: Current time: 24/02/2025 08:43:16
+DSLOG: Board has tracked this number of increasing test cases -->  0
+DSLOG: Host has tracked this number of increasing test cases -->  12
+DSLOG: Total number of iterations: 1406822
+DSLOG: Average throughput time: 0.06219317672840764
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 9.457580745220184e-05
+DSLOG: We have 22 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.875411668792367
+DSLOG: We have this many seeds in the global pool -->  22
+DSLOG: Time taken for refresh_global_pool = 0.00018165819346904755
+DSLOG: Time taken for refresh_local_pool = 0.892047805711627
+DSLOG: You are in device_listner, attemping to run the target.
+
+
+

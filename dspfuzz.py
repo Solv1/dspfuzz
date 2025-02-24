@@ -52,6 +52,7 @@ seed_size = 500 #Size of current seed
 amount_of_crashes = 0
 start_time = 0
 sanity_check = None
+reload_timeout = False
 
 
 board_increasing_cases = 0
@@ -163,92 +164,106 @@ def find_coverage_call():
 
     print(f"DSLOG: Coverage call: {'0x' + first_part + second_part}")
     asm_in_mem = int(first_part + second_part, 16)
+    asm_in_mem = 1812016423
+
+
+    print(f'DSLOG: {hex(asm_in_mem)}')
     # print(asm_in_mem)
     
 
 def reset_and_reload():
     global debugServer, debugSession, script, timer_thread
     id_num = ''
-    
+    # reset1 = debugSession.target.getResetType(0)   
+    # reset1.issueReset()
+    # debugSession.target.verifyProgram("DSPFuzz.out")
     try:
-        reset1 = debugSession.target.getResetType(0)   
-        reset1.issueReset()
+        debugSession.target.reset()
     except:
-        print('DSLOG: Failed to reset target using the debug server.')
+        print('DSLOG: Failed to reset the device.')
     finally:
         debugSession.terminate()
         debugServer.stop()
 
 
         #This scrapes the id number for the usbreset command
-        outstring = subprocess.check_output("uhubctl")
-        
-        outstring = outstring.decode("utf-8")
-        outstring = outstring.split('\n')
+    outstring = subprocess.check_output("uhubctl")
+    
+    outstring = outstring.decode("utf-8")
+    outstring = outstring.split('\n')
 
-        device_line = ''
-        for line in outstring:
-            #print(line)
-            if 'hub' in str(line):
-                split = str(line).split('hub')
-                #print(split)
-                final_split = split[1].split('[')
-                #print(final_split)
-                layer = final_split[0].replace(' ', '')
+    device_line = ''
+    for line in outstring:
+        #print(line)
+        if 'hub' in str(line):
+            split = str(line).split('hub')
+            #print(split)
+            final_split = split[1].split('[')
+            #print(final_split)
+            layer = final_split[0].replace(' ', '')
 
-            if 'Texas' in str(line):
-                device_line = str(line)
-                # print(device_line)
-                port_split = device_line.split('Port')
-                # print(port_split)
-                final_split = port_split[1].split(':')
-                # print(final_split)
-                port = final_split[0].replace(' ','')
-                break
+        if 'Texas' in str(line):
+            device_line = str(line)
+            # print(device_line)
+            port_split = device_line.split('Port')
+            # print(port_split)
+            final_split = port_split[1].split(':')
+            # print(final_split)
+            port = final_split[0].replace(' ','')
+            break
 
-        print(f"DSLOG: USB Device: {layer} Port: {port}")
+    print(f"DSLOG: USB Device: {layer} Port: {port}")
         
         # print('-----Resetting the Device-----')
-        os.system(f'uhubctl -a off -l {layer} -p {port} -r 1000')
-        time.sleep(20)
-        os.system(f'uhubctl -a on -l {layer} -p {port} -r 1000')
-        time.sleep(15)
-        # os.system('uhubctl -a on  -l 3-1 -p 1')
+    os.system(f'uhubctl -a off -l {layer} -p {port} -r 1000')
+    # time.sleep(20)
+    os.system(f'uhubctl -a on -l {layer} -p {port} -r 1000')
+    # time.sleep(15)
+    # os.system('uhubctl -a on  -l 3-1 -p 1')
 
-        script = ScriptingEnvironment.instance()
+    try:
+        debugSession.target.reset()
+    except:
+        print('DSLOG: Failed to reset the device after power cycle.')
 
-        script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
+    script = ScriptingEnvironment.instance()
 
-        # Set our TimeOut
-        script.setScriptTimeout(1500000000)
+    script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
 
-        # Log everything
-        script.traceSetConsoleLevel(TraceLevel.INFO)
-        script.traceSetFileLevel(TraceLevel.INFO)
-        try:
-            # Get the Debug Server and start a Debug Session
-            debugServer = script.getServer('DebugServer.1')
-            debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
-            #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
-            debugSession = debugServer.openSession('.*')
-            debugSession.target.connect()
-        
-            debugSession.clock.enable()
-        
-            debugSession.memory.loadProgram('DSPFuzz.out')
-        except:
-            #If something happens the board needs to be power cycled twice :(
-            print('DSLOG: Power Cycling the board twice :(')
-            reset_and_reload()
-            return
-        #debugSession.memory.loadProgram('DSPFuzz.out')
+    # Set our TimeOut
+    script.setScriptTimeout(1500000000)
 
-        #Set breakpoints again
-        retVal = set_intial_breakpoints()
-        if(retVal == -1):
-            print('DSLOG: Failed to set intial breakpoints.')
-        # set_refresh_breakpoint()
-        refresh_local_pool()
+    # Log everything
+    script.traceSetConsoleLevel(TraceLevel.INFO)
+    script.traceSetFileLevel(TraceLevel.INFO)
+    try:
+        # Get the Debug Server and start a Debug Session
+        debugServer = script.getServer('DebugServer.1')
+        debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
+        #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
+        debugSession = debugServer.openSession('.*')
+        debugSession.target.connect()
+    
+        debugSession.clock.enable()
+    
+        debugSession.memory.loadProgram('DSPFuzz.out')
+    except:
+        #If something happens the board needs to be power cycled twice :(
+        print('DSLOG: Power Cycling the board twice :(')
+        reset_and_reload()
+        return
+    #debugSession.memory.loadProgram('DSPFuzz.out')
+
+    #Set breakpoints again
+    retVal = set_intial_breakpoints()
+    if(retVal == -1):
+        print('DSLOG: Failed to set intial breakpoints power cycling.')
+        reset_and_reload()
+        return
+
+    # set_refresh_breakpoint()
+    refresh_local_pool()
+    
 
 @log
 def debug_server_setup():
@@ -411,30 +426,50 @@ def set_intial_breakpoints():
     """
 
     global lp_refresh_id, crash_void_address, coverage_bubble_id, coverage_bubble_address, coverage_list_address, lp_refresh_address, lp_props
-    
+    try:
+        IER0 = debugSession.memory.readRegister('IER0', False)
+        IER1 = debugSession.memory.readRegister('IER1', False)
+        IFR0 = debugSession.memory.readRegister('IFR0', False)
+        IFR1 = debugSession.memory.readRegister('IFR1', False)
+        ST0 =  debugSession.memory.readRegister('ST0', False)
+        ST1 =  debugSession.memory.readRegister('ST1', False)
+        ST2 =  debugSession.memory.readRegister('ST2', False)
+        ST3 =  debugSession.memory.readRegister('ST3', False)
+        PC = debugSession.memory.readRegister('PC', False)
 
-
+        print(f'Interrupt Enable Registers {hex(IER0)} {hex(IER1)} | Interrupt Flag Registers {hex(IFR0)} {hex(IFR1)} | Status Registers  {hex(ST0)} {hex(ST1)} {hex(ST2)} {hex(ST3)} | Program Counter {hex(PC)}')    
+    except:
+        print("DSLOG: Failed to read registers.")
 
     #Clears any stale breakpoints.
-    debugSession.breakpoint.removeAll()
+    try:
+        debugSession.breakpoint.removeAll()
+    except:
+        print("DSLOG: Failed to remove stale breakpoints.")
 
-    lp_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
-    lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
-    lp_props.setString("Hardware Configuration.Type.Location", str(lp_refresh_address))
-    lp_refresh_id = debugSession.breakpoint.add(lp_props)
-    
-    crash_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
-    crash_address = debugSession.symbol.getAddress('crash_void')
-    crash_props.setString("Hardware Configuration.Type.Location", str(crash_address))
-    debugSession.breakpoint.add(crash_props)
+    try:
+        lp_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
+        lp_refresh_address = debugSession.symbol.getAddress('dequeue_seed')
+        lp_props.setString("Hardware Configuration.Type.Location", str(lp_refresh_address))
+        lp_refresh_id = debugSession.breakpoint.add(lp_props)
+        
+        crash_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
+        crash_void_address = debugSession.symbol.getAddress('crash_void')
+        crash_props.setString("Hardware Configuration.Type.Location", str(crash_void_address))
+        debugSession.breakpoint.add(crash_props)
 
-    coverage_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
-    coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
-    coverage_props.setString("Hardware Configuration.Type.Location", str(coverage_bubble_address))
-    coverage_bubble_id = debugSession.breakpoint.add(coverage_props)
+        coverage_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
+        coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
+        coverage_props.setString("Hardware Configuration.Type.Location", str(coverage_bubble_address))
+        coverage_bubble_id = debugSession.breakpoint.add(coverage_props)
 
-    #Find the coverage map address
-    coverage_list_address = debugSession.symbol.getAddress('g_coverageMap')
+        #Find the coverage map address
+        coverage_list_address = debugSession.symbol.getAddress('g_coverageMap')
+    except:
+        print("DSLOG: Failed to set breakpoints trying again.")
+        return -1
+
+
     
     print('DSLOG: Refresh breakpoints set.')
     debugSession.target.run()
@@ -482,7 +517,7 @@ def refresh_global_pool():
 
     #Seeds are number and managed by the fuzz engine all we have to do is read them.
     global_pool = os.listdir(seed_dir)
-    print(global_pool)
+    #print(global_pool)
     global_pool_size = len(global_pool)
     print('DSLOG: We have this many seeds in the global pool --> ', global_pool_size)
 
@@ -540,14 +575,17 @@ def _write_seed(corpus_address, seed):
     isNotSame = True
 
     while(isNotSame):
-        debugSession.memory.writeData(1, corpus_address, seed, 16)
-    
-        seed_check = debugSession.memory.readData(1, corpus_address, 16, written_seed_len, False)
-        seed_check = [int(j)for j in seed_check]
+        try:
+            debugSession.memory.writeData(1, corpus_address, seed, 16)
+        
+            seed_check = debugSession.memory.readData(1, corpus_address, 16, written_seed_len, False)
+            seed_check = [int(j)for j in seed_check]
 
-        isNotSame = seed_check != seed
-        if(isNotSame):
-            print("DSLOG: Seed writting error trying again.")
+            isNotSame = seed_check != seed
+            if(isNotSame):
+                print("DSLOG: Seed writting error trying again.")
+        except:
+            print("DSLOG: Failed to write seed.")
 
 
 @log
@@ -625,8 +663,10 @@ def write_local_pool() -> None:
 
             # corpus_address = corpus_address + seed_size
             # seeds_loaded += 1
-
-    debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
+    try:
+        debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
+    except:
+        print("DSLOG: Failed to write seed tracker.")
 
     #TODO: Add more advanced seed selection here
     local_pool = [] #After everything is written set the tracking to be empty
@@ -655,7 +695,7 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
         except(Exception):
             print('DSLOG: Error memory read error wait a second and try again.')
             time.sleep(.05)
-            seed = str(debugSession.memory.readData(1, seed_address + x, 16))
+            #seed = str(debugSession.memory.readData(1, seed_address + x, 16))
         if x == 0:
             if isCrash:
                 with open(dir+str(seed_id), 'a+') as fp:
@@ -670,13 +710,17 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
 
 @log
 def _pull_stage_cycles():
+    try:
+        mutation_amount_address = debugSession.symbol.getAddress('g_mutationDegression')
+        mutation_amount = debugSession.memory.readData(1,mutation_amount_address, 16)
+        mutation_amount = 100 // mutation_amount 
 
-    mutation_amount_address = debugSession.symbol.getAddress('g_mutationDegression')
-    mutation_amount = debugSession.memory.readData(1,mutation_amount_address, 16)
-    mutation_amount = 100 // mutation_amount 
-
-    current_mutation_address = debugSession.symbol.getAddress('g_currentMutation')
-    current_mutation = debugSession.memory.readData(1,current_mutation_address, 16)
+        current_mutation_address = debugSession.symbol.getAddress('g_currentMutation')
+        current_mutation = debugSession.memory.readData(1,current_mutation_address, 16)
+    except:
+        print("DSLOG: Failed to read stage data.")
+        mutation_amount = 0
+        current_mutation = 0
 
     if(current_mutation == 0):
         print("DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage: ",mutation_amount)
@@ -777,17 +821,38 @@ def crash_reload() -> None:
     """
     global amount_of_crashes, start_time, timer_thread, coverage_dict, run_map_path, timer_thread, sanity_check, current_seed_address
 
+    #Stop the local pool refresh until we can reload the board.
     if(sanity_check):
         sanity_check.cancel()
         sanity_check = None
     #crash_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
     #print('Found Crash in '+ str(crash_time - start_time)+ ' ns')
 
-    #Stop the local pool refresh until we can reload the board.
-
-    debugSession.breakpoint.removeAll()
-
+    
     print("DSLOG: Found crash.")
+    try:
+        IER0 = debugSession.memory.readRegister('IER0', False)
+        IER1 = debugSession.memory.readRegister('IER1', False)
+        IFR0 = debugSession.memory.readRegister('IFR0', False)
+        IFR1 = debugSession.memory.readRegister('IFR1', False)
+        ST0 =  debugSession.memory.readRegister('ST0', False)
+        ST1 =  debugSession.memory.readRegister('ST1', False)
+        ST2 =  debugSession.memory.readRegister('ST2', False)
+        ST3 =  debugSession.memory.readRegister('ST3', False)
+        PC = debugSession.memory.readRegister('PC', False)
+        print(f'Interrupt Enable Registers {hex(IER0)} {hex(IER1)} | Interrupt Flag Registers {hex(IFR0)} {hex(IFR1)} | Status Registers  {hex(ST0)} {hex(ST1)} {hex(ST2)} {hex(ST3)} | Program Counter {hex(PC)}')
+        
+    except: 
+        print("DSLOG: Failed to read status registers.")
+
+    try:
+        debugSession.breakpoint.removeAll()
+    except:
+        print("DSLOG: Failed to remove all breakpoints.")
+    
+
+    
+
 
     amount_of_crashes+=1
 
@@ -813,6 +878,7 @@ def crash_reload() -> None:
 
     reset_and_reload()
 
+
 @log
 def refresh_local_pool():
     global timer_thread, lp_refresh_id
@@ -823,7 +889,7 @@ def refresh_local_pool():
     try:
         debugSession.breakpoint.remove(lp_refresh_id)
     except:
-        print('DSLOG: Error Breakpoint can not be unset.')
+        print('DSLOG: Error refresh breakpoint can not be unset.')
     # debugSession.target.runAsynch()
 
     #Reschedule the timer.
@@ -839,39 +905,68 @@ def device_listener() -> None:
         @Return: None
     """
 
-    global coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession, sanity_check
+    global coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession, sanity_check, reload_timeout
     
+    isRunning = False
     
     while(1):    
         #Once the device is halted check to see what breakpoint was hit.
-        try:
-            debugSession.target.run()
-        except:
+        if(reload_timeout):
             crash_reload()
-        if (sanity_check):
-            sanity_check.cancel()
-            sanity_check = None
-        try:
-            pc = debugSession.expression.evaluate('PC')
-        except:
-            pc = debugSession.expression.evaluate('PC')
-        if(pc ==  8388608):
-            #There is accumulator overflow here and this device needs to be reset.
-            crash_reload()
+            reload_timeout = False
+            isRunning = False
 
-        if(pc == crash_void_address):
-            #If there is crash reload the DSP program.
-            crash_reload()
+        if not isRunning:
+            try:
+                print('DSLOG: You are in device_listner, attemping to run the target.')
+                debugSession.target.runAsynch()
+                isRunning = True
+            except:
+                print("DSLOG: Failed to run target.")
+                crash_reload()
+        
+        if isRunning:
+            try:
+                pc = debugSession.expression.evaluate('PC')
+            except:
+                #pc = debugSession.expression.evaluate('PC')
+                print("DSLOG: Unable to read PC counter going to try again.")
+                crash_reload()
 
-        if(pc == coverage_bubble_address):
-            #If there is a covereage increasing input found bubble it up to the global pool.
-            current_seed_to_global_pool()
+            if(pc ==  8388608):
+                #There is accumulator overflow here and this device needs to be reset.
+                crash_reload()
+                isRunning = False
 
-        if(pc == lp_refresh_address):
-            refresh_local_pool()
+            if(pc == crash_void_address):
+                #If there is crash reload the DSP program.
+                crash_reload()
+                isRunning = False
+
+            if(pc == coverage_bubble_address):
+                #If there is a covereage increasing input found bubble it up to the global pool.
+                if (sanity_check):
+                    sanity_check.cancel()
+                    sanity_check = None
+                current_seed_to_global_pool()
+                isRunning = False
+
+            if(pc == lp_refresh_address):
+                if (sanity_check):
+                    sanity_check.cancel()
+                    sanity_check = None
+                refresh_local_pool()
+                isRunning = False
+
+        
+
+def toggle_timeout():
+    global reload_timeout
+
+    print('DSLOG: Toggling Timeout.')
+    reload_timeout = True
 
 
-    
 @log
 def set_refresh_breakpoint() -> None:
     """Sets our corpusWaiting flag to true and waits till the DSP is ready to refresh the local pool.
@@ -885,11 +980,14 @@ def set_refresh_breakpoint() -> None:
         timer_thread.cancel()
 
     #Sets a breakpoint to refresh the pool.
-    lp_refresh_id = debugSession.breakpoint.add(lp_props)
+    try:
+        lp_refresh_id = debugSession.breakpoint.add(lp_props)
+    except:
+        print("DSLOG: Failed to set pool refresh breakpoint.")
 
     #If we set the refresh breakpoint and it is not hit within a second which is a long time -> assume a crash.
     print("DSLOG: Starting sanity check.")
-    sanity_check = threading.Timer(10, crash_reload)
+    sanity_check = threading.Timer(20, toggle_timeout)
     sanity_check.start()
 
     # Sleep for a second and wait for the fuzzer to finish its latest run.
@@ -917,7 +1015,7 @@ def main():
         @Return: None
     """
 
-    global asm_in_mem, lp_refresh_id, local_pool_size, seed_dir, results_dir, start_time, timer_thread, current_seed_address, seed_dir
+    global sanity_check, asm_in_mem, lp_refresh_id, local_pool_size, seed_dir, results_dir, start_time, timer_thread, current_seed_address, seed_dir
 
 
 
@@ -944,7 +1042,10 @@ def main():
     write_local_pool()
 
     #Remove the breakpoint untill the next refresh.
-    debugSession.breakpoint.remove(lp_refresh_id)
+    try:
+        debugSession.breakpoint.remove(lp_refresh_id)
+    except:
+        print("DSLOG: Failed to remove pool refresh breakpoint.")
     
 
     start_time = time.clock_gettime(time.CLOCK_REALTIME)
@@ -959,6 +1060,7 @@ def main():
     #start the refresh thread
     timeout = calculate_timeout(refresh_global_pool(), 15)
     timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
+    
     timer_thread.start()
     print("DSLOG: Starting the device listener.")
     device_listener()

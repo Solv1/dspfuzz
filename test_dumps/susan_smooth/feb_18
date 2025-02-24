@@ -1,0 +1,102 @@
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 7.6795453783124685
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x18ec0
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for set_intial_breakpoints = 0.1734834611415863
+DSLOG: Current seed address --> 78730
+DSLOG: Current seed pointer --> 16386
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 6.560981273651123e-05
+DSLOG: We have 10 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9364539664238691
+DSLOG: Time of start = 18/02/2025 21:51:25
+DSLOG: Finding coverage calls in binary
+DSLOG: We need 2 more nibbles.
+DSLOG: Coverage call: 0x6c01b1
+DSLOG: Time taken for find_coverage_call = 0.005496451631188393
+DSLOG: Coverage points {95658: 45598, 95694: 45634, 95724: 45664, 95739: 45679, 95743: 45683, 95769: 45709, 95773: 45713, 95789: 45729, 95806: 45746, 95823: 45763, 95827: 45767, 95845: 45785, 95854: 45794, 95898: 45838, 95907: 45847, 95924: 45864, 95941: 45881, 95947: 45887, 95954: 45894, 95962: 45902, 95996: 45936, 96006: 45946, 96010: 45950, 96019: 45959, 96048: 45988, 96056: 45996, 96085: 46025, 96093: 46033, 96111: 46051, 96175: 46115, 96179: 46119, 96234: 46174, 96258: 46198, 96327: 46267, 96331: 46271, 96339: 46279, 96590: 46530, 96594: 46534, 96618: 46558, 96622: 46562, 96657: 46597, 96717: 46657, 96743: 46683, 96747: 46687, 96771: 46711, 96775: 46715, 96798: 46738, 96839: 46779, 96843: 46783, 96937: 46877, 96941: 46881, 96963: 46903, 96967: 46907, 97142: 47082, 97146: 47086, 97168: 47108, 97172: 47112, 97202: 47142, 97206: 47146, 97384: 47324, 97388: 47328, 97413: 47353, 97417: 47357, 97462: 47402, 97495: 47435, 97523: 47463, 97532: 47472, 97552: 47492, 97571: 47511, 97575: 47515, 97584: 47524, 97622: 47562, 97695: 47635, 97699: 47639, 97723: 47663, 97727: 47667, 97826: 47766, 97830: 47770, 97855: 47795, 97859: 47799, 97885: 47825, 97889: 47829, 97915: 47855, 97919: 47859, 98027: 47967, 98031: 47971, 98055: 47995, 98059: 47999, 98149: 48089, 98153: 48093, 98189: 48129, 98193: 48133, 98213: 48153, 98247: 48187, 98285: 48225, 98313: 48253, 98317: 48257, 98345: 48285, 98352: 48292, 98376: 48316, 98380: 48320, 98404: 48344, 98408: 48348, 98995: 48935, 99029: 48969, 99067: 49007, 99094: 49034, 99098: 49038, 99125: 49065, 99129: 49069, 99135: 49075, 99143: 49083, 99202: 49142, 99211: 49151, 99288: 49228, 99292: 49232, 99337: 49277, 99341: 49281, 99359: 49299}
+DSLOG: Total Coverage Points: 119
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 5.506351590156555e-05
+DSLOG: Starting the device listener.
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 18/02/2025 21:51:25
+DSLOG: Board has tracked this number of increasing test cases -->  1
+DSLOG: Host has tracked this number of increasing test cases -->  1
+DSLOG: Total number of iterations: 1
+DSLOG: Average throughput time: 0.2675933837890625
+DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.004652801901102066
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 6 new coverage.
+DSLOG: Remaining coverage points: 113
+DSLOG: We have this many seeds in the global pool -->  10
+DSLOG: Time taken for refresh_global_pool = 5.869753658771515e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 0.0001242551952600479
+DSLOG: We have 11 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9350154921412468
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 0.00012828968465328217
+DSLOG: Time taken for current_seed_to_global_pool = 1.8017729427665472
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 18/02/2025 21:51:39
+DSLOG: Board has tracked this number of increasing test cases -->  2
+DSLOG: Host has tracked this number of increasing test cases -->  2
+DSLOG: Total number of iterations: 256
+DSLOG: Average throughput time: 0.05691369529813528
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003920804709196091
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 2 new coverage.
+DSLOG: Remaining coverage points: 111
+DSLOG: We have this many seeds in the global pool -->  11
+DSLOG: Time taken for refresh_global_pool = 8.879788219928741e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 9.649060666561127e-05
+DSLOG: We have 12 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9009297974407673
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 8.362345397472382e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.7071614917367697
+DSLOG: You are in device_listner, attemping to run the target.
+DSLOG: Seed dir in current_seed is : ./seeds/
+DSLOG: Found coverage-increasing input.
+DSLOG: Current time: 18/02/2025 21:51:41
+DSLOG: Board has tracked this number of increasing test cases -->  3
+DSLOG: Host has tracked this number of increasing test cases -->  3
+DSLOG: Total number of iterations: 261
+DSLOG: Average throughput time: 0.06363233204545646
+DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage:  100
+DSLOG: Time taken for _pull_stage_cycles = 0.003967732191085815
+DSLOG: Found the end of the coverage map.
+DSLOG: Found 61 new coverage.
+DSLOG: Remaining coverage points: 50
+DSLOG: We have this many seeds in the global pool -->  12
+DSLOG: Time taken for refresh_global_pool = 4.568509757518768e-05
+DSLOG: Obtained seed.
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 9.597279131412506e-05
+DSLOG: We have 13 in the global pool.
+DSLOG: Local pool written
+DSLOG: Time taken for write_local_pool = 0.9352808762341738
+DSLOG: We have this many seeds in the global pool -->  13
+DSLOG: Time taken for refresh_global_pool = 9.182840585708618e-05
+DSLOG: Time taken for current_seed_to_global_pool = 1.7704278342425823
+DSLOG: You are in device_listner, attemping to run the target.
+

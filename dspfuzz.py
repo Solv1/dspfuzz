@@ -1,5 +1,6 @@
 import binary_tools
 import itertools
+import logging
 import shutil
 import subprocess
 import time
@@ -21,7 +22,7 @@ try:
     classpath2 = os.environ["DSS_JAR"]
     classpath3 = os.environ["DBENG_JAR"]
 except KeyError:
-    print('SetupError: Missing a enviorment variable, trying setting it via java_setup.sh and try again')
+    logging.debug('SetupError: Missing a enviorment variable, trying setting it via java_setup.sh and try again')
     exit(0)
 # jpype.startJVM(classpath=['/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.ccstudio.scripting.environment_3.1.0.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/dss.jar:/home/santiago/Research/Ti/CCS/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar'])
 jpype.startJVM(classpath=[classpath1+':'+classpath2+':'+classpath3])
@@ -47,12 +48,17 @@ global_pool_size = 10
 global_pool = [] #List of all seeds in the SEED_DIR of the users choosing.
 local_pool = [] #What is currently loaded into the device ID only 
 crash_void_address = 0 #Holds the address of where errors go when there is a crash condition(hang, bus error, data log error)
-program_to_load = 'DSPFuzz.out'
+program_to_load = './DSPFuzz.out'
 seed_size = 500 #Size of current seed
 amount_of_crashes = 0
 start_time = 0
 sanity_check = None
 reload_timeout = False
+first_execution = True
+thoughput = 0
+last_time = 0
+execution_time = 0
+isRunning = False
 
 
 board_increasing_cases = 0
@@ -64,21 +70,21 @@ average_testcase_time = 0
 total_testcase_time = 0
 iterations = 0
 
-logging.getLogger()
-logging.basicConfig(filename='fuzz.log', level=logging.DEBUG)
+logger = logging.getLogger()
+logging.basicConfig(filename='branch.log', level=logging.DEBUG)
 
 
 def log(func):
 
     def wrapper(*args, **kwargs):
-        logging.debug('Entering ' + func.__name__)
+        #logging.debug('Entering ' + func.__name__)
         start_time = time.clock_gettime(time.CLOCK_BOOTTIME)
         ret_value = func(*args,**kwargs)        
         end_time = time.clock_gettime(time.CLOCK_BOOTTIME)
-        logging.debug('Exiting ' + func.__name__)
-        # print('--------------------------------')
-        print('DSLOG: Time taken for ' + func.__name__ + ' = ' + str(end_time-start_time))
-        # print('--------------------------------')
+        #logging.debug('Exiting ' + func.__name__)
+        # logging.debug('--------------------------------')
+        logging.debug('DSLOG: Time taken for ' + func.__name__ + ' = ' + str(end_time-start_time))
+        # logging.debug('--------------------------------')
         return ret_value
     return wrapper
 
@@ -145,7 +151,7 @@ def find_coverage_call():
             starting_index = count - 1
 
     remaining_nibbles = len(first_part) - (len(first_part) - starting_index + 1)
-    print(f"DSLOG: We need {remaining_nibbles} more nibbles.")
+    logging.debug(f"DSLOG: We need {remaining_nibbles} more nibbles.")
 
     if remaining_nibbles != 0:
         #If the call is split between multiple words.
@@ -162,28 +168,33 @@ def find_coverage_call():
     else:
         second_part = ''
 
-    print(f"DSLOG: Coverage call: {'0x' + first_part + second_part}")
+    #This is a work in progress. Manaul input has to be done here.
+    logging.debug(f"DSLOG: Coverage call: {'0x' + first_part + second_part}")
     asm_in_mem = int(first_part + second_part, 16)
-    asm_in_mem = 1812016423
+    asm_in_mem = 1812023022
 
 
-    print(f'DSLOG: {hex(asm_in_mem)}')
-    # print(asm_in_mem)
+    logging.debug(f'DSLOG: {hex(asm_in_mem)}')
+    # logging.debug(asm_in_mem)
     
 
 def reset_and_reload():
-    global debugServer, debugSession, script, timer_thread
+    global debugServer, debugSession, script, timer_thread, isRunning
     id_num = ''
     # reset1 = debugSession.target.getResetType(0)   
     # reset1.issueReset()
     # debugSession.target.verifyProgram("DSPFuzz.out")
+    isRunning = False
+    # try:
+    #     debugSession.target.reset()
+    # except:
+    #     logging.debug('DSLOG: Failed to reset the device.')
+    # finally:
     try:
-        debugSession.target.reset()
-    except:
-        print('DSLOG: Failed to reset the device.')
-    finally:
         debugSession.terminate()
-        debugServer.stop()
+        #debugServer.stop()
+    except:
+        logging.debug("DSLOG: Failed to terminate the debug session.")
 
 
         #This scrapes the id number for the usbreset command
@@ -194,62 +205,63 @@ def reset_and_reload():
 
     device_line = ''
     for line in outstring:
-        #print(line)
+        #logging.debug(line)
         if 'hub' in str(line):
             split = str(line).split('hub')
-            #print(split)
+            #logging.debug(split)
             final_split = split[1].split('[')
-            #print(final_split)
+            #logging.debug(final_split)
             layer = final_split[0].replace(' ', '')
 
         if 'Texas' in str(line):
             device_line = str(line)
-            # print(device_line)
+            # logging.debug(device_line)
             port_split = device_line.split('Port')
-            # print(port_split)
+            # logging.debug(port_split)
             final_split = port_split[1].split(':')
-            # print(final_split)
+            # logging.debug(final_split)
             port = final_split[0].replace(' ','')
             break
 
-    print(f"DSLOG: USB Device: {layer} Port: {port}")
+    logging.debug(f"DSLOG: USB Device: {layer} Port: {port}")
         
-        # print('-----Resetting the Device-----')
+        # logging.debug('-----Resetting the Device-----')
     os.system(f'uhubctl -a off -l {layer} -p {port} -r 1000')
     # time.sleep(20)
     os.system(f'uhubctl -a on -l {layer} -p {port} -r 1000')
     # time.sleep(15)
     # os.system('uhubctl -a on  -l 3-1 -p 1')
 
+    # try:
+    #     debugSession.target.reset()
+    # except:
+    #     logging.debug('DSLOG: Failed to reset the device after power cycle.')
+
+    # script = ScriptingEnvironment.instance()
+
+    # script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
+
+    # # Set our 
+    # script.setScriptTimeout(1500000000)
+
+    # # Log everything
+    # script.traceSetConsoleLevel(TraceLevel.INFO)
+    # script.traceSetFileLevel(TraceLevel.INFO)
+    # # try:
+    # # Get the Debug Server and start a Debug Session
     try:
-        debugSession.target.reset()
-    except:
-        print('DSLOG: Failed to reset the device after power cycle.')
-
-    script = ScriptingEnvironment.instance()
-
-    script.traceBegin('FuzzerLog.xml', 'DefaultStylesheet.xsl')
-
-    # Set our TimeOut
-    script.setScriptTimeout(1500000000)
-
-    # Log everything
-    script.traceSetConsoleLevel(TraceLevel.INFO)
-    script.traceSetFileLevel(TraceLevel.INFO)
-    try:
-        # Get the Debug Server and start a Debug Session
-        debugServer = script.getServer('DebugServer.1')
-        debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
-        #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
+    #     debugServer = script.getServer('DebugServer.1')
+    #     debugServer.setConfig('./board_configuration/USBSTK5515_BOARD.ccxml')
+    #     #debugServer.setConfig('./board_configuration/USBSTK5515_SIM.ccxml')
         debugSession = debugServer.openSession('.*')
         debugSession.target.connect()
-    
+
         debugSession.clock.enable()
-    
-        debugSession.memory.loadProgram('DSPFuzz.out')
+
+        debugSession.memory.loadProgram('./DSPFuzz.out')
     except:
         #If something happens the board needs to be power cycled twice :(
-        print('DSLOG: Power Cycling the board twice :(')
+        logging.debug('DSLOG: Power Cycling the board twice :(')
         reset_and_reload()
         return
     #debugSession.memory.loadProgram('DSPFuzz.out')
@@ -257,8 +269,7 @@ def reset_and_reload():
     #Set breakpoints again
     retVal = set_intial_breakpoints()
     if(retVal == -1):
-        print('DSLOG: Failed to set intial breakpoints power cycling.')
-        reset_and_reload()
+        logging.debug('DSLOG: Failed to set intial breakpoints power cycling.')
         return
 
     # set_refresh_breakpoint()
@@ -331,9 +342,9 @@ def _pull_coverage() -> list:
         #Pull the coverage map when we find new coverage
         try:
             cov = debugSession.memory.readData(1,coverage_list_address + x, 32)
-            # print(hex(cov))
+            # logging.debug(hex(cov))
             if ((x > 0) and (cov == 0)):
-                print('DSLOG: Found the end of the coverage map.')
+                logging.debug('DSLOG: Found the end of the coverage map.')
                 break
 
         except(Exception):
@@ -359,53 +370,72 @@ def _update_global_map(coverage_list,seed_id, isCrash) -> None:
     
 
     #Assocates bitmap with a coverage increasing input to see coverage areas.
-    run_map_path = results_dir + 'bitmaps/coverage:id:' + str(seed_id)
+    run_map_path = results_dir + 'list/coverage:id:' + str(seed_id)
     if isCrash:
-        run_map_path = results_dir + 'bitmaps/crash:id:' + str(seed_id)
+        run_map_path = results_dir + 'crashes/crash:id:' + str(seed_id)
 
     map_path = results_dir + 'global_coverage.map'
     new_coverage = []
 
     _write_coverage(coverage_list, run_map_path, dt_string)
 
-def _pull_statistics():
+def _pull_statistics(isCrash):
     """Pulls total time and number of iterations performed and adds them to global statistics for the campaign.
     
         @Arguments: NONE
         @Return:    NONE
     """
-    global start_time, iterations, board_increasing_cases, host_increasing_cases
+    global start_time, iterations, board_increasing_cases, host_increasing_cases, last_time, thoughput, execution_time
 
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    print(f"DSLOG: Current time: {dt_string}")
+    logging.debug(f"DSLOG: Current time: {dt_string}")
 
     end_time = time.clock_gettime(time.CLOCK_REALTIME)
+    
     it_address = debugSession.symbol.getAddress('g_iterations')
     #time_address = debugSession.symbol.getAddress('total_time')
 
     increasing_address = debugSession.symbol.getAddress('g_numInteresting')
     board_increasing_cases = debugSession.memory.readData(1, increasing_address ,16)
 
-    print('DSLOG: Board has tracked this number of increasing test cases --> ',board_increasing_cases)
-    print('DSLOG: Host has tracked this number of increasing test cases --> ',host_increasing_cases)
+    logging.debug(f'DSLOG: Board has tracked this number of increasing test cases --> {board_increasing_cases}')
+    logging.debug(f'DSLOG: Host has tracked this number of increasing test cases --> {host_increasing_cases}')
 
 
     #Read the number of iterations.
-    iterations = debugSession.memory.readData(1, it_address ,16) + iterations
+    try:
+        itermetiate = debugSession.memory.readData(1, it_address ,16)
+    except:
+        iterations = 0
+        return
+    
+    guess_iterations = iterations + (((end_time - last_time)/execution_time) * 2)  
+    if (isCrash and (itermetiate >= guess_iterations)):
+        #if there is a crash use timing statisitics to infer iterations since.
+        logging.debug(str(thoughput) + ' ' + str(end_time - last_time))
+        iterations = iterations + ((end_time - last_time)/execution_time)  
+    else:
+        try:
+            iterations = debugSession.memory.readData(1, it_address ,16) + iterations
+        except:
+            pass
     if iterations == 0:
         return
+    
 
     #Need to clear the number of iterations on the device so that we can track them properly...
     try:
         debugSession.memory.writeData(1, it_address, 0, 16)
     except:
         pass
-
-
+    
     elapsed_time = end_time - start_time
-    print('DSLOG: Total number of iterations: ' + str(iterations))
-    print('DSLOG: Average throughput time: ' + str(elapsed_time/iterations))
+    thoughput = elapsed_time/iterations
+    last_time = end_time
+    
+    logging.debug(f'DSLOG: Total number of iterations: {str(iterations)}' )
+    logging.debug(f'DSLOG: Average throughput time: {str(thoughput)}' )
 
 # def _set_breakpoints():
 #     crash_void_address = debugSession.symbol.getAddress('crash_void')
@@ -437,15 +467,15 @@ def set_intial_breakpoints():
         ST3 =  debugSession.memory.readRegister('ST3', False)
         PC = debugSession.memory.readRegister('PC', False)
 
-        print(f'Interrupt Enable Registers {hex(IER0)} {hex(IER1)} | Interrupt Flag Registers {hex(IFR0)} {hex(IFR1)} | Status Registers  {hex(ST0)} {hex(ST1)} {hex(ST2)} {hex(ST3)} | Program Counter {hex(PC)}')    
+        logging.debug(f'Interrupt Enable Registers {hex(IER0)} {hex(IER1)} | Interrupt Flag Registers {hex(IFR0)} {hex(IFR1)} | Status Registers  {hex(ST0)} {hex(ST1)} {hex(ST2)} {hex(ST3)} | Program Counter {hex(PC)}')    
     except:
-        print("DSLOG: Failed to read registers.")
+        logging.debug("DSLOG: Failed to read registers.")
 
     #Clears any stale breakpoints.
     try:
         debugSession.breakpoint.removeAll()
     except:
-        print("DSLOG: Failed to remove stale breakpoints.")
+        logging.debug("DSLOG: Failed to remove stale breakpoints.")
 
     try:
         lp_props = debugSession.breakpoint.createProperties(HARDWARE_ID)
@@ -466,12 +496,12 @@ def set_intial_breakpoints():
         #Find the coverage map address
         coverage_list_address = debugSession.symbol.getAddress('g_coverageMap')
     except:
-        print("DSLOG: Failed to set breakpoints trying again.")
+        reset_and_reload()
         return -1
 
 
     
-    print('DSLOG: Refresh breakpoints set.')
+    logging.debug('DSLOG: Refresh breakpoints set.')
     debugSession.target.run()
 
 
@@ -493,11 +523,11 @@ def set_intial_breakpoints():
     #     coverage_bubble_address = debugSession.symbol.getAddress('bubble_coverage')
     #     coverage_bubble_id = debugSession.breakpoint.add(coverage_bubble_address , "Hardware")
 
-    #     print('DSLOG: Refresh breakpoints set.')
+    #     logging.debug('DSLOG: Refresh breakpoints set.')
     #     debugSession.target.run()
     # except Exception:
-    #     print(Exception)
-    #     print('DSLOG: DSP run failure resetting the board.')
+    #     logging.debug(Exception)
+    #     logging.debug('DSLOG: DSP run failure resetting the board.')
     #     return -1
 
 def calculate_timeout(global_pool_size, local_pool_size) -> int:
@@ -517,9 +547,9 @@ def refresh_global_pool():
 
     #Seeds are number and managed by the fuzz engine all we have to do is read them.
     global_pool = os.listdir(seed_dir)
-    #print(global_pool)
+    #logging.debug(global_pool)
     global_pool_size = len(global_pool)
-    print('DSLOG: We have this many seeds in the global pool --> ', global_pool_size)
+    logging.debug(f'DSLOG: We have this many seeds in the global pool --> {global_pool_size}')
 
     return global_pool_size
 
@@ -571,6 +601,7 @@ def _write_seed(corpus_address, seed):
     seed_check = []
 
     written_seed_len = len(seed)
+    #logging.debug(written_seed_len)
 
     isNotSame = True
 
@@ -582,10 +613,11 @@ def _write_seed(corpus_address, seed):
             seed_check = [int(j)for j in seed_check]
 
             isNotSame = seed_check != seed
-            if(isNotSame):
-                print("DSLOG: Seed writting error trying again.")
+            isNotSame = False
+            # if(isNotSame):
+            #     logging.debug("DSLOG: Seed writting error trying again.")
         except:
-            print("DSLOG: Failed to write seed.")
+            logging.debug("DSLOG: Failed to write seed.")
 
 
 @log
@@ -607,7 +639,7 @@ def write_local_pool() -> None:
     num_seeds = refresh_global_pool()
     seed_check = []
     seeds_loaded = 0
-    print('DSLOG: We have '+ str(num_seeds) + ' in the global pool.')
+    logging.debug('DSLOG: We have '+ str(num_seeds) + ' in the global pool.')
 
     #If the global pool only has less then the number of seeds to load then load them sequencially 
     if num_seeds <= local_pool_size:
@@ -622,13 +654,13 @@ def write_local_pool() -> None:
             # debugSession.memory.writeData(1, corpus_address, seed, 16)
             
             # seed_check = debugSession.memory.readData(1, corpus_address, 16, seed_size, False)
-            # print(type(seed_check[0]))
-            # print(type(seed[0]))
+            # logging.debug(type(seed_check[0]))
+            # logging.debug(type(seed[0]))
             # seed_check = [int(j)for j in seed_check]
             # if seed_check != seed:
-            #     print(seed_check)
-            #     print(seed)
-            #     print(f'DSLOG: Failure to load seed {x} propererly.')
+            #     logging.debug(seed_check)
+            #     logging.debug(seed)
+            #     logging.debug(f'DSLOG: Failure to load seed {x} propererly.')
 
 
             # corpus_address = corpus_address + seed_size
@@ -647,18 +679,18 @@ def write_local_pool() -> None:
             corpus_address = corpus_address + seed_size
             seeds_loaded += 1
 
-            # print('Seed loaded --> ', seed)
+            # logging.debug('Seed loaded --> ', seed)
             # debugSession.memory.writeData(1, corpus_address, seed, 16)
             # 
             # seed_check = debugSession.memory.readData(1, corpus_address, 16, written_seed_len, False)
-            # print(type(seed_check[0]))
-            # print(type(seed[0]))
+            # logging.debug(type(seed_check[0]))
+            # logging.debug(type(seed[0]))
             # seed_check = [int(j)for j in seed_check]
-            # print(type(seed_check[0]))
+            # logging.debug(type(seed_check[0]))
             # if seed_check != seed:
-                # print(seed_check)
-                # print(seed)
-                # print(f'DSLOG: Failure to load seed {x} propererly.')
+                # logging.debug(seed_check)
+                # logging.debug(seed)
+                # logging.debug(f'DSLOG: Failure to load seed {x} propererly.')
                 # exit(-1)
 
             # corpus_address = corpus_address + seed_size
@@ -666,11 +698,11 @@ def write_local_pool() -> None:
     try:
         debugSession.memory.writeData(1, corpus_tracker_address, seeds_loaded, 16)
     except:
-        print("DSLOG: Failed to write seed tracker.")
+        logging.debug("DSLOG: Failed to write seed tracker.")
 
     #TODO: Add more advanced seed selection here
     local_pool = [] #After everything is written set the tracking to be empty
-    print('DSLOG: Local pool written')
+    logging.debug('DSLOG: Local pool written')
     
 
 def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
@@ -682,18 +714,18 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
         @Return: None
     """
     global seed_size
-    # print(dir)
-    # print(seed_id)
+    # logging.debug(dir)
+    # logging.debug(seed_id)
     test_seed = []
     #TODO: Add Check for empty seed spots?
-    print('DSLOG: Obtained seed.')
+    logging.debug('DSLOG: Obtained seed.')
     for x in range (0, seed_size):
         try:
             
             seed = str(debugSession.memory.readData(1, seed_address + x, 16))
             test_seed.append(seed)
         except(Exception):
-            print('DSLOG: Error memory read error wait a second and try again.')
+            logging.debug('DSLOG: Error memory read error wait a second and try again.')
             time.sleep(.05)
             #seed = str(debugSession.memory.readData(1, seed_address + x, 16))
         if x == 0:
@@ -706,7 +738,7 @@ def _pull_seed(seed_address, seed_id, dir, isCrash) -> None:
         else:
             with open(dir+str(seed_id), 'a+') as fp:
                 fp.write('\n'+seed)
-    # print(test_seed)
+    # logging.debug(test_seed)
 
 @log
 def _pull_stage_cycles():
@@ -718,28 +750,28 @@ def _pull_stage_cycles():
         current_mutation_address = debugSession.symbol.getAddress('g_currentMutation')
         current_mutation = debugSession.memory.readData(1,current_mutation_address, 16)
     except:
-        print("DSLOG: Failed to read stage data.")
+        logging.debug("DSLOG: Failed to read stage data.")
         mutation_amount = 0
         current_mutation = 0
 
     if(current_mutation == 0):
-        print("DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 1):
-        print("DSLOG: effective mutaton: bitflip 2/1 |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: bitflip 2/1 |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 2):
-        print("DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 3):
-        print("DSLOG: effective mutaton: byteflip 1/1 |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: byteflip 1/1 |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 4):
-        print("DSLOG: effective mutaton: bitflip 2/1 |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: bitflip 2/1 |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 5):
-        print("DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 6):
-        print("DSLOG: effective mutaton: arith-add |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: arith-add |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 7):
-        print("DSLOG: effective mutaton: arith-sub |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: arith-sub |Mutation Percentage: {mutation_amount}")
     elif(current_mutation == 8):
-        print("DSLOG: effective mutaton: random |Mutation Percentage: ",mutation_amount)
+        logging.debug(f"DSLOG: effective mutaton: random |Mutation Percentage: {mutation_amount}")
 
 @log
 def current_seed_to_global_pool() -> None:
@@ -749,15 +781,15 @@ def current_seed_to_global_pool() -> None:
         @Return: None
     """
     global global_pool_size, seed_dir, coverage_dict, timer_thread, run_map_path, coverage_list,address, current_seed_address, host_increasing_cases
-    print("DSLOG: Seed dir in current_seed is :",seed_dir)
+    logging.debug(f"DSLOG: Seed dir in current_seed is : {seed_dir}")
     #Stop the local pool refresh until so we can interact with the board the board.
     timer_thread.cancel()
 
-    print("DSLOG: Found coverage-increasing input.")
+    logging.debug("DSLOG: Found coverage-increasing input.")
     host_increasing_cases = host_increasing_cases +1
 
     #Pull timing statistics here
-    _pull_statistics()
+    _pull_statistics(False)
 
     #Pull the stage cycles to determine what mutation pattern is effective
     _pull_stage_cycles()
@@ -771,7 +803,7 @@ def current_seed_to_global_pool() -> None:
     test_dict = binary_tools.uninsturment(coverage_dict,cov)
     # if test_dict == None:
     #     #try reading the coverage_list again
-    #     print("DSLOG: test_dict is empty.")
+    #     logging.debug("DSLOG: test_dict is empty.")
     #     _pull_seed(current_seed_address,global_pool_size,seed_dir,False)
     #     cov = _pull_coverage()
     #     test_dict = binary_tools.uninsturment(coverage_dict, cov)
@@ -791,22 +823,31 @@ def current_seed_to_global_pool() -> None:
 
     # else:
     #     #Lets move the troubled seed somewhere else.
-    #     print('DSLOG: Found a trouble seed')
+    #     logging.debug('DSLOG: Found a trouble seed')
     #     seed_head_address = debugSession.symbol.getAddress('g_seedHead')
     #     trouble_seed = debugSession.memory.readData(1, seed_head_address ,16)
-    #     print('DSLOG: Trouble Seed: ',trouble_seed)
+    #     logging.debug('DSLOG: Trouble Seed: ',trouble_seed)
     #     files = os.listdir('./seeds/')
-    #     print(files)
+    #     logging.debug(files)
     #     files = [int(i) for i in files]
-    #     print(files)
+    #     logging.debug(files)
     #     files.sort()
-    #     print(files)
+    #     logging.debug(files)
     #     global_pool_size = global_pool_size - 1
     #     shutil.move('./seeds/'+str(files[trouble_seed]), './results/trouble_seeds/'+str(trouble_seed+1))
     #     #pull the input to check it later 
     #     _pull_seed(current_seed_address, global_pool_size, "./results/crashes/", True)
     #     reset_and_reload()
         # reload_binary()
+    
+def timeout():
+
+    global global_pool_size
+    cov = _pull_coverage()
+    _update_global_map(cov, global_pool_size + 1, isCrash=False)
+
+    #Lets use that found coverage to UNinsturment our binary.
+    test_dict = binary_tools.uninsturment(coverage_dict,cov)
     
 
     
@@ -826,10 +867,10 @@ def crash_reload() -> None:
         sanity_check.cancel()
         sanity_check = None
     #crash_time = time.clock_gettime_ns(time.CLOCK_BOOTTIME)
-    #print('Found Crash in '+ str(crash_time - start_time)+ ' ns')
+    #logging.debug('Found Crash in '+ str(crash_time - start_time)+ ' ns')
 
     
-    print("DSLOG: Found crash.")
+    logging.debug("DSLOG: Found crash.")
     try:
         IER0 = debugSession.memory.readRegister('IER0', False)
         IER1 = debugSession.memory.readRegister('IER1', False)
@@ -840,15 +881,15 @@ def crash_reload() -> None:
         ST2 =  debugSession.memory.readRegister('ST2', False)
         ST3 =  debugSession.memory.readRegister('ST3', False)
         PC = debugSession.memory.readRegister('PC', False)
-        print(f'Interrupt Enable Registers {hex(IER0)} {hex(IER1)} | Interrupt Flag Registers {hex(IFR0)} {hex(IFR1)} | Status Registers  {hex(ST0)} {hex(ST1)} {hex(ST2)} {hex(ST3)} | Program Counter {hex(PC)}')
+        logging.debug(f'Interrupt Enable Registers {hex(IER0)} {hex(IER1)} | Interrupt Flag Registers {hex(IFR0)} {hex(IFR1)} | Status Registers  {hex(ST0)} {hex(ST1)} {hex(ST2)} {hex(ST3)} | Program Counter {hex(PC)}')
         
     except: 
-        print("DSLOG: Failed to read status registers.")
+        logging.debug("DSLOG: Failed to read status registers.")
 
     try:
         debugSession.breakpoint.removeAll()
     except:
-        print("DSLOG: Failed to remove all breakpoints.")
+        logging.debug("DSLOG: Failed to remove all breakpoints.")
     
 
     
@@ -857,10 +898,10 @@ def crash_reload() -> None:
     amount_of_crashes+=1
 
     #Pull timing statistics here
-    _pull_statistics()
+    _pull_statistics(True)
 
   
-    now = datetime.now()
+    now = datetime.now() 
     dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
     #Put the crashing input in the crashes directory.
     # current_seed_pointer_address = debugSession.symbol.getAddress('current_input')
@@ -883,13 +924,13 @@ def crash_reload() -> None:
 def refresh_local_pool():
     global timer_thread, lp_refresh_id
     timer_thread.cancel()
-    _pull_statistics()
+    _pull_statistics(False)
     write_local_pool()
     #Remove the breakpoint untill the next refresh.
     try:
         debugSession.breakpoint.remove(lp_refresh_id)
     except:
-        print('DSLOG: Error refresh breakpoint can not be unset.')
+        logging.debug('DSLOG: Error refresh breakpoint can not be unset.')
     # debugSession.target.runAsynch()
 
     #Reschedule the timer.
@@ -905,10 +946,25 @@ def device_listener() -> None:
         @Return: None
     """
 
-    global coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession, sanity_check, reload_timeout
+    global isRunning, coverage_bubble_address, crash_void_address, lp_refresh_address, debugSession, sanity_check, reload_timeout, first_execution, execution_time
     
     isRunning = False
-    
+    previous_pc = 0
+    pc = 0
+    start_time = 0
+    end_time = 0
+    isTiming = False
+
+    if (first_execution):
+        start_time = time.clock_gettime(time.CLOCK_REALTIME)
+        debugSession.target.run()
+        end_time = time.clock_gettime(time.CLOCK_REALTIME)
+        execution_time = end_time - start_time
+        logging.debug(f"DSLOG: Intial exeuction time: {execution_time}")
+        first_execution = False
+        isRunning = True
+
+
     while(1):    
         #Once the device is halted check to see what breakpoint was hit.
         if(reload_timeout):
@@ -918,30 +974,38 @@ def device_listener() -> None:
 
         if not isRunning:
             try:
-                print('DSLOG: You are in device_listner, attemping to run the target.')
-                debugSession.target.runAsynch()
+                logging.debug('DSLOG: You are in device_listner, attemping to run the target.')
+                previous_pc = pc 
+                pc = 0
+                #debugSession.target.runAsynch()
+                debugSession.target.run()
                 isRunning = True
             except:
-                print("DSLOG: Failed to run target.")
+                logging.debug("DSLOG: Failed to run target.")
                 crash_reload()
+                isRunning = False
         
         if isRunning:
             try:
                 pc = debugSession.expression.evaluate('PC')
+                #print(pc)
             except:
                 #pc = debugSession.expression.evaluate('PC')
-                print("DSLOG: Unable to read PC counter going to try again.")
+                logging.debug("DSLOG: Unable to read PC counter going to try again.")
                 crash_reload()
+                isRunning = False
 
             if(pc ==  8388608):
                 #There is accumulator overflow here and this device needs to be reset.
                 crash_reload()
                 isRunning = False
+                continue
 
             if(pc == crash_void_address):
                 #If there is crash reload the DSP program.
                 crash_reload()
                 isRunning = False
+                continue
 
             if(pc == coverage_bubble_address):
                 #If there is a covereage increasing input found bubble it up to the global pool.
@@ -950,6 +1014,7 @@ def device_listener() -> None:
                     sanity_check = None
                 current_seed_to_global_pool()
                 isRunning = False
+                continue
 
             if(pc == lp_refresh_address):
                 if (sanity_check):
@@ -957,14 +1022,36 @@ def device_listener() -> None:
                     sanity_check = None
                 refresh_local_pool()
                 isRunning = False
+                continue
+
+            if(pc == previous_pc and not isTiming):
+                #Start timer
+                #start_time = time.monotonic()
+                time.sleep(2)
+                isTiming = True
+                previous_pc = pc
+            elif(pc != previous_pc):
+                isTiming = False
+                previous_pc = pc
+            elif((pc == previous_pc) and isTiming):
+                logging.debug("DSLOG: Execution timeout")
+                isRunning = False
+                isTiming = False
+                crash_reload()
+            else:
+                previous_pc = pc
+
+            
 
         
 
 def toggle_timeout():
     global reload_timeout
 
-    print('DSLOG: Toggling Timeout.')
+    logging.debug('DSLOG: Toggling Timeout.')
     reload_timeout = True
+
+
 
 
 @log
@@ -975,7 +1062,7 @@ def set_refresh_breakpoint() -> None:
         @Return: None
     """
 
-    global timer_thread, lp_refresh_address, lp_refresh_id, timer_thread, sanity_check, lp_props
+    global isRunning, timer_thread, lp_refresh_address, lp_refresh_id, timer_thread, sanity_check, lp_props, first_execution
     if(timer_thread):
         timer_thread.cancel()
 
@@ -983,10 +1070,17 @@ def set_refresh_breakpoint() -> None:
     try:
         lp_refresh_id = debugSession.breakpoint.add(lp_props)
     except:
-        print("DSLOG: Failed to set pool refresh breakpoint.")
+        logging.debug("DSLOG: Failed to set pool refresh breakpoint.")
+        reset_and_reload()
+        set_refresh_breakpoint()
+        isRunning = False
+        first_execution = False
+        device_listener()
+        
+        
 
     #If we set the refresh breakpoint and it is not hit within a second which is a long time -> assume a crash.
-    print("DSLOG: Starting sanity check.")
+    logging.debug("DSLOG: Starting sanity check.")
     sanity_check = threading.Timer(20, toggle_timeout)
     sanity_check.start()
 
@@ -1036,23 +1130,23 @@ def main():
     
     # Get the address of the current seed. Only need to do this once.
     current_seed_pointer_address = debugSession.symbol.getAddress('g_inputBuffer')
-    print('DSLOG: Current seed address -->', current_seed_pointer_address)
+    #logging.debug('DSLOG: Current seed address --> {current_seed_point}', current_seed_pointer_address)
     current_seed_address = debugSession.memory.readData(1, current_seed_pointer_address , 32)
-    print('DSLOG: Current seed pointer -->', current_seed_address)
+    #logging.debug('DSLOG: Current seed pointer -->', current_seed_address)
     write_local_pool()
 
     #Remove the breakpoint untill the next refresh.
     try:
         debugSession.breakpoint.remove(lp_refresh_id)
     except:
-        print("DSLOG: Failed to remove pool refresh breakpoint.")
+        logging.debug("DSLOG: Failed to remove pool refresh breakpoint.")
     
 
     start_time = time.clock_gettime(time.CLOCK_REALTIME)
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    print("DSLOG: Time of start =", dt_string)
-    print("DSLOG: Finding coverage calls in binary")
+    logging.debug(f"DSLOG: Time of start = {dt_string}")
+    logging.debug("DSLOG: Finding coverage calls in binary")
     find_coverage_call()
     coverage_setup(bin_path, restart)
 
@@ -1062,7 +1156,7 @@ def main():
     timer_thread = threading.Timer(timeout, set_refresh_breakpoint)
     
     timer_thread.start()
-    print("DSLOG: Starting the device listener.")
+    logging.debug("DSLOG: Starting the device listener.")
     device_listener()
 
 

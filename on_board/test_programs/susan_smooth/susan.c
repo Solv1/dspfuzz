@@ -190,32 +190,31 @@ static uint16_t setbrightness[516];
 static uint16_t g_tmp_image[TMP_IMAGE_SIZE];
 static uint16_t g_dp[DP_SIZE];
 
-uint16_t * fakeFile;
 
-char fgetc2()
+char fgetc2(uint16_t **fp)
 {
-    char ret = *fakeFile;
-    ++fakeFile;
+    char ret = **fp;
+    ++*fp;
     return ret;
 }
 
-int32_t getint()
+int32_t getint(uint16_t **fp)
 {
     int32_t c, i;
 
-    c = fgetc2();
+    c = fgetc2(fp);
     while (1) /* find next integer */
     {
         if (c == '#') /* if we're at a comment, read to end of line */
             while (c != '\n')
-                c = fgetc2();
+                c = fgetc2(fp);
         if (c == EOF)
         {
             return -1;
         }
         if (c >= '0' && c <= '9')
             break; /* found what we were looking for */
-        c = fgetc2();
+        c = fgetc2(fp);
     }
 
     /* we're at the start of a number, continue until we hit a non-number */
@@ -223,7 +222,7 @@ int32_t getint()
     while (1)
     {
         i = (i * 10) + (c - '0');
-        c = fgetc2();
+        c = fgetc2(fp);
         if (c == EOF)
             return (i);
         if (c < '0' || c > '9')
@@ -233,27 +232,31 @@ int32_t getint()
     return (i);
 }
 
-int16_t get_image(uint16_t **in, int32_t *x_size, int32_t *y_size)
+int16_t get_image(uint16_t **fp, int32_t *x_size, int32_t *y_size)
 {
     char header[100];
     int temp;
-     fakeFile = *in;
     /* {{{ read header */
 
-    header[0] = fgetc2();
-    header[1] = fgetc2();
+    header[0] = fgetc2(fp);
+    header[1] = fgetc2(fp);
 
     if (!(header[0] == 'P' && header[1] == '5'))
     {
         return -1;
     }
 
-    *x_size = getint();
-    *y_size = getint();
-    temp = getint();
+    *x_size = getint(fp);
+    if(*x_size == -1){
+        return -1;
+    }
+    *y_size = getint(fp);
+    if(*y_size == -1){
+        return -1;
+    }
+    temp = getint(fp);
     (void)temp;
 
-    *in = (uint16_t *)fakeFile;
 
     return 0;
 }
@@ -278,25 +281,25 @@ int16_t get_image(uint16_t **in, int32_t *x_size, int32_t *y_size)
 //     printf("Output image written to %s\r\n", OUTPUT_FILE);
 // }
 
-void int_to_uint16_t(int32_t *r, uint16_t *in, int32_t size)
-{
-    int32_t i,
-        max_r = r[0],
-        min_r = r[0];
+// void int_to_uint16_t(int32_t *r, uint16_t *in, int32_t size)
+// {
+//     int32_t i,
+//         max_r = r[0],
+//         min_r = r[0];
 
-    for (i = 0; i < size; i++)
-    {
-        if (r[i] > max_r)
-            max_r = r[i];
-        if (r[i] < min_r)
-            min_r = r[i];
-    }
+//     for (i = 0; i < size; i++)
+//     {
+//         if (r[i] > max_r)
+//             max_r = r[i];
+//         if (r[i] < min_r)
+//             min_r = r[i];
+//     }
 
-    max_r -= min_r;
+//     max_r -= min_r;
 
-    for (i = 0; i < size; i++)
-        in[i] = (uint16_t)((int32_t)((int32_t)(r[i] - min_r) * 255) / max_r);
-}
+//     for (i = 0; i < size; i++)
+//         in[i] = (uint16_t)((int32_t)((int32_t)(r[i] - min_r) * 255) / max_r);
+// }
 
 void setup_brightness_lut(uint16_t **bp, int32_t thresh, int32_t form)
 {
@@ -534,7 +537,7 @@ int32_t susan_smooth(uint16_t * in)
     if(retVal < 0){
         return -1;
     }
-
+    three_by_three = (*in) % 4;
 //     printf("Susan smoothing\r\n");
     setup_brightness_lut(&bp, bt, 2);
 

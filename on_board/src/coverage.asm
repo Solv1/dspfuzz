@@ -8,7 +8,7 @@
 	.ref _g_coverageMap, _g_covFunctionEnter, _g_sutStartAddress, _g_coverageMapHead;, _iterations
 
 _coverage_log:
-	;AADD #-10, SP
+	;AADD #-4, SP
 	
 	PSH T0;
 	PSH T1;
@@ -138,7 +138,7 @@ finish:
 	POP T0;
     
 
-    ;AADD #10, SP;
+    ;AADD #3, SP;
     
     RET;
 

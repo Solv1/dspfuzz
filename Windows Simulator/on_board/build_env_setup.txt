@@ -1,0 +1,5 @@
+#------Setting up the build enviorment for proper building of files requires the TMS320CXXXX Compiler, Linker, Assembler, and Archiver(If insturmenting a Library)------#
+TI_TOOL_HOME -> env variable that points to where all of these tools are located.
+
+TI_LIBRARY_ARCHIVE -> Library archive that we are going to pull from and insturment before adding back our insturmented file.
+

@@ -602,7 +602,7 @@ void main_harness_loop(){
 		g_covFunctionEnter = false;
         }
 
-        //longjmp(g_savedContext, true);
+        longjmp(g_savedContext, true);
 
         }
 }

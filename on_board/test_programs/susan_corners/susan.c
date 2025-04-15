@@ -190,8 +190,8 @@
 #define MAX_CORNERS 32 /* max corners per frame */
 
 
-#define IMAGE_WIDTH 70
-#define IMAGE_HEIGHT 70
+#define IMAGE_WIDTH 20
+#define IMAGE_HEIGHT 20
 #define BRIGHTNESS_THRESHOLD 15
 
 typedef struct
@@ -199,27 +199,24 @@ typedef struct
     int x, y, info, dx, dy, I;
 } CORNER_LIST[MAX_CORNERS];
 
-static int32_t g_r[IMAGE_WIDTH * IMAGE_HEIGHT];
-static uint16_t setbrightness[516];
-uint16_t * fakeFile;
 
-char fgetc2()
+char fgetc2(uint16_t **fp)
 {
-    char ret = *fakeFile;
-    ++fakeFile;
+    char ret = **fp;
+    ++*fp;
     return ret;
 }
 
-int32_t getint()
+int32_t getint(uint16_t **fp)
 {
     int32_t c, i;
 
-    c = fgetc2();
+    c = fgetc2(fp);
     while (1) /* find next integer */
     {
         if (c == '#') /* if we're at a comment, read to end of line */
             while (c != '\n')
-                c = fgetc2();
+                c = fgetc2(fp);
         if (c == EOF)
         {
         //     printf("Image is not binary PGM.\r\n");
@@ -227,7 +224,7 @@ int32_t getint()
         }
         if (c >= '0' && c <= '9')
             break; /* found what we were looking for */
-        c = fgetc2();
+        c = fgetc2(fp);
     }
 
     /* we're at the start of a number, continue until we hit a non-number */
@@ -235,7 +232,7 @@ int32_t getint()
     while (1)
     {
         i = (i * 10) + (c - '0');
-        c = fgetc2();
+        c = fgetc2(fp);
         if (c == EOF)
             return (i);
         if (c < '0' || c > '9')
@@ -245,49 +242,35 @@ int32_t getint()
     return (i);
 }
 
-int16_t get_image(uint16_t **in, int32_t *x_size, int32_t *y_size)
+int16_t get_image(uint16_t **fp, int32_t *x_size, int32_t *y_size)
 {
     char header[100];
     int temp;
 
-    fakeFile = *in;
-
-    header[0] = fgetc2();
-    header[1] = fgetc2();
+    header[0] = fgetc2(fp);
+    header[1] = fgetc2(fp);
 
     if (!(header[0] == 'P' && header[1] == '5'))
     {
-        // printf("Image does not have binary PGM header.\r\n");
         return -1;
     }
-    *x_size = getint();
-    *y_size = getint();
-    temp = getint();
+    
+    *x_size = getint(fp);
+    if(*x_size == -1){
+        return -1;
+    }
+
+    *y_size = getint(fp);
+    if(*y_size == -1){
+        return -1;
+    }
+
+    temp = getint(fp);
     (void)temp;
 
-    *in = (uint16_t *)fakeFile;
     return 0;
 }
 
-// void put_image(uint16_t *in, int32_t x_size, int32_t y_size)
-// {
-//     FILE *fd;
-// 
-//     if ((fd = fopen(OUTPUT_FILE, "wb")) == NULL)
-//     {
-        // printf("Can't open output file %s.\r\n", OUTPUT_FILE);
-        // exit(-1);
-//     }
-// 
-//     fprintf(fd, "P5\n");
-//     fprintf(fd, "%d %d\n", x_size, y_size);
-//     fprintf(fd, "255\n");
-// 
-//     fwrite(in, x_size * y_size, 1, fd);
-//     fclose(fd);
-// 
-//     printf("Output image written to %s\r\n", OUTPUT_FILE);
-//}
 
 void int_to_uint16_t(int32_t *r, uint16_t *in, int32_t size)
 {
@@ -315,7 +298,6 @@ void setup_brightness_lut(uint16_t **bp, int32_t thresh, int32_t form)
     float temp;
 
     //*bp=(uint16_t *)malloc(516);
-    *bp = setbrightness;
     *bp = *bp + 258;
 
     for (k = -256; k < 257; k++)
@@ -614,12 +596,14 @@ int16_t susan_corners_quick(uint16_t *in, int32_t *r, uint16_t *bp, int32_t max_
 
 int16_t susan_corner(uint16_t * in)
 {
-    uint16_t *bp;
+    uint16_t setbrightness[516];
+    uint16_t *bp = setbrightness;
     int32_t bt = BRIGHTNESS_THRESHOLD;
     int32_t drawing_mode = 0;
     int32_t max_no_corners = 2000;
     int32_t x_size = -1, y_size = -1;
     int16_t retVal = 0;
+    int32_t g_r[IMAGE_WIDTH * IMAGE_HEIGHT];
     CORNER_LIST corner_list;
 
     retVal = get_image(&in, &x_size, &y_size);
@@ -627,27 +611,24 @@ int16_t susan_corner(uint16_t * in)
         return -1;
     }
 
-//     printf("Susan corners\r\n");
-//     printf("Image width = %d\r\n", x_size);
-//     printf("Image height = %d\r\n", y_size);
-
     setup_brightness_lut(&bp, bt, 2);
     retVal = susan_corners_quick(in, g_r, bp, max_no_corners, corner_list, x_size, y_size);
     if(retVal  < 0){
         return -1;
     }
     corner_draw(in, corner_list, x_size, drawing_mode);
+    int_to_uint16_t(g_r, in, 10);
 
-    volatile int32_t noprint_output;
-    int32_t checksum = 0;
-    int32_t i;
-    for (i = 0; i < x_size * y_size; i++)
-    {
-        checksum += in[i];
-    }
-//     printf("Output image checksum = %d\r\n", checksum);
-    noprint_output = checksum;
-    (void)noprint_output;
+    // volatile int32_t noprint_output;
+    // int32_t checksum = 0;
+    // int32_t i;
+    // for (i = 0; i < x_size * y_size; i++)
+    // {
+    //     checksum += in[i];
+    // }
+// //     printf("Output image checksum = %d\r\n", checksum);
+//     noprint_output = checksum;
+//     (void)noprint_output;
 
     return 0;
 }

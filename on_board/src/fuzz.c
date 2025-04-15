@@ -9,7 +9,7 @@
 
 /*#define NO_LOGGING*/                  /*For debugging messages.*/
 
-#define TIMEOUT 100000                  /*Assuming a 100Mhz Clock*/
+#define TIMEOUT 100000             /*Assuming a 100Mhz Clock*/
 #define SEED_CAPACITY 10
 #define MAX_BLOCKS_PER_INPUT 200
 #define MAX_CYCLES 250                  /*250 Cycles for varrious mutation strats before getting a new seed.*/
@@ -65,7 +65,7 @@ uint16_t g_poolLoops = 0;
 volatile uint16_t g_iterations = 0;
 volatile uint16_t g_currentMutation = 0;
 volatile uint16_t g_mutationDegression = 1;
-volatile uint16_t g_inputSize = WIDTH; /*Test cases needs a variable size */
+volatile uint16_t g_inputSize = 35; /*Test cases needs a variable size */
 
 Uint32    cpuCycleCount = 0;            /*Interrupt Variables*/
 Uint32    sysClk;
@@ -74,16 +74,16 @@ uint32_t count = 0;
 
 /* Preprocessor Defines */
 //extern int16_t telecom_test(int16_t * input, int16_t size );
-// extern int32_t jpeg_test(uint16_t * input, uint16_t w, uint16_t h);
-// extern int16_t sonar_test(int16_t * input, int16_t size);
+extern int32_t jpeg_test(uint16_t * input, uint16_t w, uint16_t h);
+//extern int16_t sonar_test(int16_t * input, int16_t size);
 //extern int16_t test(uint16_t argc, int16_t args[]);
 // extern int16_t pace_test(int16_t * raw_data, uint16_t size);
 // extern int16_t process_image(int16_t * raw_sample, int16_t size);
 //extern int32_t adpcm_encode(uint16_t * input, int16_t len);
 //extern int32_t mp3_encode(int16_t * test_data, int16_t g_inputSize);
-// extern int16_t susan_corner(uint16_t * in);
-// extern int32_t susan_smooth(uint16_t * in);
-extern int16_t susan_edges(uint16_t * in);
+//extern int16_t susan_corner(uint16_t * in);
+//extern int32_t susan_smooth(uint16_t * in);
+//extern int16_t susan_edges(uint16_t * in);
 void crash_void();
 
 
@@ -171,7 +171,7 @@ void start_timer(CSL_Handle * timerHandle){
     IRQ_plug(BERR_EVENT, &bus_error_isr);           //Bus Handler ISR
 //    IRQ_plug(DLOG_EVENT, &data_log_isr);            //Data Log ISR
     IRQ_plug(TINT_EVENT, &fuzzer_isr);              //Timer ISR
-    IRQ_enable(DLOG_EVENT);
+    //IRQ_enable(DLOG_EVENT);
     IRQ_enable(BERR_EVENT);
     IRQ_enable(TINT_EVENT);
 
@@ -241,6 +241,8 @@ int16_t setup(void * function_pointer){
  * @return 0 on success, -1 on failure
 ********************************************************/
 
+    uint16_t randTime = time(NULL);         //Use time() call because the clock is being used elsewhere.
+    srand(randTime);			//Seed the RNG
     //Get the input buffer.
     g_inputBuffer = calloc(WIDTH, sizeof(int16_t));
     if(g_inputBuffer == NULL){
@@ -280,7 +282,6 @@ void mutator(){
  ********************************************************/
          
     uint16_t i, j;
-    uint16_t randTime;
     uint16_t rndByte;
     uint16_t rndBit;
     uint16_t rndValue;
@@ -288,8 +289,6 @@ void mutator(){
 
     uint16_t start;
     uint16_t mutation_amount;
-    randTime = time(NULL);         //Use time() call because the clock is being used elsewhere.
-    srand(randTime);
     if(g_inputSize == 0){
         exit(-3);
     }
@@ -417,7 +416,7 @@ void mutator(){
                 g_mutationDegression = 1;
         }
 
-        rndValue = (rand() % (100/g_mutationDegression));
+        rndValue = (rand() % (g_mutationDegression));
         
         for(i = 0; i < rndValue; i++){
             rndByte = rand() % g_inputSize;
@@ -533,6 +532,7 @@ void dequeue_seed(){
         #ifdef NO_LOGGING
         printf("ERROR: Failed to copy seed to input buffer. \n");
         #endif
+        exit(-1);
     }
 
 }
@@ -552,9 +552,9 @@ void main_harness_loop(){
  ********************************************************/
         CSL_Handle timerHandle;
 
-        setup(&susan_edges);
+        setup(&jpeg_test);
 	g_numInteresting = 0;
-
+	g_iterations = 0;
         setjmp(g_savedContext);
 
         while(1){
@@ -569,18 +569,18 @@ void main_harness_loop(){
         #endif
 
         start_timer(&timerHandle);
-        //jpeg_test(g_inputBuffer, g_inputBuffer[0]%30, g_inputBuffer[1]%30);
+        jpeg_test(g_inputBuffer, g_inputBuffer[0]%30, g_inputBuffer[1]%30);
         //pace_test(g_inputBuffer,g_inputBuffer[0]%test_case_size+1);
-        //telecom_test(g_inputBuffer, test_case_size);    
-        //adpcm_encode((uint16_t *)g_inputBuffer, test_case_size);
+        //telecom_test(g_inputBuffer, 35);    
+        //adpcm_encode((uint16_t *)g_inputBuffer, WIDTH);
         //mp3_encode(g_inputBuffer, test_case_size);
-        //susan_corner(g_inputBuffer);
+        //mp3_encode(g_inputBuffer,WIDTH);
         //susan_smooth(g_inputBuffer);    
-        susan_edges(g_inputBuffer);
-        //sonar_test(g_inputBuffer, g_inputBuffer[0]%test_case_size);
+	//test(WIDTH, g_inputBuffer);
+        //mp3_encode(g_inputBuffer, WIDTH);
         //process_image(g_inputBuffer,(g_inputBuffer[0]%test_case_size+1));
         stop_timer(&timerHandle);
-
+	count = 0;
         if(g_covFunctionEnter && (g_coverageMap[0] != 0)){
                 g_numInteresting++;
                 bubble_coverage();
@@ -599,9 +599,10 @@ void main_harness_loop(){
                 #ifdef NO_LOGGING
                 printf("ERROR: Coverage map is zeroed but flag is set. \n");
                 #endif
+		g_covFunctionEnter = false;
         }
 
-        longjmp(g_savedContext, true);
+        //longjmp(g_savedContext, true);
 
         }
 }

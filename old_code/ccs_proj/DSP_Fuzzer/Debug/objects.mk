@@ -1,8 +1,0 @@
-################################################################################
-# Automatically-generated file. Do not edit!
-################################################################################
-
-USER_OBJS :=
-
-LIBS := -l"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/lib/libc.a" -l"C:/Users/garci/OneDrive/Desktop/Projects/Research/TI\ Files/ChipSupportLibaries/55xdspx_r3.lib" -l"C:/ti/ccs1250/ccs/tools/compiler/c5500_4.4.1/lib/usbstk5515bsl.lib" -l"C:/ti/c55_lp/c55_csl_3.08.01/ccs_v6.x_examples/C55XXCSL_LP/Debug/C55XXCSL_LP.lib" -llibc.a
-

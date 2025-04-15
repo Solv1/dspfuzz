@@ -1,0 +1,2797 @@
+python3 black_box.py -l 10 -i ./seeds/ -o ./results/ -b ./on_board/DumbFuzz.out -r False
+
+C55xx: GEL Output: Reset Peripherals is complete.
+
+C55xx: GEL Output: Configuring PLL (100 MHz).
+
+C55xx: GEL Output: PLL Init Done.
+C55xx: GEL Output: Target Connection Complete.
+
+DSLOG: Time taken for debug_server_setup = 6.15164503082633
+Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x110c5
+0x12000
+0x110d0, 0x11100, 0x11129, 0x11152, 0x1117b, 0x111a4, 0x111cc, 0x111f4, 0x1121c, 0x11245, 0x1124b, 
+DSLOG: Refresh breakpoints set.
+DSLOG: Time taken for setup = 0.17768063209950924
+DSLOG: Current seed address --> 73728
+DSLOG: Current seed pointer --> 16386
+DSLOG: Time of start = 08/03/2025 14:40:45
+DSLOG: Finding coverage calls in binary
+DSLOG: Starting the device listener.
+0x10f0a
+0x1103b
+0x11032
+DSLOG: Found new coverage. [69840, 70219]
+DSLOG: Writing new seed to 2
+DSLOG: Found new coverage. [69840, 69888, 70219]
+DSLOG: Writing new seed to 3
+DSLOG: Current time: 08/03/2025 14:42:45
+DSLOG: Total Time for fuzzer 120.04103064537048s
+DSLOG: Average throughput time: 0.11838365941358035
+DSLOG: Total number of iterations 1014
+DSLOG: Current time: 08/03/2025 14:44:45
+DSLOG: Total Time for fuzzer 240.04277920722961s
+DSLOG: Average throughput time: 0.119068838892475
+DSLOG: Total number of iterations 2016
+DSLOG: Current time: 08/03/2025 14:46:45
+DSLOG: Total Time for fuzzer 360.07995986938477s
+DSLOG: Average throughput time: 0.11860341234169458
+DSLOG: Total number of iterations 3036
+DSLOG: Current time: 08/03/2025 14:48:45
+DSLOG: Total Time for fuzzer 480.0872428417206s
+DSLOG: Average throughput time: 0.11827722169049534
+DSLOG: Total number of iterations 4059
+DSLOG: Current time: 08/03/2025 14:50:45
+DSLOG: Total Time for fuzzer 600.1159870624542s
+DSLOG: Average throughput time: 0.11824945557880871
+DSLOG: Total number of iterations 5075
+DSLOG: Current time: 08/03/2025 14:52:45
+DSLOG: Total Time for fuzzer 720.1492154598236s
+DSLOG: Average throughput time: 0.11821228093562436
+DSLOG: Total number of iterations 6092
+DSLOG: Found new coverage. [69840, 69888, 69929, 70219]
+DSLOG: Writing new seed to 4
+DSLOG: Current time: 08/03/2025 14:54:45
+DSLOG: Total Time for fuzzer 840.1752269268036s
+DSLOG: Average throughput time: 0.11783663771764426
+DSLOG: Total number of iterations 7130
+DSLOG: Current time: 08/03/2025 14:56:45
+DSLOG: Total Time for fuzzer 960.1826677322388s
+DSLOG: Average throughput time: 0.11772715396422741
+DSLOG: Total number of iterations 8156
+DSLOG: Current time: 08/03/2025 14:58:45
+DSLOG: Total Time for fuzzer 1080.219969034195s
+DSLOG: Average throughput time: 0.11769666256637557
+DSLOG: Total number of iterations 9178
+DSLOG: Current time: 08/03/2025 15:00:45
+DSLOG: Total Time for fuzzer 1200.251266002655s
+DSLOG: Average throughput time: 0.1177756124033613
+DSLOG: Total number of iterations 10191
+DSLOG: Current time: 08/03/2025 15:02:45
+DSLOG: Total Time for fuzzer 1320.2623300552368s
+DSLOG: Average throughput time: 0.11782796341412198
+DSLOG: Total number of iterations 11205
+DSLOG: Current time: 08/03/2025 15:04:45
+DSLOG: Total Time for fuzzer 1440.266377210617s
+DSLOG: Average throughput time: 0.11787105141260472
+DSLOG: Total number of iterations 12219
+DSLOG: Current time: 08/03/2025 15:06:45
+DSLOG: Total Time for fuzzer 1560.2834086418152s
+DSLOG: Average throughput time: 0.11797092156674846
+DSLOG: Total number of iterations 13226
+DSLOG: Current time: 08/03/2025 15:08:45
+DSLOG: Total Time for fuzzer 1680.2974457740784s
+DSLOG: Average throughput time: 0.11804815552719393
+DSLOG: Total number of iterations 14234
+DSLOG: Current time: 08/03/2025 15:10:45
+DSLOG: Total Time for fuzzer 1800.3007090091705s
+DSLOG: Average throughput time: 0.11804476486847883
+DSLOG: Total number of iterations 15251
+DSLOG: Current time: 08/03/2025 15:12:45
+DSLOG: Total Time for fuzzer 1920.3222844600677s
+DSLOG: Average throughput time: 0.11807195551279315
+DSLOG: Total number of iterations 16264
+DSLOG: Current time: 08/03/2025 15:14:45
+DSLOG: Total Time for fuzzer 2040.3564410209656s
+DSLOG: Average throughput time: 0.11805568715043485
+DSLOG: Total number of iterations 17283
+DSLOG: Current time: 08/03/2025 15:16:45
+DSLOG: Total Time for fuzzer 2160.376613378525s
+DSLOG: Average throughput time: 0.11812437057130104
+DSLOG: Total number of iterations 18289
+DSLOG: Current time: 08/03/2025 15:18:45
+DSLOG: Total Time for fuzzer 2280.405564069748s
+DSLOG: Average throughput time: 0.11815572870827709
+DSLOG: Total number of iterations 19300
+DSLOG: Current time: 08/03/2025 15:20:45
+DSLOG: Total Time for fuzzer 2400.448340654373s
+DSLOG: Average throughput time: 0.11819628443814925
+DSLOG: Total number of iterations 20309
+DSLOG: Current time: 08/03/2025 15:22:45
+DSLOG: Total Time for fuzzer 2520.4531388282776s
+DSLOG: Average throughput time: 0.11823676590647265
+DSLOG: Total number of iterations 21317
+DSLOG: Current time: 08/03/2025 15:24:45
+DSLOG: Total Time for fuzzer 2640.4858253002167s
+DSLOG: Average throughput time: 0.11826954337096733
+DSLOG: Total number of iterations 22326
+DSLOG: Current time: 08/03/2025 15:26:45
+DSLOG: Total Time for fuzzer 2760.5114946365356s
+DSLOG: Average throughput time: 0.11823838157521462
+DSLOG: Total number of iterations 23347
+DSLOG: Current time: 08/03/2025 15:28:45
+DSLOG: Total Time for fuzzer 2880.5453131198883s
+DSLOG: Average throughput time: 0.11824413255284628
+DSLOG: Total number of iterations 24361
+DSLOG: Current time: 08/03/2025 15:30:45
+DSLOG: Total Time for fuzzer 3000.5818145275116s
+DSLOG: Average throughput time: 0.11825418990019357
+DSLOG: Total number of iterations 25374
+DSLOG: Current time: 08/03/2025 15:32:45
+DSLOG: Total Time for fuzzer 3120.6230783462524s
+DSLOG: Average throughput time: 0.1182815858070065
+DSLOG: Total number of iterations 26383
+DSLOG: Current time: 08/03/2025 15:34:45
+DSLOG: Total Time for fuzzer 3240.624454021454s
+DSLOG: Average throughput time: 0.11828823383053927
+DSLOG: Total number of iterations 27396
+DSLOG: Current time: 08/03/2025 15:36:45
+DSLOG: Total Time for fuzzer 3360.655143737793s
+DSLOG: Average throughput time: 0.11831209800168256
+DSLOG: Total number of iterations 28405
+DSLOG: Current time: 08/03/2025 15:38:45
+DSLOG: Total Time for fuzzer 3480.6787672042847s
+DSLOG: Average throughput time: 0.11830190902060651
+DSLOG: Total number of iterations 29422
+DSLOG: Current time: 08/03/2025 15:40:46
+DSLOG: Total Time for fuzzer 3600.7217090129852s
+DSLOG: Average throughput time: 0.11832024543286623
+DSLOG: Total number of iterations 30432
+DSLOG: Current time: 08/03/2025 15:42:46
+DSLOG: Total Time for fuzzer 3720.7352669239044s
+DSLOG: Average throughput time: 0.11833646927434338
+DSLOG: Total number of iterations 31442
+DSLOG: Current time: 08/03/2025 15:44:46
+DSLOG: Total Time for fuzzer 3840.7550048828125s
+DSLOG: Average throughput time: 0.11836646341478095
+DSLOG: Total number of iterations 32448
+DSLOG: Current time: 08/03/2025 15:46:46
+DSLOG: Total Time for fuzzer 3960.7625477313995s
+DSLOG: Average throughput time: 0.11838013472805904
+DSLOG: Total number of iterations 33458
+DSLOG: Current time: 08/03/2025 15:48:46
+DSLOG: Total Time for fuzzer 4080.7690720558167s
+DSLOG: Average throughput time: 0.11838267158062768
+DSLOG: Total number of iterations 34471
+DSLOG: Current time: 08/03/2025 15:50:46
+DSLOG: Total Time for fuzzer 4200.7737419605255s
+DSLOG: Average throughput time: 0.11831832306107834
+DSLOG: Total number of iterations 35504
+DSLOG: Current time: 08/03/2025 15:52:46
+DSLOG: Total Time for fuzzer 4320.786745548248s
+DSLOG: Average throughput time: 0.11834205432741497
+DSLOG: Total number of iterations 36511
+DSLOG: Current time: 08/03/2025 15:54:46
+DSLOG: Total Time for fuzzer 4440.804352521896s
+DSLOG: Average throughput time: 0.11836463437608338
+DSLOG: Total number of iterations 37518
+DSLOG: Current time: 08/03/2025 15:56:46
+DSLOG: Total Time for fuzzer 4560.809458017349s
+DSLOG: Average throughput time: 0.11838570948779621
+DSLOG: Total number of iterations 38525
+DSLOG: Current time: 08/03/2025 15:58:46
+DSLOG: Total Time for fuzzer 4680.822301864624s
+DSLOG: Average throughput time: 0.11842388053090684
+DSLOG: Total number of iterations 39526
+DSLOG: Current time: 08/03/2025 16:00:46
+DSLOG: Total Time for fuzzer 4800.8663494586945s
+DSLOG: Average throughput time: 0.11840834503536057
+DSLOG: Total number of iterations 40545
+DSLOG: Current time: 08/03/2025 16:02:46
+DSLOG: Total Time for fuzzer 4920.867819070816s
+DSLOG: Average throughput time: 0.11840679080514006
+DSLOG: Total number of iterations 41559
+DSLOG: Current time: 08/03/2025 16:04:46
+DSLOG: Total Time for fuzzer 5040.917177915573s
+DSLOG: Average throughput time: 0.1184008732334838
+DSLOG: Total number of iterations 42575
+DSLOG: Current time: 08/03/2025 16:06:46
+DSLOG: Total Time for fuzzer 5160.938172340393s
+DSLOG: Average throughput time: 0.11839729691076836
+DSLOG: Total number of iterations 43590
+DSLOG: Current time: 08/03/2025 16:08:46
+DSLOG: Total Time for fuzzer 5280.950612306595s
+DSLOG: Average throughput time: 0.11840165491024157
+DSLOG: Total number of iterations 44602
+DSLOG: Current time: 08/03/2025 16:10:46
+DSLOG: Total Time for fuzzer 5400.961910486221s
+DSLOG: Average throughput time: 0.11840060308852643
+DSLOG: Total number of iterations 45616
+DSLOG: Current time: 08/03/2025 16:12:46
+DSLOG: Total Time for fuzzer 5520.983685970306s
+DSLOG: Average throughput time: 0.11842013826026997
+DSLOG: Total number of iterations 46622
+DSLOG: Current time: 08/03/2025 16:14:46
+DSLOG: Total Time for fuzzer 5641.003638744354s
+DSLOG: Average throughput time: 0.11841891927836834
+DSLOG: Total number of iterations 47636
+DSLOG: Current time: 08/03/2025 16:16:46
+DSLOG: Total Time for fuzzer 5761.018403530121s
+DSLOG: Average throughput time: 0.11840547535772522
+DSLOG: Total number of iterations 48655
+DSLOG: Current time: 08/03/2025 16:18:46
+DSLOG: Total Time for fuzzer 5881.033294677734s
+DSLOG: Average throughput time: 0.118425962438134
+DSLOG: Total number of iterations 49660
+DSLOG: Current time: 08/03/2025 16:20:46
+DSLOG: Total Time for fuzzer 6001.074009418488s
+DSLOG: Average throughput time: 0.11842510970948589
+DSLOG: Total number of iterations 50674
+DSLOG: Current time: 08/03/2025 16:22:46
+DSLOG: Total Time for fuzzer 6121.084613323212s
+DSLOG: Average throughput time: 0.1184374562385978
+DSLOG: Total number of iterations 51682
+DSLOG: Current time: 08/03/2025 16:24:46
+DSLOG: Total Time for fuzzer 6241.108556270599s
+DSLOG: Average throughput time: 0.11844508760856676
+DSLOG: Total number of iterations 52692
+DSLOG: Current time: 08/03/2025 16:26:46
+DSLOG: Total Time for fuzzer 6361.128600358963s
+DSLOG: Average throughput time: 0.11845235932291094
+DSLOG: Total number of iterations 53702
+DSLOG: Current time: 08/03/2025 16:28:46
+DSLOG: Total Time for fuzzer 6481.141050815582s
+DSLOG: Average throughput time: 0.11843541199889593
+DSLOG: Total number of iterations 54723
+DSLOG: Current time: 08/03/2025 16:30:46
+DSLOG: Total Time for fuzzer 6601.16393828392s
+DSLOG: Average throughput time: 0.11844264508072273
+DSLOG: Total number of iterations 55733
+DSLOG: Current time: 08/03/2025 16:32:46
+DSLOG: Total Time for fuzzer 6721.187030553818s
+DSLOG: Average throughput time: 0.1184475368418479
+DSLOG: Total number of iterations 56744
+DSLOG: Current time: 08/03/2025 16:34:46
+DSLOG: Total Time for fuzzer 6841.19940495491s
+DSLOG: Average throughput time: 0.11845412274396423
+DSLOG: Total number of iterations 57754
+DSLOG: Current time: 08/03/2025 16:36:46
+DSLOG: Total Time for fuzzer 6961.2397248744965s
+DSLOG: Average throughput time: 0.11846095781217236
+DSLOG: Total number of iterations 58764
+DSLOG: Current time: 08/03/2025 16:38:46
+DSLOG: Total Time for fuzzer 7081.261035203934s
+DSLOG: Average throughput time: 0.1184632801660187
+DSLOG: Total number of iterations 59776
+DSLOG: Current time: 08/03/2025 16:40:46
+DSLOG: Total Time for fuzzer 7201.263440847397s
+DSLOG: Average throughput time: 0.11846326540734996
+DSLOG: Total number of iterations 60789
+DSLOG: Current time: 08/03/2025 16:42:46
+DSLOG: Total Time for fuzzer 7321.295106172562s
+DSLOG: Average throughput time: 0.11846755835230682
+DSLOG: Total number of iterations 61800
+DSLOG: Current time: 08/03/2025 16:44:46
+DSLOG: Total Time for fuzzer 7441.322989463806s
+DSLOG: Average throughput time: 0.11847353907759602
+DSLOG: Total number of iterations 62810
+DSLOG: Current time: 08/03/2025 16:46:46
+DSLOG: Total Time for fuzzer 7561.371000289917s
+DSLOG: Average throughput time: 0.11847222048586609
+DSLOG: Total number of iterations 63824
+DSLOG: Current time: 08/03/2025 16:48:46
+DSLOG: Total Time for fuzzer 7681.379532575607s
+DSLOG: Average throughput time: 0.11847581603417301
+DSLOG: Total number of iterations 64835
+DSLOG: Current time: 08/03/2025 16:50:46
+DSLOG: Total Time for fuzzer 7801.388644933701s
+DSLOG: Average throughput time: 0.11849370644511834
+DSLOG: Total number of iterations 65838
+DSLOG: Current time: 08/03/2025 16:52:46
+DSLOG: Total Time for fuzzer 7921.3934009075165s
+DSLOG: Average throughput time: 0.11851099476230931
+DSLOG: Total number of iterations 66841
+DSLOG: Current time: 08/03/2025 16:54:46
+DSLOG: Total Time for fuzzer 8041.422914266586s
+DSLOG: Average throughput time: 0.1185159085977596
+DSLOG: Total number of iterations 67851
+DSLOG: Current time: 08/03/2025 16:56:46
+DSLOG: Total Time for fuzzer 8161.459450006485s
+DSLOG: Average throughput time: 0.11851561701333767
+DSLOG: Total number of iterations 68864
+DSLOG: Current time: 08/03/2025 16:58:46
+DSLOG: Total Time for fuzzer 8281.4889190197s
+DSLOG: Average throughput time: 0.1185237136337832
+DSLOG: Total number of iterations 69872
+DSLOG: Current time: 08/03/2025 17:00:46
+DSLOG: Total Time for fuzzer 8401.49661564827s
+DSLOG: Average throughput time: 0.11852960053679082
+DSLOG: Total number of iterations 70881
+DSLOG: Current time: 08/03/2025 17:02:46
+DSLOG: Total Time for fuzzer 8521.520768880844s
+DSLOG: Average throughput time: 0.11853390228096485
+DSLOG: Total number of iterations 71891
+DSLOG: Current time: 08/03/2025 17:04:46
+DSLOG: Total Time for fuzzer 8641.521156072617s
+DSLOG: Average throughput time: 0.11853125514124706
+DSLOG: Total number of iterations 72905
+DSLOG: Current time: 08/03/2025 17:06:46
+DSLOG: Total Time for fuzzer 8761.536694765091s
+DSLOG: Average throughput time: 0.11852888560133512
+DSLOG: Total number of iterations 73919
+DSLOG: Current time: 08/03/2025 17:08:46
+DSLOG: Total Time for fuzzer 8881.538087368011s
+DSLOG: Average throughput time: 0.11853430076030337
+DSLOG: Total number of iterations 74928
+DSLOG: Current time: 08/03/2025 17:10:46
+DSLOG: Total Time for fuzzer 9001.587687015533s
+DSLOG: Average throughput time: 0.11853864582969703
+DSLOG: Total number of iterations 75938
+DSLOG: Current time: 08/03/2025 17:12:46
+DSLOG: Total Time for fuzzer 9121.592456102371s
+DSLOG: Average throughput time: 0.11853459197305331
+DSLOG: Total number of iterations 76953
+DSLOG: Current time: 08/03/2025 17:14:46
+DSLOG: Total Time for fuzzer 9241.62559747696s
+DSLOG: Average throughput time: 0.1185325278319925
+DSLOG: Total number of iterations 77967
+DSLOG: Current time: 08/03/2025 17:16:46
+DSLOG: Total Time for fuzzer 9361.627026319504s
+DSLOG: Average throughput time: 0.11853611844359122
+DSLOG: Total number of iterations 78977
+DSLOG: Current time: 08/03/2025 17:18:46
+DSLOG: Total Time for fuzzer 9481.632351398468s
+DSLOG: Average throughput time: 0.11853373943816764
+DSLOG: Total number of iterations 79991
+DSLOG: Current time: 08/03/2025 17:20:46
+DSLOG: Total Time for fuzzer 9601.633345603943s
+DSLOG: Average throughput time: 0.11853136652804078
+DSLOG: Total number of iterations 81005
+DSLOG: Current time: 08/03/2025 17:22:46
+DSLOG: Total Time for fuzzer 9721.647408246994s
+DSLOG: Average throughput time: 0.11853210198186954
+DSLOG: Total number of iterations 82017
+DSLOG: Current time: 08/03/2025 17:24:46
+DSLOG: Total Time for fuzzer 9841.684578418732s
+DSLOG: Average throughput time: 0.11853167022062787
+DSLOG: Total number of iterations 83030
+DSLOG: Current time: 08/03/2025 17:26:46
+DSLOG: Total Time for fuzzer 9961.695039272308s
+DSLOG: Average throughput time: 0.11852246950317444
+DSLOG: Total number of iterations 84049
+DSLOG: Current time: 08/03/2025 17:28:47
+DSLOG: Total Time for fuzzer 10081.715830564499s
+DSLOG: Average throughput time: 0.11852475700169879
+DSLOG: Total number of iterations 85060
+DSLOG: Current time: 08/03/2025 17:30:47
+DSLOG: Total Time for fuzzer 10201.72726392746s
+DSLOG: Average throughput time: 0.11852412793707039
+DSLOG: Total number of iterations 86073
+DSLOG: Current time: 08/03/2025 17:32:47
+DSLOG: Total Time for fuzzer 10321.749763250351s
+DSLOG: Average throughput time: 0.11852364057656053
+DSLOG: Total number of iterations 87086
+DSLOG: Current time: 08/03/2025 17:34:47
+DSLOG: Total Time for fuzzer 10441.798288583755s
+DSLOG: Average throughput time: 0.11853018694330777
+DSLOG: Total number of iterations 88094
+DSLOG: Current time: 08/03/2025 17:36:47
+DSLOG: Total Time for fuzzer 10561.836722612381s
+DSLOG: Average throughput time: 0.11853248103487325
+DSLOG: Total number of iterations 89105
+DSLOG: Current time: 08/03/2025 17:38:47
+DSLOG: Total Time for fuzzer 10681.867751121521s
+DSLOG: Average throughput time: 0.11853201082049669
+DSLOG: Total number of iterations 90118
+DSLOG: Current time: 08/03/2025 17:40:47
+DSLOG: Total Time for fuzzer 10801.886608839035s
+DSLOG: Average throughput time: 0.11853141750709456
+DSLOG: Total number of iterations 91131
+DSLOG: Current time: 08/03/2025 17:42:47
+DSLOG: Total Time for fuzzer 10921.935715913773s
+DSLOG: Average throughput time: 0.11854145736643411
+DSLOG: Total number of iterations 92136
+DSLOG: Current time: 08/03/2025 17:44:47
+DSLOG: Total Time for fuzzer 11041.94866991043s
+DSLOG: Average throughput time: 0.11854961961210228
+DSLOG: Total number of iterations 93142
+DSLOG: Current time: 08/03/2025 17:46:47
+DSLOG: Total Time for fuzzer 11161.970331907272s
+DSLOG: Average throughput time: 0.11855644066221917
+DSLOG: Total number of iterations 94149
+DSLOG: Current time: 08/03/2025 17:48:47
+DSLOG: Total Time for fuzzer 11282.007061719894s
+DSLOG: Average throughput time: 0.1185607837672071
+DSLOG: Total number of iterations 95158
+DSLOG: Current time: 08/03/2025 17:50:47
+DSLOG: Total Time for fuzzer 11402.00929760933s
+DSLOG: Average throughput time: 0.11855604734761296
+DSLOG: Total number of iterations 96174
+DSLOG: Current time: 08/03/2025 17:52:47
+DSLOG: Total Time for fuzzer 11522.029341697693s
+DSLOG: Average throughput time: 0.11855403281987172
+DSLOG: Total number of iterations 97188
+DSLOG: Current time: 08/03/2025 17:54:47
+DSLOG: Total Time for fuzzer 11642.04179263115s
+DSLOG: Average throughput time: 0.11855560436085041
+DSLOG: Total number of iterations 98199
+DSLOG: Current time: 08/03/2025 17:56:47
+DSLOG: Total Time for fuzzer 11762.087675333023s
+DSLOG: Average throughput time: 0.11856106600676387
+DSLOG: Total number of iterations 99207
+DSLOG: Current time: 08/03/2025 17:58:47
+DSLOG: Total Time for fuzzer 11882.118546009064s
+DSLOG: Average throughput time: 0.11856035268418542
+DSLOG: Total number of iterations 100220
+DSLOG: Current time: 08/03/2025 18:00:47
+DSLOG: Total Time for fuzzer 12002.130373239517s
+DSLOG: Average throughput time: 0.11856180787742408
+DSLOG: Total number of iterations 101231
+DSLOG: Current time: 08/03/2025 18:02:47
+DSLOG: Total Time for fuzzer 12122.168098688126s
+DSLOG: Average throughput time: 0.11856464724218392
+DSLOG: Total number of iterations 102241
+DSLOG: Current time: 08/03/2025 18:04:47
+DSLOG: Total Time for fuzzer 12242.1933324337s
+DSLOG: Average throughput time: 0.11856271688958114
+DSLOG: Total number of iterations 103255
+DSLOG: Current time: 08/03/2025 18:06:47
+DSLOG: Total Time for fuzzer 12362.217975616455s
+DSLOG: Average throughput time: 0.11856991565030506
+DSLOG: Total number of iterations 104261
+DSLOG: Current time: 08/03/2025 18:08:47
+DSLOG: Total Time for fuzzer 12482.251524686813s
+DSLOG: Average throughput time: 0.11857030316117916
+DSLOG: Total number of iterations 105273
+DSLOG: Current time: 08/03/2025 18:10:47
+DSLOG: Total Time for fuzzer 12602.290813446045s
+DSLOG: Average throughput time: 0.11856181322802108
+DSLOG: Total number of iterations 106293
+DSLOG: Current time: 08/03/2025 18:12:47
+DSLOG: Total Time for fuzzer 12722.294729471207s
+DSLOG: Average throughput time: 0.118564203512215
+DSLOG: Total number of iterations 107303
+DSLOG: Current time: 08/03/2025 18:14:47
+DSLOG: Total Time for fuzzer 12842.324832677841s
+DSLOG: Average throughput time: 0.11856131790356027
+DSLOG: Total number of iterations 108318
+DSLOG: Current time: 08/03/2025 18:16:47
+DSLOG: Total Time for fuzzer 12962.358493566513s
+DSLOG: Average throughput time: 0.11854767560398483
+DSLOG: Total number of iterations 109343
+DSLOG: Current time: 08/03/2025 18:18:47
+DSLOG: Total Time for fuzzer 13082.36363196373s
+DSLOG: Average throughput time: 0.11855014029490571
+DSLOG: Total number of iterations 110353
+DSLOG: Current time: 08/03/2025 18:20:47
+DSLOG: Total Time for fuzzer 13202.383140563965s
+DSLOG: Average throughput time: 0.1185558830869609
+DSLOG: Total number of iterations 111360
+DSLOG: Current time: 08/03/2025 18:22:47
+DSLOG: Total Time for fuzzer 13322.386822462082s
+DSLOG: Average throughput time: 0.1185571617451307
+DSLOG: Total number of iterations 112371
+DSLOG: Current time: 08/03/2025 18:24:47
+DSLOG: Total Time for fuzzer 13442.415346384048s
+DSLOG: Average throughput time: 0.11855968236639339
+DSLOG: Total number of iterations 113381
+DSLOG: Current time: 08/03/2025 18:26:47
+DSLOG: Total Time for fuzzer 13562.44839477539s
+DSLOG: Average throughput time: 0.1185549432225685
+DSLOG: Total number of iterations 114398
+DSLOG: Current time: 08/03/2025 18:28:47
+DSLOG: Total Time for fuzzer 13682.450366735458s
+DSLOG: Average throughput time: 0.11855207270182266
+DSLOG: Total number of iterations 115413
+DSLOG: Current time: 08/03/2025 18:30:47
+DSLOG: Total Time for fuzzer 13802.462518692017s
+DSLOG: Average throughput time: 0.1185513761418585
+DSLOG: Total number of iterations 116426
+DSLOG: Current time: 08/03/2025 18:32:47
+DSLOG: Total Time for fuzzer 13922.489124774933s
+DSLOG: Average throughput time: 0.11854879577638927
+DSLOG: Total number of iterations 117441
+DSLOG: Current time: 08/03/2025 18:34:47
+DSLOG: Total Time for fuzzer 14042.494132041931s
+DSLOG: Average throughput time: 0.11854907965219902
+DSLOG: Total number of iterations 118453
+DSLOG: Current time: 08/03/2025 18:36:47
+DSLOG: Total Time for fuzzer 14162.512734651566s
+DSLOG: Average throughput time: 0.11854947252041657
+DSLOG: Total number of iterations 119465
+DSLOG: Current time: 08/03/2025 18:38:47
+DSLOG: Total Time for fuzzer 14282.534491300583s
+DSLOG: Average throughput time: 0.11855086898054869
+DSLOG: Total number of iterations 120476
+DSLOG: Current time: 08/03/2025 18:40:47
+DSLOG: Total Time for fuzzer 14402.549939632416s
+DSLOG: Average throughput time: 0.11855316612311226
+DSLOG: Total number of iterations 121486
+DSLOG: Current time: 08/03/2025 18:42:47
+DSLOG: Total Time for fuzzer 14522.584321022034s
+DSLOG: Average throughput time: 0.11855557994564749
+DSLOG: Total number of iterations 122496
+DSLOG: Current time: 08/03/2025 18:44:47
+DSLOG: Total Time for fuzzer 14642.621629476547s
+DSLOG: Average throughput time: 0.11854933918533415
+DSLOG: Total number of iterations 123515
+DSLOG: Current time: 08/03/2025 18:46:47
+DSLOG: Total Time for fuzzer 14762.641489744186s
+DSLOG: Average throughput time: 0.11855353219681654
+DSLOG: Total number of iterations 124523
+DSLOG: Current time: 08/03/2025 18:48:47
+DSLOG: Total Time for fuzzer 14882.646504878998s
+DSLOG: Average throughput time: 0.11855187319180001
+DSLOG: Total number of iterations 125537
+DSLOG: Current time: 08/03/2025 18:50:47
+DSLOG: Total Time for fuzzer 15002.659180879593s
+DSLOG: Average throughput time: 0.11855498538776092
+DSLOG: Total number of iterations 126546
+DSLOG: Current time: 08/03/2025 18:52:47
+DSLOG: Total Time for fuzzer 15122.688140630722s
+DSLOG: Average throughput time: 0.11855445825563639
+DSLOG: Total number of iterations 127559
+DSLOG: Current time: 08/03/2025 18:54:47
+DSLOG: Total Time for fuzzer 15242.697507619858s
+DSLOG: Average throughput time: 0.11855194290929626
+DSLOG: Total number of iterations 128574
+DSLOG: Current time: 08/03/2025 18:56:47
+DSLOG: Total Time for fuzzer 15362.709252357483s
+DSLOG: Average throughput time: 0.11854857050974213
+DSLOG: Total number of iterations 129590
+DSLOG: Current time: 08/03/2025 18:58:48
+DSLOG: Total Time for fuzzer 15482.747309207916s
+DSLOG: Average throughput time: 0.1185518059801983
+DSLOG: Total number of iterations 130599
+DSLOG: Current time: 08/03/2025 19:00:48
+DSLOG: Total Time for fuzzer 15602.761103153229s
+DSLOG: Average throughput time: 0.118551204321439
+DSLOG: Total number of iterations 131612
+DSLOG: Current time: 08/03/2025 19:02:48
+DSLOG: Total Time for fuzzer 15722.768655061722s
+DSLOG: Average throughput time: 0.1185505647884013
+DSLOG: Total number of iterations 132625
+DSLOG: Current time: 08/03/2025 19:04:48
+DSLOG: Total Time for fuzzer 15842.781562566757s
+DSLOG: Average throughput time: 0.11855174924845668
+DSLOG: Total number of iterations 133636
+DSLOG: Current time: 08/03/2025 19:06:48
+DSLOG: Total Time for fuzzer 15962.802286148071s
+DSLOG: Average throughput time: 0.11855649596449924
+DSLOG: Total number of iterations 134643
+DSLOG: Current time: 08/03/2025 19:08:48
+DSLOG: Total Time for fuzzer 16082.828053712845s
+DSLOG: Average throughput time: 0.11855334370526721
+DSLOG: Total number of iterations 135659
+DSLOG: Current time: 08/03/2025 19:10:48
+DSLOG: Total Time for fuzzer 16202.857363462448s
+DSLOG: Average throughput time: 0.11855546878562401
+DSLOG: Total number of iterations 136669
+DSLOG: Current time: 08/03/2025 19:12:48
+DSLOG: Total Time for fuzzer 16322.893981456757s
+DSLOG: Average throughput time: 0.11854556136809247
+DSLOG: Total number of iterations 137693
+DSLOG: Current time: 08/03/2025 19:14:48
+DSLOG: Total Time for fuzzer 16442.900577545166s
+DSLOG: Average throughput time: 0.11854583884896122
+DSLOG: Total number of iterations 138705
+DSLOG: Current time: 08/03/2025 19:16:48
+DSLOG: Total Time for fuzzer 16562.90928721428s
+DSLOG: Average throughput time: 0.11854782440836187
+DSLOG: Total number of iterations 139715
+DSLOG: Current time: 08/03/2025 19:18:48
+DSLOG: Total Time for fuzzer 16682.91935300827s
+DSLOG: Average throughput time: 0.11854726389210583
+DSLOG: Total number of iterations 140728
+DSLOG: Current time: 08/03/2025 19:20:48
+DSLOG: Total Time for fuzzer 16802.963577508926s
+DSLOG: Average throughput time: 0.11854778875059212
+DSLOG: Total number of iterations 141740
+DSLOG: Current time: 08/03/2025 19:22:48
+DSLOG: Total Time for fuzzer 16922.973823070526s
+DSLOG: Average throughput time: 0.11854889859314839
+DSLOG: Total number of iterations 142751
+DSLOG: Current time: 08/03/2025 19:24:48
+DSLOG: Total Time for fuzzer 17042.982938051224s
+DSLOG: Average throughput time: 0.11855080959405696
+DSLOG: Total number of iterations 143761
+DSLOG: Current time: 08/03/2025 19:26:48
+DSLOG: Total Time for fuzzer 17163.02104973793s
+DSLOG: Average throughput time: 0.11855125644794216
+DSLOG: Total number of iterations 144773
+DSLOG: Current time: 08/03/2025 19:28:48
+DSLOG: Total Time for fuzzer 17283.04180765152s
+DSLOG: Average throughput time: 0.11855239126139713
+DSLOG: Total number of iterations 145784
+DSLOG: Current time: 08/03/2025 19:30:48
+DSLOG: Total Time for fuzzer 17403.042832374573s
+DSLOG: Average throughput time: 0.11854772300360059
+DSLOG: Total number of iterations 146802
+DSLOG: Current time: 08/03/2025 19:32:48
+DSLOG: Total Time for fuzzer 17523.080854654312s
+DSLOG: Average throughput time: 0.11854577521296138
+DSLOG: Total number of iterations 147817
+DSLOG: Current time: 08/03/2025 19:34:48
+DSLOG: Total Time for fuzzer 17643.12570500374s
+DSLOG: Average throughput time: 0.11854469636704543
+DSLOG: Total number of iterations 148831
+DSLOG: Current time: 08/03/2025 19:36:48
+DSLOG: Total Time for fuzzer 17763.135724782944s
+DSLOG: Average throughput time: 0.11854260857669169
+DSLOG: Total number of iterations 149846
+DSLOG: Current time: 08/03/2025 19:38:48
+DSLOG: Total Time for fuzzer 17883.144649982452s
+DSLOG: Average throughput time: 0.11854211316515721
+DSLOG: Total number of iterations 150859
+DSLOG: Current time: 08/03/2025 19:40:48
+DSLOG: Total Time for fuzzer 18003.173302412033s
+DSLOG: Average throughput time: 0.11854409591432111
+DSLOG: Total number of iterations 151869
+DSLOG: Current time: 08/03/2025 19:42:48
+DSLOG: Total Time for fuzzer 18123.213493347168s
+DSLOG: Average throughput time: 0.11854147557541399
+DSLOG: Total number of iterations 152885
+DSLOG: Current time: 08/03/2025 19:44:48
+DSLOG: Total Time for fuzzer 18243.219341993332s
+DSLOG: Average throughput time: 0.1185455991344146
+DSLOG: Total number of iterations 153892
+DSLOG: Current time: 08/03/2025 19:46:48
+DSLOG: Total Time for fuzzer 18363.26375746727s
+DSLOG: Average throughput time: 0.11854838740529286
+DSLOG: Total number of iterations 154901
+DSLOG: Current time: 08/03/2025 19:48:48
+DSLOG: Total Time for fuzzer 18483.287149190903s
+DSLOG: Average throughput time: 0.11855176512703502
+DSLOG: Total number of iterations 155909
+DSLOG: Current time: 08/03/2025 19:50:48
+DSLOG: Total Time for fuzzer 18603.327735185623s
+DSLOG: Average throughput time: 0.1185529424878003
+DSLOG: Total number of iterations 156920
+DSLOG: Current time: 08/03/2025 19:52:48
+DSLOG: Total Time for fuzzer 18723.365953445435s
+DSLOG: Average throughput time: 0.11854658355617247
+DSLOG: Total number of iterations 157941
+DSLOG: Current time: 08/03/2025 19:54:48
+DSLOG: Total Time for fuzzer 18843.39262342453s
+DSLOG: Average throughput time: 0.11854769127424965
+DSLOG: Total number of iterations 158952
+DSLOG: Current time: 08/03/2025 19:56:48
+DSLOG: Total Time for fuzzer 18963.41648054123s
+DSLOG: Average throughput time: 0.11854506201578584
+DSLOG: Total number of iterations 159968
+DSLOG: Current time: 08/03/2025 19:58:48
+DSLOG: Total Time for fuzzer 19083.437686681747s
+DSLOG: Average throughput time: 0.11853803147202775
+DSLOG: Total number of iterations 160990
+DSLOG: Current time: 08/03/2025 20:00:48
+DSLOG: Total Time for fuzzer 19203.444374084473s
+DSLOG: Average throughput time: 0.11853392655970367
+DSLOG: Total number of iterations 162008
+DSLOG: Current time: 08/03/2025 20:02:48
+DSLOG: Total Time for fuzzer 19323.47391319275s
+DSLOG: Average throughput time: 0.11853219431118768
+DSLOG: Total number of iterations 163023
+DSLOG: Current time: 08/03/2025 20:04:48
+DSLOG: Total Time for fuzzer 19443.49890613556s
+DSLOG: Average throughput time: 0.1185290106445718
+DSLOG: Total number of iterations 164040
+DSLOG: Current time: 08/03/2025 20:06:48
+DSLOG: Total Time for fuzzer 19563.505481481552s
+DSLOG: Average throughput time: 0.11853006332273995
+DSLOG: Total number of iterations 165051
+DSLOG: Current time: 08/03/2025 20:08:48
+DSLOG: Total Time for fuzzer 19683.506731510162s
+DSLOG: Average throughput time: 0.11853464010255613
+DSLOG: Total number of iterations 166057
+DSLOG: Current time: 08/03/2025 20:10:48
+DSLOG: Total Time for fuzzer 19803.508021354675s
+DSLOG: Average throughput time: 0.11853206694890661
+DSLOG: Total number of iterations 167073
+DSLOG: Current time: 08/03/2025 20:12:48
+DSLOG: Total Time for fuzzer 19923.515953540802s
+DSLOG: Average throughput time: 0.1185366164335866
+DSLOG: Total number of iterations 168079
+DSLOG: Current time: 08/03/2025 20:14:48
+DSLOG: Total Time for fuzzer 20043.541305541992s
+DSLOG: Average throughput time: 0.11853770953658993
+DSLOG: Total number of iterations 169090
+DSLOG: Current time: 08/03/2025 20:16:48
+DSLOG: Total Time for fuzzer 20163.569823026657s
+DSLOG: Average throughput time: 0.11853811138626623
+DSLOG: Total number of iterations 170102
+DSLOG: Current time: 08/03/2025 20:18:48
+DSLOG: Total Time for fuzzer 20283.598160743713s
+DSLOG: Average throughput time: 0.11853435110299038
+DSLOG: Total number of iterations 171120
+DSLOG: Current time: 08/03/2025 20:20:48
+DSLOG: Total Time for fuzzer 20403.620548963547s
+DSLOG: Average throughput time: 0.11853679826736661
+DSLOG: Total number of iterations 172129
+DSLOG: Current time: 08/03/2025 20:22:48
+DSLOG: Total Time for fuzzer 20523.638952732086s
+DSLOG: Average throughput time: 0.11853919389580615
+DSLOG: Total number of iterations 173138
+DSLOG: Current time: 08/03/2025 20:24:48
+DSLOG: Total Time for fuzzer 20643.6746404171s
+DSLOG: Average throughput time: 0.11854029963087413
+DSLOG: Total number of iterations 174149
+DSLOG: Current time: 08/03/2025 20:26:48
+DSLOG: Total Time for fuzzer 20763.699159383774s
+DSLOG: Average throughput time: 0.11853862185942188
+DSLOG: Total number of iterations 175164
+DSLOG: Current time: 08/03/2025 20:28:48
+DSLOG: Total Time for fuzzer 20883.703741312027s
+DSLOG: Average throughput time: 0.11854088731708053
+DSLOG: Total number of iterations 176173
+DSLOG: Current time: 08/03/2025 20:30:49
+DSLOG: Total Time for fuzzer 21003.720324277878s
+DSLOG: Average throughput time: 0.11853918055555612
+DSLOG: Total number of iterations 177188
+DSLOG: Current time: 08/03/2025 20:32:49
+DSLOG: Total Time for fuzzer 21123.72335791588s
+DSLOG: Average throughput time: 0.1185407432065224
+DSLOG: Total number of iterations 178198
+DSLOG: Current time: 08/03/2025 20:34:49
+DSLOG: Total Time for fuzzer 21243.72786617279s
+DSLOG: Average throughput time: 0.1185383277320566
+DSLOG: Total number of iterations 179214
+DSLOG: Current time: 08/03/2025 20:36:49
+DSLOG: Total Time for fuzzer 21363.7371737957s
+DSLOG: Average throughput time: 0.11853859694936192
+DSLOG: Total number of iterations 180226
+DSLOG: Current time: 08/03/2025 20:38:49
+DSLOG: Total Time for fuzzer 21483.750976085663s
+DSLOG: Average throughput time: 0.11853888795995135
+DSLOG: Total number of iterations 181238
+DSLOG: Current time: 08/03/2025 20:40:49
+DSLOG: Total Time for fuzzer 21603.765561819077s
+DSLOG: Average throughput time: 0.11853983046172586
+DSLOG: Total number of iterations 182249
+DSLOG: Current time: 08/03/2025 20:42:49
+DSLOG: Total Time for fuzzer 21723.797865390778s
+DSLOG: Average throughput time: 0.1185415060946026
+DSLOG: Total number of iterations 183259
+DSLOG: Current time: 08/03/2025 20:44:49
+DSLOG: Total Time for fuzzer 21843.84714126587s
+DSLOG: Average throughput time: 0.11854454211153309
+DSLOG: Total number of iterations 184267
+DSLOG: Current time: 08/03/2025 20:46:49
+DSLOG: Total Time for fuzzer 21963.850760936737s
+DSLOG: Average throughput time: 0.11854793851774527
+DSLOG: Total number of iterations 185274
+DSLOG: Current time: 08/03/2025 20:48:49
+DSLOG: Total Time for fuzzer 22083.87368774414s
+DSLOG: Average throughput time: 0.11855012903885025
+DSLOG: Total number of iterations 186283
+DSLOG: Current time: 08/03/2025 20:50:49
+DSLOG: Total Time for fuzzer 22203.880378246307s
+DSLOG: Average throughput time: 0.1185547412447477
+DSLOG: Total number of iterations 187288
+DSLOG: Current time: 08/03/2025 20:52:49
+DSLOG: Total Time for fuzzer 22323.904671907425s
+DSLOG: Average throughput time: 0.11855310150081212
+DSLOG: Total number of iterations 188303
+DSLOG: Current time: 08/03/2025 20:54:49
+DSLOG: Total Time for fuzzer 22443.94067621231s
+DSLOG: Average throughput time: 0.11855279361602987
+DSLOG: Total number of iterations 189316
+DSLOG: Current time: 08/03/2025 20:56:49
+DSLOG: Total Time for fuzzer 22563.95208144188s
+DSLOG: Average throughput time: 0.1185560971687178
+DSLOG: Total number of iterations 190323
+DSLOG: Current time: 08/03/2025 20:58:49
+DSLOG: Total Time for fuzzer 22683.98056077957s
+DSLOG: Average throughput time: 0.11855449811736075
+DSLOG: Total number of iterations 191338
+DSLOG: Current time: 08/03/2025 21:00:49
+DSLOG: Total Time for fuzzer 22803.989771604538s
+DSLOG: Average throughput time: 0.11855404844063476
+DSLOG: Total number of iterations 192351
+DSLOG: Current time: 08/03/2025 21:02:49
+DSLOG: Total Time for fuzzer 22924.037915706635s
+DSLOG: Average throughput time: 0.11855135242494433
+DSLOG: Total number of iterations 193368
+DSLOG: Current time: 08/03/2025 21:04:49
+DSLOG: Total Time for fuzzer 23044.04531431198s
+DSLOG: Average throughput time: 0.11855091451485475
+DSLOG: Total number of iterations 194381
+DSLOG: Current time: 08/03/2025 21:06:49
+DSLOG: Total Time for fuzzer 23164.087378263474s
+DSLOG: Average throughput time: 0.11855429902687716
+DSLOG: Total number of iterations 195388
+DSLOG: Current time: 08/03/2025 21:08:49
+DSLOG: Total Time for fuzzer 23284.120043039322s
+DSLOG: Average throughput time: 0.11855639364674268
+DSLOG: Total number of iterations 196397
+DSLOG: Current time: 08/03/2025 21:10:49
+DSLOG: Total Time for fuzzer 23404.13116288185s
+DSLOG: Average throughput time: 0.11855655599735498
+DSLOG: Total number of iterations 197409
+DSLOG: Current time: 08/03/2025 21:12:49
+DSLOG: Total Time for fuzzer 23524.148051977158s
+DSLOG: Average throughput time: 0.11855614826973399
+DSLOG: Total number of iterations 198422
+DSLOG: Current time: 08/03/2025 21:14:49
+DSLOG: Total Time for fuzzer 23644.180810689926s
+DSLOG: Average throughput time: 0.11855404090840224
+DSLOG: Total number of iterations 199438
+DSLOG: Current time: 08/03/2025 21:16:49
+DSLOG: Total Time for fuzzer 23764.183319330215s
+DSLOG: Average throughput time: 0.11855594406167323
+DSLOG: Total number of iterations 200447
+DSLOG: Current time: 08/03/2025 21:18:49
+DSLOG: Total Time for fuzzer 23884.189613580704s
+DSLOG: Average throughput time: 0.1185625551684837
+DSLOG: Total number of iterations 201448
+DSLOG: Current time: 08/03/2025 21:20:49
+DSLOG: Total Time for fuzzer 24004.220084667206s
+DSLOG: Average throughput time: 0.11856160704066544
+DSLOG: Total number of iterations 202462
+DSLOG: Current time: 08/03/2025 21:22:49
+DSLOG: Total Time for fuzzer 24124.22492003441s
+DSLOG: Average throughput time: 0.11856578668793666
+DSLOG: Total number of iterations 203467
+DSLOG: Current time: 08/03/2025 21:24:49
+DSLOG: Total Time for fuzzer 24244.252254247665s
+DSLOG: Average throughput time: 0.1185688755257278
+DSLOG: Total number of iterations 204474
+DSLOG: Current time: 08/03/2025 21:26:49
+DSLOG: Total Time for fuzzer 24364.276752471924s
+DSLOG: Average throughput time: 0.1185719202868972
+DSLOG: Total number of iterations 205481
+DSLOG: Current time: 08/03/2025 21:28:49
+DSLOG: Total Time for fuzzer 24484.282305955887s
+DSLOG: Average throughput time: 0.11857541785175768
+DSLOG: Total number of iterations 206487
+DSLOG: Current time: 08/03/2025 21:30:49
+DSLOG: Total Time for fuzzer 24604.305794239044s
+DSLOG: Average throughput time: 0.11857668204474785
+DSLOG: Total number of iterations 207497
+DSLOG: Current time: 08/03/2025 21:32:49
+DSLOG: Total Time for fuzzer 24724.31280064583s
+DSLOG: Average throughput time: 0.11857956106667415
+DSLOG: Total number of iterations 208504
+DSLOG: Current time: 08/03/2025 21:34:49
+DSLOG: Total Time for fuzzer 24844.337527036667s
+DSLOG: Average throughput time: 0.11857910110891559
+DSLOG: Total number of iterations 209517
+DSLOG: Current time: 08/03/2025 21:36:49
+DSLOG: Total Time for fuzzer 24964.36546730995s
+DSLOG: Average throughput time: 0.11858316692464423
+DSLOG: Total number of iterations 210522
+DSLOG: Current time: 08/03/2025 21:38:49
+DSLOG: Total Time for fuzzer 25084.407740354538s
+DSLOG: Average throughput time: 0.1185844588069632
+DSLOG: Total number of iterations 211532
+DSLOG: Current time: 08/03/2025 21:40:49
+DSLOG: Total Time for fuzzer 25204.4102935791s
+DSLOG: Average throughput time: 0.11858555153136369
+DSLOG: Total number of iterations 212542
+DSLOG: Current time: 08/03/2025 21:42:49
+DSLOG: Total Time for fuzzer 25324.431186914444s
+DSLOG: Average throughput time: 0.1185878304233877
+DSLOG: Total number of iterations 213550
+DSLOG: Current time: 08/03/2025 21:44:49
+DSLOG: Total Time for fuzzer 25444.435298204422s
+DSLOG: Average throughput time: 0.11858337744421131
+DSLOG: Total number of iterations 214570
+DSLOG: Current time: 08/03/2025 21:46:49
+DSLOG: Total Time for fuzzer 25564.437541007996s
+DSLOG: Average throughput time: 0.11858335826278629
+DSLOG: Total number of iterations 215582
+DSLOG: Current time: 08/03/2025 21:48:49
+DSLOG: Total Time for fuzzer 25684.475781440735s
+DSLOG: Average throughput time: 0.11858624298298037
+DSLOG: Total number of iterations 216589
+DSLOG: Current time: 08/03/2025 21:50:49
+DSLOG: Total Time for fuzzer 25804.50397348404s
+DSLOG: Average throughput time: 0.11858632990420098
+DSLOG: Total number of iterations 217601
+DSLOG: Current time: 08/03/2025 21:52:49
+DSLOG: Total Time for fuzzer 25924.524067401886s
+DSLOG: Average throughput time: 0.11858746388517452
+DSLOG: Total number of iterations 218611
+DSLOG: Current time: 08/03/2025 21:54:49
+DSLOG: Total Time for fuzzer 26044.55992126465s
+DSLOG: Average throughput time: 0.11858919916794758
+DSLOG: Total number of iterations 219620
+DSLOG: Current time: 08/03/2025 21:56:49
+DSLOG: Total Time for fuzzer 26164.585329055786s
+DSLOG: Average throughput time: 0.1185919462670289
+DSLOG: Total number of iterations 220627
+DSLOG: Current time: 08/03/2025 21:58:49
+DSLOG: Total Time for fuzzer 26284.62273812294s
+DSLOG: Average throughput time: 0.1185957927470895
+DSLOG: Total number of iterations 221632
+DSLOG: Current time: 08/03/2025 22:00:49
+DSLOG: Total Time for fuzzer 26404.65860939026s
+DSLOG: Average throughput time: 0.11859586878330546
+DSLOG: Total number of iterations 222644
+DSLOG: Current time: 08/03/2025 22:02:49
+DSLOG: Total Time for fuzzer 26524.663476467133s
+DSLOG: Average throughput time: 0.11859368450535247
+DSLOG: Total number of iterations 223660
+DSLOG: Current time: 08/03/2025 22:04:49
+DSLOG: Total Time for fuzzer 26644.69628238678s
+DSLOG: Average throughput time: 0.11859375570781752
+DSLOG: Total number of iterations 224672
+DSLOG: Current time: 08/03/2025 22:06:49
+DSLOG: Total Time for fuzzer 26764.71107363701s
+DSLOG: Average throughput time: 0.11859479743017613
+DSLOG: Total number of iterations 225682
+DSLOG: Current time: 08/03/2025 22:08:50
+DSLOG: Total Time for fuzzer 26884.72205400467s
+DSLOG: Average throughput time: 0.11859058170640166
+DSLOG: Total number of iterations 226702
+DSLOG: Current time: 08/03/2025 22:10:50
+DSLOG: Total Time for fuzzer 27004.739939451218s
+DSLOG: Average throughput time: 0.11858799634396434
+DSLOG: Total number of iterations 227719
+DSLOG: Current time: 08/03/2025 22:12:50
+DSLOG: Total Time for fuzzer 27124.767203330994s
+DSLOG: Average throughput time: 0.11858910415089907
+DSLOG: Total number of iterations 228729
+DSLOG: Current time: 08/03/2025 22:14:50
+DSLOG: Total Time for fuzzer 27244.782010555267s
+DSLOG: Average throughput time: 0.11859014799644495
+DSLOG: Total number of iterations 229739
+DSLOG: Current time: 08/03/2025 22:16:50
+DSLOG: Total Time for fuzzer 27364.808316230774s
+DSLOG: Average throughput time: 0.11859226042475428
+DSLOG: Total number of iterations 230747
+DSLOG: Current time: 08/03/2025 22:18:50
+DSLOG: Total Time for fuzzer 27484.842301368713s
+DSLOG: Average throughput time: 0.11859489933881924
+DSLOG: Total number of iterations 231754
+DSLOG: Current time: 08/03/2025 22:20:50
+DSLOG: Total Time for fuzzer 27604.864954471588s
+DSLOG: Average throughput time: 0.1186005239606951
+DSLOG: Total number of iterations 232755
+DSLOG: Current time: 08/03/2025 22:22:50
+DSLOG: Total Time for fuzzer 27724.87867307663s
+DSLOG: Average throughput time: 0.11859895911826424
+DSLOG: Total number of iterations 233770
+DSLOG: Current time: 08/03/2025 22:24:50
+DSLOG: Total Time for fuzzer 27844.891277313232s
+DSLOG: Average throughput time: 0.11860043392855933
+DSLOG: Total number of iterations 234779
+DSLOG: Current time: 08/03/2025 22:26:50
+DSLOG: Total Time for fuzzer 27964.90212750435s
+DSLOG: Average throughput time: 0.11859937371976416
+DSLOG: Total number of iterations 235793
+DSLOG: Current time: 08/03/2025 22:28:50
+DSLOG: Total Time for fuzzer 28084.936066389084s
+DSLOG: Average throughput time: 0.11859892091580908
+DSLOG: Total number of iterations 236806
+DSLOG: Current time: 08/03/2025 22:30:50
+DSLOG: Total Time for fuzzer 28204.938841104507s
+DSLOG: Average throughput time: 0.11859534885358776
+DSLOG: Total number of iterations 237825
+DSLOG: Current time: 08/03/2025 22:32:50
+DSLOG: Total Time for fuzzer 28324.950724363327s
+DSLOG: Average throughput time: 0.11859532117872577
+DSLOG: Total number of iterations 238837
+DSLOG: Current time: 08/03/2025 22:34:50
+DSLOG: Total Time for fuzzer 28444.985144615173s
+DSLOG: Average throughput time: 0.11859538770065822
+DSLOG: Total number of iterations 239849
+DSLOG: Current time: 08/03/2025 22:36:50
+DSLOG: Total Time for fuzzer 28565.01745533943s
+DSLOG: Average throughput time: 0.11859642967603216
+DSLOG: Total number of iterations 240859
+DSLOG: Current time: 08/03/2025 22:38:50
+DSLOG: Total Time for fuzzer 28685.038820028305s
+DSLOG: Average throughput time: 0.11859741769316574
+DSLOG: Total number of iterations 241869
+DSLOG: Current time: 08/03/2025 22:40:50
+DSLOG: Total Time for fuzzer 28805.06768798828s
+DSLOG: Average throughput time: 0.11859891669063596
+DSLOG: Total number of iterations 242878
+DSLOG: Current time: 08/03/2025 22:42:50
+DSLOG: Total Time for fuzzer 28925.074921369553s
+DSLOG: Average throughput time: 0.11860031457752793
+DSLOG: Total number of iterations 243887
+DSLOG: Current time: 08/03/2025 22:44:50
+DSLOG: Total Time for fuzzer 29045.10536289215s
+DSLOG: Average throughput time: 0.11859985856632156
+DSLOG: Total number of iterations 244900
+DSLOG: Current time: 08/03/2025 22:46:50
+DSLOG: Total Time for fuzzer 29165.111511945724s
+DSLOG: Average throughput time: 0.11859689616842087
+DSLOG: Total number of iterations 245918
+DSLOG: Current time: 08/03/2025 22:48:50
+DSLOG: Total Time for fuzzer 29285.147421598434s
+DSLOG: Average throughput time: 0.11859840123436657
+DSLOG: Total number of iterations 246927
+DSLOG: Current time: 08/03/2025 22:50:50
+DSLOG: Total Time for fuzzer 29405.157527923584s
+DSLOG: Average throughput time: 0.11859739828396104
+DSLOG: Total number of iterations 247941
+DSLOG: Current time: 08/03/2025 22:52:50
+DSLOG: Total Time for fuzzer 29525.201926469803s
+DSLOG: Average throughput time: 0.1186003523901465
+DSLOG: Total number of iterations 248947
+DSLOG: Current time: 08/03/2025 22:54:50
+DSLOG: Total Time for fuzzer 29645.234505414963s
+DSLOG: Average throughput time: 0.1186018119405614
+DSLOG: Total number of iterations 249956
+DSLOG: Current time: 08/03/2025 22:56:50
+DSLOG: Total Time for fuzzer 29765.236736297607s
+DSLOG: Average throughput time: 0.11860219366011311
+DSLOG: Total number of iterations 250967
+DSLOG: Current time: 08/03/2025 22:58:50
+DSLOG: Total Time for fuzzer 29885.243490457535s
+DSLOG: Average throughput time: 0.11860306095579173
+DSLOG: Total number of iterations 251977
+DSLOG: Current time: 08/03/2025 23:00:50
+DSLOG: Total Time for fuzzer 30005.25526213646s
+DSLOG: Average throughput time: 0.11860581644670377
+DSLOG: Total number of iterations 252983
+DSLOG: Current time: 08/03/2025 23:02:50
+DSLOG: Total Time for fuzzer 30125.25846505165s
+DSLOG: Average throughput time: 0.11860851637295966
+DSLOG: Total number of iterations 253989
+DSLOG: Current time: 08/03/2025 23:04:50
+DSLOG: Total Time for fuzzer 30245.25998020172s
+DSLOG: Average throughput time: 0.1186032813365713
+DSLOG: Total number of iterations 255012
+DSLOG: Current time: 08/03/2025 23:06:50
+DSLOG: Total Time for fuzzer 30365.293721675873s
+DSLOG: Average throughput time: 0.11860516257197044
+DSLOG: Total number of iterations 256020
+DSLOG: Current time: 08/03/2025 23:08:50
+DSLOG: Total Time for fuzzer 30485.31004190445s
+DSLOG: Average throughput time: 0.118607422729536
+DSLOG: Total number of iterations 257027
+DSLOG: Current time: 08/03/2025 23:10:50
+DSLOG: Total Time for fuzzer 30605.31384587288s
+DSLOG: Average throughput time: 0.11860731845136928
+DSLOG: Total number of iterations 258039
+DSLOG: Current time: 08/03/2025 23:12:50
+DSLOG: Total Time for fuzzer 30725.339148521423s
+DSLOG: Average throughput time: 0.11860912941868242
+DSLOG: Total number of iterations 259047
+DSLOG: Current time: 08/03/2025 23:14:50
+DSLOG: Total Time for fuzzer 30845.3545730114s
+DSLOG: Average throughput time: 0.11860906399321461
+DSLOG: Total number of iterations 260059
+DSLOG: Current time: 08/03/2025 23:16:50
+DSLOG: Total Time for fuzzer 30965.36885380745s
+DSLOG: Average throughput time: 0.11861035766086786
+DSLOG: Total number of iterations 261068
+DSLOG: Current time: 08/03/2025 23:18:50
+DSLOG: Total Time for fuzzer 31085.37888622284s
+DSLOG: Average throughput time: 0.1186120777416583
+DSLOG: Total number of iterations 262076
+DSLOG: Current time: 08/03/2025 23:20:50
+DSLOG: Total Time for fuzzer 31205.41507458687s
+DSLOG: Average throughput time: 0.11861298235020817
+DSLOG: Total number of iterations 263086
+DSLOG: Current time: 08/03/2025 23:22:50
+DSLOG: Total Time for fuzzer 31325.453814029694s
+DSLOG: Average throughput time: 0.11861254231946995
+DSLOG: Total number of iterations 264099
+DSLOG: Current time: 08/03/2025 23:24:50
+DSLOG: Total Time for fuzzer 31445.455664873123s
+DSLOG: Average throughput time: 0.11861286132123693
+DSLOG: Total number of iterations 265110
+DSLOG: Current time: 08/03/2025 23:26:50
+DSLOG: Total Time for fuzzer 31565.45974135399s
+DSLOG: Average throughput time: 0.11861541486176701
+DSLOG: Total number of iterations 266116
+DSLOG: Current time: 08/03/2025 23:28:50
+DSLOG: Total Time for fuzzer 31685.48489832878s
+DSLOG: Average throughput time: 0.1186153637893773
+DSLOG: Total number of iterations 267128
+DSLOG: Current time: 08/03/2025 23:30:50
+DSLOG: Total Time for fuzzer 31805.52848815918s
+DSLOG: Average throughput time: 0.11861493948392517
+DSLOG: Total number of iterations 268141
+DSLOG: Current time: 08/03/2025 23:32:50
+DSLOG: Total Time for fuzzer 31925.563774347305s
+DSLOG: Average throughput time: 0.11861757245797763
+DSLOG: Total number of iterations 269147
+DSLOG: Current time: 08/03/2025 23:34:50
+DSLOG: Total Time for fuzzer 32045.58666419983s
+DSLOG: Average throughput time: 0.11861618830257338
+DSLOG: Total number of iterations 270162
+DSLOG: Current time: 08/03/2025 23:36:50
+DSLOG: Total Time for fuzzer 32165.611145734787s
+DSLOG: Average throughput time: 0.11861657003364932
+DSLOG: Total number of iterations 271173
+DSLOG: Current time: 08/03/2025 23:38:50
+DSLOG: Total Time for fuzzer 32285.61557507515s
+DSLOG: Average throughput time: 0.11861731105570572
+DSLOG: Total number of iterations 272183
+DSLOG: Current time: 08/03/2025 23:40:50
+DSLOG: Total Time for fuzzer 32405.647262096405s
+DSLOG: Average throughput time: 0.11861814637306375
+DSLOG: Total number of iterations 273193
+DSLOG: Current time: 08/03/2025 23:42:50
+DSLOG: Total Time for fuzzer 32525.656469106674s
+DSLOG: Average throughput time: 0.11861975875035713
+DSLOG: Total number of iterations 274201
+DSLOG: Current time: 08/03/2025 23:44:50
+DSLOG: Total Time for fuzzer 32645.668142557144s
+DSLOG: Average throughput time: 0.11861921320338771
+DSLOG: Total number of iterations 275214
+DSLOG: Current time: 08/03/2025 23:46:50
+DSLOG: Total Time for fuzzer 32765.675782203674s
+DSLOG: Average throughput time: 0.1186186570545373
+DSLOG: Total number of iterations 276227
+DSLOG: Current time: 08/03/2025 23:48:50
+DSLOG: Total Time for fuzzer 32885.67710208893s
+DSLOG: Average throughput time: 0.11862022148029264
+DSLOG: Total number of iterations 277235
+DSLOG: Current time: 08/03/2025 23:50:50
+DSLOG: Total Time for fuzzer 33005.69269180298s
+DSLOG: Average throughput time: 0.11862182585654618
+DSLOG: Total number of iterations 278243
+DSLOG: Current time: 08/03/2025 23:52:50
+DSLOG: Total Time for fuzzer 33125.69881606102s
+DSLOG: Average throughput time: 0.1186238095472194
+DSLOG: Total number of iterations 279250
+DSLOG: Current time: 08/03/2025 23:54:51
+DSLOG: Total Time for fuzzer 33245.71706914902s
+DSLOG: Average throughput time: 0.11862201290612853
+DSLOG: Total number of iterations 280266
+DSLOG: Current time: 08/03/2025 23:56:51
+DSLOG: Total Time for fuzzer 33365.720299482346s
+DSLOG: Average throughput time: 0.11862228443663131
+DSLOG: Total number of iterations 281277
+DSLOG: Current time: 08/03/2025 23:58:51
+DSLOG: Total Time for fuzzer 33485.731697797775s
+DSLOG: Average throughput time: 0.11861922130599717
+DSLOG: Total number of iterations 282296
+DSLOG: Current time: 09/03/2025 00:00:51
+DSLOG: Total Time for fuzzer 33605.7536277771s
+DSLOG: Average throughput time: 0.11861496137829965
+DSLOG: Total number of iterations 283318
+DSLOG: Current time: 09/03/2025 00:02:51
+DSLOG: Total Time for fuzzer 33725.78425312042s
+DSLOG: Average throughput time: 0.11861284841162861
+DSLOG: Total number of iterations 284335
+DSLOG: Current time: 09/03/2025 00:04:51
+DSLOG: Total Time for fuzzer 33845.786965847015s
+DSLOG: Average throughput time: 0.11861189969422362
+DSLOG: Total number of iterations 285349
+DSLOG: Current time: 09/03/2025 00:06:51
+DSLOG: Total Time for fuzzer 33965.82969355583s
+DSLOG: Average throughput time: 0.11860861229237743
+DSLOG: Total number of iterations 286369
+DSLOG: Current time: 09/03/2025 00:08:51
+DSLOG: Total Time for fuzzer 34085.834491968155s
+DSLOG: Average throughput time: 0.11860686706671592
+DSLOG: Total number of iterations 287385
+DSLOG: Current time: 09/03/2025 00:10:51
+DSLOG: Total Time for fuzzer 34205.84137940407s
+DSLOG: Average throughput time: 0.11860802020639842
+DSLOG: Total number of iterations 288394
+DSLOG: Current time: 09/03/2025 00:12:51
+DSLOG: Total Time for fuzzer 34325.85636281967s
+DSLOG: Average throughput time: 0.11860837360384123
+DSLOG: Total number of iterations 289405
+DSLOG: Current time: 09/03/2025 00:14:51
+DSLOG: Total Time for fuzzer 34445.86760640144s
+DSLOG: Average throughput time: 0.11860912007438129
+DSLOG: Total number of iterations 290415
+DSLOG: Current time: 09/03/2025 00:16:51
+DSLOG: Total Time for fuzzer 34565.8900706768s
+DSLOG: Average throughput time: 0.11860908587974622
+DSLOG: Total number of iterations 291427
+DSLOG: Current time: 09/03/2025 00:18:51
+DSLOG: Total Time for fuzzer 34685.90025997162s
+DSLOG: Average throughput time: 0.11860819878187949
+DSLOG: Total number of iterations 292441
+DSLOG: Current time: 09/03/2025 00:20:51
+DSLOG: Total Time for fuzzer 34805.92241334915s
+DSLOG: Average throughput time: 0.11860816694104048
+DSLOG: Total number of iterations 293453
+DSLOG: Current time: 09/03/2025 00:22:51
+DSLOG: Total Time for fuzzer 34925.93107676506s
+DSLOG: Average throughput time: 0.11860970069640822
+DSLOG: Total number of iterations 294461
+DSLOG: Current time: 09/03/2025 00:24:51
+DSLOG: Total Time for fuzzer 35045.95622587204s
+DSLOG: Average throughput time: 0.11860806839744562
+DSLOG: Total number of iterations 295477
+DSLOG: Current time: 09/03/2025 00:26:51
+DSLOG: Total Time for fuzzer 35165.97592020035s
+DSLOG: Average throughput time: 0.11861042933389215
+DSLOG: Total number of iterations 296483
+DSLOG: Current time: 09/03/2025 00:28:51
+DSLOG: Total Time for fuzzer 35286.0109372139s
+DSLOG: Average throughput time: 0.11861083227632792
+DSLOG: Total number of iterations 297494
+DSLOG: Current time: 09/03/2025 00:30:51
+DSLOG: Total Time for fuzzer 35406.051729917526s
+DSLOG: Average throughput time: 0.1186108544884107
+DSLOG: Total number of iterations 298506
+DSLOG: Current time: 09/03/2025 00:32:51
+DSLOG: Total Time for fuzzer 35526.07638978958s
+DSLOG: Average throughput time: 0.11861082268775025
+DSLOG: Total number of iterations 299518
+DSLOG: Current time: 09/03/2025 00:34:51
+DSLOG: Total Time for fuzzer 35646.094953775406s
+DSLOG: Average throughput time: 0.11861116549076929
+DSLOG: Total number of iterations 300529
+DSLOG: Current time: 09/03/2025 00:36:51
+DSLOG: Total Time for fuzzer 35766.111515045166s
+DSLOG: Average throughput time: 0.11861385951516303
+DSLOG: Total number of iterations 301534
+DSLOG: Current time: 09/03/2025 00:38:51
+DSLOG: Total Time for fuzzer 35886.14750123024s
+DSLOG: Average throughput time: 0.11861581571168946
+DSLOG: Total number of iterations 302541
+DSLOG: Current time: 09/03/2025 00:40:51
+DSLOG: Total Time for fuzzer 36006.15652012825s
+DSLOG: Average throughput time: 0.11861376251038763
+DSLOG: Total number of iterations 303558
+DSLOG: Current time: 09/03/2025 00:42:51
+DSLOG: Total Time for fuzzer 36126.167197942734s
+DSLOG: Average throughput time: 0.11861523347301647
+DSLOG: Total number of iterations 304566
+DSLOG: Current time: 09/03/2025 00:44:51
+DSLOG: Total Time for fuzzer 36246.18029499054s
+DSLOG: Average throughput time: 0.11861631447268442
+DSLOG: Total number of iterations 305575
+DSLOG: Current time: 09/03/2025 00:46:51
+DSLOG: Total Time for fuzzer 36366.18210744858s
+DSLOG: Average throughput time: 0.11861735154948914
+DSLOG: Total number of iterations 306584
+DSLOG: Current time: 09/03/2025 00:48:51
+DSLOG: Total Time for fuzzer 36486.18854475021s
+DSLOG: Average throughput time: 0.11861839685802412
+DSLOG: Total number of iterations 307593
+DSLOG: Current time: 09/03/2025 00:50:51
+DSLOG: Total Time for fuzzer 36606.20690083504s
+DSLOG: Average throughput time: 0.11861947395297191
+DSLOG: Total number of iterations 308602
+DSLOG: Current time: 09/03/2025 00:52:51
+DSLOG: Total Time for fuzzer 36726.243916749954s
+DSLOG: Average throughput time: 0.11861983804539847
+DSLOG: Total number of iterations 309613
+DSLOG: Current time: 09/03/2025 00:54:51
+DSLOG: Total Time for fuzzer 36846.24564027786s
+DSLOG: Average throughput time: 0.11862199556459155
+DSLOG: Total number of iterations 310619
+DSLOG: Found new coverage. [69840, 69888, 69929, 69970, 70219]
+DSLOG: Writing new seed to 5
+DSLOG: Current time: 09/03/2025 00:56:51
+DSLOG: Total Time for fuzzer 36966.246628046036s
+DSLOG: Average throughput time: 0.11861994964653004
+DSLOG: Total number of iterations 311636
+DSLOG: Current time: 09/03/2025 00:58:51
+DSLOG: Total Time for fuzzer 37086.28953385353s
+DSLOG: Average throughput time: 0.11862032750627236
+DSLOG: Total number of iterations 312647
+DSLOG: Current time: 09/03/2025 01:00:51
+DSLOG: Total Time for fuzzer 37206.301297426224s
+DSLOG: Average throughput time: 0.1186183345791236
+DSLOG: Total number of iterations 313664
+DSLOG: Current time: 09/03/2025 01:02:51
+DSLOG: Total Time for fuzzer 37326.30221939087s
+DSLOG: Average throughput time: 0.11861669702361405
+DSLOG: Total number of iterations 314680
+DSLOG: Current time: 09/03/2025 01:04:51
+DSLOG: Total Time for fuzzer 37446.328339099884s
+DSLOG: Average throughput time: 0.11861777996414155
+DSLOG: Total number of iterations 315689
+DSLOG: Current time: 09/03/2025 01:06:51
+DSLOG: Total Time for fuzzer 37566.33215069771s
+DSLOG: Average throughput time: 0.1186202837777088
+DSLOG: Total number of iterations 316694
+DSLOG: Current time: 09/03/2025 01:08:51
+DSLOG: Total Time for fuzzer 37686.3781607151s
+DSLOG: Average throughput time: 0.11862290457544752
+DSLOG: Total number of iterations 317699
+DSLOG: Current time: 09/03/2025 01:10:51
+DSLOG: Total Time for fuzzer 37806.38726758957s
+DSLOG: Average throughput time: 0.11862241543333658
+DSLOG: Total number of iterations 318712
+DSLOG: Current time: 09/03/2025 01:12:51
+DSLOG: Total Time for fuzzer 37926.39088654518s
+DSLOG: Average throughput time: 0.11861968619416066
+DSLOG: Total number of iterations 319731
+DSLOG: Current time: 09/03/2025 01:14:51
+DSLOG: Total Time for fuzzer 38046.407074928284s
+DSLOG: Average throughput time: 0.11861849274793226
+DSLOG: Total number of iterations 320746
+DSLOG: Current time: 09/03/2025 01:16:51
+DSLOG: Total Time for fuzzer 38166.4374833107s
+DSLOG: Average throughput time: 0.1186199316350712
+DSLOG: Total number of iterations 321754
+DSLOG: Current time: 09/03/2025 01:18:51
+DSLOG: Total Time for fuzzer 38286.44146633148s
+DSLOG: Average throughput time: 0.11862164718268775
+DSLOG: Total number of iterations 322761
+DSLOG: Current time: 09/03/2025 01:20:51
+DSLOG: Total Time for fuzzer 38406.44830799103s
+DSLOG: Average throughput time: 0.11861713268987455
+DSLOG: Total number of iterations 323785
+DSLOG: Current time: 09/03/2025 01:22:51
+DSLOG: Total Time for fuzzer 38526.48026204109s
+DSLOG: Average throughput time: 0.11861783667248908
+DSLOG: Total number of iterations 324795
+DSLOG: Current time: 09/03/2025 01:24:51
+DSLOG: Total Time for fuzzer 38646.487818956375s
+DSLOG: Average throughput time: 0.11861554885457724
+DSLOG: Total number of iterations 325813
+DSLOG: Current time: 09/03/2025 01:26:51
+DSLOG: Total Time for fuzzer 38766.49440956116s
+DSLOG: Average throughput time: 0.11861581282146096
+DSLOG: Total number of iterations 326824
+DSLOG: Current time: 09/03/2025 01:28:51
+DSLOG: Total Time for fuzzer 38886.521169900894s
+DSLOG: Average throughput time: 0.11861830762348936
+DSLOG: Total number of iterations 327829
+DSLOG: Current time: 09/03/2025 01:30:51
+DSLOG: Total Time for fuzzer 39006.53191637993s
+DSLOG: Average throughput time: 0.11861532775340636
+DSLOG: Total number of iterations 328849
+DSLOG: Current time: 09/03/2025 01:32:51
+DSLOG: Total Time for fuzzer 39126.55928325653s
+DSLOG: Average throughput time: 0.11861781055635684
+DSLOG: Total number of iterations 329854
+DSLOG: Current time: 09/03/2025 01:34:51
+DSLOG: Total Time for fuzzer 39246.58167886734s
+DSLOG: Average throughput time: 0.11861631963873225
+DSLOG: Total number of iterations 330870
+DSLOG: Current time: 09/03/2025 01:36:51
+DSLOG: Total Time for fuzzer 39366.58641433716s
+DSLOG: Average throughput time: 0.11861621423981161
+DSLOG: Total number of iterations 331882
+DSLOG: Current time: 09/03/2025 01:38:51
+DSLOG: Total Time for fuzzer 39486.588775873184s
+DSLOG: Average throughput time: 0.11861610235051753
+DSLOG: Total number of iterations 332894
+DSLOG: Current time: 09/03/2025 01:40:51
+DSLOG: Total Time for fuzzer 39606.61879658699s
+DSLOG: Average throughput time: 0.11861749494338755
+DSLOG: Total number of iterations 333902
+DSLOG: Current time: 09/03/2025 01:42:51
+DSLOG: Total Time for fuzzer 39726.665538072586s
+DSLOG: Average throughput time: 0.11861680402868954
+DSLOG: Total number of iterations 334916
+DSLOG: Current time: 09/03/2025 01:44:51
+DSLOG: Total Time for fuzzer 39846.678792476654s
+DSLOG: Average throughput time: 0.11861813622270709
+DSLOG: Total number of iterations 335924
+DSLOG: Current time: 09/03/2025 01:46:51
+DSLOG: Total Time for fuzzer 39966.683262348175s
+DSLOG: Average throughput time: 0.11861767411221734
+DSLOG: Total number of iterations 336937
+DSLOG: Current time: 09/03/2025 01:48:51
+DSLOG: Total Time for fuzzer 40086.6873652935s
+DSLOG: Average throughput time: 0.1186175646777872
+DSLOG: Total number of iterations 337949
+DSLOG: Current time: 09/03/2025 01:50:51
+DSLOG: Total Time for fuzzer 40206.69689846039s
+DSLOG: Average throughput time: 0.11861782186234479
+DSLOG: Total number of iterations 338960
+DSLOG: Current time: 09/03/2025 01:52:51
+DSLOG: Total Time for fuzzer 40326.71090722084s
+DSLOG: Average throughput time: 0.11861634617508542
+DSLOG: Total number of iterations 339976
+DSLOG: Current time: 09/03/2025 01:54:52
+DSLOG: Total Time for fuzzer 40446.72529792786s
+DSLOG: Average throughput time: 0.1186166196891021
+DSLOG: Total number of iterations 340987
+DSLOG: Current time: 09/03/2025 01:56:52
+DSLOG: Total Time for fuzzer 40566.72937321663s
+DSLOG: Average throughput time: 0.11861928931818858
+DSLOG: Total number of iterations 341991
+DSLOG: Current time: 09/03/2025 01:58:52
+DSLOG: Total Time for fuzzer 40686.737530469894s
+DSLOG: Average throughput time: 0.11861884272623612
+DSLOG: Total number of iterations 343004
+DSLOG: Current time: 09/03/2025 03:00:00
+DSLOG: Total Time for fuzzer 40754.71390533447s
+DSLOG: Average throughput time: 0.1186195558621392
+DSLOG: Total number of iterations 343575
+DSLOG: Current time: 09/03/2025 03:02:00
+DSLOG: Total Time for fuzzer 40874.75646972656s
+DSLOG: Average throughput time: 0.1186198988633507
+DSLOG: Total number of iterations 344586
+DSLOG: Current time: 09/03/2025 03:04:00
+DSLOG: Total Time for fuzzer 40994.800805568695s
+DSLOG: Average throughput time: 0.11861646954228112
+DSLOG: Total number of iterations 345608
+DSLOG: Current time: 09/03/2025 03:06:00
+DSLOG: Total Time for fuzzer 41114.8246421814s
+DSLOG: Average throughput time: 0.11861573888034053
+DSLOG: Total number of iterations 346622
+DSLOG: Current time: 09/03/2025 03:08:00
+DSLOG: Total Time for fuzzer 41234.84765791893s
+DSLOG: Average throughput time: 0.11861637495374111
+DSLOG: Total number of iterations 347632
+DSLOG: Current time: 09/03/2025 03:10:00
+DSLOG: Total Time for fuzzer 41354.85348725319s
+DSLOG: Average throughput time: 0.11861049411105111
+DSLOG: Total number of iterations 348661
+DSLOG: Current time: 09/03/2025 03:12:00
+DSLOG: Total Time for fuzzer 41474.873510837555s
+DSLOG: Average throughput time: 0.11860434929934587
+DSLOG: Total number of iterations 349691
+DSLOG: Current time: 09/03/2025 03:14:00
+DSLOG: Total Time for fuzzer 41594.89064288139s
+DSLOG: Average throughput time: 0.11860161398667676
+DSLOG: Total number of iterations 350711
+DSLOG: Current time: 09/03/2025 03:16:00
+DSLOG: Total Time for fuzzer 41714.91111278534s
+DSLOG: Average throughput time: 0.11860126437998357
+DSLOG: Total number of iterations 351724
+DSLOG: Current time: 09/03/2025 03:18:00
+DSLOG: Total Time for fuzzer 41834.91804718971s
+DSLOG: Average throughput time: 0.11860188710810331
+DSLOG: Total number of iterations 352734
+DSLOG: Current time: 09/03/2025 03:20:00
+DSLOG: Total Time for fuzzer 41954.94873380661s
+DSLOG: Average throughput time: 0.11860424983902428
+DSLOG: Total number of iterations 353739
+DSLOG: Current time: 09/03/2025 03:22:00
+DSLOG: Total Time for fuzzer 42074.9543197155s
+DSLOG: Average throughput time: 0.11860418806350229
+DSLOG: Total number of iterations 354751
+DSLOG: Current time: 09/03/2025 03:24:00
+DSLOG: Total Time for fuzzer 42194.97162079811s
+DSLOG: Average throughput time: 0.11860349281350922
+DSLOG: Total number of iterations 355765
+DSLOG: Current time: 09/03/2025 03:26:00
+DSLOG: Total Time for fuzzer 42314.97682929039s
+DSLOG: Average throughput time: 0.1186024351961724
+DSLOG: Total number of iterations 356780
+DSLOG: Current time: 09/03/2025 03:28:00
+DSLOG: Total Time for fuzzer 42434.997398138046s
+DSLOG: Average throughput time: 0.11860275243965904
+DSLOG: Total number of iterations 357791
+DSLOG: Current time: 09/03/2025 03:30:00
+DSLOG: Total Time for fuzzer 42555.02436089516s
+DSLOG: Average throughput time: 0.11860242461314578
+DSLOG: Total number of iterations 358804
+DSLOG: Current time: 09/03/2025 03:32:00
+DSLOG: Total Time for fuzzer 42675.02894759178s
+DSLOG: Average throughput time: 0.1186036845563566
+DSLOG: Total number of iterations 359812
+DSLOG: Current time: 09/03/2025 03:34:00
+DSLOG: Total Time for fuzzer 42795.05416584015s
+DSLOG: Average throughput time: 0.11860400851896954
+DSLOG: Total number of iterations 360823
+DSLOG: Current time: 09/03/2025 03:36:00
+DSLOG: Total Time for fuzzer 42915.07647585869s
+DSLOG: Average throughput time: 0.11860596158920012
+DSLOG: Total number of iterations 361829
+DSLOG: Current time: 09/03/2025 03:38:00
+DSLOG: Total Time for fuzzer 43035.11341381073s
+DSLOG: Average throughput time: 0.11860761725355458
+DSLOG: Total number of iterations 362836
+DSLOG: Current time: 09/03/2025 03:40:00
+DSLOG: Total Time for fuzzer 43155.14296913147s
+DSLOG: Average throughput time: 0.11860826550005077
+DSLOG: Total number of iterations 363846
+DSLOG: Current time: 09/03/2025 03:42:00
+DSLOG: Total Time for fuzzer 43275.17477107048s
+DSLOG: Average throughput time: 0.1186089163151229
+DSLOG: Total number of iterations 364856
+DSLOG: Current time: 09/03/2025 03:44:00
+DSLOG: Total Time for fuzzer 43395.17715573311s
+DSLOG: Average throughput time: 0.11860851057546036
+DSLOG: Total number of iterations 365869
+DSLOG: Current time: 09/03/2025 03:46:00
+DSLOG: Total Time for fuzzer 43515.19377875328s
+DSLOG: Average throughput time: 0.11860749931518758
+DSLOG: Total number of iterations 366884
+DSLOG: Current time: 09/03/2025 03:48:00
+DSLOG: Total Time for fuzzer 43635.215465307236s
+DSLOG: Average throughput time: 0.1186087641626
+DSLOG: Total number of iterations 367892
+DSLOG: Current time: 09/03/2025 03:50:00
+DSLOG: Total Time for fuzzer 43755.23321557045s
+DSLOG: Average throughput time: 0.11860904686481392
+DSLOG: Total number of iterations 368903
+DSLOG: Current time: 09/03/2025 03:52:00
+DSLOG: Total Time for fuzzer 43875.26767420769s
+DSLOG: Average throughput time: 0.11861033511900887
+DSLOG: Total number of iterations 369911
+DSLOG: Current time: 09/03/2025 03:54:00
+DSLOG: Total Time for fuzzer 43995.294164180756s
+DSLOG: Average throughput time: 0.11860871695903452
+DSLOG: Total number of iterations 370928
+DSLOG: Current time: 09/03/2025 03:56:00
+DSLOG: Total Time for fuzzer 44115.29981851578s
+DSLOG: Average throughput time: 0.11861055945010614
+DSLOG: Total number of iterations 371934
+DSLOG: Current time: 09/03/2025 03:58:00
+DSLOG: Total Time for fuzzer 44235.31396985054s
+DSLOG: Average throughput time: 0.11861114261082238
+DSLOG: Total number of iterations 372944
+DSLOG: Current time: 09/03/2025 04:00:00
+DSLOG: Total Time for fuzzer 44355.3230471611s
+DSLOG: Average throughput time: 0.11861107469103611
+DSLOG: Total number of iterations 373956
+DSLOG: Current time: 09/03/2025 04:02:00
+DSLOG: Total Time for fuzzer 44475.371227264404s
+DSLOG: Average throughput time: 0.11860984614121696
+DSLOG: Total number of iterations 374972
+DSLOG: Current time: 09/03/2025 04:04:00
+DSLOG: Total Time for fuzzer 44595.38775229454s
+DSLOG: Average throughput time: 0.11860790912602606
+DSLOG: Total number of iterations 375990
+DSLOG: Current time: 09/03/2025 04:06:00
+DSLOG: Total Time for fuzzer 44715.41808009148s
+DSLOG: Average throughput time: 0.11861010909983283
+DSLOG: Total number of iterations 376995
+DSLOG: Current time: 09/03/2025 04:08:00
+DSLOG: Total Time for fuzzer 44835.42308616638s
+DSLOG: Average throughput time: 0.1186097201280565
+DSLOG: Total number of iterations 378008
+DSLOG: Current time: 09/03/2025 04:10:00
+DSLOG: Total Time for fuzzer 44955.454488515854s
+DSLOG: Average throughput time: 0.11860971581582991
+DSLOG: Total number of iterations 379020
+DSLOG: Current time: 09/03/2025 04:12:00
+DSLOG: Total Time for fuzzer 45075.49413371086s
+DSLOG: Average throughput time: 0.11860786061844042
+DSLOG: Total number of iterations 380038
+DSLOG: Current time: 09/03/2025 04:14:00
+DSLOG: Total Time for fuzzer 45195.530207157135s
+DSLOG: Average throughput time: 0.1186072509976516
+DSLOG: Total number of iterations 381052
+DSLOG: Current time: 09/03/2025 04:16:00
+DSLOG: Total Time for fuzzer 45315.53599214554s
+DSLOG: Average throughput time: 0.11860687577282802
+DSLOG: Total number of iterations 382065
+DSLOG: Current time: 09/03/2025 04:18:00
+DSLOG: Total Time for fuzzer 45435.55452942848s
+DSLOG: Average throughput time: 0.11860684543689254
+DSLOG: Total number of iterations 383077
+DSLOG: Current time: 09/03/2025 04:20:00
+DSLOG: Total Time for fuzzer 45555.58208990097s
+DSLOG: Average throughput time: 0.11860652995365922
+DSLOG: Total number of iterations 384090
+DSLOG: Current time: 09/03/2025 04:22:00
+DSLOG: Total Time for fuzzer 45675.58679986s
+DSLOG: Average throughput time: 0.1186055408261643
+DSLOG: Total number of iterations 385105
+DSLOG: Current time: 09/03/2025 04:24:00
+DSLOG: Total Time for fuzzer 45795.59056568146s
+DSLOG: Average throughput time: 0.1186057831472445
+DSLOG: Total number of iterations 386116
+DSLOG: Current time: 09/03/2025 04:26:00
+DSLOG: Total Time for fuzzer 45915.63653063774s
+DSLOG: Average throughput time: 0.11860552046123576
+DSLOG: Total number of iterations 387129
+DSLOG: Current time: 09/03/2025 04:28:00
+DSLOG: Total Time for fuzzer 46035.67565989494s
+DSLOG: Average throughput time: 0.11860554710761023
+DSLOG: Total number of iterations 388141
+DSLOG: Current time: 09/03/2025 04:30:00
+DSLOG: Total Time for fuzzer 46155.69445729256s
+DSLOG: Average throughput time: 0.11860460704008818
+DSLOG: Total number of iterations 389156
+DSLOG: Current time: 09/03/2025 04:32:00
+DSLOG: Total Time for fuzzer 46275.695476293564s
+DSLOG: Average throughput time: 0.11860484222472317
+DSLOG: Total number of iterations 390167
+DSLOG: Current time: 09/03/2025 04:34:00
+DSLOG: Total Time for fuzzer 46395.70451784134s
+DSLOG: Average throughput time: 0.11860449030584728
+DSLOG: Total number of iterations 391180
+DSLOG: Current time: 09/03/2025 04:36:01
+DSLOG: Total Time for fuzzer 46515.74735021591s
+DSLOG: Average throughput time: 0.11860301672428884
+DSLOG: Total number of iterations 392197
+DSLOG: Current time: 09/03/2025 04:38:01
+DSLOG: Total Time for fuzzer 46635.75634145737s
+DSLOG: Average throughput time: 0.11860417935035762
+DSLOG: Total number of iterations 393205
+DSLOG: Current time: 09/03/2025 04:40:01
+DSLOG: Total Time for fuzzer 46755.76091814041s
+DSLOG: Average throughput time: 0.11860141370214144
+DSLOG: Total number of iterations 394226
+DSLOG: Current time: 09/03/2025 04:42:01
+DSLOG: Total Time for fuzzer 46875.796125650406s
+DSLOG: Average throughput time: 0.11860144046283608
+DSLOG: Total number of iterations 395238
+DSLOG: Current time: 09/03/2025 04:44:01
+DSLOG: Total Time for fuzzer 46995.80057811737s
+DSLOG: Average throughput time: 0.118600491549887
+DSLOG: Total number of iterations 396253
+DSLOG: Current time: 09/03/2025 04:46:01
+DSLOG: Total Time for fuzzer 47115.80381989479s
+DSLOG: Average throughput time: 0.11859984297687648
+DSLOG: Total number of iterations 397267
+DSLOG: Current time: 09/03/2025 04:48:01
+DSLOG: Total Time for fuzzer 47235.84335899353s
+DSLOG: Average throughput time: 0.11859958661994961
+DSLOG: Total number of iterations 398280
+DSLOG: Current time: 09/03/2025 04:50:01
+DSLOG: Total Time for fuzzer 47355.8818731308s
+DSLOG: Average throughput time: 0.11860170523092728
+DSLOG: Total number of iterations 399285
+DSLOG: Current time: 09/03/2025 04:52:01
+DSLOG: Total Time for fuzzer 47475.90026450157s
+DSLOG: Average throughput time: 0.11860228147866342
+DSLOG: Total number of iterations 400295
+DSLOG: Current time: 09/03/2025 04:54:01
+DSLOG: Total Time for fuzzer 47595.948353767395s
+DSLOG: Average throughput time: 0.11860292882911351
+DSLOG: Total number of iterations 401305
+DSLOG: Current time: 09/03/2025 04:56:01
+DSLOG: Total Time for fuzzer 47715.9567027092s
+DSLOG: Average throughput time: 0.11860376895337771
+DSLOG: Total number of iterations 402314
+DSLOG: Found new coverage. [69840, 69888, 69929, 69970, 70011, 70219]
+DSLOG: Writing new seed to 6
+DSLOG: Current time: 09/03/2025 04:58:01
+DSLOG: Total Time for fuzzer 47835.98651647568s
+DSLOG: Average throughput time: 0.11860436402613203
+DSLOG: Total number of iterations 403324
+DSLOG: Current time: 09/03/2025 05:00:01
+DSLOG: Total Time for fuzzer 47956.00120425224s
+DSLOG: Average throughput time: 0.11860374539185593
+DSLOG: Total number of iterations 404338
+DSLOG: Current time: 09/03/2025 05:02:01
+DSLOG: Total Time for fuzzer 48076.03840017319s
+DSLOG: Average throughput time: 0.118604063165749
+DSLOG: Total number of iterations 405349
+DSLOG: Current time: 09/03/2025 05:04:01
+DSLOG: Total Time for fuzzer 48196.07115697861s
+DSLOG: Average throughput time: 0.11860524405136028
+DSLOG: Total number of iterations 406357
+DSLOG: Current time: 09/03/2025 05:06:01
+DSLOG: Total Time for fuzzer 48316.072506427765s
+DSLOG: Average throughput time: 0.11860663314978193
+DSLOG: Total number of iterations 407364
+DSLOG: Current time: 09/03/2025 05:08:01
+DSLOG: Total Time for fuzzer 48436.08069396019s
+DSLOG: Average throughput time: 0.11860657995073215
+DSLOG: Total number of iterations 408376
+DSLOG: Current time: 09/03/2025 05:10:01
+DSLOG: Total Time for fuzzer 48556.10289359093s
+DSLOG: Average throughput time: 0.11860743039825819
+DSLOG: Total number of iterations 409385
+DSLOG: Current time: 09/03/2025 05:12:01
+DSLOG: Total Time for fuzzer 48676.14895415306s
+DSLOG: Average throughput time: 0.11860775678650148
+DSLOG: Total number of iterations 410396
+DSLOG: Current time: 09/03/2025 05:14:01
+DSLOG: Total Time for fuzzer 48796.17163991928s
+DSLOG: Average throughput time: 0.11861033118680231
+DSLOG: Total number of iterations 411399
+DSLOG: Current time: 09/03/2025 05:16:01
+DSLOG: Total Time for fuzzer 48916.18354535103s
+DSLOG: Average throughput time: 0.1186108536558393
+DSLOG: Total number of iterations 412409
+DSLOG: Current time: 09/03/2025 05:18:01
+DSLOG: Total Time for fuzzer 49036.21971344948s
+DSLOG: Average throughput time: 0.11861057155509257
+DSLOG: Total number of iterations 413422
+DSLOG: Current time: 09/03/2025 05:20:01
+DSLOG: Total Time for fuzzer 49156.24924325943s
+DSLOG: Average throughput time: 0.11860798527966314
+DSLOG: Total number of iterations 414443
+DSLOG: Current time: 09/03/2025 05:22:01
+DSLOG: Total Time for fuzzer 49276.293736457825s
+DSLOG: Average throughput time: 0.11860915904994289
+DSLOG: Total number of iterations 415451
+DSLOG: Current time: 09/03/2025 05:24:01
+DSLOG: Total Time for fuzzer 49396.30455684662s
+DSLOG: Average throughput time: 0.11860939186971829
+DSLOG: Total number of iterations 416462
+DSLOG: Current time: 09/03/2025 05:26:01
+DSLOG: Total Time for fuzzer 49516.31075668335s
+DSLOG: Average throughput time: 0.11861046483982884
+DSLOG: Total number of iterations 417470
+DSLOG: Current time: 09/03/2025 05:28:01
+DSLOG: Total Time for fuzzer 49636.34636473656s
+DSLOG: Average throughput time: 0.11861188635154753
+DSLOG: Total number of iterations 418477
+DSLOG: Current time: 09/03/2025 05:30:01
+DSLOG: Total Time for fuzzer 49756.34698295593s
+DSLOG: Average throughput time: 0.11861236935341485
+DSLOG: Total number of iterations 419487
+DSLOG: Current time: 09/03/2025 05:32:01
+DSLOG: Total Time for fuzzer 49876.375101327896s
+DSLOG: Average throughput time: 0.1186103767873179
+DSLOG: Total number of iterations 420506
+DSLOG: Current time: 09/03/2025 05:34:01
+DSLOG: Total Time for fuzzer 49996.38757443428s
+DSLOG: Average throughput time: 0.11860920088259753
+DSLOG: Total number of iterations 421522
+DSLOG: Current time: 09/03/2025 05:36:01
+DSLOG: Total Time for fuzzer 50116.4252808094s
+DSLOG: Average throughput time: 0.11861033602539323
+DSLOG: Total number of iterations 422530
+DSLOG: Current time: 09/03/2025 05:38:01
+DSLOG: Total Time for fuzzer 50236.46127295494s
+DSLOG: Average throughput time: 0.11861034153154809
+DSLOG: Total number of iterations 423542
+DSLOG: Current time: 09/03/2025 05:40:01
+DSLOG: Total Time for fuzzer 50356.46565914154s
+DSLOG: Average throughput time: 0.11860887570194376
+DSLOG: Total number of iterations 424559
+DSLOG: Current time: 09/03/2025 05:42:01
+DSLOG: Total Time for fuzzer 50476.50218462944s
+DSLOG: Average throughput time: 0.11860944332089376
+DSLOG: Total number of iterations 425569
+DSLOG: Current time: 09/03/2025 05:44:01
+DSLOG: Total Time for fuzzer 50596.51941394806s
+DSLOG: Average throughput time: 0.11861051911834923
+DSLOG: Total number of iterations 426577
+DSLOG: Current time: 09/03/2025 05:46:01
+DSLOG: Total Time for fuzzer 50716.52144289017s
+DSLOG: Average throughput time: 0.1186109994992602
+DSLOG: Total number of iterations 427587
+DSLOG: Current time: 09/03/2025 05:48:01
+DSLOG: Total Time for fuzzer 50836.527842760086s
+DSLOG: Average throughput time: 0.11861204130416847
+DSLOG: Total number of iterations 428595
+DSLOG: Current time: 09/03/2025 05:50:01
+DSLOG: Total Time for fuzzer 50956.55437040329s
+DSLOG: Average throughput time: 0.11861340117225545
+DSLOG: Total number of iterations 429602
+DSLOG: Current time: 09/03/2025 05:52:01
+DSLOG: Total Time for fuzzer 51076.59658360481s
+DSLOG: Average throughput time: 0.118613413831424
+DSLOG: Total number of iterations 430614
+DSLOG: Current time: 09/03/2025 05:54:01
+DSLOG: Total Time for fuzzer 51196.643201589584s
+DSLOG: Average throughput time: 0.11861371144301092
+DSLOG: Total number of iterations 431625
+DSLOG: Current time: 09/03/2025 05:56:01
+DSLOG: Total Time for fuzzer 51316.68782353401s
+DSLOG: Average throughput time: 0.11861345472088446
+DSLOG: Total number of iterations 432638
+DSLOG: Current time: 09/03/2025 05:58:01
+DSLOG: Total Time for fuzzer 51436.69394636154s
+DSLOG: Average throughput time: 0.11861228985864662
+DSLOG: Total number of iterations 433654
+DSLOG: Current time: 09/03/2025 06:00:02
+DSLOG: Total Time for fuzzer 51556.71582365036s
+DSLOG: Average throughput time: 0.11861198532129276
+DSLOG: Total number of iterations 434667
+DSLOG: Current time: 09/03/2025 06:02:02
+DSLOG: Total Time for fuzzer 51676.72634458542s
+DSLOG: Average throughput time: 0.11861301737438554
+DSLOG: Total number of iterations 435675
+DSLOG: Current time: 09/03/2025 06:04:02
+DSLOG: Total Time for fuzzer 51796.74216890335s
+DSLOG: Average throughput time: 0.11861297031719138
+DSLOG: Total number of iterations 436687
+DSLOG: Current time: 09/03/2025 06:06:02
+DSLOG: Total Time for fuzzer 51916.76934552193s
+DSLOG: Average throughput time: 0.1186129494139167
+DSLOG: Total number of iterations 437699
+DSLOG: Current time: 09/03/2025 06:08:02
+DSLOG: Total Time for fuzzer 52036.79628586769s
+DSLOG: Average throughput time: 0.11860995410731098
+DSLOG: Total number of iterations 438722
+DSLOG: Current time: 09/03/2025 06:10:02
+DSLOG: Total Time for fuzzer 52156.83835220337s
+DSLOG: Average throughput time: 0.11860835573794372
+DSLOG: Total number of iterations 439740
+DSLOG: Current time: 09/03/2025 06:12:02
+DSLOG: Total Time for fuzzer 52276.84271836281s
+DSLOG: Average throughput time: 0.11860990846964649
+DSLOG: Total number of iterations 440746
+DSLOG: Current time: 09/03/2025 06:14:02
+DSLOG: Total Time for fuzzer 52396.86210298538s
+DSLOG: Average throughput time: 0.11860880316320865
+DSLOG: Total number of iterations 441762
+DSLOG: Current time: 09/03/2025 06:16:02
+DSLOG: Total Time for fuzzer 52516.87955188751s
+DSLOG: Average throughput time: 0.11860930580950808
+DSLOG: Total number of iterations 442772
+DSLOG: Current time: 09/03/2025 06:18:02
+DSLOG: Total Time for fuzzer 52636.91352272034s
+DSLOG: Average throughput time: 0.11860823979629989
+DSLOG: Total number of iterations 443788
+DSLOG: Current time: 09/03/2025 06:20:02
+DSLOG: Total Time for fuzzer 52756.93410038948s
+DSLOG: Average throughput time: 0.1186100817692488
+DSLOG: Total number of iterations 444793
+DSLOG: Current time: 09/03/2025 06:22:02
+DSLOG: Total Time for fuzzer 52876.959260463715s
+DSLOG: Average throughput time: 0.11861086145971465
+DSLOG: Total number of iterations 445802
+DSLOG: Current time: 09/03/2025 06:24:02
+DSLOG: Total Time for fuzzer 52996.9631562233s
+DSLOG: Average throughput time: 0.11860999728350376
+DSLOG: Total number of iterations 446817
+DSLOG: Current time: 09/03/2025 06:26:02
+DSLOG: Total Time for fuzzer 53117.010749578476s
+DSLOG: Average throughput time: 0.11860949945309386
+DSLOG: Total number of iterations 447831
+DSLOG: Current time: 09/03/2025 06:28:02
+DSLOG: Total Time for fuzzer 53237.01675128937s
+DSLOG: Average throughput time: 0.11860811845277103
+DSLOG: Total number of iterations 448848
+DSLOG: Current time: 09/03/2025 06:30:02
+DSLOG: Total Time for fuzzer 53357.05065488815s
+DSLOG: Average throughput time: 0.11860759667384255
+DSLOG: Total number of iterations 449862
+DSLOG: Current time: 09/03/2025 06:32:02
+DSLOG: Total Time for fuzzer 53477.06812477112s
+DSLOG: Average throughput time: 0.11861019758679141
+DSLOG: Total number of iterations 450864
+DSLOG: Current time: 09/03/2025 06:34:02
+DSLOG: Total Time for fuzzer 53597.097729206085s
+DSLOG: Average throughput time: 0.1186107138919391
+DSLOG: Total number of iterations 451874
+DSLOG: Current time: 09/03/2025 06:36:02
+DSLOG: Total Time for fuzzer 53717.10908007622s
+DSLOG: Average throughput time: 0.11861118758904315
+DSLOG: Total number of iterations 452884
+DSLOG: Current time: 09/03/2025 06:38:02
+DSLOG: Total Time for fuzzer 53837.11127305031s
+DSLOG: Average throughput time: 0.11861111636377124
+DSLOG: Total number of iterations 453896
+DSLOG: Current time: 09/03/2025 06:40:02
+DSLOG: Total Time for fuzzer 53957.1578207016s
+DSLOG: Average throughput time: 0.11861166443331501
+DSLOG: Total number of iterations 454906
+DSLOG: Current time: 09/03/2025 06:42:02
+DSLOG: Total Time for fuzzer 54077.199261426926s
+DSLOG: Average throughput time: 0.11861141839104518
+DSLOG: Total number of iterations 455919
+DSLOG: Current time: 09/03/2025 06:44:02
+DSLOG: Total Time for fuzzer 54197.22569870949s
+DSLOG: Average throughput time: 0.11861114060453085
+DSLOG: Total number of iterations 456932
+DSLOG: Current time: 09/03/2025 06:46:02
+DSLOG: Total Time for fuzzer 54317.241678237915s
+DSLOG: Average throughput time: 0.118611877246715
+DSLOG: Total number of iterations 457941
+DSLOG: Current time: 09/03/2025 06:48:02
+DSLOG: Total Time for fuzzer 54437.244911432266s
+DSLOG: Average throughput time: 0.11861335821223859
+DSLOG: Total number of iterations 458947
+DSLOG: Current time: 09/03/2025 06:50:02
+DSLOG: Total Time for fuzzer 54557.28420186043s
+DSLOG: Average throughput time: 0.11861310592629887
+DSLOG: Total number of iterations 459960
+DSLOG: Current time: 09/03/2025 06:52:02
+DSLOG: Total Time for fuzzer 54677.3150331974s
+DSLOG: Average throughput time: 0.11861360833285768
+DSLOG: Total number of iterations 460970
+DSLOG: Current time: 09/03/2025 06:54:02
+DSLOG: Total Time for fuzzer 54797.34466338158s
+DSLOG: Average throughput time: 0.11861333569283193
+DSLOG: Total number of iterations 461983
+DSLOG: Current time: 09/03/2025 06:56:02
+DSLOG: Total Time for fuzzer 54917.35074591637s
+DSLOG: Average throughput time: 0.11861480671444972
+DSLOG: Total number of iterations 462989
+DSLOG: Current time: 09/03/2025 06:58:02
+DSLOG: Total Time for fuzzer 55037.37251281738s
+DSLOG: Average throughput time: 0.11861604951942988
+DSLOG: Total number of iterations 463996
+DSLOG: Current time: 09/03/2025 07:00:02
+DSLOG: Total Time for fuzzer 55157.40664243698s
+DSLOG: Average throughput time: 0.11861807880093975
+DSLOG: Total number of iterations 465000
+DSLOG: Current time: 09/03/2025 07:02:02
+DSLOG: Total Time for fuzzer 55277.441509485245s
+DSLOG: Average throughput time: 0.11861933728352846
+DSLOG: Total number of iterations 466007
+DSLOG: Current time: 09/03/2025 07:04:02
+DSLOG: Total Time for fuzzer 55397.45519900322s
+DSLOG: Average throughput time: 0.11862029099494281
+DSLOG: Total number of iterations 467015
+DSLOG: Current time: 09/03/2025 07:06:02
+DSLOG: Total Time for fuzzer 55517.46468639374s
+DSLOG: Average throughput time: 0.11862224543532152
+DSLOG: Total number of iterations 468019
+DSLOG: Current time: 09/03/2025 07:08:02
+DSLOG: Total Time for fuzzer 55637.47653675079s
+DSLOG: Average throughput time: 0.11862192033113049
+DSLOG: Total number of iterations 469032
+DSLOG: Current time: 09/03/2025 07:10:02
+DSLOG: Total Time for fuzzer 55757.48345589638s
+DSLOG: Average throughput time: 0.11862259559463191
+DSLOG: Total number of iterations 470041
+DSLOG: Current time: 09/03/2025 07:12:02
+DSLOG: Total Time for fuzzer 55877.50138568878s
+DSLOG: Average throughput time: 0.11862303951310746
+DSLOG: Total number of iterations 471051
+DSLOG: Current time: 09/03/2025 07:14:02
+DSLOG: Total Time for fuzzer 55997.50745153427s
+DSLOG: Average throughput time: 0.11862320511190114
+DSLOG: Total number of iterations 472062
+DSLOG: Current time: 09/03/2025 07:16:02
+DSLOG: Total Time for fuzzer 56117.53439569473s
+DSLOG: Average throughput time: 0.11862341413628495
+DSLOG: Total number of iterations 473073
+DSLOG: Current time: 09/03/2025 07:18:02
+DSLOG: Total Time for fuzzer 56237.55151081085s
+DSLOG: Average throughput time: 0.11862385175340785
+DSLOG: Total number of iterations 474083
+DSLOG: Current time: 09/03/2025 07:20:02
+DSLOG: Total Time for fuzzer 56357.55448651314s
+DSLOG: Average throughput time: 0.11862575588579173
+DSLOG: Total number of iterations 475087
+DSLOG: Current time: 09/03/2025 07:22:02
+DSLOG: Total Time for fuzzer 56477.59868359566s
+DSLOG: Average throughput time: 0.11862599440366407
+DSLOG: Total number of iterations 476098
+DSLOG: Current time: 09/03/2025 07:24:02
+DSLOG: Total Time for fuzzer 56597.62344455719s
+DSLOG: Average throughput time: 0.11862693708433177
+DSLOG: Total number of iterations 477106
+DSLOG: Current time: 09/03/2025 07:26:02
+DSLOG: Total Time for fuzzer 56717.65059232712s
+DSLOG: Average throughput time: 0.11862614399352281
+DSLOG: Total number of iterations 478121
+DSLOG: Current time: 09/03/2025 07:28:02
+DSLOG: Total Time for fuzzer 56837.67851114273s
+DSLOG: Average throughput time: 0.11862609862218368
+DSLOG: Total number of iterations 479133
+DSLOG: Current time: 09/03/2025 07:30:02
+DSLOG: Total Time for fuzzer 56957.68408560753s
+DSLOG: Average throughput time: 0.11862823051303699
+DSLOG: Total number of iterations 480136
+DSLOG: Current time: 09/03/2025 07:32:03
+DSLOG: Total Time for fuzzer 57077.7147090435s
+DSLOG: Average throughput time: 0.11862941933903955
+DSLOG: Total number of iterations 481143
+DSLOG: Current time: 09/03/2025 07:34:03
+DSLOG: Total Time for fuzzer 57197.760531425476s
+DSLOG: Average throughput time: 0.11862989659179861
+DSLOG: Total number of iterations 482153
+DSLOG: Current time: 09/03/2025 07:36:03
+DSLOG: Total Time for fuzzer 57317.78639292717s
+DSLOG: Average throughput time: 0.11863155819199345
+DSLOG: Total number of iterations 483158
+DSLOG: Current time: 09/03/2025 07:38:03
+DSLOG: Total Time for fuzzer 57437.80780816078s
+DSLOG: Average throughput time: 0.11863197858627746
+DSLOG: Total number of iterations 484168
+DSLOG: Current time: 09/03/2025 07:40:03
+DSLOG: Total Time for fuzzer 57557.852595090866s
+DSLOG: Average throughput time: 0.11863171186648049
+DSLOG: Total number of iterations 485181
+DSLOG: Current time: 09/03/2025 07:42:03
+DSLOG: Total Time for fuzzer 57677.89335894585s
+DSLOG: Average throughput time: 0.11863168198420349
+DSLOG: Total number of iterations 486193
+DSLOG: Current time: 09/03/2025 07:44:03
+DSLOG: Total Time for fuzzer 57797.89441871643s
+DSLOG: Average throughput time: 0.1186308402545041
+DSLOG: Total number of iterations 487208
+DSLOG: Current time: 09/03/2025 07:46:03
+DSLOG: Total Time for fuzzer 57917.92942261696s
+DSLOG: Average throughput time: 0.11862982856765943
+DSLOG: Total number of iterations 488224
+DSLOG: Current time: 09/03/2025 07:48:03
+DSLOG: Total Time for fuzzer 58037.9340467453s
+DSLOG: Average throughput time: 0.11863118379237843
+DSLOG: Total number of iterations 489230
+DSLOG: Current time: 09/03/2025 07:50:03
+DSLOG: Total Time for fuzzer 58157.96552872658s
+DSLOG: Average throughput time: 0.11862508700101491
+DSLOG: Total number of iterations 490267
+DSLOG: Current time: 09/03/2025 07:52:03
+DSLOG: Total Time for fuzzer 58278.010256528854s
+DSLOG: Average throughput time: 0.1186248376822359
+DSLOG: Total number of iterations 491280
+DSLOG: Current time: 09/03/2025 07:54:03
+DSLOG: Total Time for fuzzer 58398.01250696182s
+DSLOG: Average throughput time: 0.11862498503316499
+DSLOG: Total number of iterations 492291
+DSLOG: Current time: 09/03/2025 07:56:03
+DSLOG: Total Time for fuzzer 58518.01874375343s
+DSLOG: Average throughput time: 0.11862105198411867
+DSLOG: Total number of iterations 493319
+DSLOG: Current time: 09/03/2025 07:58:03
+DSLOG: Total Time for fuzzer 58638.06010580063s
+DSLOG: Average throughput time: 0.11862152555443971
+DSLOG: Total number of iterations 494329
+DSLOG: Current time: 09/03/2025 08:00:03
+DSLOG: Total Time for fuzzer 58758.07225704193s
+DSLOG: Average throughput time: 0.11862074085290612
+DSLOG: Total number of iterations 495344
+DSLOG: Current time: 09/03/2025 08:02:03
+DSLOG: Total Time for fuzzer 58878.09891414642s
+DSLOG: Average throughput time: 0.11862118349836291
+DSLOG: Total number of iterations 496354
+DSLOG: Current time: 09/03/2025 08:04:03
+DSLOG: Total Time for fuzzer 58998.10205960274s
+DSLOG: Average throughput time: 0.11861966909999505
+DSLOG: Total number of iterations 497372
+DSLOG: Current time: 09/03/2025 08:06:03
+DSLOG: Total Time for fuzzer 59118.10660648346s
+DSLOG: Average throughput time: 0.11861935372550028
+DSLOG: Total number of iterations 498385
+DSLOG: Current time: 09/03/2025 08:08:03
+DSLOG: Total Time for fuzzer 59238.11580634117s
+DSLOG: Average throughput time: 0.11862094917067056
+DSLOG: Total number of iterations 499390
+DSLOG: Current time: 09/03/2025 08:10:03
+DSLOG: Total Time for fuzzer 59358.11982131004s
+DSLOG: Average throughput time: 0.11862110551599626
+DSLOG: Total number of iterations 500401
+DSLOG: Current time: 09/03/2025 08:12:03
+DSLOG: Total Time for fuzzer 59478.129344940186s
+DSLOG: Average throughput time: 0.11862174536794277
+DSLOG: Total number of iterations 501410
+DSLOG: Current time: 09/03/2025 08:14:03
+DSLOG: Total Time for fuzzer 59598.14979553223s
+DSLOG: Average throughput time: 0.1186228766055532
+DSLOG: Total number of iterations 502417
+DSLOG: Current time: 09/03/2025 08:16:03
+DSLOG: Total Time for fuzzer 59718.19307112694s
+DSLOG: Average throughput time: 0.11862216361122642
+DSLOG: Total number of iterations 503432
+DSLOG: Current time: 09/03/2025 08:18:03
+DSLOG: Total Time for fuzzer 59838.23790001869s
+DSLOG: Average throughput time: 0.11862286749098248
+DSLOG: Total number of iterations 504441
+DSLOG: Current time: 09/03/2025 08:20:03
+DSLOG: Total Time for fuzzer 59958.2465596199s
+DSLOG: Average throughput time: 0.11862185420247401
+DSLOG: Total number of iterations 505457
+DSLOG: Current time: 09/03/2025 08:22:03
+DSLOG: Total Time for fuzzer 60078.26592350006s
+DSLOG: Average throughput time: 0.11862063190509298
+DSLOG: Total number of iterations 506474
+DSLOG: Current time: 09/03/2025 08:24:03
+DSLOG: Total Time for fuzzer 60198.28860998154s
+DSLOG: Average throughput time: 0.11862035600908306
+DSLOG: Total number of iterations 507487
+DSLOG: Current time: 09/03/2025 08:26:03
+DSLOG: Total Time for fuzzer 60318.30717086792s
+DSLOG: Average throughput time: 0.11861867346868654
+DSLOG: Total number of iterations 508506
+DSLOG: Current time: 09/03/2025 08:28:03
+DSLOG: Total Time for fuzzer 60438.33601307869s
+DSLOG: Average throughput time: 0.11861725063604205
+DSLOG: Total number of iterations 509524
+DSLOG: Current time: 09/03/2025 08:30:03
+DSLOG: Total Time for fuzzer 60558.36279344559s
+DSLOG: Average throughput time: 0.11861699111611027
+DSLOG: Total number of iterations 510537
+DSLOG: Current time: 09/03/2025 08:32:03
+DSLOG: Total Time for fuzzer 60678.36403608322s
+DSLOG: Average throughput time: 0.11861737833685511
+DSLOG: Total number of iterations 511547
+DSLOG: Current time: 09/03/2025 08:34:03
+DSLOG: Total Time for fuzzer 60798.3734087944s
+DSLOG: Average throughput time: 0.1186180113173866
+DSLOG: Total number of iterations 512556
+DSLOG: Current time: 09/03/2025 08:36:03
+DSLOG: Total Time for fuzzer 60918.376420497894s
+DSLOG: Average throughput time: 0.11861724361480282
+DSLOG: Total number of iterations 513571
+DSLOG: Current time: 09/03/2025 08:38:03
+DSLOG: Total Time for fuzzer 61038.404165029526s
+DSLOG: Average throughput time: 0.1186174490460792
+DSLOG: Total number of iterations 514582
+DSLOG: Current time: 09/03/2025 08:40:03
+DSLOG: Total Time for fuzzer 61158.406234264374s
+DSLOG: Average throughput time: 0.11861737381401719
+DSLOG: Total number of iterations 515594
+DSLOG: Current time: 09/03/2025 08:42:03
+DSLOG: Total Time for fuzzer 61278.433747291565s
+DSLOG: Average throughput time: 0.11861780734816525
+DSLOG: Total number of iterations 516604
+DSLOG: Current time: 09/03/2025 08:44:03
+DSLOG: Total Time for fuzzer 61398.48196220398s
+DSLOG: Average throughput time: 0.11861644590493445
+DSLOG: Total number of iterations 517622
+DSLOG: Current time: 09/03/2025 08:46:03
+DSLOG: Total Time for fuzzer 61518.48761820793s
+DSLOG: Average throughput time: 0.11861592257037293
+DSLOG: Total number of iterations 518636
+DSLOG: Current time: 09/03/2025 08:48:03
+DSLOG: Total Time for fuzzer 61638.5345621109s
+DSLOG: Average throughput time: 0.11861433944080381
+DSLOG: Total number of iterations 519655
+DSLOG: Current time: 09/03/2025 08:50:03
+DSLOG: Total Time for fuzzer 61758.53773069382s
+DSLOG: Average throughput time: 0.11861450090978443
+DSLOG: Total number of iterations 520666
+DSLOG: Current time: 09/03/2025 08:52:03
+DSLOG: Total Time for fuzzer 61878.56738758087s
+DSLOG: Average throughput time: 0.11861471252821357
+DSLOG: Total number of iterations 521677
+DSLOG: Current time: 09/03/2025 08:54:03
+DSLOG: Total Time for fuzzer 61998.57791519165s
+DSLOG: Average throughput time: 0.11861420593656989
+DSLOG: Total number of iterations 522691
+DSLOG: Current time: 09/03/2025 08:56:03
+DSLOG: Total Time for fuzzer 62118.59241938591s
+DSLOG: Average throughput time: 0.11861506785269002
+DSLOG: Total number of iterations 523699
+DSLOG: Current time: 09/03/2025 08:58:03
+DSLOG: Total Time for fuzzer 62238.59329199791s
+DSLOG: Average throughput time: 0.1186156744170051
+DSLOG: Total number of iterations 524708
+DSLOG: Current time: 09/03/2025 09:00:03
+DSLOG: Total Time for fuzzer 62358.61370563507s
+DSLOG: Average throughput time: 0.11861496207248888
+DSLOG: Total number of iterations 525723
+DSLOG: Current time: 09/03/2025 09:02:03
+DSLOG: Total Time for fuzzer 62478.63945436478s
+DSLOG: Average throughput time: 0.11861471297645268
+DSLOG: Total number of iterations 526736
+DSLOG: Current time: 09/03/2025 09:04:03
+DSLOG: Total Time for fuzzer 62598.66131687164s
+DSLOG: Average throughput time: 0.11861648030634715
+DSLOG: Total number of iterations 527740
+DSLOG: Current time: 09/03/2025 09:06:03
+DSLOG: Total Time for fuzzer 62718.68673324585s
+DSLOG: Average throughput time: 0.11861577996093815
+DSLOG: Total number of iterations 528755
+DSLOG: Current time: 09/03/2025 09:08:04
+DSLOG: Total Time for fuzzer 62838.72588992119s
+DSLOG: Average throughput time: 0.11861398874979225
+DSLOG: Total number of iterations 529775
+DSLOG: Current time: 09/03/2025 09:10:04
+DSLOG: Total Time for fuzzer 62958.72679519653s
+DSLOG: Average throughput time: 0.1186134731412982
+DSLOG: Total number of iterations 530789
+DSLOG: Current time: 09/03/2025 09:12:04
+DSLOG: Total Time for fuzzer 63078.7344789505s
+DSLOG: Average throughput time: 0.11861408745228545
+DSLOG: Total number of iterations 531798
+DSLOG: Current time: 09/03/2025 09:14:04
+DSLOG: Total Time for fuzzer 63198.736753463745s
+DSLOG: Average throughput time: 0.11861379880194618
+DSLOG: Total number of iterations 532811
+DSLOG: Current time: 09/03/2025 09:16:04
+DSLOG: Total Time for fuzzer 63318.78117394447s
+DSLOG: Average throughput time: 0.11861492338951567
+DSLOG: Total number of iterations 533818
+DSLOG: Current time: 09/03/2025 09:18:04
+DSLOG: Total Time for fuzzer 63438.79374790192s
+DSLOG: Average throughput time: 0.11861509706448588
+DSLOG: Total number of iterations 534829
+DSLOG: Current time: 09/03/2025 09:20:04
+DSLOG: Total Time for fuzzer 63558.797186374664s
+DSLOG: Average throughput time: 0.11861547439879266
+DSLOG: Total number of iterations 535839
+DSLOG: Current time: 09/03/2025 09:22:04
+DSLOG: Total Time for fuzzer 63678.830308675766s
+DSLOG: Average throughput time: 0.11861590560600051
+DSLOG: Total number of iterations 536849
+DSLOG: Current time: 09/03/2025 09:24:04
+DSLOG: Total Time for fuzzer 63798.84986329079s
+DSLOG: Average throughput time: 0.11861498677789183
+DSLOG: Total number of iterations 537865
+DSLOG: Current time: 09/03/2025 09:26:04
+DSLOG: Total Time for fuzzer 63918.87909960747s
+DSLOG: Average throughput time: 0.11861541006654135
+DSLOG: Total number of iterations 538875
+DSLOG: Current time: 09/03/2025 09:28:04
+DSLOG: Total Time for fuzzer 64038.927835941315s
+DSLOG: Average throughput time: 0.11861520877652645
+DSLOG: Total number of iterations 539888
+DSLOG: Current time: 09/03/2025 09:30:04
+DSLOG: Total Time for fuzzer 64158.93077635765s
+DSLOG: Average throughput time: 0.11861514286625559
+DSLOG: Total number of iterations 540900
+DSLOG: Current time: 09/03/2025 09:32:04
+DSLOG: Total Time for fuzzer 64278.96965265274s
+DSLOG: Average throughput time: 0.11861361135640702
+DSLOG: Total number of iterations 541919
+DSLOG: Current time: 09/03/2025 09:34:04
+DSLOG: Total Time for fuzzer 64398.98847532272s
+DSLOG: Average throughput time: 0.11861095635328704
+DSLOG: Total number of iterations 542943
+DSLOG: Current time: 09/03/2025 09:36:04
+DSLOG: Total Time for fuzzer 64519.018474817276s
+DSLOG: Average throughput time: 0.11860898602631291
+DSLOG: Total number of iterations 543964
+DSLOG: Current time: 09/03/2025 09:38:04
+DSLOG: Total Time for fuzzer 64639.03045296669s
+DSLOG: Average throughput time: 0.11861003696153867
+DSLOG: Total number of iterations 544971
+DSLOG: Current time: 09/03/2025 09:40:04
+DSLOG: Total Time for fuzzer 64759.055079460144s
+DSLOG: Average throughput time: 0.11861045545442084
+DSLOG: Total number of iterations 545981
+DSLOG: Current time: 09/03/2025 09:42:04
+DSLOG: Total Time for fuzzer 64879.06328845024s
+DSLOG: Average throughput time: 0.11861127607401656
+DSLOG: Total number of iterations 546989
+DSLOG: Current time: 09/03/2025 09:44:04
+DSLOG: Total Time for fuzzer 64999.06805443764s
+DSLOG: Average throughput time: 0.11861273673514243
+DSLOG: Total number of iterations 547994
+DSLOG: Current time: 09/03/2025 09:46:04
+DSLOG: Total Time for fuzzer 65119.111939668655s
+DSLOG: Average throughput time: 0.11861361514105351
+DSLOG: Total number of iterations 549002
+DSLOG: Current time: 09/03/2025 09:48:04
+DSLOG: Total Time for fuzzer 65239.129071712494s
+DSLOG: Average throughput time: 0.11861250078944999
+DSLOG: Total number of iterations 550019
+DSLOG: Current time: 09/03/2025 09:50:04
+DSLOG: Total Time for fuzzer 65359.16963458061s
+DSLOG: Average throughput time: 0.11861315511113883
+DSLOG: Total number of iterations 551028
+DSLOG: Current time: 09/03/2025 09:52:04
+DSLOG: Total Time for fuzzer 65479.17859053612s
+DSLOG: Average throughput time: 0.1186128903297692
+DSLOG: Total number of iterations 552041
+DSLOG: Current time: 09/03/2025 09:54:04
+DSLOG: Total Time for fuzzer 65599.1881415844s
+DSLOG: Average throughput time: 0.1186126275943839
+DSLOG: Total number of iterations 553054
+DSLOG: Current time: 09/03/2025 09:56:04
+DSLOG: Total Time for fuzzer 65719.21652030945s
+DSLOG: Average throughput time: 0.1186136842699801
+DSLOG: Total number of iterations 554061
+DSLOG: Current time: 09/03/2025 09:58:04
+DSLOG: Total Time for fuzzer 65839.25958943367s
+DSLOG: Average throughput time: 0.11861326773757361
+DSLOG: Total number of iterations 555075
+DSLOG: Current time: 09/03/2025 10:00:04
+DSLOG: Total Time for fuzzer 65959.30758166313s
+DSLOG: Average throughput time: 0.11861392807860527
+DSLOG: Total number of iterations 556084
+DSLOG: Current time: 09/03/2025 10:02:04
+DSLOG: Total Time for fuzzer 66079.33626270294s
+DSLOG: Average throughput time: 0.11861242223198033
+DSLOG: Total number of iterations 557103
+DSLOG: Current time: 09/03/2025 10:04:04
+DSLOG: Total Time for fuzzer 66199.34037566185s
+DSLOG: Average throughput time: 0.11861279055614517
+DSLOG: Total number of iterations 558113
+DSLOG: Current time: 09/03/2025 10:06:04
+DSLOG: Total Time for fuzzer 66319.34212636948s
+DSLOG: Average throughput time: 0.11861230476505244
+DSLOG: Total number of iterations 559127
+DSLOG: Current time: 09/03/2025 10:08:04
+DSLOG: Total Time for fuzzer 66439.35022640228s
+DSLOG: Average throughput time: 0.11861225557656632
+DSLOG: Total number of iterations 560139
+DSLOG: Current time: 09/03/2025 10:10:04
+DSLOG: Total Time for fuzzer 66559.37398290634s
+DSLOG: Average throughput time: 0.11861265721387072
+DSLOG: Total number of iterations 561149
+DSLOG: Current time: 09/03/2025 10:12:04
+DSLOG: Total Time for fuzzer 66679.3779463768s
+DSLOG: Average throughput time: 0.11861281120388643
+DSLOG: Total number of iterations 562160
+DSLOG: Current time: 09/03/2025 10:14:04
+DSLOG: Total Time for fuzzer 66799.3968307972s
+DSLOG: Average throughput time: 0.11861214867633896
+DSLOG: Total number of iterations 563175
+DSLOG: Current time: 09/03/2025 10:16:04
+DSLOG: Total Time for fuzzer 66919.42586803436s
+DSLOG: Average throughput time: 0.11861234746703102
+DSLOG: Total number of iterations 564186
+DSLOG: Current time: 09/03/2025 10:18:04
+DSLOG: Total Time for fuzzer 67039.45389914513s
+DSLOG: Average throughput time: 0.11861212404683151
+DSLOG: Total number of iterations 565199
+DSLOG: Current time: 09/03/2025 10:20:04
+DSLOG: Total Time for fuzzer 67159.49359607697s
+DSLOG: Average throughput time: 0.11861213151294653
+DSLOG: Total number of iterations 566211
+DSLOG: Current time: 09/03/2025 10:22:04
+DSLOG: Total Time for fuzzer 67279.54250979424s
+DSLOG: Average throughput time: 0.11861131876619807
+DSLOG: Total number of iterations 567227
+DSLOG: Current time: 09/03/2025 10:24:04
+DSLOG: Total Time for fuzzer 67399.5509428978s
+DSLOG: Average throughput time: 0.11861106388655814
+DSLOG: Total number of iterations 568240
+DSLOG: Current time: 09/03/2025 10:26:04
+DSLOG: Total Time for fuzzer 67519.5657339096s
+DSLOG: Average throughput time: 0.11860957092274274
+DSLOG: Total number of iterations 569259
+DSLOG: Current time: 09/03/2025 10:28:04
+DSLOG: Total Time for fuzzer 67639.60473489761s
+DSLOG: Average throughput time: 0.11860916567134971
+DSLOG: Total number of iterations 570273
+DSLOG: Current time: 09/03/2025 10:30:04
+DSLOG: Total Time for fuzzer 67759.6337761879s
+DSLOG: Average throughput time: 0.11860874442476005
+DSLOG: Total number of iterations 571287
+DSLOG: Current time: 09/03/2025 10:32:04
+DSLOG: Total Time for fuzzer 67879.6657025814s
+DSLOG: Average throughput time: 0.11860853696065246
+DSLOG: Total number of iterations 572300
+DSLOG: Current time: 09/03/2025 10:34:04
+DSLOG: Total Time for fuzzer 67999.69175505638s
+DSLOG: Average throughput time: 0.1186089406343102
+DSLOG: Total number of iterations 573310
+DSLOG: Current time: 09/03/2025 10:36:04
+DSLOG: Total Time for fuzzer 68119.69437980652s
+DSLOG: Average throughput time: 0.11860847601668487
+DSLOG: Total number of iterations 574324
+DSLOG: Current time: 09/03/2025 10:38:04
+DSLOG: Total Time for fuzzer 68239.70328307152s
+DSLOG: Average throughput time: 0.11860781779624104
+DSLOG: Total number of iterations 575339
+DSLOG: Current time: 09/03/2025 10:40:05
+DSLOG: Total Time for fuzzer 68359.71625256538s
+DSLOG: Average throughput time: 0.11860758052815881
+DSLOG: Total number of iterations 576352
+DSLOG: Current time: 09/03/2025 10:42:05
+DSLOG: Total Time for fuzzer 68479.73692035675s
+DSLOG: Average throughput time: 0.11860859001133914
+DSLOG: Total number of iterations 577359
+DSLOG: Current time: 09/03/2025 10:44:05
+DSLOG: Total Time for fuzzer 68599.73914575577s
+DSLOG: Average throughput time: 0.11860935901556584
+DSLOG: Total number of iterations 578367
+DSLOG: Current time: 09/03/2025 10:46:05
+DSLOG: Total Time for fuzzer 68719.74080300331s
+DSLOG: Average throughput time: 0.11860828190458023
+DSLOG: Total number of iterations 579384
+DSLOG: Current time: 09/03/2025 10:48:05
+DSLOG: Total Time for fuzzer 68839.74765992165s
+DSLOG: Average throughput time: 0.11861007855090078
+DSLOG: Total number of iterations 580387
+DSLOG: Current time: 09/03/2025 10:50:05
+DSLOG: Total Time for fuzzer 68959.7505633831s
+DSLOG: Average throughput time: 0.11861063812510424
+DSLOG: Total number of iterations 581396
+DSLOG: Current time: 09/03/2025 10:52:05
+DSLOG: Total Time for fuzzer 69079.79806423187s
+DSLOG: Average throughput time: 0.11861106867757522
+DSLOG: Total number of iterations 582406
+DSLOG: Current time: 09/03/2025 10:54:05
+DSLOG: Total Time for fuzzer 69199.82492089272s
+DSLOG: Average throughput time: 0.11861125904951812
+DSLOG: Total number of iterations 583417
+DSLOG: Current time: 09/03/2025 10:56:05
+DSLOG: Total Time for fuzzer 69319.84509134293s
+DSLOG: Average throughput time: 0.11861123436951782
+DSLOG: Total number of iterations 584429
+DSLOG: Current time: 09/03/2025 10:58:05
+DSLOG: Total Time for fuzzer 69439.8821015358s
+DSLOG: Average throughput time: 0.11861265676666506
+DSLOG: Total number of iterations 585434
+DSLOG: Current time: 09/03/2025 11:00:05
+DSLOG: Total Time for fuzzer 69559.9031367302s
+DSLOG: Average throughput time: 0.1186110132026215
+DSLOG: Total number of iterations 586454
+DSLOG: Current time: 09/03/2025 11:02:05
+DSLOG: Total Time for fuzzer 69679.94819116592s
+DSLOG: Average throughput time: 0.11861082952943046
+DSLOG: Total number of iterations 587467
+DSLOG: Current time: 09/03/2025 11:04:05
+DSLOG: Total Time for fuzzer 69799.95965862274s
+DSLOG: Average throughput time: 0.11860897700313812
+DSLOG: Total number of iterations 588488
+DSLOG: Current time: 09/03/2025 11:06:05
+DSLOG: Total Time for fuzzer 69919.98081564903s
+DSLOG: Average throughput time: 0.11860915932961555
+DSLOG: Total number of iterations 589499
+DSLOG: Current time: 09/03/2025 11:08:05
+DSLOG: Total Time for fuzzer 70039.98483395576s
+DSLOG: Average throughput time: 0.11860911114942103
+DSLOG: Total number of iterations 590511
+DSLOG: Current time: 09/03/2025 11:10:05
+DSLOG: Total Time for fuzzer 70159.99021625519s
+DSLOG: Average throughput time: 0.11860826338654903
+DSLOG: Total number of iterations 591527
+DSLOG: Current time: 09/03/2025 11:12:05
+DSLOG: Total Time for fuzzer 70280.02357840538s
+DSLOG: Average throughput time: 0.118607265584337
+DSLOG: Total number of iterations 592544
+DSLOG: Current time: 09/03/2025 11:14:05
+DSLOG: Total Time for fuzzer 70400.04734230042s
+DSLOG: Average throughput time: 0.11860705432216352
+DSLOG: Total number of iterations 593557
+DSLOG: Current time: 09/03/2025 11:16:05
+DSLOG: Total Time for fuzzer 70520.05486178398s
+DSLOG: Average throughput time: 0.11860701594227749
+DSLOG: Total number of iterations 594569
+DSLOG: Current time: 09/03/2025 11:18:05
+DSLOG: Total Time for fuzzer 70640.07081127167s
+DSLOG: Average throughput time: 0.11860719099243035
+DSLOG: Total number of iterations 595580
+DSLOG: Current time: 09/03/2025 11:20:05
+DSLOG: Total Time for fuzzer 70760.07727694511s
+DSLOG: Average throughput time: 0.11860834360334489
+DSLOG: Total number of iterations 596586
+DSLOG: Current time: 09/03/2025 11:22:05
+DSLOG: Total Time for fuzzer 70880.12048053741s
+DSLOG: Average throughput time: 0.11860935533136668
+DSLOG: Total number of iterations 597593
+DSLOG: Current time: 09/03/2025 11:24:05
+DSLOG: Total Time for fuzzer 71000.14969730377s
+DSLOG: Average throughput time: 0.11860974585376914
+DSLOG: Total number of iterations 598603
+DSLOG: Current time: 09/03/2025 11:26:05
+DSLOG: Total Time for fuzzer 71120.19706559181s
+DSLOG: Average throughput time: 0.11860976971155127
+DSLOG: Total number of iterations 599615
+DSLOG: Current time: 09/03/2025 11:28:05
+DSLOG: Total Time for fuzzer 71240.23174667358s
+DSLOG: Average throughput time: 0.11861075975684138
+DSLOG: Total number of iterations 600622
+DSLOG: Current time: 09/03/2025 11:30:05
+DSLOG: Total Time for fuzzer 71360.23548436165s
+DSLOG: Average throughput time: 0.11860992072369372
+DSLOG: Total number of iterations 601638
+DSLOG: Current time: 09/03/2025 11:32:05
+DSLOG: Total Time for fuzzer 71480.24382400513s
+DSLOG: Average throughput time: 0.11860948577952969
+DSLOG: Total number of iterations 602652
+DSLOG: Current time: 09/03/2025 11:34:05
+DSLOG: Total Time for fuzzer 71600.27070975304s
+DSLOG: Average throughput time: 0.11860947598291936
+DSLOG: Total number of iterations 603664
+DSLOG: Current time: 09/03/2025 11:36:05
+DSLOG: Total Time for fuzzer 71720.28701782227s
+DSLOG: Average throughput time: 0.11860905641981727
+DSLOG: Total number of iterations 604678
+DSLOG: Current time: 09/03/2025 11:38:05
+DSLOG: Total Time for fuzzer 71840.3299267292s
+DSLOG: Average throughput time: 0.11860966130481454
+DSLOG: Total number of iterations 605687
+DSLOG: Current time: 09/03/2025 11:40:05
+DSLOG: Total Time for fuzzer 71960.3366560936s
+DSLOG: Average throughput time: 0.11861000904255929
+DSLOG: Total number of iterations 606697
+DSLOG: Current time: 09/03/2025 11:42:05
+DSLOG: Total Time for fuzzer 72080.3541522026s
+DSLOG: Average throughput time: 0.11861134923400385
+DSLOG: Total number of iterations 607702
+DSLOG: Current time: 09/03/2025 11:44:05
+DSLOG: Total Time for fuzzer 72200.36442017555s
+DSLOG: Average throughput time: 0.11861072455702001
+DSLOG: Total number of iterations 608717
+DSLOG: Current time: 09/03/2025 11:46:05
+DSLOG: Total Time for fuzzer 72320.40441298485s
+DSLOG: Average throughput time: 0.1186113178919463
+DSLOG: Total number of iterations 609726
+DSLOG: Current time: 09/03/2025 11:48:05
+DSLOG: Total Time for fuzzer 72440.40734887123s
+DSLOG: Average throughput time: 0.11861010071138027
+DSLOG: Total number of iterations 610744
+DSLOG: Current time: 09/03/2025 11:50:05
+DSLOG: Total Time for fuzzer 72560.41245293617s
+DSLOG: Average throughput time: 0.11861024830681592
+DSLOG: Total number of iterations 611755
+DSLOG: Current time: 09/03/2025 11:52:05
+DSLOG: Total Time for fuzzer 72680.41577291489s
+DSLOG: Average throughput time: 0.11861000537383624
+DSLOG: Total number of iterations 612768
+DSLOG: Current time: 09/03/2025 11:54:05
+DSLOG: Total Time for fuzzer 72800.4573712349s
+DSLOG: Average throughput time: 0.11861021209789663
+DSLOG: Total number of iterations 613779
+DSLOG: Current time: 09/03/2025 11:56:05
+DSLOG: Total Time for fuzzer 72920.47969412804s
+DSLOG: Average throughput time: 0.11860980800713092
+DSLOG: Total number of iterations 614793
+DSLOG: Current time: 09/03/2025 11:58:05
+DSLOG: Total Time for fuzzer 73040.48734784126s
+DSLOG: Average throughput time: 0.11861053708558651
+DSLOG: Total number of iterations 615801
+DSLOG: Current time: 09/03/2025 12:00:05
+DSLOG: Total Time for fuzzer 73160.49168992043s
+DSLOG: Average throughput time: 0.11860972004649746
+DSLOG: Total number of iterations 616817
+DSLOG: Current time: 09/03/2025 12:02:05
+DSLOG: Total Time for fuzzer 73280.5373351574s
+DSLOG: Average throughput time: 0.11860916452232548
+DSLOG: Total number of iterations 617832
+DSLOG: Current time: 09/03/2025 12:04:05
+DSLOG: Total Time for fuzzer 73400.54746079445s
+DSLOG: Average throughput time: 0.11860970339844071
+DSLOG: Total number of iterations 618841
+DSLOG: Current time: 09/03/2025 12:06:05
+DSLOG: Total Time for fuzzer 73520.56117248535s
+DSLOG: Average throughput time: 0.11860928954753185
+DSLOG: Total number of iterations 619855
+DSLOG: Current time: 09/03/2025 12:08:05
+DSLOG: Total Time for fuzzer 73640.56231880188s
+DSLOG: Average throughput time: 0.1186103851245317
+DSLOG: Total number of iterations 620861
+DSLOG: Current time: 09/03/2025 12:10:05
+DSLOG: Total Time for fuzzer 73760.57257580757s
+DSLOG: Average throughput time: 0.11861168254223188
+DSLOG: Total number of iterations 621866
+DSLOG: Current time: 09/03/2025 12:12:05
+DSLOG: Total Time for fuzzer 73880.58058214188s
+DSLOG: Average throughput time: 0.11861221044694661
+DSLOG: Total number of iterations 622875
+DSLOG: Current time: 09/03/2025 12:14:05
+DSLOG: Total Time for fuzzer 74000.59959697723s
+DSLOG: Average throughput time: 0.11861294440941207
+DSLOG: Total number of iterations 623883
+DSLOG: Current time: 09/03/2025 12:16:05
+DSLOG: Total Time for fuzzer 74120.62370443344s
+DSLOG: Average throughput time: 0.11861273508621185
+DSLOG: Total number of iterations 624896
+DSLOG: Current time: 09/03/2025 12:18:05
+DSLOG: Total Time for fuzzer 74240.64407324791s
+DSLOG: Average throughput time: 0.11861403652214633
+DSLOG: Total number of iterations 625901
+DSLOG: Current time: 09/03/2025 12:20:05
+DSLOG: Total Time for fuzzer 74360.65285587311s
+DSLOG: Average throughput time: 0.11861569372004822
+DSLOG: Total number of iterations 626904
+DSLOG: Current time: 09/03/2025 12:22:05
+DSLOG: Total Time for fuzzer 74480.66653203964s
+DSLOG: Average throughput time: 0.11861584216341327
+DSLOG: Total number of iterations 627915
+DSLOG: Current time: 09/03/2025 12:24:05
+DSLOG: Total Time for fuzzer 74600.67424321175s
+DSLOG: Average throughput time: 0.11861579204456439
+DSLOG: Total number of iterations 628927
+DSLOG: Current time: 09/03/2025 12:26:05
+DSLOG: Total Time for fuzzer 74720.69918823242s
+DSLOG: Average throughput time: 0.11861520455570897
+DSLOG: Total number of iterations 629942
+DSLOG: Current time: 09/03/2025 12:28:05
+DSLOG: Total Time for fuzzer 74840.70381093025s
+DSLOG: Average throughput time: 0.11861571470832165
+DSLOG: Total number of iterations 630951
+DSLOG: Current time: 09/03/2025 12:30:05
+DSLOG: Total Time for fuzzer 74960.71128749847s
+DSLOG: Average throughput time: 0.11861528927630244
+DSLOG: Total number of iterations 631965
+DSLOG: Current time: 09/03/2025 12:32:06
+DSLOG: Total Time for fuzzer 75080.72773075104s
+DSLOG: Average throughput time: 0.1186150667649603
+DSLOG: Total number of iterations 632978
+DSLOG: Current time: 09/03/2025 12:34:06
+DSLOG: Total Time for fuzzer 75200.74021720886s
+DSLOG: Average throughput time: 0.11861502581619404
+DSLOG: Total number of iterations 633990
+DSLOG: Current time: 09/03/2025 12:36:06
+DSLOG: Total Time for fuzzer 75320.7662665844s
+DSLOG: Average throughput time: 0.1186155667435451
+DSLOG: Total number of iterations 634999
+DSLOG: Current time: 09/03/2025 12:38:06
+DSLOG: Total Time for fuzzer 75440.77008533478s
+DSLOG: Average throughput time: 0.11861364653892682
+DSLOG: Total number of iterations 636021
+DSLOG: Current time: 09/03/2025 12:40:06
+DSLOG: Total Time for fuzzer 75560.80290794373s
+DSLOG: Average throughput time: 0.11861457095754617
+DSLOG: Total number of iterations 637028
+DSLOG: Current time: 09/03/2025 12:42:06
+DSLOG: Total Time for fuzzer 75680.80881905556s
+DSLOG: Average throughput time: 0.11861526437231686
+DSLOG: Total number of iterations 638036
+DSLOG: Current time: 09/03/2025 12:44:06
+DSLOG: Total Time for fuzzer 75800.81925654411s
+DSLOG: Average throughput time: 0.11861540584111045
+DSLOG: Total number of iterations 639047
+DSLOG: Current time: 09/03/2025 12:46:06
+DSLOG: Total Time for fuzzer 75920.85749173164s
+DSLOG: Average throughput time: 0.11861633157785381
+DSLOG: Total number of iterations 640054
+DSLOG: Current time: 09/03/2025 12:48:06
+DSLOG: Total Time for fuzzer 76040.88972854614s
+DSLOG: Average throughput time: 0.11861631989303152
+DSLOG: Total number of iterations 641066
+DSLOG: Current time: 09/03/2025 12:50:06
+DSLOG: Total Time for fuzzer 76160.89107131958s
+DSLOG: Average throughput time: 0.11861644486770213
+DSLOG: Total number of iterations 642077
+DSLOG: Current time: 09/03/2025 12:52:06
+DSLOG: Total Time for fuzzer 76280.91096782684s
+DSLOG: Average throughput time: 0.1186160449575983
+DSLOG: Total number of iterations 643091
+DSLOG: Current time: 09/03/2025 12:54:06
+DSLOG: Total Time for fuzzer 76400.94875097275s
+DSLOG: Average throughput time: 0.11861622654637426
+DSLOG: Total number of iterations 644102
+DSLOG: Current time: 09/03/2025 12:56:06
+DSLOG: Total Time for fuzzer 76520.99438619614s
+DSLOG: Average throughput time: 0.11861623586869319
+DSLOG: Total number of iterations 645114
+DSLOG: Current time: 09/03/2025 12:58:06
+DSLOG: Total Time for fuzzer 76641.00653719902s
+DSLOG: Average throughput time: 0.1186149082885397
+DSLOG: Total number of iterations 646133
+DSLOG: Current time: 09/03/2025 13:00:06
+DSLOG: Total Time for fuzzer 76761.0171148777s
+DSLOG: Average throughput time: 0.11861468218126621
+DSLOG: Total number of iterations 647146
+DSLOG: Current time: 09/03/2025 13:02:06
+DSLOG: Total Time for fuzzer 76881.02672576904s
+DSLOG: Average throughput time: 0.1186150042979916
+DSLOG: Total number of iterations 648156
+DSLOG: Current time: 09/03/2025 13:04:06
+DSLOG: Total Time for fuzzer 77001.04932045937s
+DSLOG: Average throughput time: 0.11861242197174192
+DSLOG: Total number of iterations 649182
+DSLOG: Current time: 09/03/2025 13:06:06
+DSLOG: Total Time for fuzzer 77121.08403158188s
+DSLOG: Average throughput time: 0.11861296762271684
+DSLOG: Total number of iterations 650191
+DSLOG: Current time: 09/03/2025 13:08:06
+DSLOG: Total Time for fuzzer 77241.10802793503s
+DSLOG: Average throughput time: 0.11861294869331841
+DSLOG: Total number of iterations 651203
+DSLOG: Current time: 09/03/2025 13:10:06
+DSLOG: Total Time for fuzzer 77361.1541800499s
+DSLOG: Average throughput time: 0.11861369124416776
+DSLOG: Total number of iterations 652211
+DSLOG: Current time: 09/03/2025 13:12:06
+DSLOG: Total Time for fuzzer 77481.16579270363s
+DSLOG: Average throughput time: 0.11861456021221649
+DSLOG: Total number of iterations 653218
+DSLOG: Current time: 09/03/2025 13:14:06
+DSLOG: Total Time for fuzzer 77601.17572283745s
+DSLOG: Average throughput time: 0.11861614916494188
+DSLOG: Total number of iterations 654221
+DSLOG: Current time: 09/03/2025 13:16:06
+DSLOG: Total Time for fuzzer 77721.18012595177s
+DSLOG: Average throughput time: 0.11861645759427097
+DSLOG: Total number of iterations 655231
+DSLOG: Current time: 09/03/2025 13:18:06
+DSLOG: Total Time for fuzzer 77841.20652461052s
+DSLOG: Average throughput time: 0.11861716009656623
+DSLOG: Total number of iterations 656239
+DSLOG: Current time: 09/03/2025 13:20:06
+DSLOG: Total Time for fuzzer 77961.21628141403s
+DSLOG: Average throughput time: 0.11861729369557099
+DSLOG: Total number of iterations 657250
+DSLOG: Current time: 09/03/2025 13:22:06
+DSLOG: Total Time for fuzzer 78081.25577378273s
+DSLOG: Average throughput time: 0.11861801265428257
+DSLOG: Total number of iterations 658258
+DSLOG: Current time: 09/03/2025 13:24:06
+DSLOG: Total Time for fuzzer 78201.2596719265s
+DSLOG: Average throughput time: 0.11861813565013143
+DSLOG: Total number of iterations 659269
+DSLOG: Current time: 09/03/2025 13:26:06
+DSLOG: Total Time for fuzzer 78321.27026772499s
+DSLOG: Average throughput time: 0.11861862771094143
+DSLOG: Total number of iterations 660278
+DSLOG: Current time: 09/03/2025 13:28:06
+DSLOG: Total Time for fuzzer 78441.2707464695s
+DSLOG: Average throughput time: 0.11861892359527089
+DSLOG: Total number of iterations 661288
+DSLOG: Current time: 09/03/2025 13:30:06
+DSLOG: Total Time for fuzzer 78561.3009982109s
+DSLOG: Average throughput time: 0.1186198008413334
+DSLOG: Total number of iterations 662295
+DSLOG: Current time: 09/03/2025 13:32:06
+DSLOG: Total Time for fuzzer 78681.32783794403s
+DSLOG: Average throughput time: 0.11861906079945007
+DSLOG: Total number of iterations 663311
+DSLOG: Current time: 09/03/2025 13:34:06
+DSLOG: Total Time for fuzzer 78801.3517472744s
+DSLOG: Average throughput time: 0.11861938994443108
+DSLOG: Total number of iterations 664321
+DSLOG: Current time: 09/03/2025 13:36:06
+DSLOG: Total Time for fuzzer 78921.3947057724s
+DSLOG: Average throughput time: 0.11862081645176778
+DSLOG: Total number of iterations 665325
+DSLOG: Current time: 09/03/2025 13:38:06
+DSLOG: Total Time for fuzzer 79041.40882277489s
+DSLOG: Average throughput time: 0.11862130526548981
+DSLOG: Total number of iterations 666334
+DSLOG: Current time: 09/03/2025 13:40:06
+DSLOG: Total Time for fuzzer 79161.42173147202s
+DSLOG: Average throughput time: 0.1186214352868037
+DSLOG: Total number of iterations 667345
+DSLOG: Current time: 09/03/2025 13:42:06
+DSLOG: Total Time for fuzzer 79281.42526507378s
+DSLOG: Average throughput time: 0.11862084096156827
+DSLOG: Total number of iterations 668360
+DSLOG: Current time: 09/03/2025 13:44:06
+DSLOG: Total Time for fuzzer 79401.4433350563s
+DSLOG: Average throughput time: 0.11862133342753595
+DSLOG: Total number of iterations 669369
+DSLOG: Current time: 09/03/2025 13:46:06
+DSLOG: Total Time for fuzzer 79521.4771103859s
+DSLOG: Average throughput time: 0.11862361734209553
+DSLOG: Total number of iterations 670368
+DSLOG: Current time: 09/03/2025 13:48:06
+DSLOG: Total Time for fuzzer 79641.50411605835s
+DSLOG: Average throughput time: 0.11862358741109111
+DSLOG: Total number of iterations 671380
+DSLOG: Current time: 09/03/2025 13:50:06
+DSLOG: Total Time for fuzzer 79761.54407906532s
+DSLOG: Average throughput time: 0.11862498821962647
+DSLOG: Total number of iterations 672384
+DSLOG: Current time: 09/03/2025 13:52:06
+DSLOG: Total Time for fuzzer 79881.5774447918s
+DSLOG: Average throughput time: 0.1186240849728346
+DSLOG: Total number of iterations 673401
+DSLOG: Current time: 09/03/2025 13:54:06
+DSLOG: Total Time for fuzzer 80001.58213496208s
+DSLOG: Average throughput time: 0.11862296604182575
+DSLOG: Total number of iterations 674419
+DSLOG: Current time: 09/03/2025 13:56:06
+DSLOG: Total Time for fuzzer 80121.58414578438s
+DSLOG: Average throughput time: 0.11862342713921303
+DSLOG: Total number of iterations 675428
+DSLOG: Current time: 09/03/2025 13:58:06
+DSLOG: Total Time for fuzzer 80241.58839011192s
+DSLOG: Average throughput time: 0.11862424089544735
+DSLOG: Total number of iterations 676435
+DSLOG: Current time: 09/03/2025 14:00:06
+DSLOG: Total Time for fuzzer 80361.60091757774s
+DSLOG: Average throughput time: 0.11862541467521513
+DSLOG: Total number of iterations 677440
+DSLOG: Current time: 09/03/2025 14:02:06
+DSLOG: Total Time for fuzzer 80481.60874938965s
+DSLOG: Average throughput time: 0.11862535411405618
+DSLOG: Total number of iterations 678452
+DSLOG: Current time: 09/03/2025 14:04:06
+DSLOG: Total Time for fuzzer 80601.61363720894s
+DSLOG: Average throughput time: 0.1186251148141684
+DSLOG: Total number of iterations 679465
+DSLOG: Current time: 09/03/2025 14:06:06
+DSLOG: Total Time for fuzzer 80721.6146144867s
+DSLOG: Average throughput time: 0.11862626510277705
+DSLOG: Total number of iterations 680470
+DSLOG: Current time: 09/03/2025 14:08:06
+DSLOG: Total Time for fuzzer 80841.6152715683s
+DSLOG: Average throughput time: 0.11862706338081593
+DSLOG: Total number of iterations 681477
+DSLOG: Current time: 09/03/2025 14:10:06
+DSLOG: Total Time for fuzzer 80961.66407608986s
+DSLOG: Average throughput time: 0.11862688695232144
+DSLOG: Total number of iterations 682490
+DSLOG: Current time: 09/03/2025 14:12:06
+DSLOG: Total Time for fuzzer 81081.6702785492s
+DSLOG: Average throughput time: 0.11862821075027608
+DSLOG: Total number of iterations 683494
+DSLOG: Current time: 09/03/2025 14:14:06
+DSLOG: Total Time for fuzzer 81201.68408203125s
+DSLOG: Average throughput time: 0.11862798201045606
+DSLOG: Total number of iterations 684507
+DSLOG: Current time: 09/03/2025 14:16:06
+DSLOG: Total Time for fuzzer 81321.69701933861s
+DSLOG: Average throughput time: 0.11862827182890957
+DSLOG: Total number of iterations 685517
+DSLOG: Current time: 09/03/2025 14:18:06
+DSLOG: Total Time for fuzzer 81441.70486140251s
+DSLOG: Average throughput time: 0.11862855337284989
+DSLOG: Total number of iterations 686527
+DSLOG: Current time: 09/03/2025 14:20:07
+DSLOG: Total Time for fuzzer 81561.74910068512s
+DSLOG: Average throughput time: 0.11862974974355393
+DSLOG: Total number of iterations 687532
+DSLOG: Current time: 09/03/2025 14:22:07
+DSLOG: Total Time for fuzzer 81681.77274870872s
+DSLOG: Average throughput time: 0.1186259163953909
+DSLOG: Total number of iterations 688566
+DSLOG: Current time: 09/03/2025 14:24:07
+DSLOG: Total Time for fuzzer 81801.77430987358s
+DSLOG: Average throughput time: 0.11862068640426675
+DSLOG: Total number of iterations 689608
+DSLOG: Current time: 09/03/2025 14:26:07
+DSLOG: Total Time for fuzzer 81921.80953836441s
+DSLOG: Average throughput time: 0.11861586443219181
+DSLOG: Total number of iterations 690648
+DSLOG: Current time: 09/03/2025 14:28:07
+DSLOG: Total Time for fuzzer 82041.82012963295s
+DSLOG: Average throughput time: 0.11860827771652752
+DSLOG: Total number of iterations 691704
+DSLOG: Current time: 09/03/2025 14:30:07
+DSLOG: Total Time for fuzzer 82161.82816267014s
+DSLOG: Average throughput time: 0.11860636031606987
+DSLOG: Total number of iterations 692727
+DSLOG: Current time: 09/03/2025 14:32:07
+DSLOG: Total Time for fuzzer 82281.8651971817s
+DSLOG: Average throughput time: 0.11860278078468303
+DSLOG: Total number of iterations 693760
+DSLOG: Current time: 09/03/2025 14:34:07
+DSLOG: Total Time for fuzzer 82401.87871313095s
+DSLOG: Average throughput time: 0.11859798317952065
+DSLOG: Total number of iterations 694800
+DSLOG: Current time: 09/03/2025 14:36:07
+DSLOG: Total Time for fuzzer 82521.88627004623s
+DSLOG: Average throughput time: 0.1185933617834675
+DSLOG: Total number of iterations 695839
+DSLOG: Current time: 09/03/2025 14:38:07
+DSLOG: Total Time for fuzzer 82641.89218235016s
+DSLOG: Average throughput time: 0.11859794177920129
+DSLOG: Total number of iterations 696824
+DSLOG: Current time: 09/03/2025 14:40:07
+DSLOG: Total Time for fuzzer 82761.92448544502s
+DSLOG: Average throughput time: 0.11859710805963683
+DSLOG: Total number of iterations 697841
+DSLOG: Current time: 09/03/2025 14:42:07
+DSLOG: Total Time for fuzzer 82881.94891643524s
+DSLOG: Average throughput time: 0.11859711400886201
+DSLOG: Total number of iterations 698853

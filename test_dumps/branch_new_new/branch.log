@@ -1,0 +1,251 @@
+DEBUG:root:DSLOG: Time taken for debug_server_setup = 6.34184231236577
+DEBUG:root:Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a7d
+DEBUG:root:DSLOG: Refresh breakpoints set.
+DEBUG:root:DSLOG: Time taken for set_intial_breakpoints = 0.1648986041545868
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 1
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0001804586499929428
+DEBUG:root:DSLOG: We have 1 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.00867411494255066
+DEBUG:root:DSLOG: Time of start = 11/04/2025 17:53:48
+DEBUG:root:DSLOG: Finding coverage calls in binary
+DEBUG:root:DSLOG: We need 2 more nibbles.
+DEBUG:root:DSLOG: Coverage call: 0x6c0122122064e
+DEBUG:root:DSLOG: 0x6c012206
+DEBUG:root:DSLOG: Time taken for find_coverage_call = 0.003877764567732811
+DEBUG:root:DSLOG: Coverage points {73671: 9425, 73719: 9473, 73760: 9514, 73801: 9555, 73842: 9596, 73883: 9637, 73923: 9677, 73963: 9717, 74003: 9757, 74044: 9798, 74050: 9804}
+DEBUG:root:DSLOG: Total Coverage Points: 11
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 1
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 6.460398435592651e-05
+DEBUG:root:DSLOG: Starting the device listener.
+DEBUG:root:DSLOG: Intial exeuction time: 0.03565835952758789
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:48
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 1
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 1
+DEBUG:root:DSLOG: Total number of iterations: 1
+DEBUG:root:DSLOG: Average throughput time: 0.07091760635375977
+DEBUG:root:DSLOG: effective mutaton: bitflip 1/1 |Mutation Percentage: 100
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.0036843661218881607
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 2 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 9
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 1
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00011730566620826721
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 2
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00014596059918403625
+DEBUG:root:DSLOG: We have 2 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.10013617761433125
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 2
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 7.20638781785965e-05
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 0.7810150291770697
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:49
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 2
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 2
+DEBUG:root:DSLOG: Total number of iterations: 6
+DEBUG:root:DSLOG: Average throughput time: 0.15017620722452799
+DEBUG:root:DSLOG: effective mutaton: bitflip 4/1 |Mutation Percentage: 100
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.004021612927317619
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 1 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 8
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 2
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00014455802738666534
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 3
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0002657696604728699
+DEBUG:root:DSLOG: We have 3 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.2148365117609501
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 3
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00011391378939151764
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 0.8843237552791834
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:50
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 3
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 3
+DEBUG:root:DSLOG: Total number of iterations: 322
+DEBUG:root:DSLOG: Average throughput time: 0.005732886539482922
+DEBUG:root:DSLOG: effective mutaton: arith-add |Mutation Percentage: 100
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.003938175737857819
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 1 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 7
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 3
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00023847445845603943
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 4
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0002005062997341156
+DEBUG:root:DSLOG: We have 4 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.3149988539516926
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 4
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 8.170492947101593e-05
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 0.9472426790744066
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:51
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 4
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 4
+DEBUG:root:DSLOG: Total number of iterations: 9958
+DEBUG:root:DSLOG: Average throughput time: 0.0003165670321346359
+DEBUG:root:DSLOG: effective mutaton: random |Mutation Percentage: 12
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.0035026613622903824
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 1 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 6
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 4
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00014538876712322235
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 5
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00017291679978370667
+DEBUG:root:DSLOG: We have 5 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.4095032401382923
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 5
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 6.107985973358154e-05
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 1.076597223058343
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:52
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 5
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 5
+DEBUG:root:DSLOG: Total number of iterations: 17786
+DEBUG:root:DSLOG: Average throughput time: 0.0002552773034788419
+DEBUG:root:DSLOG: effective mutaton: random |Mutation Percentage: 12
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.003133198246359825
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 1 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 5
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 5
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00022169575095176697
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 6
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0002580080181360245
+DEBUG:root:DSLOG: We have 6 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.4803841821849346
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 6
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 8.296221494674683e-05
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 1.208462594076991
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:54
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 6
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 6
+DEBUG:root:DSLOG: Total number of iterations: 25253
+DEBUG:root:DSLOG: Average throughput time: 0.00023945546813923754
+DEBUG:root:DSLOG: effective mutaton: random |Mutation Percentage: 14
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.00475192628800869
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 2 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 3
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 6
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00016790442168712616
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 7
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0001975521445274353
+DEBUG:root:DSLOG: We have 7 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.5678189918398857
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 7
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00011338666081428528
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 1.2547289542853832
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:56
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 7
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 7
+DEBUG:root:DSLOG: Total number of iterations: 54813
+DEBUG:root:DSLOG: Average throughput time: 0.0001521642456074174
+DEBUG:root:DSLOG: effective mutaton: random |Mutation Percentage: 20
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.0037564076483249664
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 1 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 2
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 7
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00016134418547153473
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 8
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00020812824368476868
+DEBUG:root:DSLOG: We have 8 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.6985767856240273
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 8
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0001156739890575409
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 1.3958053160458803
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Seed dir in current_seed is : ./seeds/
+DEBUG:root:DSLOG: Found coverage-increasing input.
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:53:58
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 8
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 8
+DEBUG:root:DSLOG: Total number of iterations: 60419
+DEBUG:root:DSLOG: Average throughput time: 0.00016500504385953658
+DEBUG:root:DSLOG: effective mutaton: random |Mutation Percentage: 11
+DEBUG:root:DSLOG: Time taken for _pull_stage_cycles = 0.00421043299138546
+DEBUG:root:DSLOG: Found the end of the coverage map.
+DEBUG:root:DSLOG: Found 1 new coverage.
+DEBUG:root:DSLOG: Remaining coverage points: 1
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 8
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.0002689529210329056
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 9
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00018116645514965057
+DEBUG:root:DSLOG: We have 9 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.7663030494004488
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 9
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 8.410587906837463e-05
+DEBUG:root:DSLOG: Time taken for current_seed_to_global_pool = 1.4847301244735718
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Found crash.
+DEBUG:root:Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x1c00 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:56:00
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 8
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 8
+DEBUG:root:DSLOG: Total number of iterations: 108311
+DEBUG:root:DSLOG: Average throughput time: 0.001224194909063089
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: USB Device: 1-1 Port: 3
+DEBUG:root:Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x0 0x0 | Status Registers  0x1800 0x6900 0xf000 0x1002 | Program Counter 0x10a7d
+DEBUG:root:DSLOG: Refresh breakpoints set.
+DEBUG:root:DSLOG: Time taken for set_intial_breakpoints = 0.1417488381266594
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:56:31
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 0
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 8
+DEBUG:root:DSLOG: Total number of iterations: 108312
+DEBUG:root:DSLOG: Average throughput time: 0.0015069973355197547
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 9
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00023457035422325134
+DEBUG:root:DSLOG: We have 9 in the global pool.
+DEBUG:root:DSLOG: Local pool written
+DEBUG:root:DSLOG: Time taken for write_local_pool = 0.7970356196165085
+DEBUG:root:DSLOG: We have this many seeds in the global pool --> 9
+DEBUG:root:DSLOG: Time taken for refresh_global_pool = 0.00026214122772216797
+DEBUG:root:DSLOG: Time taken for refresh_local_pool = 0.8176360316574574
+DEBUG:root:DSLOG: Time taken for crash_reload = 31.479516714811325
+DEBUG:root:DSLOG: You are in device_listner, attemping to run the target.
+DEBUG:root:DSLOG: Found crash.
+DEBUG:root:Interrupt Enable Registers 0x0 0x0 | Interrupt Flag Registers 0x10 0x0 | Status Registers  0x1c00 0x6900 0xf000 0x1002 | Program Counter 0x10000
+DEBUG:root:DSLOG: Current time: 11/04/2025 17:58:39
+DEBUG:root:DSLOG: Board has tracked this number of increasing test cases --> 0
+DEBUG:root:DSLOG: Host has tracked this number of increasing test cases --> 8
+DEBUG:root:DSLOG: Total number of iterations: 142862
+DEBUG:root:DSLOG: Average throughput time: 0.0020379764019614367
+DEBUG:root:DSLOG: Obtained seed.
+DEBUG:root:DSLOG: USB Device: 1-1 Port: 3
+DEBUG:root:DSLOG: Power Cycling the board twice :(
+DEBUG:root:DSLOG: Failed to terminate the debug session.

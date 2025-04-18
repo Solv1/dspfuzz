@@ -32,14 +32,14 @@ pip install Jpype1
   --ptrdiff_size=16 --keep_asm ./src/fuzz.c ./src/coverage.asm
   ```
 3. Compile and Insturment the SUT
-```bash
-/ti/ccs1281/ccs/tools/compiler/c5500_4.4.1/bin/cl55 -v5515 --memory_model=large -g \
---include_path=./ \
---include_path=/ti/ccs1281/ccs/tools/compiler/c5500_4.4.1/include/ \
---include_path=/dspfuzz/on_board/libs/csl_library/inc/ \
---define=c5515 --display_error_number --diag_warning=225 \
---ptrdiff_size=16 --keep_asm ./test_fuzz.c
-```
+   ```bash
+   /ti/ccs1281/ccs/tools/compiler/c5500_4.4.1/bin/cl55 -v5515 --memory_model=large -g \
+   --include_path=./ \
+   --include_path=/ti/ccs1281/ccs/tools/compiler/c5500_4.4.1/include/ \
+   --include_path=/dspfuzz/on_board/libs/csl_library/inc/ \
+   --define=c5515 --display_error_number --diag_warning=225 \
+   --ptrdiff_size=16 --keep_asm ./test_fuzz.c
+   ```
    - Insturment the assembly file from compilation and recompile using the new .asm file.
    ```bash
    python3 insturmentor.py -f <test.asm>

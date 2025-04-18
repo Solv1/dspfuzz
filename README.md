@@ -18,9 +18,9 @@ pip install Jpype1
 ```
 ## Step-by-Step Instructions
 1. Add your target
-   a. Add your fuzzing target insdie the harness sections of ./on_board/src/fuzz.c
-   b. Link the SUT externallly as needed.
-   c. Note that the C55x achitecture uses 16-bit bytes.
+   - Add your fuzzing target insdie the harness sections of ./on_board/src/fuzz.c
+   - Link the SUT externallly as needed.
+   - Note that the C55x achitecture uses 16-bit bytes.
 2. Compile the fuzzer for the device.
   ```bash
   /ti/ccs1281/ccs/tools/compiler/c5500_4.4.1/bin/cl55 -v5515 --memory_model=large -g \
@@ -40,7 +40,7 @@ pip install Jpype1
 --define=c5515 --display_error_number --diag_warning=225 \
 --ptrdiff_size=16 --keep_asm ./test_fuzz.c
 ```
-   a. Insturment the assembly file from compilation and recompile using the new .asm file.
+   - Insturment the assembly file from compilation and recompile using the new .asm file.
    ```bash
    python3 insturmentor.py -f <test.asm>
    ```
@@ -56,7 +56,7 @@ pip install Jpype1
   -o DSPFuzz.out
 ```
 5. Configure ENV for CCS Scripting
-   a. Fill out the java_home.sh with the following enviroment variables:
+   - Fill out the java_home.sh with the following enviroment variables:
   ```bash
   export JAVA_HOME=/ti/ccs1281/ccs/eclipse/jre
   export SCRIPTING_JAR=/ti/ccs1281/ccs/ccs_base/DebugServer/packages/ti/dss/java/com.ti.debug.engine_1.0.0.jar

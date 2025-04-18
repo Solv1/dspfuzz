@@ -1,14 +1,5 @@
 
-
- ________  ________  ________ ___  ___  ________  ________     
-|\   ____\|\   __  \|\  _____\\  \|\  \|\_____  \|\_____  \    
-\ \  \___|\ \  \|\ /\ \  \__/\ \  \\\  \\|___/  /|\|___/  /|   
- \ \_____  \ \   __  \ \   __\\ \  \\\  \   /  / /    /  / /   
-  \|____|\  \ \  \|\  \ \  \_| \ \  \\\  \ /  /_/__  /  /_/__  
-    ____\_\  \ \_______\ \__\   \ \_______\\________\\________\
-   |\_________\|_______|\|__|    \|_______|\|_______|\|_______|
-   \|_________|                                                
-                                                               
+# SBFUZZ                                          
 
 Welcome!  
 **SBFuzz** is a fuzzer for DSPs, specifically targeting the TI C55xx architecture. This fuzzer splits fuzzing duties between a host and a target device. This guide will walk you through how to set up, build, instrument, and run your fuzz targets.

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------
- * Filename:  nrbufs.h
+ * Filename:  c55\nrbufst.h
  *                            
- * Description: Definitions for NR buffers
+ * Description: Definitions for NR buffers for C55x target.
  * 
  *        Copyright (c) 2007 – 2013 Texas Instruments Incorporated                
  *                                                                                
@@ -65,117 +65,37 @@
  *  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH   
  *  DAMAGE.                                                                       
  *-----------------------------------------------------------------*/
-#ifndef _NRBUFS_H
-#define _NRBUFS_H
 
-#ifdef ti_targets_C55_large
-#define VPETEST_C55L 1
-#else
-#define VPETEST_C55L 0
-#endif
-
-#ifdef ti_targets_C55_small
-#define VPETEST_C55S 1
-#else
-#define VPETEST_C55S 0
-#endif
-
-#ifdef ti_targets_C64P
-#define VPETEST_C64P 1
-#else
-#define VPETEST_C64P 0
-#endif
-
-#ifdef ti_targets_elf_C64P
-#define VPETEST_C64P_ELF 1
-#else
-#define VPETEST_C64P_ELF 0
-#endif
-
-#ifdef ti_targets_C64P_big_endian
-#define VPETEST_C64P_BIG_ENDIAN 1
-#else
-#define VPETEST_C64P_BIG_ENDIAN 0
-#endif
-
-#ifdef ti_targets_elf_C64P_big_endian
-#define VPETEST_C64P_BIG_ENDIAN_ELF 1
-#else
-#define VPETEST_C64P_BIG_ENDIAN_ELF 0
-#endif
-
-#ifdef ti_targets_C66
-#define VPETEST_C66 1
-#else
-#define VPETEST_C66 0
-#endif
-
-#ifdef ti_targets_elf_C66
-#define VPETEST_C66_ELF 1
-#else
-#define VPETEST_C66_ELF 0
-#endif
-
-#ifdef ti_targets_C66_big_endian
-#define VPETEST_C66_BIG_ENDIAN 1
-#else
-#define VPETEST_C66_BIG_ENDIAN 0
-#endif
-
-#ifdef ti_targets_elf_C66_big_endian
-#define VPETEST_C66_BIG_ENDIAN_ELF 1
-#else
-#define VPETEST_C66_BIG_ENDIAN_ELF 0
-#endif
-
-#ifdef ti_targets_C674
-#define VPETEST_C674 1
-#else
-#define VPETEST_C674 0
-#endif
-
-#ifdef ti_targets_elf_C674
-#define VPETEST_C674_ELF 1
-#else
-#define VPETEST_C674_ELF 0
-#endif
-
-/* C674 devices do not support big endian */
-
-#ifdef gnu_targets_arm_GCArmv7A
-#define VPETEST_ARM_GCARMV7A 1
-#else
-#define VPETEST_ARM_GCARMV7A 0
-#endif
-
-#if VPETEST_C55L || VPETEST_C55S
-#include <ti/mas/vpe/test/src/c55/nrbufst.h>
-#elif VPETEST_C64P || VPETEST_C64P_BIG_ENDIAN || VPETEST_C674 || VPETEST_C64P_ELF || VPETEST_C64P_BIG_ENDIAN_ELF || VPETEST_C674_ELF || VPETEST_C66 || VPETEST_C66_BIG_ENDIAN || VPETEST_C66_ELF || VPETEST_C66_BIG_ENDIAN_ELF
-#include <ti/mas/vpe/test/src/c64/nrbufst.h>
-#elif VPETEST_ARM_GCARMV7A
-#include <ti/mas/vpe/test/src/arm/nrbufst.h>
-#else
-#error invalid target
-#endif
+#ifndef _NRBUFSTC55_H
+#define _NRBUFSTC55_H
  
-/* common to all targets */ 
-#define VPE_NR_NUM_BUFS   7
+/* Buffer sizes for NR - returned by nrGetSizes().
+   Buffer size is in unit of tword. For C55x, tword is 16-bit. */
+#define NR_SIM_BUF0_SIZE   44
+#define NR_SIM_BUF1_SIZE   774
+#define NR_SIM_BUF2_SIZE   516
+#define NR_SIM_BUF3_SIZE   387
+#define NR_SIM_BUF4_SIZE   192
+#define NR_SIM_BUF5_SIZE   516
+#define NR_SIM_BUF6_SIZE   14
 
-#define NR_SIM_BUF0_ALGN  (1<<NR_SIM_BUF0_ALGN_LOG2)
-#define NR_SIM_BUF1_ALGN  (1<<NR_SIM_BUF1_ALGN_LOG2)
-#define NR_SIM_BUF2_ALGN  (1<<NR_SIM_BUF2_ALGN_LOG2)
-#define NR_SIM_BUF3_ALGN  (1<<NR_SIM_BUF3_ALGN_LOG2)
-#define NR_SIM_BUF4_ALGN  (1<<NR_SIM_BUF4_ALGN_LOG2)
-#define NR_SIM_BUF5_ALGN  (1<<NR_SIM_BUF5_ALGN_LOG2)
-#define NR_SIM_BUF6_ALGN  (1<<NR_SIM_BUF6_ALGN_LOG2)
 
-extern tword nr_buff0[];
-extern tword nr_buff1[];
-extern tword nr_buff2[];
-extern tword nr_buff3[];
-extern tword nr_buff4[];
-extern tword nr_buff5[];
-extern tword nr_buff6[];
+/* Buffer alignment for NR - returned by nrGetSizes().
+   Buffers must be aligned on boundary of 2^(NR_SIM_BUFx_ALGN_LOG2) twords. 
+ 
+   Also used to define macros used by #pragma DATA_ALIGN in nrbufs.c.
+   The pragma DATA_ALIGN (symbol, constant) aligns the symbol to an alignment 
+   boundary. For C55x, the boundary is the value of the constant in words. 
+   For example, a constant of 2 specifies a 2-word or 32-bit alignment.     */  
+#define NR_SIM_BUF0_ALGN_LOG2  1
+#define NR_SIM_BUF1_ALGN_LOG2  1
+#define NR_SIM_BUF2_ALGN_LOG2  1
+#define NR_SIM_BUF3_ALGN_LOG2  1
+#define NR_SIM_BUF4_ALGN_LOG2  1
+#define NR_SIM_BUF5_ALGN_LOG2  1
+#define NR_SIM_BUF6_ALGN_LOG2  1
 
-#endif  /* _NRBUFS_H */
 
+#endif   /* _NRBUFSTC55_H */
+
+/* nothing past this point */
